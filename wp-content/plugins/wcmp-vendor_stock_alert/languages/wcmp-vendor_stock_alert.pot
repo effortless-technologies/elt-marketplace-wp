@@ -1,0 +1,290 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-06-23 06:44+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco - https://localise.biz/"
+
+#: classes/class-wcmp-vendor-stock-alert-license.php:163
+msgid "Stock Alert"
+msgstr ""
+
+#: classes/class-wcmp-vendor-stock-alert-license.php:340
+#, php-format
+msgid ""
+"The Vendor Stock Alert License Key has not been activated, so the plugin is "
+"inactive! %sClick here%s to activate the license key and the plugin."
+msgstr ""
+
+#: classes/class-wcmp-vendor-stock-alert-vendor-settings.php:68
+#: classes/class-wcmp-vendor-stock-alert-vendor-settings.php:70
+#: classes/class-wcmp-vendor-stock-alert-vendor-settings.php:160
+msgid "Enable low stock alert"
+msgstr ""
+
+#: classes/class-wcmp-vendor-stock-alert-vendor-settings.php:76
+#: classes/class-wcmp-vendor-stock-alert-vendor-settings.php:78
+#: classes/class-wcmp-vendor-stock-alert-vendor-settings.php:168
+msgid "Enable out of stock alert"
+msgstr ""
+
+#: classes/class-wcmp-vendor-stock-alert-vendor-settings.php:84
+#: classes/class-wcmp-vendor-stock-alert-vendor-settings.php:86
+#: classes/class-wcmp-vendor-stock-alert-vendor-settings.php:93
+#: classes/class-wcmp-vendor-stock-alert-vendor-settings.php:176
+msgid "Low stock alert limit"
+msgstr ""
+
+#: classes/class-wcmp-vendor-stock-alert-vendor-settings.php:91
+#: classes/class-wcmp-vendor-stock-alert-vendor-settings.php:184
+msgid "Out of stock alert limit"
+msgstr ""
+
+#: classes/class-wcmp-vendor-stock-alert-vendor-settings.php:153
+msgid "Stock Management"
+msgstr ""
+
+#: classes/class-wcmp-vendor-stock-alert-vendor-settings.php:248
+#: classes/class-wcmp-vendor-stock-alert-vendor-settings.php:259
+#: classes/class-wcmp-vendor-stock-alert-vendor-settings.php:279
+#: classes/class-wcmp-vendor-stock-alert.php:185
+msgid "Products Stock"
+msgstr ""
+
+#: classes/class-wcmp-vendor-stock-alert-vendor-settings.php:277
+msgid "Product Manager"
+msgstr ""
+
+#: classes/class-wcmp-vendor-stock-alert-vendor-settings.php:301
+msgid ""
+"You do not have permission to access the Products Stock. Please contact site "
+"administrator."
+msgstr ""
+
+#: classes/class-wcmp-vendor-stock-alert-admin.php:24
+msgid "Inventory"
+msgstr ""
+
+#: classes/class-wcmp-vendor-stock-alert-admin.php:26
+msgid "Enable low stock alert for Vendors"
+msgstr ""
+
+#: classes/class-wcmp-vendor-stock-alert-admin.php:26
+msgid "It will enable low stock limit"
+msgstr ""
+
+#: classes/class-wcmp-vendor-stock-alert-admin.php:27
+msgid "Enable out of stock alert for Vendors"
+msgstr ""
+
+#: classes/class-wcmp-vendor-stock-alert-admin.php:27
+msgid "It will enable out of stock limit"
+msgstr ""
+
+#: classes/class-wcmp-vendor-stock-alert-admin.php:28
+msgid "Low stock alert limit for Vendors"
+msgstr ""
+
+#: classes/class-wcmp-vendor-stock-alert-admin.php:28
+msgid "It will represent low stock limit"
+msgstr ""
+
+#: classes/class-wcmp-vendor-stock-alert-admin.php:29
+msgid "Out of stock alert limit for Vendors"
+msgstr ""
+
+#: classes/class-wcmp-vendor-stock-alert-admin.php:29
+msgid "It will represent out of stock limit"
+msgstr ""
+
+#: templates/vendor-dashboard/wcmp_vendor_products_stock.php:92
+msgid "In Stock"
+msgstr ""
+
+#: templates/vendor-dashboard/wcmp_vendor_products_stock.php:94
+msgid "Low Stock"
+msgstr ""
+
+#: templates/vendor-dashboard/wcmp_vendor_products_stock.php:96
+msgid "Out of Stock"
+msgstr ""
+
+#: templates/vendor-dashboard/wcmp_vendor_products_stock.php:103
+#: templates/vendor-dashboard/wcmp_vendor_products_stock.php:147
+#: templates/vendor-dashboard/wcmp_vendor_products_stock.php:155
+#: templates/vendor-dashboard/wcmp_vendor_products_stock.php:199
+#: templates/vendor-dashboard/wcmp_vendor_products_stock.php:207
+#: templates/vendor-dashboard/wcmp_vendor_products_stock.php:250
+msgid "Total Results"
+msgstr ""
+
+#: templates/vendor-dashboard/wcmp_vendor_products_stock.php:110
+#: templates/vendor-dashboard/wcmp_vendor_products_stock.php:162
+#: templates/vendor-dashboard/wcmp_vendor_products_stock.php:214
+#: templates/emails/vendor_low_stock_alert_email.php:37
+#: templates/emails/vendor_out_of_stock_alert_email.php:37
+msgid "Product"
+msgstr ""
+
+#: templates/vendor-dashboard/wcmp_vendor_products_stock.php:111
+#: templates/vendor-dashboard/wcmp_vendor_products_stock.php:163
+#: templates/vendor-dashboard/wcmp_vendor_products_stock.php:215
+msgid "Stock Status"
+msgstr ""
+
+#: templates/vendor-dashboard/wcmp_vendor_products_stock.php:112
+#: templates/vendor-dashboard/wcmp_vendor_products_stock.php:164
+#: templates/vendor-dashboard/wcmp_vendor_products_stock.php:216
+msgid "Stock Quantity"
+msgstr ""
+
+#: templates/emails/vendor_low_stock_alert_email.php:14
+#: templates/emails/plain/vendor_low_stock_alert_email.php:14
+msgid ""
+"Hi there. A Product is low in stock. Product details are shown below for "
+"your reference:"
+msgstr ""
+
+#: templates/emails/vendor_low_stock_alert_email.php:38
+#: templates/emails/vendor_out_of_stock_alert_email.php:38
+msgid "Available stock"
+msgstr ""
+
+#: templates/emails/vendor_low_stock_alert_email.php:49
+#: templates/emails/vendor_out_of_stock_alert_email.php:49
+msgid "Following is the product link : "
+msgstr ""
+
+#: templates/emails/vendor_out_of_stock_alert_email.php:14
+#: templates/emails/plain/vendor_out_of_stock_alert_email.php:14
+msgid ""
+"Hi there. A Product is out of stock. Product details are shown below for "
+"your reference:"
+msgstr ""
+
+#: classes/emails/class-wcmp-vendor-low-stock-alert-email.php:29
+msgid "Vendor Low Stock Alert"
+msgstr ""
+
+#: classes/emails/class-wcmp-vendor-low-stock-alert-email.php:30
+msgid "Alert vendors when their product is in low stock"
+msgstr ""
+
+#: classes/emails/class-wcmp-vendor-low-stock-alert-email.php:35
+msgid "A Product on {site_title} is in low stock"
+msgstr ""
+
+#: classes/emails/class-wcmp-vendor-low-stock-alert-email.php:36
+#: classes/emails/class-wcmp-vendor-out-of-stock-alert-email.php:36
+msgid "Welcome to {site_title}"
+msgstr ""
+
+#: classes/emails/class-wcmp-vendor-out-of-stock-alert-email.php:29
+msgid "Vendor Out of Stock Alert"
+msgstr ""
+
+#: classes/emails/class-wcmp-vendor-out-of-stock-alert-email.php:30
+msgid "Alert vendors when their product is out of stock"
+msgstr ""
+
+#: classes/emails/class-wcmp-vendor-out-of-stock-alert-email.php:35
+msgid "A Product on {site_title} is out of stock"
+msgstr ""
+
+#: classes/license/admin/class-wcmp-vendor-stock-alert-settings-license.php:51
+msgid "License Activation"
+msgstr ""
+
+#: classes/license/admin/class-wcmp-vendor-stock-alert-settings-license.php:52
+msgid "API License Key"
+msgstr ""
+
+#: classes/license/admin/class-wcmp-vendor-stock-alert-settings-license.php:53
+msgid "API License email"
+msgstr ""
+
+#: classes/license/admin/class-wcmp-vendor-stock-alert-settings-license.php:56
+msgid "License Deactivation"
+msgstr ""
+
+#: classes/license/admin/class-wcmp-vendor-stock-alert-settings-license.php:57
+msgid "Deactivate API License Key"
+msgstr ""
+
+#: classes/license/admin/class-wcmp-vendor-stock-alert-settings-license.php:57
+msgid "Deactivates an API License Key so it can be used on another blog."
+msgstr ""
+
+#: classes/license/admin/class-wcmp-vendor-stock-alert-settings-license.php:91
+msgid "Please insert your license key."
+msgstr ""
+
+#: classes/license/admin/class-wcmp-vendor-stock-alert-settings-license.php:101
+msgid "Please insert your license email."
+msgstr ""
+
+#: classes/license/admin/class-wcmp-vendor-stock-alert-settings-license.php:130
+msgid "Plugin activated. "
+msgstr ""
+
+#: classes/license/admin/class-wcmp-vendor-stock-alert-settings-license.php:138
+msgid "Connection failed to the License Key API server. Try again later."
+msgstr ""
+
+#: classes/license/admin/class-wcmp-vendor-stock-alert-settings-license.php:203
+msgid "Plugin license deactivated."
+msgstr ""
+
+#: classes/license/admin/class-wcmp-vendor-stock-alert-settings-license.php:227
+msgid ""
+"The license could not be deactivated. Use the License Deactivation tab to "
+"manually deactivate the license before activating a new license."
+msgstr ""
+
+#: classes/license/admin/class-wcmp-license.php:16
+#: classes/license/admin/class-wcmp-license.php:17
+msgid "WCMp License"
+msgstr ""
+
+#: classes/license/admin/class-wcmp-license.php:79
+#, php-format
+msgid "<h2>%s License</h2>"
+msgstr ""
+
+#: classes/license/admin/class-wcmp-license.php:86
+#, php-format
+msgid ""
+"<h4 style='border-bottom: 1px solid rgb(215, 211, 211);padding-bottom: 21px;"
+"'>%s</h4>"
+msgstr ""
+
+#. Name of the plugin
+msgid "WCMp Vendor Stock Alert"
+msgstr ""
+
+#. Description of the plugin
+msgid ""
+"This plugin will alert vendors when a product is low in stock, or out of "
+"stock"
+msgstr ""
+
+#. URI of the plugin
+msgid "http://wc-marketplace.com/product/wcmp-product-stock-alert/"
+msgstr ""
+
+#. Author of the plugin
+msgid "WC Marketplace, The Grey Parrots"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://wc-marketplace.com/"
+msgstr ""

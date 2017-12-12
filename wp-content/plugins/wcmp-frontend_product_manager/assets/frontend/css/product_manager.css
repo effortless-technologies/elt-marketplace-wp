@@ -1,0 +1,158 @@
+.required {
+  color: red; 
+}
+
+.img_tip {
+	background: url("../../images/question_mark.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+	display: inline-block;
+	height: 12px;
+	vertical-align: -1px;
+	width: 12px;
+	cursor: help;
+	margin-left: 5px;
+}
+
+.multi_input_block {
+  border: 1px solid #dfdfdf;
+  radius: 10px;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.multi_input_block_manupulate {
+  float: right;
+  margin: 2px !important;
+}
+
+.pro_ele_hide, .pro_head_hide, .pro_block_hide, .non_stock_ele_hide, .non_virtual_ele_hide, .downloadable_ele_hide, .vendor_hidden {
+	display: none !important;
+}
+
+p.description {
+	font-size: 12px;
+	font-style: italic;
+	font-weight: normal;
+}
+
+.frontend_product_manager_product_types p.description {
+	display: inline-block;
+	margin: 0 11px 0 0;
+  vertical-align: middle;
+}
+
+p.pro_title {
+	font-size: 15px;
+	margin-bottom: 5px !important;
+	font-style: normal;
+	width: 35%;
+	display: inline-block;
+}
+
+input[type="text"].regular-text, select.regular-select, input[type="number"].regular-text {
+	padding: 5px;
+	width: 60%;
+	margin-bottom: 5px;
+	font-size: 15px;
+}
+
+textarea.regular-textarea {
+	width: 60%;
+	font-size: 15px;
+}
+
+input.regular-checkbox {
+	margin-right: 55%;
+}
+
+#is_virtual_downloadable {
+	width: 35%;
+	visibility: hidden;
+}
+
+.frontend_product_manager_product_types input.regular-checkbox {
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+input[type="number"].regular-text {
+	padding: 2px;
+}
+
+input.upload_button, input.remove_button {
+  font-size: 12px;
+	padding: 5px;
+	width: 30%;
+	margin-bottom: 5px;
+}
+
+#pruduct_manager_draft_button, #pruduct_manager_submit_button {
+	float: right;
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+#product_manager_form label {
+	display: none;
+}
+
+.dc-wp-fields-uploader .placeHolderUploads, .dc-wp-fields-uploader .placeHolderjpg, .dc-wp-fields-uploader .placeHolderpng, .dc-wp-fields-uploader .placeHoldertxt, .dc-wp-fields-uploader .placeHolderdoc, .dc-wp-fields-uploader .placeHolderpdf, .dc-wp-fields-uploader .placeHolderzip, .dc-wp-fields-uploader .placeHolderrar, .dc-wp-fields-uploader .placeHoldertar, .dc-wp-fields-uploader .placeHoldergz, .dc-wp-fields-uploader .placeHoldertargz, .dc-wp-fields-uploader .placeHolderdocs, .dc-wp-fields-uploader .placeHolderppt, .dc-wp-fields-uploader .placeHolderppts {
+  background: url('../../images/uploads.png');
+  background: url(../../images/uploads.png) no-repeat center center / 75px 75px;
+  webkit-background-size: cover;
+  moz-background-size: cover;
+  o-background-size: cover;
+  background-size: cover;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../../images/uploads.png', sizingMethod='scale');
+  -ms-filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../../images/uploads.png', sizingMethod='scale');
+  width :75px;
+  height: 75px;
+  display: inline-block;
+}
+
+.dc-wp-fields-uploader a {
+  border-bottom: 0px;
+}
+textarea#product_tags{
+	margin-left: 5px;
+}
+span.select2-container{
+	margin-bottom: 7px;
+}
+.fpm_attribute_taxonomy{
+	min-width: 241px;
+  width: auto;
+}   
+
+@media only screen and (max-width: 640px) {
+	p.pro_title {
+		width: 90%;
+	}
+	
+	p.pro_title.checkbox_title {
+		width: 50%;
+	}
+	
+	input[type="text"].regular-text, select.regular-select, input[type="number"].regular-text {
+		width: 100%;
+	}
+	
+	textarea.regular-textarea {
+		width: 100%;
+	}
+	
+	input.regular-checkbox {
+		margin-right: 5%;
+	}
+	
+	#is_virtual_downloadable {
+		width: 0%;
+	}
+	
+	.frontend_product_manager_product_types input.regular-checkbox {
+		margin-right: 10px;
+		margin-left: 10px;
+	}
+}

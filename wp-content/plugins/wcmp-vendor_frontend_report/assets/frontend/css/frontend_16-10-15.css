@@ -1,0 +1,372 @@
+.dc-reports-sidebar .postbox {
+	border: 1px solid #e5e5e5;
+  background: #FAF8F8;
+  margin-bottom: 10px;
+  box-shadow: 5px 5px 5px rgba(205, 200, 200, 0.04);
+  padding: 0px;
+}
+.dc-reports-sidebar .postbox h4 {
+	padding-left : 5px;
+}
+
+.dc-reports-sidebar .postbox .inside {
+	text-align: center;
+}
+.dc-reports-wrap .dc-reports-main {
+  float: right;
+  display: inline;
+  width: 70%;
+  padding-left: 15px;
+}
+.dc-reports-wrap .dc-reports-sidebar {
+	display: inline;
+  width: 30%;
+  clear: both;
+  float: left;
+}
+.dc-reports-wrap {
+	width: 100%;
+  display: block;
+}
+#tiptip_content, .chart-tooltip, .wc_error_tip {
+	color: #fff;
+	font-size: .8em;
+	max-width: 150px;
+	background: #333;
+	text-align: center;
+	border-radius: 3px;
+	padding: .618em 1em;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+	z-index: 200;
+	position: absolute;
+}
+#tiptip_content code, .chart-tooltip code, .wc_error_tip code {
+	padding: 1px;
+	background: #888;
+}
+
+.chart-tooltip-transaction {
+	color: #fff;
+	font-size: .8em;
+	max-width: 150px;
+	background: #333;
+	text-align: center;
+	border-radius: 3px;
+	padding: .618em 1em;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+	z-index: 200;
+	position: absolute;
+}
+.chart-tooltip-transaction code {
+	padding: 1px;
+	background: #888;
+}
+
+
+.chart-legend {
+  list-style: none;
+  margin: 0 0 1em;
+  padding: 0;
+  border: 1px solid #dfdfdf;
+  border-right-width: 0;
+  border-bottom-width: 0;
+  background: #fff;
+}
+.chart-legend li {
+  border-right: 5px solid #aaa;
+  border-left: 5px solid #aaa;
+  color: #737373;
+  padding: 1em;
+  display: block;
+  margin: 0;
+  -webkit-transition: all ease .5s;
+  box-shadow: inset 0 -1px 0 0 #dfdfdf;
+  cursor: pointer;
+}
+.chart-legend li:hover {
+  box-shadow: inset 0 -1px 0 0 #dfdfdf,inset 900px 0 0 rgba(156,93,144,.1);
+  border-right: 5px solid #9c5d90!important;
+  padding-left: 1.5em;
+  color: #9c5d90;
+}
+
+
+
+/*.............................................. starts by html designer .......................................................*/
+
+
+#wcmp_tabs.ui-widget-content {
+    border: 1px solid #eee;
+}
+
+#wcmp_tabs.ui-tabs {
+    padding: 0;
+}
+#wcmp_tabs .ui-corner-all {
+    border-radius: 0px;
+}
+
+#wcmp_tabs.ui-widget {
+    font-family:inherit;
+}
+
+#wcmp_tabs .ui-widget-header {
+    background: #e3e3e3 url("images/ui-bg_highlight-soft_75_cccccc_1x100.png") repeat-x scroll 50% 50%;
+    border: 0 solid #aaaaaa;
+}
+
+#wcmp_tabs.ui-tabs .ui-tabs-nav {
+    margin: 0;
+    padding: 0;
+}
+
+#wcmp_tabs.ui-tabs .ui-tabs-nav li {
+    margin: 0;
+    padding: 0;
+    top: 0;
+}
+
+#wcmp_tabs .ui-state-active, #wcmp_tabs.ui-widget-content .ui-state-active, #wcmp_tabs .ui-widget-header .ui-state-active {
+    border: 0 solid #aaaaaa;
+}
+
+#wcmp_tabs .ui-state-active a, #wcmp_tabs .ui-state-active a:link, #wcmp_tabs .ui-state-active a:visited {
+    color: #252525;
+    text-decoration: none;
+	font-size:14px;
+	text-transform:uppercase;
+}
+
+#wcmp_tabs .ui-state-default a, #wcmp_tabs .ui-state-default a:link, #wcmp_tabs .ui-state-default a:visited {
+  color: #767676;
+  text-decoration: none;
+	font-size:14px;
+	text-transform:uppercase;
+	border:0px;
+	outline:none;
+}
+
+#wcmp_tabs.ui-tabs .ui-tabs-nav li a {
+    float: left;
+    padding: 0.9em 1em;
+}
+
+
+#wcmp_tabs .ui-state-default, #wcmp_tabs .ui-widget-content .ui-state-default, #wcmp_tabs .ui-widget-header .ui-state-default {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: -moz-use-text-color #ccc -moz-use-text-color -moz-use-text-color;
+    border-image: none;
+    border-radius: 0;
+    border-style: none solid none none;
+    border-width: medium 1px medium medium;
+    color: #555555;
+    font-weight: normal;
+}
+
+
+#wcmp_tabs .description {
+	font-size: 10px !important;
+}
+
+#wcmp_tabs .all_new_btn {
+   background-color: #2f2f2f;
+    border-radius: 1px;
+	border:none;
+    /*border-top: 1px solid #999;*/
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 1);
+    color: #ffffff;
+    font-size: 15px;
+    text-transform: uppercase;
+	cursor: pointer;
+    display: inline-block;
+    font-weight: 600;
+    line-height: 1;
+    outline: medium none;
+    padding: 0.618em 1em;
+    text-decoration: none;
+    text-shadow: none;
+	width: auto !important;
+}
+
+
+#wcmp_tabs #wcmp_report_low_stock{
+	border: 1px solid #eee;
+}
+
+
+
+#wcmp_tabs #wcmp_report_stock_overview .ui-state-default, #wcmp_tabs #wcmp_report_stock_overview .ui-widget-content .ui-state-default, #wcmp_tabs #wcmp_report_stock_overview .ui-widget-header .ui-state-default{
+    background:none;
+	border:none;
+    color: #555555;
+    font-weight: normal;
+}
+
+#wcmp_tabs #wcmp_report_stock_overview .ui-state-default.ui-tabs-active, #wcmp_tabs #wcmp_report_stock_overview .ui-widget-content .ui-state-default.ui-tabs-active, #wcmp_tabs #wcmp_report_stock_overview .ui-widget-header .ui-state-default.ui-tabs-active{
+    background:#ddd;
+	border:none;
+    color: #222;
+    font-weight: normal;
+}
+#wcmp_tabs.ui-widget, #wcmp_report_stock_overview.ui-widget {
+    font-family:inherit;
+}
+
+
+#wcmp_tabs input{
+	border:1px solid #d4d4d4;
+	height:30px;
+	color:#aaa;
+	border-radius:3px;
+	margin:3px 4px;
+	padding: 5px;
+}
+
+/*............................ tab stock ................*/
+#wcmp_tabs table{
+	border: 1px solid rgba(0, 0, 0, 0.1);
+}
+#wcmp_tabs table thead th {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    color: #a4a4a4;
+    font-size: 14px;
+    padding: 8px 5px;
+    text-transform: uppercase;
+    vertical-align: middle;
+}
+#wcmp_tabs table td {
+    border-bottom: 1px solid #f8f8f8;
+    color: #3d3d3d;
+    font-size: 14px !important;
+    padding: 8px 5px;
+    text-transform: uppercase;
+    vertical-align: middle;
+}
+
+
+
+#wcmp_tabs .button.tips.edit , #wcmp_tabs .button.tips.view{
+    background: #fff none repeat scroll 0 0;
+    border-radius: 3px;
+    margin: 4px;
+    padding: 10px;
+	color:#ae8f89;
+	border:1px solid #d6c9c6;
+	box-shadow:2px 2px 0 0 rgba(214, 201, 198, 0.6);
+}
+
+#wcmp_tabs .button.tips.edit:hover , #wcmp_tabs .button.tips.view:hover{
+   box-shadow:2px 2px 0 0 rgba(214, 201, 198, 1);
+}
+
+/*............................ tab stock end ................*/
+
+
+
+/*............................ tab Sales Overview ................*/
+
+
+#wcmp_tabs .chart-legend{
+	border:none;
+}
+#wcmp_tabs .chart-legend li {
+    border-left: none;
+    border-right: none;
+    box-shadow: none;
+	font-weight:nonmal;
+}
+#wcmp_tabs .chart-legend li:hover , #wcmp_tabs .chart-legend.tips li{
+    border-left: none;
+    border-right: none;
+    box-shadow: none;
+	color:#777;
+}
+
+#wcmp_tabs .chart-legend li label{
+	 display: inline-block;
+    width: 50%;
+}
+#wcmp_tabs .chart-legend li i{
+	padding:5px 10px 0 0;
+	 vertical-align: top;
+}
+#wcmp_tabs .chart-legend li:first-child i, #wcmp_tabs .chart-legend li:first-child .amount{
+	color:#ff0000;
+}
+#wcmp_tabs .chart-legend li:nth-child(2n+2) i, #wcmp_tabs .chart-legend li:nth-child(2n+2) .amount{
+	color:#ff9b00;
+}
+
+#wcmp_tabs .chart-legend li:nth-child(2n+3) i, #wcmp_tabs .chart-legend li:nth-child(2n+3) .amount{
+	color:#b27fe1;
+}
+#wcmp_tabs .chart-legend li:nth-child(2n+4) i, #wcmp_tabs .chart-legend li:nth-child(2n+4) .amount{
+	color:#01ccff;
+}
+#wcmp_tabs .chart-legend li:last-child i, #wcmp_tabs .chart-legend li:last-child .amount{
+	color:#67c890;
+}
+
+
+
+/*............................ tab Sales Overview end................*/
+
+
+
+/*............................ tab Sales by Product................*/
+#wcmp_tabs #wcmp_transaction_filter table{
+	width:auto;
+	padding:5px;
+}
+
+#wcmp_tabs .bar_indecator span {
+    float: left;
+    margin-left: 10px;
+    margin-right: 45px;
+    margin-top: -6px;
+}
+#wcmp_tabs .product_report_sort_outer{
+	position:relative;
+	display: inline;
+}
+#wcmp_tabs .product_report_sort_outer::after{
+	 content: "\f107";
+     background: #919191 none repeat scroll 0 0;
+    color: #fff;
+    font-family: FontAwesome;
+    font-size: 18px;
+    height: 30px;
+    padding: 3px;
+    pointer-events: none;
+    position: absolute;
+    right: 11px;
+    top: -8px;
+    width: 21px;
+}
+#wcmp_tabs .product_report_sort{
+	border:1px solid #d4d4d4;
+	height:38px;
+	color:#fff;
+	background:#919191;
+	border-radius:3px;
+	margin:3px 4px;
+	width: 150px;
+}
+
+#wcmp_tabs .low_to_high_btn_product:hover, #wcmp_tabs .high_to_low_btn_product:hover{
+	background: #919191;
+}
+
+#wcmp_tabs button:focus{
+	outline:none;
+}
+
+/*................. tab Sales by Product end................*/
+
+
+
+/*..............................................end by html designer .......................................................*/
+

@@ -1,0 +1,36 @@
+.wcmp_fpm_buttons {
+	left:3px;
+	right:auto;
+}
+.wcmp_fpm_buttons {
+	position:absolute;
+	color:#fff;
+	background-color:#222;
+	background-color:rgba(16,16,16,0.3);
+	top:3px;
+	right:50%;
+	margin-right:-33px;
+	z-index:99;
+	width:30px;
+	height:auto;
+	padding:3px;
+	border-radius:3px;
+}
+
+.wcmp_fpm_buttons .wcmp_fpm_button {
+	display:block;
+	float:left;
+	width:24px;
+	height:24px;
+	line-height:24px;
+	margin:0px;
+	text-align:center;
+	border-radius:3px;
+	font-size:18px;
+	color:#fff;
+	text-decoration:none;
+}
+
+.wcmp_fpm_buttons .wcmp_fpm_button_separator {
+	color: #fff;
+}

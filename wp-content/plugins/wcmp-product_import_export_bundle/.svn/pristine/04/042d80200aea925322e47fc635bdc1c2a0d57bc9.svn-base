@@ -1,0 +1,81 @@
+
+.wcmp_importer  {
+	
+margin-left: 0px;	
+font-size: 100%;
+
+}
+.wcmp_importer td {
+	vertical-align: middle;
+	padding: 5px 9px;
+}
+#wcmp-progress {
+	width: 100%;
+}
+#wcmp-progress td, #wcmp-progress th {
+	padding: .5em 1em;
+}
+#wcmp-progress td.wcmp_status, #wcmp-progress th.wcmp_status {
+	width: 32px;
+}
+#wcmp-progress td.wcmp_row, #wcmp-progress th.wcmp_row {
+	width: 3em;
+	text-align: center;
+}
+#wcmp-progress td.wcmp_reason, #wcmp-progress th.wcmp_reason {
+	text-align: right;
+}
+#wcmp-progress tr.wcmp-loader td {
+	background: url(../images/ajax-loader.gif) no-repeat center center;
+	height: 181px;
+}
+#wcmp-progress .merged td,
+#wcmp-progress .imported td {
+}
+#wcmp-progress .skipped td {
+	border-bottom-color: #dbcb83;
+	background: #f2ecd2;
+}
+#wcmp-progress .failed td {
+	border-bottom-color: #e6adaa;
+	background: #f2d3d2;
+}
+#wcmp-progress mark.result {
+	height: 0;
+	display: block;
+	line-height: 16px;
+	overflow: hidden;
+	padding: 16px 0 0 0;
+}
+#wcmp-progress .skipped mark.result {
+	background: url(../images/notice.png) no-repeat center top;
+}
+#wcmp-progress .merged mark.result,
+#wcmp-progress .imported mark.result {
+	background: url(../images/success.png) no-repeat center top;
+}
+#wcmp-progress .failed mark.result {
+	background: url(../images/failed.png) no-repeat center top;
+}
+#wcmp-progress .complete td {
+	background: #42661F;
+	border-color: #42661F;
+	border-top: 4px solid #42661F;
+	color: #fff;
+	font-size: 1.5em;
+	padding: .95em 1em 1em;
+	text-align: center;
+}
+#wcmp-progress .generating td {
+	padding: 0;
+}
+#wcmp-progress .generating div.progress {
+	background: #464646;
+	padding: .95em 1em 1em;
+	color: #fff;
+	overflow: hidden;
+	width: 0;
+	float: left;
+	text-align: left;
+	white-space: nowrap;
+}

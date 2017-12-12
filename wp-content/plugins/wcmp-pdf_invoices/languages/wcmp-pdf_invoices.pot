@@ -1,0 +1,300 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-07-28 09:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco - https://localise.biz/"
+
+#: admin/class-wcmp-pdf-invoices-settings-pdf_invoices.php:51
+msgid "General Settings"
+msgstr ""
+
+#: admin/class-wcmp-pdf-invoices-settings-pdf_invoices.php:57
+msgid "Attach to Email"
+msgstr ""
+
+#: admin/class-wcmp-pdf-invoices-settings-pdf_invoices.php:57
+msgid "Select Order status to attach invoice."
+msgstr ""
+
+#: admin/class-wcmp-pdf-invoices-settings-pdf_invoices.php:58
+msgid "Select Default Invoice Template"
+msgstr ""
+
+#: admin/class-wcmp-pdf-invoices-settings-pdf_invoices.php:59
+msgid "Company Name"
+msgstr ""
+
+#: admin/class-wcmp-pdf-invoices-settings-pdf_invoices.php:59
+msgid "Enter your Company Name here."
+msgstr ""
+
+#: admin/class-wcmp-pdf-invoices-settings-pdf_invoices.php:59
+#: admin/class-wcmp-pdf-invoices-settings-pdf_invoices.php:62
+#: admin/class-wcmp-pdf-invoices-settings-pdf_invoices.php:63
+msgid "It will represent your identification."
+msgstr ""
+
+#: admin/class-wcmp-pdf-invoices-settings-pdf_invoices.php:60
+msgid "Company Logo"
+msgstr ""
+
+#: admin/class-wcmp-pdf-invoices-settings-pdf_invoices.php:60
+msgid "Your presentation."
+msgstr ""
+
+#: admin/class-wcmp-pdf-invoices-settings-pdf_invoices.php:60
+msgid "Represent your graphical signature ( JPEG Only )."
+msgstr ""
+
+#: admin/class-wcmp-pdf-invoices-settings-pdf_invoices.php:61
+msgid "Company Address"
+msgstr ""
+
+#: admin/class-wcmp-pdf-invoices-settings-pdf_invoices.php:61
+msgid "About you"
+msgstr ""
+
+#: admin/class-wcmp-pdf-invoices-settings-pdf_invoices.php:61
+msgid "It will represent your significant."
+msgstr ""
+
+#: admin/class-wcmp-pdf-invoices-settings-pdf_invoices.php:62
+msgid "Company Email"
+msgstr ""
+
+#: admin/class-wcmp-pdf-invoices-settings-pdf_invoices.php:62
+msgid "Enter your Company Email here."
+msgstr ""
+
+#: admin/class-wcmp-pdf-invoices-settings-pdf_invoices.php:63
+msgid "Company Ph. no"
+msgstr ""
+
+#: admin/class-wcmp-pdf-invoices-settings-pdf_invoices.php:63
+msgid "Enter your Company Ph no here."
+msgstr ""
+
+#: admin/class-wcmp-pdf-invoices-settings-pdf_invoices.php:64
+msgid "Special Notes from Admin"
+msgstr ""
+
+#: admin/class-wcmp-pdf-invoices-settings-customer-pdf_invoices.php:40
+msgid "Customer can download invoice at"
+msgstr ""
+
+#: admin/class-wcmp-pdf-invoices-settings-customer-pdf_invoices.php:40
+msgid "Set order status for customer to download invoice."
+msgstr ""
+
+#: admin/class-wcmp-pdf-invoices-settings-customer-pdf_invoices.php:41
+#: admin/class-wcmp-pdf-invoices-settings-admin-pdf_invoices.php:28
+#: admin/class-wcmp-pdf-invoices-settings-vendor-pdf_invoices.php:27
+msgid "SKU"
+msgstr ""
+
+#: admin/class-wcmp-pdf-invoices-settings-customer-pdf_invoices.php:42
+#: admin/class-wcmp-pdf-invoices-settings-admin-pdf_invoices.php:29
+#: admin/class-wcmp-pdf-invoices-settings-vendor-pdf_invoices.php:28
+msgid "Subtotal"
+msgstr ""
+
+#: admin/class-wcmp-pdf-invoices-settings-customer-pdf_invoices.php:43
+#: admin/class-wcmp-pdf-invoices-settings-admin-pdf_invoices.php:30
+#: admin/class-wcmp-pdf-invoices-settings-vendor-pdf_invoices.php:29
+msgid "Discount"
+msgstr ""
+
+#: admin/class-wcmp-pdf-invoices-settings-customer-pdf_invoices.php:44
+#: admin/class-wcmp-pdf-invoices-settings-admin-pdf_invoices.php:31
+#: admin/class-wcmp-pdf-invoices-settings-vendor-pdf_invoices.php:30
+msgid "Tax"
+msgstr ""
+
+#: admin/class-wcmp-pdf-invoices-settings-customer-pdf_invoices.php:45
+#: admin/class-wcmp-pdf-invoices-settings-admin-pdf_invoices.php:32
+#: admin/class-wcmp-pdf-invoices-settings-vendor-pdf_invoices.php:31
+msgid "Shipping"
+msgstr ""
+
+#: admin/class-wcmp-pdf-invoices-settings-customer-pdf_invoices.php:46
+#: admin/class-wcmp-pdf-invoices-settings-admin-pdf_invoices.php:33
+#: admin/class-wcmp-pdf-invoices-settings-vendor-pdf_invoices.php:32
+msgid "Payment Method"
+msgstr ""
+
+#: admin/class-wcmp-pdf-invoices-settings-customer-pdf_invoices.php:47
+#: admin/class-wcmp-pdf-invoices-settings-admin-pdf_invoices.php:34
+#: admin/class-wcmp-pdf-invoices-settings-vendor-pdf_invoices.php:33
+msgid "Introduction Text"
+msgstr ""
+
+#: admin/class-wcmp-pdf-invoices-settings-customer-pdf_invoices.php:48
+#: admin/class-wcmp-pdf-invoices-settings-admin-pdf_invoices.php:35
+#: admin/class-wcmp-pdf-invoices-settings-vendor-pdf_invoices.php:34
+msgid "Term and conditions"
+msgstr ""
+
+#: admin/class-wcmp-pdf-invoices-settings-customer-pdf_invoices.php:49
+#: admin/class-wcmp-pdf-invoices-settings-admin-pdf_invoices.php:36
+#: admin/class-wcmp-pdf-invoices-settings-vendor-pdf_invoices.php:35
+msgid "Show Customer Note"
+msgstr ""
+
+#: includes/wcmp-pdf-invoices-core-functions.php:7
+#, php-format
+msgid ""
+"%sWCMp Vendor PDF Invoices is inactive.%s The %sWooCommerce%s plugin must be "
+"active for the WCMp Vendor PDF Invoices to work. Please %sinstall & activate "
+"WooCommerce%s"
+msgstr ""
+
+#: includes/wcmp-pdf-invoices-core-functions.php:19
+#, php-format
+msgid ""
+"%sWCMp Vendor PDF Invoices is inactive.%s The %sWC Marketplace%s plugin must "
+"be active for the WCMp Vendor PDF Invoices to work. Please %sinstall & "
+"activate WC Marketplace%s"
+msgstr ""
+
+#: includes/wcmp-pdf-invoices-core-functions.php:32
+#, php-format
+msgid ""
+"%sWCMp Vendor PDF Invoices is inactive.%s The %sWooCommerce PDF Invoices & "
+"Packing Slips%s plugin must be active for the WCMp Vendor PDF Invoices to "
+"work. Please %sinstall & activate WooCommerce PDF Invoices & Packing Slips%s"
+msgstr ""
+
+#: classes/class-wcmp-pdf-invoices-license.php:146
+#: classes/class-wcmp-pdf-invoices-admin.php:63
+msgid "PDF Invoices"
+msgstr ""
+
+#: classes/class-wcmp-pdf-invoices-license.php:324
+#, php-format
+msgid ""
+"The PDF Invoices License Key has not been activated, so the plugin is "
+"inactive! %sClick here%s to activate the license key and the plugin."
+msgstr ""
+
+#: classes/class-wcmp-pdf-invoices-admin.php:41
+msgid "Vendor Edit Invoice Template"
+msgstr ""
+
+#: classes/class-wcmp-pdf-invoices-admin.php:42
+msgid "Choose your preferred page for Vendor Frontend Invoice Settings."
+msgstr ""
+
+#: classes/class-wcmp-pdf-invoices-admin.php:109
+msgid "PDF Invoice"
+msgstr ""
+
+#: classes/class-wcmp-pdf-invoices-install.php:34
+msgctxt "page_slug"
+msgid "wcmp_vendor_edit_invoice"
+msgstr ""
+
+#: classes/class-wcmp-pdf-invoices-install.php:35
+msgid "Invoice Settings"
+msgstr ""
+
+#: classes/class-wcmp-pdf-invoices-frontend.php:82
+msgid "- Edit Invoice"
+msgstr ""
+
+#: classes/class-wcmp-pdf-invoices-frontend.php:89
+msgid "Edit Invoice"
+msgstr ""
+
+#: classes/license/admin/class-wcmp-pdf-invoices-settings-license.php:53
+msgid "License Activation"
+msgstr ""
+
+#: classes/license/admin/class-wcmp-pdf-invoices-settings-license.php:54
+msgid "API License Key"
+msgstr ""
+
+#: classes/license/admin/class-wcmp-pdf-invoices-settings-license.php:55
+msgid "API License email"
+msgstr ""
+
+#: classes/license/admin/class-wcmp-pdf-invoices-settings-license.php:58
+msgid "License Deactivation"
+msgstr ""
+
+#: classes/license/admin/class-wcmp-pdf-invoices-settings-license.php:59
+msgid "Deactivate API License Key"
+msgstr ""
+
+#: classes/license/admin/class-wcmp-pdf-invoices-settings-license.php:59
+msgid "Deactivates an API License Key so it can be used on another blog."
+msgstr ""
+
+#: classes/license/admin/class-wcmp-pdf-invoices-settings-license.php:93
+msgid "Please insert your license key."
+msgstr ""
+
+#: classes/license/admin/class-wcmp-pdf-invoices-settings-license.php:100
+msgid "Please insert your license email."
+msgstr ""
+
+#: classes/license/admin/class-wcmp-pdf-invoices-settings-license.php:129
+msgid "Plugin activated. "
+msgstr ""
+
+#: classes/license/admin/class-wcmp-pdf-invoices-settings-license.php:137
+msgid "Connection failed to the License Key API server. Try again later."
+msgstr ""
+
+#: classes/license/admin/class-wcmp-pdf-invoices-settings-license.php:203
+msgid "Plugin license deactivated."
+msgstr ""
+
+#: classes/license/admin/class-wcmp-pdf-invoices-settings-license.php:227
+msgid ""
+"The license could not be deactivated. Use the License Deactivation tab to "
+"manually deactivate the license before activating a new license."
+msgstr ""
+
+#: classes/license/admin/class-wcmp-license.php:16
+#: classes/license/admin/class-wcmp-license.php:18
+msgid "WCMp License"
+msgstr ""
+
+#: classes/license/admin/class-wcmp-license.php:81
+#, php-format
+msgid "<h2>%s License</h2>"
+msgstr ""
+
+#: classes/license/admin/class-wcmp-license.php:89
+#, php-format
+msgid ""
+"<h4 style='border-bottom: 1px solid rgb(215, 211, 211);padding-bottom: 21px;"
+"'>%s</h4>"
+msgstr ""
+
+#. Name of the plugin
+msgid "WCMp PDF Invoices"
+msgstr ""
+
+#. Description of the plugin
+msgid "WCMp Vendor PDF Invoices"
+msgstr ""
+
+#. URI of the plugin
+#. Author URI of the plugin
+msgid "https://wc-marketplace.com"
+msgstr ""
+
+#. Author of the plugin
+msgid "WC Marketplace, The Grey Parrots"
+msgstr ""

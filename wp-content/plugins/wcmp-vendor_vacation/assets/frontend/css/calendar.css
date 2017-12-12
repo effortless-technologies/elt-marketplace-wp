@@ -1,0 +1,29 @@
+.panel-calendar table td, .panel-calendar table th {
+	padding: 0.157em 0.587em;
+}
+.panel-calendar table td {
+	cursor : pointer;
+}
+.panel-calendar table {	
+	background-color: #EDEBEB;
+}
+.panel-calendar {
+	width : 99%;
+	float : left;
+}
+.entry-content {
+	clear : both;
+}
+.include_date {
+  background-color:  rgb(184, 182, 182) !important;
+}
+form[name="wcmp_vendor_vacation"] table{
+	table-layout: auto;
+}
+
+
+.wcmp_form1 input.avoid_purchase{
+        width: auto;
+        height: 20px;
+        box-shadow: none ;
+}

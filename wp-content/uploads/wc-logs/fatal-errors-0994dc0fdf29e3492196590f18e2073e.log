@@ -1,0 +1,1034 @@
+2017-11-30T16:25:47+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-11-30T17:26:33+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-11-30T18:26:53+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-11-30T19:27:25+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-11-30T20:25:51+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-11-30T21:25:59+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-11-30T22:26:13+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-11-30T23:25:48+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-01T00:26:20+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-01T01:26:54+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-01T02:26:47+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-01T03:25:42+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-01T04:28:28+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-01T05:25:42+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-01T05:30:06+05:30 CRITICAL Uncaught exception 'wfWAFStorageFileException' with message 'Unable to open /var/www/html/wp-content/wflogs/attack-data.php for reading and writing.' in /var/www/html/wp-content/plugins/wordfence/vendor/wordfence/wf-waf/src/lib/storage/file.php:854
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wordfence/vendor/wordfence/wf-waf/src/lib/storage/file.php(1158): wfWAFAttackDataStorageFileEngine->open()
+#1 /var/www/html/wp-content/plugins/wordfence/vendor/wordfence/wf-waf/src/lib/storage/file.php(247): wfWAFAttackDataStorageFileEngine->truncate()
+#2 /var/www/html/wp-content/plugins/wordfence/lib/wordfenceClass.php(7402): wfWAFStorageFile->truncateAttackData()
+#3 [internal function]: wordfence::syncAttackData()
+#4 /var/www/html/wp-includes/class-wp-hook.php(296): call_user_func_array('wordfence::sync...', Array)
+#5 /var/www/html/wp-includes/class-wp-hook.php(323): WP_Hook->apply_filters('', Array)
+#6 /var/www/html/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#7 /var/www/html/wp-settings.php(448): do_ac
+
+2017-12-01T06:18:28+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-01T06:25:46+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-01T07:26:14+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-01T08:18:39+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-01T08:29:53+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-01T09:26:16+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-01T10:25:53+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-01T11:26:19+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-01T12:25:46+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-01T13:25:45+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-01T14:25:48+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-01T15:26:07+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-01T16:27:22+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-01T17:26:16+05:30 CRITICAL Allowed memory size of 268435456 bytes exhausted (tried to allocate 32 bytes)
+
+2017-12-01T18:28:26+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-01T19:25:44+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-01T20:25:42+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-01T21:25:54+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-01T22:26:15+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-01T23:25:37+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-02T00:25:35+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-02T01:25:47+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-02T02:25:36+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-02T03:00:44+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-02T03:25:54+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-02T03:29:06+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-02T04:26:12+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-02T05:26:45+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-02T06:25:55+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-02T07:24:01+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-02T07:25:50+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-02T08:26:00+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-02T09:25:59+05:30 CRITICAL Allowed memory size of 268435456 bytes exhausted (tried to allocate 84 bytes)
+
+2017-12-02T10:25:47+05:30 CRITICAL Allowed memory size of 268435456 bytes exhausted (tried to allocate 75 bytes)
+
+2017-12-02T11:26:15+05:30 CRITICAL Allowed memory size of 268435456 bytes exhausted (tried to allocate 75 bytes)
+
+2017-12-02T12:25:49+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-02T13:26:29+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-02T14:25:49+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-02T14:29:12+05:30 CRITICAL Uncaught exception 'wfWAFStorageFileException' with message 'Unable to open /var/www/html/wp-content/wflogs/attack-data.php for reading and writing.' in /var/www/html/wp-content/plugins/wordfence/vendor/wordfence/wf-waf/src/lib/storage/file.php:854
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wordfence/vendor/wordfence/wf-waf/src/lib/storage/file.php(1158): wfWAFAttackDataStorageFileEngine->open()
+#1 /var/www/html/wp-content/plugins/wordfence/vendor/wordfence/wf-waf/src/lib/storage/file.php(247): wfWAFAttackDataStorageFileEngine->truncate()
+#2 /var/www/html/wp-content/plugins/wordfence/lib/wordfenceClass.php(7402): wfWAFStorageFile->truncateAttackData()
+#3 [internal function]: wordfence::syncAttackData()
+#4 /var/www/html/wp-includes/class-wp-hook.php(296): call_user_func_array('wordfence::sync...', Array)
+#5 /var/www/html/wp-includes/class-wp-hook.php(323): WP_Hook->apply_filters('', Array)
+#6 /var/www/html/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#7 /var/www/html/wp-settings.php(448): do_ac
+
+2017-12-02T14:47:52+05:30 CRITICAL Uncaught exception 'wfWAFStorageFileException' with message 'Unable to open /var/www/html/wp-content/wflogs/attack-data.php for reading and writing.' in /var/www/html/wp-content/plugins/wordfence/vendor/wordfence/wf-waf/src/lib/storage/file.php:854
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wordfence/vendor/wordfence/wf-waf/src/lib/storage/file.php(1158): wfWAFAttackDataStorageFileEngine->open()
+#1 /var/www/html/wp-content/plugins/wordfence/vendor/wordfence/wf-waf/src/lib/storage/file.php(247): wfWAFAttackDataStorageFileEngine->truncate()
+#2 /var/www/html/wp-content/plugins/wordfence/lib/wordfenceClass.php(7402): wfWAFStorageFile->truncateAttackData()
+#3 [internal function]: wordfence::syncAttackData()
+#4 /var/www/html/wp-includes/class-wp-hook.php(296): call_user_func_array('wordfence::sync...', Array)
+#5 /var/www/html/wp-includes/class-wp-hook.php(323): WP_Hook->apply_filters('', Array)
+#6 /var/www/html/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#7 /var/www/html/wp-settings.php(448): do_ac
+
+2017-12-02T14:47:59+05:30 CRITICAL Uncaught exception 'wfWAFStorageFileException' with message 'Unable to open /var/www/html/wp-content/wflogs/attack-data.php for reading and writing.' in /var/www/html/wp-content/plugins/wordfence/vendor/wordfence/wf-waf/src/lib/storage/file.php:854
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wordfence/vendor/wordfence/wf-waf/src/lib/storage/file.php(1158): wfWAFAttackDataStorageFileEngine->open()
+#1 /var/www/html/wp-content/plugins/wordfence/vendor/wordfence/wf-waf/src/lib/storage/file.php(247): wfWAFAttackDataStorageFileEngine->truncate()
+#2 /var/www/html/wp-content/plugins/wordfence/lib/wordfenceClass.php(7402): wfWAFStorageFile->truncateAttackData()
+#3 [internal function]: wordfence::syncAttackData()
+#4 /var/www/html/wp-includes/class-wp-hook.php(296): call_user_func_array('wordfence::sync...', Array)
+#5 /var/www/html/wp-includes/class-wp-hook.php(323): WP_Hook->apply_filters('', Array)
+#6 /var/www/html/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#7 /var/www/html/wp-settings.php(448): do_ac
+
+2017-12-02T14:54:14+05:30 CRITICAL Uncaught exception 'wfWAFStorageFileException' with message 'Unable to open /var/www/html/wp-content/wflogs/attack-data.php for reading and writing.' in /var/www/html/wp-content/plugins/wordfence/vendor/wordfence/wf-waf/src/lib/storage/file.php:854
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wordfence/vendor/wordfence/wf-waf/src/lib/storage/file.php(1158): wfWAFAttackDataStorageFileEngine->open()
+#1 /var/www/html/wp-content/plugins/wordfence/vendor/wordfence/wf-waf/src/lib/storage/file.php(247): wfWAFAttackDataStorageFileEngine->truncate()
+#2 /var/www/html/wp-content/plugins/wordfence/lib/wordfenceClass.php(7402): wfWAFStorageFile->truncateAttackData()
+#3 [internal function]: wordfence::syncAttackData()
+#4 /var/www/html/wp-includes/class-wp-hook.php(296): call_user_func_array('wordfence::sync...', Array)
+#5 /var/www/html/wp-includes/class-wp-hook.php(323): WP_Hook->apply_filters('', Array)
+#6 /var/www/html/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#7 /var/www/html/wp-settings.php(448): do_ac
+
+2017-12-02T14:55:41+05:30 CRITICAL Uncaught exception 'wfWAFStorageFileException' with message 'Unable to open /var/www/html/wp-content/wflogs/attack-data.php for reading and writing.' in /var/www/html/wp-content/plugins/wordfence/vendor/wordfence/wf-waf/src/lib/storage/file.php:854
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wordfence/vendor/wordfence/wf-waf/src/lib/storage/file.php(1158): wfWAFAttackDataStorageFileEngine->open()
+#1 /var/www/html/wp-content/plugins/wordfence/vendor/wordfence/wf-waf/src/lib/storage/file.php(247): wfWAFAttackDataStorageFileEngine->truncate()
+#2 /var/www/html/wp-content/plugins/wordfence/lib/wordfenceClass.php(7402): wfWAFStorageFile->truncateAttackData()
+#3 [internal function]: wordfence::syncAttackData()
+#4 /var/www/html/wp-includes/class-wp-hook.php(296): call_user_func_array('wordfence::sync...', Array)
+#5 /var/www/html/wp-includes/class-wp-hook.php(323): WP_Hook->apply_filters('', Array)
+#6 /var/www/html/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#7 /var/www/html/wp-settings.php(448): do_ac
+
+2017-12-02T14:59:41+05:30 CRITICAL Uncaught exception 'wfWAFStorageFileException' with message 'Unable to open /var/www/html/wp-content/wflogs/attack-data.php for reading and writing.' in /var/www/html/wp-content/plugins/wordfence/vendor/wordfence/wf-waf/src/lib/storage/file.php:854
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wordfence/vendor/wordfence/wf-waf/src/lib/storage/file.php(1158): wfWAFAttackDataStorageFileEngine->open()
+#1 /var/www/html/wp-content/plugins/wordfence/vendor/wordfence/wf-waf/src/lib/storage/file.php(247): wfWAFAttackDataStorageFileEngine->truncate()
+#2 /var/www/html/wp-content/plugins/wordfence/lib/wordfenceClass.php(7402): wfWAFStorageFile->truncateAttackData()
+#3 [internal function]: wordfence::syncAttackData()
+#4 /var/www/html/wp-includes/class-wp-hook.php(296): call_user_func_array('wordfence::sync...', Array)
+#5 /var/www/html/wp-includes/class-wp-hook.php(323): WP_Hook->apply_filters('', Array)
+#6 /var/www/html/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#7 /var/www/html/wp-settings.php(448): do_ac
+
+2017-12-02T15:02:14+05:30 CRITICAL Uncaught exception 'wfWAFStorageFileException' with message 'Unable to open /var/www/html/wp-content/wflogs/attack-data.php for reading and writing.' in /var/www/html/wp-content/plugins/wordfence/vendor/wordfence/wf-waf/src/lib/storage/file.php:854
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wordfence/vendor/wordfence/wf-waf/src/lib/storage/file.php(1158): wfWAFAttackDataStorageFileEngine->open()
+#1 /var/www/html/wp-content/plugins/wordfence/vendor/wordfence/wf-waf/src/lib/storage/file.php(247): wfWAFAttackDataStorageFileEngine->truncate()
+#2 /var/www/html/wp-content/plugins/wordfence/lib/wordfenceClass.php(7402): wfWAFStorageFile->truncateAttackData()
+#3 [internal function]: wordfence::syncAttackData()
+#4 /var/www/html/wp-includes/class-wp-hook.php(296): call_user_func_array('wordfence::sync...', Array)
+#5 /var/www/html/wp-includes/class-wp-hook.php(323): WP_Hook->apply_filters('', Array)
+#6 /var/www/html/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#7 /var/www/html/wp-settings.php(448): do_ac
+
+2017-12-02T15:02:14+05:30 CRITICAL Uncaught exception 'wfWAFStorageFileException' with message 'Unable to open /var/www/html/wp-content/wflogs/attack-data.php for reading and writing.' in /var/www/html/wp-content/plugins/wordfence/vendor/wordfence/wf-waf/src/lib/storage/file.php:854
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wordfence/vendor/wordfence/wf-waf/src/lib/storage/file.php(1158): wfWAFAttackDataStorageFileEngine->open()
+#1 /var/www/html/wp-content/plugins/wordfence/vendor/wordfence/wf-waf/src/lib/storage/file.php(247): wfWAFAttackDataStorageFileEngine->truncate()
+#2 /var/www/html/wp-content/plugins/wordfence/lib/wordfenceClass.php(7402): wfWAFStorageFile->truncateAttackData()
+#3 [internal function]: wordfence::syncAttackData()
+#4 /var/www/html/wp-includes/class-wp-hook.php(296): call_user_func_array('wordfence::sync...', Array)
+#5 /var/www/html/wp-includes/class-wp-hook.php(323): WP_Hook->apply_filters('', Array)
+#6 /var/www/html/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#7 /var/www/html/wp-settings.php(448): do_ac
+
+2017-12-02T15:05:38+05:30 CRITICAL Uncaught exception 'wfWAFStorageFileException' with message 'Unable to open /var/www/html/wp-content/wflogs/attack-data.php for reading and writing.' in /var/www/html/wp-content/plugins/wordfence/vendor/wordfence/wf-waf/src/lib/storage/file.php:854
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wordfence/vendor/wordfence/wf-waf/src/lib/storage/file.php(1158): wfWAFAttackDataStorageFileEngine->open()
+#1 /var/www/html/wp-content/plugins/wordfence/vendor/wordfence/wf-waf/src/lib/storage/file.php(247): wfWAFAttackDataStorageFileEngine->truncate()
+#2 /var/www/html/wp-content/plugins/wordfence/lib/wordfenceClass.php(7402): wfWAFStorageFile->truncateAttackData()
+#3 [internal function]: wordfence::syncAttackData()
+#4 /var/www/html/wp-includes/class-wp-hook.php(296): call_user_func_array('wordfence::sync...', Array)
+#5 /var/www/html/wp-includes/class-wp-hook.php(323): WP_Hook->apply_filters('', Array)
+#6 /var/www/html/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#7 /var/www/html/wp-settings.php(448): do_ac
+
+2017-12-02T15:28:24+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-02T16:25:42+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-02T16:44:14+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-02T17:25:41+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-02T18:26:12+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-02T19:26:46+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-02T20:25:57+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-02T21:26:06+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-02T22:27:39+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-02T23:26:26+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-03T00:25:40+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-03T01:26:14+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-03T02:26:45+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-03T03:27:17+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-03T04:26:24+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-03T05:28:23+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-03T06:28:57+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-03T07:25:47+05:30 CRITICAL Allowed memory size of 268435456 bytes exhausted (tried to allocate 82 bytes)
+
+2017-12-03T07:38:47+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-03T08:26:35+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-03T08:50:38+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-03T09:26:24+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-03T10:26:56+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-03T11:27:50+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-03T12:28:24+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-03T13:26:44+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-03T14:25:43+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-03T15:23:58+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-03T15:26:15+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-03T16:25:30+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-03T17:25:30+05:30 CRITICAL Allowed memory size of 268435456 bytes exhausted (tried to allocate 72 bytes)
+
+2017-12-03T18:25:29+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-03T19:25:33+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-03T20:26:07+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-03T21:25:32+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-03T22:25:43+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-03T23:25:41+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-04T00:27:17+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-04T01:20:10+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-04T01:25:47+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-04T02:25:30+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-04T03:28:48+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-04T04:26:00+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-04T05:26:31+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-04T06:08:28+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-04T06:26:29+05:30 CRITICAL Allowed memory size of 268435456 bytes exhausted (tried to allocate 72 bytes)
+
+2017-12-04T07:27:14+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-04T08:26:19+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-04T09:25:48+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-04T10:28:37+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-04T11:25:20+05:30 CRITICAL Allowed memory size of 268435456 bytes exhausted (tried to allocate 72 bytes)
+
+2017-12-04T12:26:03+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-04T13:26:41+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-04T14:26:55+05:30 CRITICAL Allowed memory size of 268435456 bytes exhausted (tried to allocate 72 bytes)
+
+2017-12-04T15:25:32+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-04T16:25:30+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-04T17:25:36+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-04T18:25:21+05:30 CRITICAL Allowed memory size of 268435456 bytes exhausted (tried to allocate 72 bytes)
+
+2017-12-04T19:16:07+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-04T19:25:51+05:30 CRITICAL Allowed memory size of 268435456 bytes exhausted (tried to allocate 72 bytes)
+
+2017-12-04T20:09:44+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-04T20:26:20+05:30 CRITICAL Allowed memory size of 268435456 bytes exhausted (tried to allocate 72 bytes)
+
+2017-12-04T21:26:28+05:30 CRITICAL Allowed memory size of 268435456 bytes exhausted (tried to allocate 72 bytes)
+
+2017-12-04T22:27:44+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-04T23:28:01+05:30 CRITICAL Allowed memory size of 268435456 bytes exhausted (tried to allocate 72 bytes)
+
+2017-12-05T00:26:36+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-04T19:38:44+00:00 CRITICAL Uncaught exception 'Hybrid_Exception' with message 'You cannot access this page directly.' in /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php:122
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php(52): Hybrid_Endpoint::processAuthStart()
+#1 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(89): Hybrid_Endpoint::process()
+#2 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(6): WCMP_Vendor_Verification_Auth->vendor_auth_requests()
+#3 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification.php(82): WCMP_Vendor_Verification_Auth->__construct()
+#4 [internal function]: WCMP_Vendor_Verification->init('')
+#5 /var/www/html/wp-includes/class-wp-hook.php(298): call_user_func_array(Array, Array)
+#6 /var/www/html/wp-includes/class-wp-hook.php(323): WP_Hook->apply_filters('', Array)
+#7 /var/w
+
+2017-12-04T19:48:34+00:00 CRITICAL Uncaught exception 'Hybrid_Exception' with message 'Oophs. Error!' in /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php:212
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php(114): Hybrid_Endpoint::authInit()
+#1 /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php(52): Hybrid_Endpoint::processAuthStart()
+#2 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(89): Hybrid_Endpoint::process()
+#3 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(6): WCMP_Vendor_Verification_Auth->vendor_auth_requests()
+#4 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification.php(82): WCMP_Vendor_Verification_Auth->__construct()
+#5 [internal function]: WCMP_Vendor_Verification->init('')
+#6 /var/www/html/wp-includes/class-wp-hook.php(298): call_user_func_array(Array, Array)
+#
+
+2017-12-04T19:49:04+00:00 CRITICAL Uncaught exception 'Hybrid_Exception' with message 'You cannot access this page directly.' in /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php:122
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php(52): Hybrid_Endpoint::processAuthStart()
+#1 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(89): Hybrid_Endpoint::process()
+#2 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(6): WCMP_Vendor_Verification_Auth->vendor_auth_requests()
+#3 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification.php(82): WCMP_Vendor_Verification_Auth->__construct()
+#4 [internal function]: WCMP_Vendor_Verification->init('')
+#5 /var/www/html/wp-includes/class-wp-hook.php(298): call_user_func_array(Array, Array)
+#6 /var/www/html/wp-includes/class-wp-hook.php(323): WP_Hook->apply_filters('', Array)
+#7 /var/w
+
+2017-12-04T19:49:18+00:00 CRITICAL Uncaught exception 'Hybrid_Exception' with message 'You cannot access this page directly.' in /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php:122
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php(52): Hybrid_Endpoint::processAuthStart()
+#1 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(89): Hybrid_Endpoint::process()
+#2 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(6): WCMP_Vendor_Verification_Auth->vendor_auth_requests()
+#3 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification.php(82): WCMP_Vendor_Verification_Auth->__construct()
+#4 [internal function]: WCMP_Vendor_Verification->init('')
+#5 /var/www/html/wp-includes/class-wp-hook.php(298): call_user_func_array(Array, Array)
+#6 /var/www/html/wp-includes/class-wp-hook.php(323): WP_Hook->apply_filters('', Array)
+#7 /var/w
+
+2017-12-04T19:49:52+00:00 CRITICAL Uncaught exception 'Hybrid_Exception' with message 'You cannot access this page directly.' in /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php:122
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php(52): Hybrid_Endpoint::processAuthStart()
+#1 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(89): Hybrid_Endpoint::process()
+#2 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(6): WCMP_Vendor_Verification_Auth->vendor_auth_requests()
+#3 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification.php(82): WCMP_Vendor_Verification_Auth->__construct()
+#4 [internal function]: WCMP_Vendor_Verification->init('')
+#5 /var/www/html/wp-includes/class-wp-hook.php(298): call_user_func_array(Array, Array)
+#6 /var/www/html/wp-includes/class-wp-hook.php(323): WP_Hook->apply_filters('', Array)
+#7 /var/w
+
+2017-12-04T19:54:29+00:00 CRITICAL Uncaught exception 'Hybrid_Exception' with message 'You cannot access this page directly.' in /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php:122
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php(52): Hybrid_Endpoint::processAuthStart()
+#1 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(89): Hybrid_Endpoint::process()
+#2 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(6): WCMP_Vendor_Verification_Auth->vendor_auth_requests()
+#3 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification.php(82): WCMP_Vendor_Verification_Auth->__construct()
+#4 [internal function]: WCMP_Vendor_Verification->init('')
+#5 /var/www/html/wp-includes/class-wp-hook.php(298): call_user_func_array(Array, Array)
+#6 /var/www/html/wp-includes/class-wp-hook.php(323): WP_Hook->apply_filters('', Array)
+#7 /var/w
+
+2017-12-04T19:54:36+00:00 CRITICAL Uncaught exception 'Hybrid_Exception' with message 'You cannot access this page directly.' in /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php:122
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php(52): Hybrid_Endpoint::processAuthStart()
+#1 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(89): Hybrid_Endpoint::process()
+#2 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(6): WCMP_Vendor_Verification_Auth->vendor_auth_requests()
+#3 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification.php(82): WCMP_Vendor_Verification_Auth->__construct()
+#4 [internal function]: WCMP_Vendor_Verification->init('')
+#5 /var/www/html/wp-includes/class-wp-hook.php(298): call_user_func_array(Array, Array)
+#6 /var/www/html/wp-includes/class-wp-hook.php(323): WP_Hook->apply_filters('', Array)
+#7 /var/w
+
+2017-12-04T19:54:45+00:00 CRITICAL Uncaught exception 'Hybrid_Exception' with message 'You cannot access this page directly.' in /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php:122
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php(52): Hybrid_Endpoint::processAuthStart()
+#1 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(89): Hybrid_Endpoint::process()
+#2 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(6): WCMP_Vendor_Verification_Auth->vendor_auth_requests()
+#3 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification.php(82): WCMP_Vendor_Verification_Auth->__construct()
+#4 [internal function]: WCMP_Vendor_Verification->init('')
+#5 /var/www/html/wp-includes/class-wp-hook.php(298): call_user_func_array(Array, Array)
+#6 /var/www/html/wp-includes/class-wp-hook.php(323): WP_Hook->apply_filters('', Array)
+#7 /var/w
+
+2017-12-05T01:25:35+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-05T02:25:25+05:30 CRITICAL Allowed memory size of 268435456 bytes exhausted (tried to allocate 72 bytes)
+
+2017-12-05T03:26:02+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-05T04:26:55+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-05T05:26:51+05:30 CRITICAL Allowed memory size of 268435456 bytes exhausted (tried to allocate 32 bytes)
+
+2017-12-05T06:27:39+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-05T07:25:40+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-05T02:55:31+00:00 CRITICAL Uncaught exception 'Hybrid_Exception' with message 'Oophs. Error!' in /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php:212
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php(114): Hybrid_Endpoint::authInit()
+#1 /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php(52): Hybrid_Endpoint::processAuthStart()
+#2 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(89): Hybrid_Endpoint::process()
+#3 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(6): WCMP_Vendor_Verification_Auth->vendor_auth_requests()
+#4 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification.php(82): WCMP_Vendor_Verification_Auth->__construct()
+#5 [internal function]: WCMP_Vendor_Verification->init('')
+#6 /var/www/html/wp-includes/class-wp-hook.php(298): call_user_func_array(Array, Array)
+#
+
+2017-12-05T08:25:35+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-05T02:56:08+00:00 CRITICAL Uncaught exception 'Hybrid_Exception' with message 'Oophs. Error!' in /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php:212
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php(114): Hybrid_Endpoint::authInit()
+#1 /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php(52): Hybrid_Endpoint::processAuthStart()
+#2 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(89): Hybrid_Endpoint::process()
+#3 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(6): WCMP_Vendor_Verification_Auth->vendor_auth_requests()
+#4 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification.php(82): WCMP_Vendor_Verification_Auth->__construct()
+#5 [internal function]: WCMP_Vendor_Verification->init('')
+#6 /var/www/html/wp-includes/class-wp-hook.php(298): call_user_func_array(Array, Array)
+#
+
+2017-12-05T02:56:13+00:00 CRITICAL Uncaught exception 'Hybrid_Exception' with message 'You cannot access this page directly.' in /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php:122
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php(52): Hybrid_Endpoint::processAuthStart()
+#1 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(89): Hybrid_Endpoint::process()
+#2 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(6): WCMP_Vendor_Verification_Auth->vendor_auth_requests()
+#3 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification.php(82): WCMP_Vendor_Verification_Auth->__construct()
+#4 [internal function]: WCMP_Vendor_Verification->init('')
+#5 /var/www/html/wp-includes/class-wp-hook.php(298): call_user_func_array(Array, Array)
+#6 /var/www/html/wp-includes/class-wp-hook.php(323): WP_Hook->apply_filters('', Array)
+#7 /var/w
+
+2017-12-05T02:56:20+00:00 CRITICAL Uncaught exception 'Hybrid_Exception' with message 'You cannot access this page directly.' in /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php:122
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php(52): Hybrid_Endpoint::processAuthStart()
+#1 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(89): Hybrid_Endpoint::process()
+#2 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(6): WCMP_Vendor_Verification_Auth->vendor_auth_requests()
+#3 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification.php(82): WCMP_Vendor_Verification_Auth->__construct()
+#4 [internal function]: WCMP_Vendor_Verification->init('')
+#5 /var/www/html/wp-includes/class-wp-hook.php(298): call_user_func_array(Array, Array)
+#6 /var/www/html/wp-includes/class-wp-hook.php(323): WP_Hook->apply_filters('', Array)
+#7 /var/w
+
+2017-12-05T03:01:42+00:00 CRITICAL Uncaught exception 'Hybrid_Exception' with message 'You cannot access this page directly.' in /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php:122
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php(52): Hybrid_Endpoint::processAuthStart()
+#1 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(89): Hybrid_Endpoint::process()
+#2 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(6): WCMP_Vendor_Verification_Auth->vendor_auth_requests()
+#3 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification.php(82): WCMP_Vendor_Verification_Auth->__construct()
+#4 [internal function]: WCMP_Vendor_Verification->init('')
+#5 /var/www/html/wp-includes/class-wp-hook.php(298): call_user_func_array(Array, Array)
+#6 /var/www/html/wp-includes/class-wp-hook.php(323): WP_Hook->apply_filters('', Array)
+#7 /var/w
+
+2017-12-05T09:28:47+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-05T10:26:00+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-05T11:26:52+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-05T12:27:03+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-05T13:25:19+05:30 CRITICAL Allowed memory size of 268435456 bytes exhausted (tried to allocate 72 bytes)
+
+2017-12-05T14:25:30+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-05T15:25:15+05:30 CRITICAL Allowed memory size of 268435456 bytes exhausted (tried to allocate 72 bytes)
+
+2017-12-05T16:25:54+05:30 CRITICAL Allowed memory size of 268435456 bytes exhausted (tried to allocate 72 bytes)
+
+2017-12-05T17:25:56+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-05T18:25:53+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-05T19:25:55+05:30 CRITICAL Allowed memory size of 268435456 bytes exhausted (tried to allocate 2202905 bytes)
+
+2017-12-06T01:17:08+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-06T05:24:28+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-06T16:05:23+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-06T16:27:53+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-06T20:34:24+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-06T22:30:34+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-06T17:22:07+00:00 CRITICAL Uncaught exception 'Hybrid_Exception' with message 'Oophs. Error!' in /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php:212
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php(155): Hybrid_Endpoint::authInit()
+#1 /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php(56): Hybrid_Endpoint::processAuthDone()
+#2 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(94): Hybrid_Endpoint::process()
+#3 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(6): WCMP_Vendor_Verification_Auth->vendor_auth_requests()
+#4 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification.php(82): WCMP_Vendor_Verification_Auth->__construct()
+#5 [internal function]: WCMP_Vendor_Verification->init('')
+#6 /var/www/html/wp-includes/class-wp-hook.php(298): call_user_func_array(Array, Array)
+#7
+
+2017-12-06T17:22:37+00:00 CRITICAL Uncaught exception 'Hybrid_Exception' with message 'You cannot access this page directly.' in /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php:122
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php(52): Hybrid_Endpoint::processAuthStart()
+#1 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(89): Hybrid_Endpoint::process()
+#2 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(6): WCMP_Vendor_Verification_Auth->vendor_auth_requests()
+#3 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification.php(82): WCMP_Vendor_Verification_Auth->__construct()
+#4 [internal function]: WCMP_Vendor_Verification->init('')
+#5 /var/www/html/wp-includes/class-wp-hook.php(298): call_user_func_array(Array, Array)
+#6 /var/www/html/wp-includes/class-wp-hook.php(323): WP_Hook->apply_filters('', Array)
+#7 /var/w
+
+2017-12-06T19:18:35+00:00 CRITICAL Uncaught exception 'Hybrid_Exception' with message 'Oophs. Error!' in /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php:212
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php(114): Hybrid_Endpoint::authInit()
+#1 /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php(52): Hybrid_Endpoint::processAuthStart()
+#2 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(89): Hybrid_Endpoint::process()
+#3 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(6): WCMP_Vendor_Verification_Auth->vendor_auth_requests()
+#4 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification.php(82): WCMP_Vendor_Verification_Auth->__construct()
+#5 [internal function]: WCMP_Vendor_Verification->init('')
+#6 /var/www/html/wp-includes/class-wp-hook.php(298): call_user_func_array(Array, Array)
+#
+
+2017-12-06T19:19:00+00:00 CRITICAL Uncaught exception 'Hybrid_Exception' with message 'Oophs. Error!' in /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php:212
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php(114): Hybrid_Endpoint::authInit()
+#1 /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php(52): Hybrid_Endpoint::processAuthStart()
+#2 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(89): Hybrid_Endpoint::process()
+#3 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(6): WCMP_Vendor_Verification_Auth->vendor_auth_requests()
+#4 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification.php(82): WCMP_Vendor_Verification_Auth->__construct()
+#5 [internal function]: WCMP_Vendor_Verification->init('')
+#6 /var/www/html/wp-includes/class-wp-hook.php(298): call_user_func_array(Array, Array)
+#
+
+2017-12-06T19:19:40+00:00 CRITICAL Uncaught exception 'Hybrid_Exception' with message 'You cannot access this page directly.' in /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php:122
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php(52): Hybrid_Endpoint::processAuthStart()
+#1 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(89): Hybrid_Endpoint::process()
+#2 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(6): WCMP_Vendor_Verification_Auth->vendor_auth_requests()
+#3 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification.php(82): WCMP_Vendor_Verification_Auth->__construct()
+#4 [internal function]: WCMP_Vendor_Verification->init('')
+#5 /var/www/html/wp-includes/class-wp-hook.php(298): call_user_func_array(Array, Array)
+#6 /var/www/html/wp-includes/class-wp-hook.php(323): WP_Hook->apply_filters('', Array)
+#7 /var/w
+
+2017-12-06T19:20:43+00:00 CRITICAL Uncaught exception 'Hybrid_Exception' with message 'You cannot access this page directly.' in /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php:122
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php(52): Hybrid_Endpoint::processAuthStart()
+#1 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(89): Hybrid_Endpoint::process()
+#2 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(6): WCMP_Vendor_Verification_Auth->vendor_auth_requests()
+#3 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification.php(82): WCMP_Vendor_Verification_Auth->__construct()
+#4 [internal function]: WCMP_Vendor_Verification->init('')
+#5 /var/www/html/wp-includes/class-wp-hook.php(298): call_user_func_array(Array, Array)
+#6 /var/www/html/wp-includes/class-wp-hook.php(323): WP_Hook->apply_filters('', Array)
+#7 /var/w
+
+2017-12-06T19:21:51+00:00 CRITICAL Uncaught exception 'Hybrid_Exception' with message 'You cannot access this page directly.' in /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php:122
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php(52): Hybrid_Endpoint::processAuthStart()
+#1 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(89): Hybrid_Endpoint::process()
+#2 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(6): WCMP_Vendor_Verification_Auth->vendor_auth_requests()
+#3 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification.php(82): WCMP_Vendor_Verification_Auth->__construct()
+#4 [internal function]: WCMP_Vendor_Verification->init('')
+#5 /var/www/html/wp-includes/class-wp-hook.php(298): call_user_func_array(Array, Array)
+#6 /var/www/html/wp-includes/class-wp-hook.php(323): WP_Hook->apply_filters('', Array)
+#7 /var/w
+
+2017-12-06T19:34:35+00:00 CRITICAL Uncaught exception 'Hybrid_Exception' with message 'You cannot access this page directly.' in /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php:122
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php(52): Hybrid_Endpoint::processAuthStart()
+#1 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(89): Hybrid_Endpoint::process()
+#2 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(6): WCMP_Vendor_Verification_Auth->vendor_auth_requests()
+#3 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification.php(82): WCMP_Vendor_Verification_Auth->__construct()
+#4 [internal function]: WCMP_Vendor_Verification->init('')
+#5 /var/www/html/wp-includes/class-wp-hook.php(298): call_user_func_array(Array, Array)
+#6 /var/www/html/wp-includes/class-wp-hook.php(323): WP_Hook->apply_filters('', Array)
+#7 /var/w
+
+2017-12-06T19:39:16+00:00 CRITICAL Uncaught exception 'Hybrid_Exception' with message 'You cannot access this page directly.' in /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php:122
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php(52): Hybrid_Endpoint::processAuthStart()
+#1 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(89): Hybrid_Endpoint::process()
+#2 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(6): WCMP_Vendor_Verification_Auth->vendor_auth_requests()
+#3 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification.php(82): WCMP_Vendor_Verification_Auth->__construct()
+#4 [internal function]: WCMP_Vendor_Verification->init('')
+#5 /var/www/html/wp-includes/class-wp-hook.php(298): call_user_func_array(Array, Array)
+#6 /var/www/html/wp-includes/class-wp-hook.php(323): WP_Hook->apply_filters('', Array)
+#7 /var/w
+
+2017-12-06T19:40:26+00:00 CRITICAL Uncaught exception 'Hybrid_Exception' with message 'You cannot access this page directly.' in /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php:122
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php(52): Hybrid_Endpoint::processAuthStart()
+#1 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(89): Hybrid_Endpoint::process()
+#2 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(6): WCMP_Vendor_Verification_Auth->vendor_auth_requests()
+#3 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification.php(82): WCMP_Vendor_Verification_Auth->__construct()
+#4 [internal function]: WCMP_Vendor_Verification->init('')
+#5 /var/www/html/wp-includes/class-wp-hook.php(298): call_user_func_array(Array, Array)
+#6 /var/www/html/wp-includes/class-wp-hook.php(323): WP_Hook->apply_filters('', Array)
+#7 /var/w
+
+2017-12-06T19:42:00+00:00 CRITICAL Uncaught exception 'Hybrid_Exception' with message 'You cannot access this page directly.' in /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php:122
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php(52): Hybrid_Endpoint::processAuthStart()
+#1 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(89): Hybrid_Endpoint::process()
+#2 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(6): WCMP_Vendor_Verification_Auth->vendor_auth_requests()
+#3 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification.php(82): WCMP_Vendor_Verification_Auth->__construct()
+#4 [internal function]: WCMP_Vendor_Verification->init('')
+#5 /var/www/html/wp-includes/class-wp-hook.php(298): call_user_func_array(Array, Array)
+#6 /var/www/html/wp-includes/class-wp-hook.php(323): WP_Hook->apply_filters('', Array)
+#7 /var/w
+
+2017-12-06T19:42:58+00:00 CRITICAL Uncaught exception 'Hybrid_Exception' with message 'You cannot access this page directly.' in /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php:122
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php(52): Hybrid_Endpoint::processAuthStart()
+#1 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(89): Hybrid_Endpoint::process()
+#2 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(6): WCMP_Vendor_Verification_Auth->vendor_auth_requests()
+#3 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification.php(82): WCMP_Vendor_Verification_Auth->__construct()
+#4 [internal function]: WCMP_Vendor_Verification->init('')
+#5 /var/www/html/wp-includes/class-wp-hook.php(298): call_user_func_array(Array, Array)
+#6 /var/www/html/wp-includes/class-wp-hook.php(323): WP_Hook->apply_filters('', Array)
+#7 /var/w
+
+2017-12-06T19:45:22+00:00 CRITICAL Uncaught exception 'Hybrid_Exception' with message 'You cannot access this page directly.' in /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php:122
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php(52): Hybrid_Endpoint::processAuthStart()
+#1 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(89): Hybrid_Endpoint::process()
+#2 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(6): WCMP_Vendor_Verification_Auth->vendor_auth_requests()
+#3 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification.php(82): WCMP_Vendor_Verification_Auth->__construct()
+#4 [internal function]: WCMP_Vendor_Verification->init('')
+#5 /var/www/html/wp-includes/class-wp-hook.php(298): call_user_func_array(Array, Array)
+#6 /var/www/html/wp-includes/class-wp-hook.php(323): WP_Hook->apply_filters('', Array)
+#7 /var/w
+
+2017-12-06T20:01:13+00:00 CRITICAL Uncaught exception 'Hybrid_Exception' with message 'You cannot access this page directly.' in /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php:122
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php(52): Hybrid_Endpoint::processAuthStart()
+#1 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(89): Hybrid_Endpoint::process()
+#2 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(6): WCMP_Vendor_Verification_Auth->vendor_auth_requests()
+#3 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification.php(82): WCMP_Vendor_Verification_Auth->__construct()
+#4 [internal function]: WCMP_Vendor_Verification->init('')
+#5 /var/www/html/wp-includes/class-wp-hook.php(298): call_user_func_array(Array, Array)
+#6 /var/www/html/wp-includes/class-wp-hook.php(323): WP_Hook->apply_filters('', Array)
+#7 /var/w
+
+2017-12-06T20:01:21+00:00 CRITICAL Uncaught exception 'Hybrid_Exception' with message 'You cannot access this page directly.' in /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php:122
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php(52): Hybrid_Endpoint::processAuthStart()
+#1 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(89): Hybrid_Endpoint::process()
+#2 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(6): WCMP_Vendor_Verification_Auth->vendor_auth_requests()
+#3 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification.php(82): WCMP_Vendor_Verification_Auth->__construct()
+#4 [internal function]: WCMP_Vendor_Verification->init('')
+#5 /var/www/html/wp-includes/class-wp-hook.php(298): call_user_func_array(Array, Array)
+#6 /var/www/html/wp-includes/class-wp-hook.php(323): WP_Hook->apply_filters('', Array)
+#7 /var/w
+
+2017-12-06T20:03:02+00:00 CRITICAL Uncaught exception 'Exception' with message 'The provider 'Facebook' is not enabled.' in /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Provider_Adapter.php:80
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Auth.php(273): Hybrid_Provider_Adapter->factory('Facebook', Array)
+#1 /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php(159): Hybrid_Auth::setup('Facebook')
+#2 /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php(56): Hybrid_Endpoint::processAuthDone()
+#3 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(94): Hybrid_Endpoint::process()
+#4 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(6): WCMP_Vendor_Verification_Auth->vendor_auth_requests()
+#5 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification.php(82): WCMP_Vendor_Verification_A
+
+2017-12-06T20:05:49+00:00 CRITICAL Uncaught exception 'Hybrid_Exception' with message 'You cannot access this page directly.' in /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php:122
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php(52): Hybrid_Endpoint::processAuthStart()
+#1 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(89): Hybrid_Endpoint::process()
+#2 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(6): WCMP_Vendor_Verification_Auth->vendor_auth_requests()
+#3 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification.php(82): WCMP_Vendor_Verification_Auth->__construct()
+#4 [internal function]: WCMP_Vendor_Verification->init('')
+#5 /var/www/html/wp-includes/class-wp-hook.php(298): call_user_func_array(Array, Array)
+#6 /var/www/html/wp-includes/class-wp-hook.php(323): WP_Hook->apply_filters('', Array)
+#7 /var/w
+
+2017-12-06T20:08:42+00:00 CRITICAL Uncaught exception 'Hybrid_Exception' with message 'You cannot access this page directly.' in /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php:122
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php(52): Hybrid_Endpoint::processAuthStart()
+#1 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(89): Hybrid_Endpoint::process()
+#2 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(6): WCMP_Vendor_Verification_Auth->vendor_auth_requests()
+#3 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification.php(82): WCMP_Vendor_Verification_Auth->__construct()
+#4 [internal function]: WCMP_Vendor_Verification->init('')
+#5 /var/www/html/wp-includes/class-wp-hook.php(298): call_user_func_array(Array, Array)
+#6 /var/www/html/wp-includes/class-wp-hook.php(323): WP_Hook->apply_filters('', Array)
+#7 /var/w
+
+2017-12-06T20:15:28+00:00 CRITICAL Uncaught exception 'Exception' with message 'Authentication failed! Twitter returned an error. 401 Unauthorized.' in /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Auth.php:153
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Auth.php(39): Hybrid_Auth::initialize(Array)
+#1 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(85): Hybrid_Auth->__construct(Array)
+#2 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(6): WCMP_Vendor_Verification_Auth->vendor_auth_requests()
+#3 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification.php(82): WCMP_Vendor_Verification_Auth->__construct()
+#4 [internal function]: WCMP_Vendor_Verification->init('')
+#5 /var/www/html/wp-includes/class-wp-hook.php(298): call_user_func_array(Array, Array)
+#6 /var/www/html/wp-includes/class-wp-hook.php(323): WP_Hook->apply_filters('', A
+
+2017-12-06T20:25:35+00:00 CRITICAL Uncaught exception 'Exception' with message 'Authentication failed! Twitter returned an error. 401 Unauthorized.' in /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Auth.php:153
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Auth.php(39): Hybrid_Auth::initialize(Array)
+#1 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(85): Hybrid_Auth->__construct(Array)
+#2 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(6): WCMP_Vendor_Verification_Auth->vendor_auth_requests()
+#3 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification.php(82): WCMP_Vendor_Verification_Auth->__construct()
+#4 [internal function]: WCMP_Vendor_Verification->init('')
+#5 /var/www/html/wp-includes/class-wp-hook.php(298): call_user_func_array(Array, Array)
+#6 /var/www/html/wp-includes/class-wp-hook.php(323): WP_Hook->apply_filters('', A
+
+2017-12-06T20:25:58+00:00 CRITICAL Uncaught exception 'Hybrid_Exception' with message 'You cannot access this page directly.' in /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php:122
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php(52): Hybrid_Endpoint::processAuthStart()
+#1 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(89): Hybrid_Endpoint::process()
+#2 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(6): WCMP_Vendor_Verification_Auth->vendor_auth_requests()
+#3 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification.php(82): WCMP_Vendor_Verification_Auth->__construct()
+#4 [internal function]: WCMP_Vendor_Verification->init('')
+#5 /var/www/html/wp-includes/class-wp-hook.php(298): call_user_func_array(Array, Array)
+#6 /var/www/html/wp-includes/class-wp-hook.php(323): WP_Hook->apply_filters('', Array)
+#7 /var/w
+
+2017-12-06T20:26:03+00:00 CRITICAL Uncaught exception 'Exception' with message 'Authentication failed! Twitter returned an error. 401 Unauthorized.' in /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Auth.php:153
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Auth.php(39): Hybrid_Auth::initialize(Array)
+#1 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(85): Hybrid_Auth->__construct(Array)
+#2 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(6): WCMP_Vendor_Verification_Auth->vendor_auth_requests()
+#3 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification.php(82): WCMP_Vendor_Verification_Auth->__construct()
+#4 [internal function]: WCMP_Vendor_Verification->init('')
+#5 /var/www/html/wp-includes/class-wp-hook.php(298): call_user_func_array(Array, Array)
+#6 /var/www/html/wp-includes/class-wp-hook.php(323): WP_Hook->apply_filters('', A
+
+2017-12-06T20:29:19+00:00 CRITICAL Uncaught exception 'Hybrid_Exception' with message 'You cannot access this page directly.' in /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php:122
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php(52): Hybrid_Endpoint::processAuthStart()
+#1 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(89): Hybrid_Endpoint::process()
+#2 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(6): WCMP_Vendor_Verification_Auth->vendor_auth_requests()
+#3 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification.php(82): WCMP_Vendor_Verification_Auth->__construct()
+#4 [internal function]: WCMP_Vendor_Verification->init('')
+#5 /var/www/html/wp-includes/class-wp-hook.php(298): call_user_func_array(Array, Array)
+#6 /var/www/html/wp-includes/class-wp-hook.php(323): WP_Hook->apply_filters('', Array)
+#7 /var/w
+
+2017-12-06T20:33:32+00:00 CRITICAL Uncaught exception 'Exception' with message 'LinkedIn->retrieveTokenAccess(): bad data passed, string type is required for $token, $secret and $verifier.' in /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Auth.php:153
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Auth.php(39): Hybrid_Auth::initialize(Array)
+#1 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(85): Hybrid_Auth->__construct(Array)
+#2 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(6): WCMP_Vendor_Verification_Auth->vendor_auth_requests()
+#3 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification.php(82): WCMP_Vendor_Verification_Auth->__construct()
+#4 [internal function]: WCMP_Vendor_Verification->init('')
+#5 /var/www/html/wp-includes/class-wp-hook.php(298): call_user_func_array(Array, Array)
+#6 /var/www/html/wp-includes/class-wp-ho
+
+2017-12-06T20:42:46+00:00 CRITICAL Uncaught exception 'Hybrid_Exception' with message 'You cannot access this page directly.' in /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php:122
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php(52): Hybrid_Endpoint::processAuthStart()
+#1 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(89): Hybrid_Endpoint::process()
+#2 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(6): WCMP_Vendor_Verification_Auth->vendor_auth_requests()
+#3 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification.php(82): WCMP_Vendor_Verification_Auth->__construct()
+#4 [internal function]: WCMP_Vendor_Verification->init('')
+#5 /var/www/html/wp-includes/class-wp-hook.php(298): call_user_func_array(Array, Array)
+#6 /var/www/html/wp-includes/class-wp-hook.php(323): WP_Hook->apply_filters('', Array)
+#7 /var/w
+
+2017-12-06T20:44:29+00:00 CRITICAL Uncaught exception 'Exception' with message 'Authentication failed! LinkedIn returned an invalid Token.' in /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Auth.php:153
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Auth.php(39): Hybrid_Auth::initialize(Array)
+#1 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(85): Hybrid_Auth->__construct(Array)
+#2 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(6): WCMP_Vendor_Verification_Auth->vendor_auth_requests()
+#3 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification.php(82): WCMP_Vendor_Verification_Auth->__construct()
+#4 [internal function]: WCMP_Vendor_Verification->init('')
+#5 /var/www/html/wp-includes/class-wp-hook.php(298): call_user_func_array(Array, Array)
+#6 /var/www/html/wp-includes/class-wp-hook.php(323): WP_Hook->apply_filters('', Array)
+#7 
+
+2017-12-06T20:44:37+00:00 CRITICAL Uncaught exception 'Hybrid_Exception' with message 'You cannot access this page directly.' in /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php:122
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wcmp-vendor-verification/lib/Hybrid/Endpoint.php(52): Hybrid_Endpoint::processAuthStart()
+#1 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(89): Hybrid_Endpoint::process()
+#2 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification-auth.php(6): WCMP_Vendor_Verification_Auth->vendor_auth_requests()
+#3 /var/www/html/wp-content/plugins/wcmp-vendor-verification/classes/class-wcmp-vendor-verification.php(82): WCMP_Vendor_Verification_Auth->__construct()
+#4 [internal function]: WCMP_Vendor_Verification->init('')
+#5 /var/www/html/wp-includes/class-wp-hook.php(298): call_user_func_array(Array, Array)
+#6 /var/www/html/wp-includes/class-wp-hook.php(323): WP_Hook->apply_filters('', Array)
+#7 /var/w
+
+2017-12-07T12:23:31+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-07T17:02:56+05:30 CRITICAL Uncaught exception 'wfWAFStorageFileException' with message 'Unable to open /var/www/html/wp-content/wflogs/attack-data.php for reading and writing.' in /var/www/html/wp-content/plugins/wordfence/vendor/wordfence/wf-waf/src/lib/storage/file.php:854
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wordfence/vendor/wordfence/wf-waf/src/lib/storage/file.php(1158): wfWAFAttackDataStorageFileEngine->open()
+#1 /var/www/html/wp-content/plugins/wordfence/vendor/wordfence/wf-waf/src/lib/storage/file.php(247): wfWAFAttackDataStorageFileEngine->truncate()
+#2 /var/www/html/wp-content/plugins/wordfence/lib/wordfenceClass.php(7402): wfWAFStorageFile->truncateAttackData()
+#3 [internal function]: wordfence::syncAttackData()
+#4 /var/www/html/wp-includes/class-wp-hook.php(296): call_user_func_array('wordfence::sync...', Array)
+#5 /var/www/html/wp-includes/class-wp-hook.php(323): WP_Hook->apply_filters('', Array)
+#6 /var/www/html/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#7 /var/www/html/wp-settings.php(448): do_ac
+
+2017-12-07T17:11:53+05:30 CRITICAL Uncaught exception 'wfWAFStorageFileException' with message 'Unable to open /var/www/html/wp-content/wflogs/attack-data.php for reading and writing.' in /var/www/html/wp-content/plugins/wordfence/vendor/wordfence/wf-waf/src/lib/storage/file.php:854
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wordfence/vendor/wordfence/wf-waf/src/lib/storage/file.php(1158): wfWAFAttackDataStorageFileEngine->open()
+#1 /var/www/html/wp-content/plugins/wordfence/vendor/wordfence/wf-waf/src/lib/storage/file.php(247): wfWAFAttackDataStorageFileEngine->truncate()
+#2 /var/www/html/wp-content/plugins/wordfence/lib/wordfenceClass.php(7402): wfWAFStorageFile->truncateAttackData()
+#3 [internal function]: wordfence::syncAttackData()
+#4 /var/www/html/wp-includes/class-wp-hook.php(296): call_user_func_array('wordfence::sync...', Array)
+#5 /var/www/html/wp-includes/class-wp-hook.php(323): WP_Hook->apply_filters('', Array)
+#6 /var/www/html/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#7 /var/www/html/wp-settings.php(448): do_ac
+
+2017-12-07T17:17:19+05:30 CRITICAL Uncaught exception 'wfWAFStorageFileException' with message 'Unable to open /var/www/html/wp-content/wflogs/attack-data.php for reading and writing.' in /var/www/html/wp-content/plugins/wordfence/vendor/wordfence/wf-waf/src/lib/storage/file.php:854
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wordfence/vendor/wordfence/wf-waf/src/lib/storage/file.php(1158): wfWAFAttackDataStorageFileEngine->open()
+#1 /var/www/html/wp-content/plugins/wordfence/vendor/wordfence/wf-waf/src/lib/storage/file.php(247): wfWAFAttackDataStorageFileEngine->truncate()
+#2 /var/www/html/wp-content/plugins/wordfence/lib/wordfenceClass.php(7402): wfWAFStorageFile->truncateAttackData()
+#3 [internal function]: wordfence::syncAttackData()
+#4 /var/www/html/wp-includes/class-wp-hook.php(296): call_user_func_array('wordfence::sync...', Array)
+#5 /var/www/html/wp-includes/class-wp-hook.php(323): WP_Hook->apply_filters('', Array)
+#6 /var/www/html/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#7 /var/www/html/wp-settings.php(448): do_ac
+
+2017-12-07T18:37:59+05:30 CRITICAL Uncaught exception 'wfWAFStorageFileException' with message 'Unable to open /var/www/html/wp-content/wflogs/attack-data.php for reading and writing.' in /var/www/html/wp-content/plugins/wordfence/vendor/wordfence/wf-waf/src/lib/storage/file.php:854
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wordfence/vendor/wordfence/wf-waf/src/lib/storage/file.php(1158): wfWAFAttackDataStorageFileEngine->open()
+#1 /var/www/html/wp-content/plugins/wordfence/vendor/wordfence/wf-waf/src/lib/storage/file.php(247): wfWAFAttackDataStorageFileEngine->truncate()
+#2 /var/www/html/wp-content/plugins/wordfence/lib/wordfenceClass.php(7402): wfWAFStorageFile->truncateAttackData()
+#3 [internal function]: wordfence::syncAttackData()
+#4 /var/www/html/wp-includes/class-wp-hook.php(296): call_user_func_array('wordfence::sync...', Array)
+#5 /var/www/html/wp-includes/class-wp-hook.php(323): WP_Hook->apply_filters('', Array)
+#6 /var/www/html/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#7 /var/www/html/wp-settings.php(448): do_ac
+
+2017-12-07T22:27:45+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-07T23:25:38+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-08T00:13:06+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-08T00:27:16+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-08T01:25:32+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-08T02:26:05+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-08T03:26:37+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-08T14:11:55+05:30 CRITICAL Uncaught exception 'wfWAFStorageFileException' with message 'Unable to open /var/www/html/wp-content/wflogs/attack-data.php for reading and writing.' in /var/www/html/wp-content/plugins/wordfence/vendor/wordfence/wf-waf/src/lib/storage/file.php:854
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wordfence/vendor/wordfence/wf-waf/src/lib/storage/file.php(1158): wfWAFAttackDataStorageFileEngine->open()
+#1 /var/www/html/wp-content/plugins/wordfence/vendor/wordfence/wf-waf/src/lib/storage/file.php(247): wfWAFAttackDataStorageFileEngine->truncate()
+#2 /var/www/html/wp-content/plugins/wordfence/lib/wordfenceClass.php(7402): wfWAFStorageFile->truncateAttackData()
+#3 [internal function]: wordfence::syncAttackData()
+#4 /var/www/html/wp-includes/class-wp-hook.php(296): call_user_func_array('wordfence::sync...', Array)
+#5 /var/www/html/wp-includes/class-wp-hook.php(323): WP_Hook->apply_filters('', Array)
+#6 /var/www/html/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#7 /var/www/html/wp-settings.php(448): do_ac
+
+2017-12-08T14:18:47+05:30 CRITICAL Uncaught exception 'wfWAFStorageFileException' with message 'Unable to open /var/www/html/wp-content/wflogs/attack-data.php for reading and writing.' in /var/www/html/wp-content/plugins/wordfence/vendor/wordfence/wf-waf/src/lib/storage/file.php:854
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wordfence/vendor/wordfence/wf-waf/src/lib/storage/file.php(1158): wfWAFAttackDataStorageFileEngine->open()
+#1 /var/www/html/wp-content/plugins/wordfence/vendor/wordfence/wf-waf/src/lib/storage/file.php(247): wfWAFAttackDataStorageFileEngine->truncate()
+#2 /var/www/html/wp-content/plugins/wordfence/lib/wordfenceClass.php(7402): wfWAFStorageFile->truncateAttackData()
+#3 [internal function]: wordfence::syncAttackData()
+#4 /var/www/html/wp-includes/class-wp-hook.php(296): call_user_func_array('wordfence::sync...', Array)
+#5 /var/www/html/wp-includes/class-wp-hook.php(323): WP_Hook->apply_filters('', Array)
+#6 /var/www/html/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#7 /var/www/html/wp-settings.php(448): do_ac
+
+2017-12-08T14:21:52+05:30 CRITICAL Uncaught exception 'wfWAFStorageFileException' with message 'Unable to open /var/www/html/wp-content/wflogs/attack-data.php for reading and writing.' in /var/www/html/wp-content/plugins/wordfence/vendor/wordfence/wf-waf/src/lib/storage/file.php:854
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wordfence/vendor/wordfence/wf-waf/src/lib/storage/file.php(1158): wfWAFAttackDataStorageFileEngine->open()
+#1 /var/www/html/wp-content/plugins/wordfence/vendor/wordfence/wf-waf/src/lib/storage/file.php(247): wfWAFAttackDataStorageFileEngine->truncate()
+#2 /var/www/html/wp-content/plugins/wordfence/lib/wordfenceClass.php(7402): wfWAFStorageFile->truncateAttackData()
+#3 [internal function]: wordfence::syncAttackData()
+#4 /var/www/html/wp-includes/class-wp-hook.php(296): call_user_func_array('wordfence::sync...', Array)
+#5 /var/www/html/wp-includes/class-wp-hook.php(323): WP_Hook->apply_filters('', Array)
+#6 /var/www/html/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#7 /var/www/html/wp-settings.php(448): do_ac
+
+2017-12-08T14:36:27+05:30 CRITICAL Uncaught exception 'wfWAFStorageFileException' with message 'Unable to open /var/www/html/wp-content/wflogs/attack-data.php for reading and writing.' in /var/www/html/wp-content/plugins/wordfence/vendor/wordfence/wf-waf/src/lib/storage/file.php:854
+Stack trace:
+#0 /var/www/html/wp-content/plugins/wordfence/vendor/wordfence/wf-waf/src/lib/storage/file.php(1158): wfWAFAttackDataStorageFileEngine->open()
+#1 /var/www/html/wp-content/plugins/wordfence/vendor/wordfence/wf-waf/src/lib/storage/file.php(247): wfWAFAttackDataStorageFileEngine->truncate()
+#2 /var/www/html/wp-content/plugins/wordfence/lib/wordfenceClass.php(7402): wfWAFStorageFile->truncateAttackData()
+#3 [internal function]: wordfence::syncAttackData()
+#4 /var/www/html/wp-includes/class-wp-hook.php(296): call_user_func_array('wordfence::sync...', Array)
+#5 /var/www/html/wp-includes/class-wp-hook.php(323): WP_Hook->apply_filters('', Array)
+#6 /var/www/html/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#7 /var/www/html/wp-settings.php(448): do_ac
+
+2017-12-08T17:26:32+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-08T18:27:02+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-08T19:27:35+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-08T20:27:31+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-08T21:28:40+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-08T22:25:22+05:30 CRITICAL Allowed memory size of 268435456 bytes exhausted (tried to allocate 32 bytes)
+
+2017-12-08T23:25:55+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-09T00:26:28+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-09T01:26:04+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-09T02:26:33+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-09T03:27:06+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-09T04:27:38+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-09T05:28:10+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-09T06:28:43+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-09T07:26:15+05:30 CRITICAL Allowed memory size of 268435456 bytes exhausted (tried to allocate 72 bytes)
+
+2017-12-09T08:26:01+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-09T09:25:59+05:30 CRITICAL Allowed memory size of 268435456 bytes exhausted (tried to allocate 72 bytes)
+
+2017-12-09T10:26:00+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-09T11:25:28+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-09T12:28:08+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-09T13:27:33+05:30 CRITICAL Allowed memory size of 268435456 bytes exhausted (tried to allocate 72 bytes)
+
+2017-12-09T14:25:32+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-09T15:25:55+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-09T16:26:05+05:30 CRITICAL Allowed memory size of 268435456 bytes exhausted (tried to allocate 16384 bytes)
+
+2017-12-09T17:27:00+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-09T18:27:32+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-09T19:28:08+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-09T20:27:58+05:30 CRITICAL Allowed memory size of 268435456 bytes exhausted (tried to allocate 16384 bytes)
+
+2017-12-09T21:27:51+05:30 CRITICAL Allowed memory size of 268435456 bytes exhausted (tried to allocate 72 bytes)
+
+2017-12-09T21:39:21+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-09T22:25:38+05:30 CRITICAL Allowed memory size of 268435456 bytes exhausted (tried to allocate 72 bytes)
+
+2017-12-09T23:26:10+05:30 CRITICAL Allowed memory size of 268435456 bytes exhausted (tried to allocate 72 bytes)
+
+2017-12-10T00:26:44+05:30 CRITICAL Allowed memory size of 268435456 bytes exhausted (tried to allocate 72 bytes)
+
+2017-12-10T01:27:30+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-10T02:26:23+05:30 CRITICAL Allowed memory size of 268435456 bytes exhausted (tried to allocate 72 bytes)
+
+2017-12-10T03:26:08+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-10T04:25:54+05:30 CRITICAL Allowed memory size of 268435456 bytes exhausted (tried to allocate 72 bytes)
+
+2017-12-10T05:26:04+05:30 CRITICAL Allowed memory size of 268435456 bytes exhausted (tried to allocate 72 bytes)
+
+2017-12-10T06:26:28+05:30 CRITICAL Allowed memory size of 268435456 bytes exhausted (tried to allocate 72 bytes)
+
+2017-12-10T07:26:54+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-10T08:27:26+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-10T09:27:59+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-10T10:28:16+05:30 CRITICAL Allowed memory size of 268435456 bytes exhausted (tried to allocate 2097075 bytes)
+
+2017-12-10T14:49:22+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-10T15:40:48+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-10T23:25:41+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-11T00:28:26+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-11T01:28:56+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-11T07:20:56+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2017-12-11T10:20:19+05:30 CRITICAL Maximum execution time of 30 seconds exceeded
+

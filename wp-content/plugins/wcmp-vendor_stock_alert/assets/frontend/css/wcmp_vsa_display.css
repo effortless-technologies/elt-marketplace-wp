@@ -1,0 +1,35 @@
+.vendor_products_stock_details table td, .vendor_products_stock_details table th{text-align: center;}
+.vendor_products_stock_details tbody td.img a{display: inline-block;}
+.vendor_products_stock_details tbody td.img img{float: left; margin-right: 6px; margin-bottom: 10px;}
+.vendor_products_stock_details .wcmp_table_holder table td.bind_wdth{width: 20%;}
+.vendor_products_stock_details .wcmp_table_holder table td.img span{ padding: 4px; margin-left: 4px;}
+
+.vendor_products_stock_details .wcmp_table table thead tr:first-child td {
+    border-bottom: 1px solid #565656;
+    border-top: 1px solid #9c9c9c;
+    padding: 10px;
+    background: #6c6b6b;
+    color: #fff;
+    font-weight: 700;
+    white-space: nowrap;
+    font-size: 13px;
+}
+.vendor_products_stock_details .wcmp_table table tbody tr td {
+    border-bottom: 1px solid #d3d3d3;
+    color: #2a2a2a;
+    font-weight: 700;
+    font-size: 13px;
+}
+.vendor_products_stock_details .wcmp_table table tbody tr td a{
+    color: #2a2a2a;
+    font-weight: 700;
+    font-size: 13px;
+}
+.vendor_products_stock_details table tbody tr:nth-child(even) td {
+    background: #fff;
+}
+.vendor_products_stock_details table tbody tr:nth-child(odd) td {
+    background: #f7f7f7;
+}
+.vendor_products_stock_details .dataTables_info, .vendor_products_stock_details .dataTables_paginate{ font-size: 13px; }
+.vendor_products_stock_details .dataTables_filter{font-size: 13px;margin-bottom: 8px;}
