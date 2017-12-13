@@ -464,6 +464,8 @@ if ( ! class_exists( 'Featured_Content' ) && 'plugins.php' !== $GLOBALS['pagenow
 	require get_template_directory() . '/inc/featured-content.php';
 }
 
+add_filter( 'wp_calculate_image_srcset_meta', '__return_null' );
+
 /* WordPress 4.1 Improvements for Theme Developers */
 function bm_title_tag() {
    add_theme_support( 'title-tag' );

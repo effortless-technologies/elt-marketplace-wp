@@ -3,14 +3,14 @@
 Plugin Name:	 	WooZone - WooCommerce Amazon Affiliates
 Plugin URI: 		http://codecanyon.net/item/woocommerce-amazon-affiliates-wordpress-plugin/3057503
 Description: 		Choose from over a million products & earn advertising fees from the 1’st internet retailer online! You can earn up to 10% advertising fees from the 1’st trusted e-commerce leader with minimal effort. This plugin allows you to import unlimited number of products directly from Amazon right into your Wordpress WooCommerce Store! EnjoY!
-Version: 			9.0.6.6
+Version: 			9.0.6.9
 Author: 			AA-Team
 Author URI: 		http://codecanyon.net/user/AA-Team/portfolio
 Text Domain: 	    woozone
 */
 ! defined( 'ABSPATH' ) and exit;
 
-define('WOOZONE_VERSION', '9.0.6.6');
+define('WOOZONE_VERSION', '9.0.6.9');
 
 // Derive the current path and load up WooZone
 $plugin_path = dirname(__FILE__) . '/';

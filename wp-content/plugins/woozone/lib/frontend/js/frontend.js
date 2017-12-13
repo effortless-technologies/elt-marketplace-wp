@@ -52,27 +52,28 @@ WooZone = (function ($) {
 	// :: LOAD AMAZON REVIEWS
 	function load_amazon_reviews() {
 		var wrapper = $('body #amzaff-amazon-review-tab');
-
-		var data = {
-			action			: 'WooZone_frontend',
-			sub_action		: 'load_amazon_reviews',
-			prodid 			: wrapper.data('prodid')
-		};
-		//if (DEBUG) console.log( data );
+		wrapper.each(function(){
+			var data = {
+				action			: 'WooZone_frontend',
+				sub_action		: 'load_amazon_reviews',
+				prodid 			: wrapper.data('prodid')
+			};
+			//if (DEBUG) console.log( data );
+				
+			//loading( 'show', lang.saving );
 			
-		//loading( 'show', lang.saving );
-
-		$.post(ajaxurl, data, function(response) {
-			if ( misc.hasOwnProperty(response, 'status') ) {
-				if ( 'valid' == response.status ) {
-					wrapper.html( response.html );
+			$.post(ajaxurl, data, function(response) {
+				if ( misc.hasOwnProperty(response, 'status') ) {
+					if ( 'valid' == response.status ) {
+						wrapper.html( response.html );
+					}
 				}
-			}
-			//loading( 'close' );
-		}, 'json')
-		.fail(function() {})
-		.done(function() {})
-		.always(function() {});
+				//loading( 'close' );
+			}, 'json')
+			.fail(function() {})
+			.done(function() {})
+			.always(function() {});
+		});
 	}
 
 

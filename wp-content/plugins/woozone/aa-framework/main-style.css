@@ -7801,6 +7801,26 @@ span.WooZone-edit-inline {
   .WooZone-amazon-recommendations .button {
     color: #fff !important; }
 
+.WooZone-translation-wrapper {
+  overflow: hidden; }
+  .WooZone-translation-wrapper .row {
+    padding: 10px 10px 20px 10px; }
+  .WooZone-translation-wrapper .row:hover {
+    background: #f5f5f5; }
+  .WooZone-translation-wrapper div {
+    position: relative; }
+  .WooZone-translation-wrapper div span {
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 11px;
+    text-transform: uppercase;
+    display: block;
+    padding-bottom: 3px; }
+  .WooZone-translation-wrapper i.dashicons {
+    position: absolute;
+    bottom: 11px;
+    right: -9px; }
+
 body .WooZone-amazon-recommendations-results {
   margin-top: 20px;
   /* Extra Large devices (extra large desktops, px(1700) and down) */ }
@@ -9221,4 +9241,4 @@ body.WooZoneSwal2-shown {
     transform: rotate(360deg); } }
 
 
-/*** Compile time: 2.9615411758423 */
+/*** Compile time: 1.2144258022308 */

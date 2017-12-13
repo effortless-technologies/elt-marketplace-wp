@@ -1,6 +1,18 @@
 # Change Log
 All notable changes to this project will be documented here.
 
+##  [9.0.6.9] 08.12.2017
+- fixed an issue with cross sell option when deactivated it still showed the shortcode inside product content
+- fixed an issue with the submenu links
+
+## [9.0.6.8] - 16.11.2017
+- issue fixed with subcategories not displaying on insane import
+- added new strings in string tranlsation tab
+
+## [9.0.6.7] - 14.11.2017
+- fixed the issue: amazon reviews ajax was executing on every page instead of product details page
+- internally changed the way we retrieve amazon categories & their properties (sort values, search parameters): we have a new table which replaced the csv files used in previous plugin versions (updated browsenodes - categories and subcategories)
+
 ## [9.0.6.6] - 02.11.2017
 - fixed the issue: sweetalert css overriding WP-Rocket styles causing the WP-Rocket settings page to be innaccessible
 - fixed the issue: External products (other than Amazon) buttons dissappeared on product details page.

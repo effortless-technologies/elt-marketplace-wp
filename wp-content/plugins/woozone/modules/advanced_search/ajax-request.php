@@ -14,7 +14,8 @@ function WooZoneCategParameters() {
 	$html = array();
 	$request = array(
 		'categ' => isset($_REQUEST['categ']) ? $_REQUEST['categ'] : '',
-		'nodeid' => isset($_REQUEST['nodeid']) ? $_REQUEST['nodeid'] : ''
+		'nodeid' => isset($_REQUEST['nodeid']) ? $_REQUEST['nodeid'] : '',
+		'categ_nicename' => isset($_REQUEST['categ_nicename']) ? $_REQUEST['categ_nicename'] : '',
 	);
 
 	$sort = array();
@@ -49,7 +50,7 @@ function WooZoneCategParameters() {
 	$sort['-age-min'] = "Age: high to low";
 
 	// print the title
-	$html[] = '<h2>' . ( $request['categ'] ) . ' Search</h2>';
+	$html[] = '<h2>' . ( ! empty($request['categ_nicename']) ? $request['categ_nicename'] : $request['categ'] ) . ' Search</h2>';
 
 	// store categ into input, use in search FORM
 	$html[] = '<input type="hidden" name="WooZoneParameter[categ]" value="' . ( $request['categ'] ) . '" />';

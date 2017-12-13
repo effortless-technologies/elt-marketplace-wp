@@ -58,7 +58,7 @@ if(class_exists('aaInterfaceTemplates') != true) {
 					
 					$box_id = $alias . "_" . $box_id;
 					$settings = array();
-					
+
 					// get the values from DB
 					$dbValues = get_option($box_id);
  
@@ -141,7 +141,6 @@ if(class_exists('aaInterfaceTemplates') != true) {
 							$select_value = '';
 							$checked = '';
 							$option_name = isset($option_name) ? $option_name : '';
-							
 							// Set default value to $val
 							if ( isset( $value['std']) ) {
 								$val = $value['std'];
@@ -204,6 +203,31 @@ if(class_exists('aaInterfaceTemplates') != true) {
 								case 'checkbox':
 									$html[] = '<input ' . ( isset($value['force_width']) ? "style='width:" . ( $value['force_width'] ) . "px;'" : '' ) . ' ' . ( $val == true ? 'checked' : '' ). ' id="' . esc_attr( $elm_id ) . '" name="' . esc_attr( $option_name . $elm_id ) . '" type="checkbox" value="" />';
 									
+									break;
+
+								case 'translation':
+
+									$html[] = '<div class="' . ( WooZone()->alias ) . '-translation-wrapper">';
+
+									if( count($value['options']) ){
+										$cc = 0;
+										foreach ( $value['options'] as $orig_word => $translation ) {
+											$html[] = 	'<div class="row">';
+											$html[] = 		'<div class="col-lg-6">';
+											$html[] = 			'<span>Original Expresion:</span> <input readonly type="text" value="' . ( $orig_word ) . '" />';
+											$html[] = 			'<i class="dashicons dashicons-arrow-right-alt"></i>';
+											$html[] = 		'</div>';
+											$html[] = 		'<div class="col-lg-6">';
+											$html[] = 			'<span>Translated Expresion:</span> <input id="' . esc_attr( $elm_id ) . '" name="' . esc_attr( $option_name . $elm_id ) . '[]" type="text" value="' . ( $translation ) . '" />';
+											$html[] = 		'</div>';
+											$html[] = 	'</div>';
+
+											$cc++;
+										}
+									}
+									$html[] = '</div>';
+
+
 									break;
 								
 								// Basic upload_image

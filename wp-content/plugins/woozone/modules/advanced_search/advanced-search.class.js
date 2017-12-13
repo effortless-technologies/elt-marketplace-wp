@@ -56,6 +56,7 @@ WooZoneAdvancedSearch = (function ($) {
 			'action' 		: 'WooZoneCategParameters',
 			'categ'			: that.data('categ'),
 			'nodeid'		: that.data('nodeid'),
+			'categ_nicename': that.data('categ_nicename'),
 			'debug_level'	: debug_level
 		}, function(response) {
 			if( response.status == 'valid' ){

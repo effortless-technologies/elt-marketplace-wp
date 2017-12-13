@@ -122,15 +122,25 @@ if (class_exists('WooZoneAdvancedSearch') != true) {
 		
 			<table class="col1">
 				<ul class="WooZone-categories-list">
-					<li class="on"><a href="#All" data-categ="All" data-nodeid="All"><?php _e('All', $this->the_plugin->localizationName);?></a></li>
+					<?php /*<li class="on"><a href="#All" data-categ="All" data-nodeid="All" data-categ_nicename="All"><?php _e('All', $this->the_plugin->localizationName);?></a></li>*/ ?>
 					<?php 
 					$categs = $this->the_plugin->amzHelper->getAmazonCategs();
 					if( count($categs) > 0 ){
+						$ii = 0;
 						foreach ($categs as $key => $value){
+
+							$css_ = ! $ii ? ' class="on"' : '';
+							if ( 'AllCategories' == $key ) {
+								$key = 'All';
+							}
+
+							$nodeid = $value['browseNode'];
+							$categ_name = $value['department']; //preg_replace('/([A-Z])/', ' $1', $key)
 					?>
-							<li><a href="#<?php echo $key;?>" data-categ="<?php echo $key;?>" data-nodeid="<?php echo $value;?>"><?php echo preg_replace('/([A-Z])/', ' $1', $key);?></a></li>
+							<li<?php echo $css_; ?>><a href="#<?php echo $key;?>" data-categ="<?php echo $key;?>" data-nodeid="<?php echo $nodeid;?>" data-categ_nicename="<?php echo $categ_name;?>"><?php echo $categ_name;?></a></li>
 					<?php
-						}	
+							$ii++;
+						} // end foreach
 					}
 					?>
 				</ul>

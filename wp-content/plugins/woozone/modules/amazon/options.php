@@ -1502,7 +1502,7 @@ echo json_encode(array(
 					'__tab3'	=> array(__('Import SETUP', $WooZone->localizationName), 'price_setup, merchant_setup, product_variation, import_price_zero_products, default_import, import_type, ratio_prod_validate, item_attribute, selected_attributes, attr_title_normalize, cron_number_of_images, number_of_images, rename_image, spin_at_import, spin_max_replacements, create_only_parent_category, variation_force_parent'),
 					'__tab4'	=> array(__('BUG Fixes', $WooZone->localizationName), ''),
 					'__tab5'	=> array(__('DEBUG', $WooZone->localizationName), 'debug_ip'),
-					//'__tab6'	=> array(__('String Translation', $WooZone->localizationName), 'string_trans_as_of, string_trans_amazon_cr'),
+					'__tab6'	=> array(__('String Translation', $WooZone->localizationName), 'string_trans'),
 				),
 			
 			// create the box elements array
@@ -2380,26 +2380,16 @@ Basically, your amazon products will be just like regular woocommerce products w
 					'desc' => 'You need to enter the IPs (separated by comma) for which you want to activate the plugin debug mode.<br/><em>For now debug mode only display the amazon response message for "frequently bought togheter" or "cross sell" frontend box.</em>'
 				),
 				
-				// string translation
-				// 'string_trans_as_of' => array(
-					// 'type' => 'text',
-					// 'std' => 'As Of',
-					// 'size' => 'large',
-					// 'force_width' => '400',
-					// 'title' => 'As Of',
-					// 'desc' => ''
-				// ),
-// 				
-				// 'string_trans_amazon_cr' => array(
-					// 'type' => 'text',
-					// 'std' => 'Amazon Customer Reviews',
-					// 'size' => 'large',
-					// 'force_width' => '400',
-					// 'title' => 'Amazon Customer Reviews',
-					// 'desc' => ''
-				// ),
-				
-				
+
+				'string_trans' => array(
+					'type' => 'translation',
+					'std' => '',
+					'size' => 'large',
+					'force_width' => '160',
+					'title' => 'Strings',
+					'options' => WooZone()->expressions,
+					'desc' => 'Using this option you can translate WooZone strings.'
+				),
 			)
 		)
 	)

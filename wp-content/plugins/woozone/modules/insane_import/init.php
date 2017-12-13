@@ -494,7 +494,7 @@ if (class_exists('WooZoneInsaneImport') != true) {
 							            							<span class="tooltip" title="Choose Category or Custom BrowseNode"><i class="fa fa-sitemap"></i></span>
 			                                                        <select id="WooZone-search-category" name="WooZone-search[category]">
 			                                                            <option value="" disabled="disabled"><?php _e('Category', $this->the_plugin->localizationName);?></option>
-			                                                            <option value="AllCategories" selected="selected" data-nodeid="all"><?php _e('All categories', $this->the_plugin->localizationName);?></option>
+			                                                            <?php /*<option value="AllCategories" selected="selected" data-nodeid="all"><?php _e('All categories', $this->the_plugin->localizationName);?></option>*/ ?>
 			                                                            <?php echo $this->get_categories_html(); ?>
 			                                                        </select>
 							            							<?php /*<input readonly type="text" class="WooZone-select-category-placeholder" value="<?php _e('All categories', $this->the_plugin->localizationName);?>" id="WooZone-search-search_on" name="WooZone-search[search_on]" />
@@ -2846,7 +2846,7 @@ if (class_exists('WooZoneInsaneImport') != true) {
                 }
             }
             extract($requestData);
-
+			
             require('lists.inc.php');
             
             $optionalParameters = self::$optionalParameters["$provider"];
@@ -2885,9 +2885,8 @@ if (class_exists('WooZoneInsaneImport') != true) {
                     ? $WooZone_search_params_desc["$oparam"] : '';
                 $value          = isset($WooZone_search_params["$oparam"])
                     ? $WooZone_search_params["$oparam"] : '';
-                    
+					
                 if ( $oparam == 'BrowseNode' ) {
-                    
                     $value = $this->get_browse_nodes( $nodeid, $provider );
 
                 } else if ( $oparam == 'Sort' ) {
@@ -2927,6 +2926,7 @@ if (class_exists('WooZoneInsaneImport') != true) {
         }
 
         public function get_browse_nodes_html( $retType='die', $pms=array() ) {
+			
             $requestData = array(
                 'what_params'           => array('BrowseNode'),
                 'category'              => isset($_REQUEST['category']) ? $_REQUEST['category'] : '',
@@ -3310,12 +3310,20 @@ if (class_exists('WooZoneInsaneImport') != true) {
             $ret = array();
 			$categs = $this->get_ws_object( $provider )->getAmazonCategs();
             //$categs = array_flip($categs); // fixed so duplicated node ids will not be removed!
-            foreach ($categs as $categ_name => $nodeid) {
+
+            //foreach ($categs as $categ_name => $nodeid) {
+            foreach ($categs as $categ_key => $categ_info) {
+
+            	$nodeid = $categ_info['browseNode'];
+            	$categ_nicename = $categ_info['department'];
+            	$categ_name = $categ_key;
+
                 if ( $retval == 'nice_name' ) {
-                    $__categ_name = $this->the_plugin->category_nice_name($categ_name);
+                    $__categ_name = $categ_nicename; //$this->the_plugin->category_nice_name($categ_name);
                 } else if ( $retval == 'nodeid' ) {
                     $__categ_name = $nodeid;
                 }
+
                 $__key = $retkey == 'name' ? $categ_name : $nodeid;
                 $ret["$__key"] = $__categ_name;
             }
@@ -3357,7 +3365,9 @@ if (class_exists('WooZoneInsaneImport') != true) {
         private function get_browse_nodes( $nodeid, $provider, $option_none=true ) {
             $ret = array();
             $first = false;
+			
             $nodes = $this->the_plugin->getBrowseNodes( $nodeid, $provider );
+			
 			if ( empty($nodes) ) return $ret;
 
             foreach ($nodes as $key => $value){

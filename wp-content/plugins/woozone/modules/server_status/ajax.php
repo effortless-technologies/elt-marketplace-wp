@@ -283,7 +283,7 @@ if (class_exists('WooZoneServerStatusAjax') != true) {
 			
 			if ( 'check_integrity_database' == $action ) {
 
-				$opStatus = $this->the_plugin->plugin_integrity_check( 'check_database', true );
+				$opStatus = $this->the_plugin->plugin_integrity_check( 'all', true );
 				$opStatus_stat = $this->the_plugin->plugin_integrity_get_last_status( 'check_database' );
 				
 				$check_last_msg = '';

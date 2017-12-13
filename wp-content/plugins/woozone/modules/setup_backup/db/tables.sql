@@ -6,12 +6,12 @@
 
 CREATE TABLE IF NOT EXISTS `{wp_prefix}amz_assets` (
 	`id` BIGINT(15) UNSIGNED NOT NULL AUTO_INCREMENT,
-	`post_id` INT(11) NOT NULL,
+	`post_id` BIGINT(20) NOT NULL,
 	`asset` VARCHAR(225) NULL DEFAULT NULL,
 	`thumb` VARCHAR(225) NULL DEFAULT NULL,
 	`download_status` VARCHAR(20) NULL DEFAULT 'new' COMMENT 'new, success, inprogress, error, remote',
 	`hash` VARCHAR(32) NULL DEFAULT NULL,
-	`media_id` INT(11) NULL DEFAULT '0',
+	`media_id` BIGINT(20) NULL DEFAULT '0',
 	`msg` TEXT NULL,
 	`date_added` DATETIME NULL DEFAULT NULL,
 	`date_download` DATETIME NULL DEFAULT NULL,
@@ -31,8 +31,8 @@ CREATE TABLE IF NOT EXISTS `{wp_prefix}amz_assets` (
 
 CREATE TABLE IF NOT EXISTS `{wp_prefix}amz_products` (
 	`id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-	`post_id` INT(11) NOT NULL,
-	`post_parent` INT(11) NULL DEFAULT '0',
+	`post_id` BIGINT(20) NOT NULL,
+	`post_parent` BIGINT(20) NULL DEFAULT '0',
 	`type` ENUM('post','variation') NULL DEFAULT 'post',
 	`title` TEXT NULL,
 	`nb_assets` INT(4) NULL DEFAULT '0',
@@ -140,3 +140,25 @@ CREATE TABLE IF NOT EXISTS `{wp_prefix}amz_search` (
 	INDEX `run_date` (`run_date`),
 	INDEX `nb_tries` (`nb_tries`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `{wp_prefix}amz_locale_reference`
+--
+-- `country` ENUM('BR','CA','CN','DE','ES','FR','IN','IT','JP','MX','UK','US') NOT NULL DEFAULT 'US',
+
+CREATE TABLE IF NOT EXISTS `{wp_prefix}amz_locale_reference` (
+	`ID` INT(10) NOT NULL AUTO_INCREMENT,
+	`country` VARCHAR(3) NOT NULL DEFAULT 'US',
+	`searchIndex` VARCHAR(50) NOT NULL,
+	`department` VARCHAR(100) NOT NULL,
+	`browseNode` BIGINT(20) NOT NULL DEFAULT '0',
+	`sortValues` TEXT NOT NULL,
+	`itemSearchParams` TEXT NOT NULL,
+	PRIMARY KEY (`ID`),
+	UNIQUE INDEX `country_searchIndex` (`country`, `searchIndex`),
+	INDEX `searchIndex` (`searchIndex`),
+	INDEX `department` (`department`),
+	INDEX `browseNode` (`browseNode`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci ;

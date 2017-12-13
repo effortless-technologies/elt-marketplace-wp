@@ -112,9 +112,10 @@ if(class_exists('WooZone') != true) {
 			// timeout to verify if all plugin tables are installed right!
 			'check_integrity'							=> array(
 				// seconds  (86400 seconds = 24 hours)
-				'check_tables'									=> 259200, // 3 days
-				'check_alter_tables'							=> 259200, // 3 days
+				'check_tables'								=> 259200, // 3 days
+				'check_alter_tables'						=> 259200, // 3 days
 				'check_cronjobs_prefix'						=> 86400, // 1 day
+				'check_table_amz_locale_reference' 			=> 86400, // 1 day
 			),
 		);
 
@@ -157,13 +158,28 @@ if(class_exists('WooZone') != true) {
 		
 		public $disable_amazon_checkout = false;
 
-		public $plugin_tables = array('amz_assets', 'amz_cross_sell', 'amz_products', 'amz_queue', 'amz_report_log', 'amz_search');
+		public $plugin_tables = array('amz_assets', 'amz_cross_sell', 'amz_products', 'amz_queue', 'amz_report_log', 'amz_search', 'amz_locale_reference');
 
 		public $page;
 
 		public $updater_dev = null;
 		
 		public $cached_product_terms = array();
+
+		public $country2mainaffid = array(
+			'com' 	=> 'com',
+			'ca' 	=> 'ca',
+			'cn' 	=> 'cn',
+			'de' 	=> 'de',
+			'in' 	=> 'in',
+			'it' 	=> 'it',
+			'es' 	=> 'es',
+			'fr' 	=> 'fr',
+			'co.uk' => 'uk',
+			'co.jp' => 'jp',
+			'com.mx'=> 'mx',
+			'com.br'=> 'br',
+		);
 		
 
 		/**
@@ -566,6 +582,27 @@ if(class_exists('WooZone') != true) {
 			add_action( 'woocommerce_before_single_product', array( $this, 'check_cached_product_terms') );
 
 			add_filter( "woocommerce_product_class", array( $this, 'try_to_overwrite' ), 10, 2 );
+
+			$this->expressions = array(
+				'as of' => 'as of',
+				'Frequently Bought Together' => 'Frequently Bought Together',
+				'Price for all' => 'Price for all',
+				'This item' => 'This item',
+				'Amazon Customer Reviews' => 'Amazon Customer Reviews',
+				'FREE Shipping' => 'FREE Shipping',
+				'Details' => 'Details',
+				'Loading...' => 'Loading...',
+				'not available' => 'not available',
+				'available' => 'available',
+				'You must check or cancel all amazon shops!' => 'You must check or cancel all amazon shops!',
+				'all good' => 'all good',
+				'canceled' => 'canceled',
+				'checkout done' => 'checkout done',
+				'Saving...' => 'Saving...',
+				'Closing...' => 'Closing...',
+				'Add to cart' => 'Add to cart',
+			);
+			$this->translatable_strings();
 		}
 
 		public function try_to_overwrite( $product_type )
@@ -1412,7 +1449,7 @@ if(class_exists('WooZone') != true) {
 			add_action( 'wp_footer', array( $this, 'make_footer' ), 1 );
 			
 			// product price disclaimer for amazon & other extra details!
-			//add_action( 'wp_head', array( $this, 'make_head' ), 1 );
+			add_action( 'wp_head', array( $this, 'make_head' ), 1 );
 			add_filter( 'woocommerce_get_price_html', array($this, 'amz_disclaimer_price_html'), 100, 2 );
 			add_filter( 'woocommerce_get_availability', array($this, 'amz_availability'), 100, 2 );
    
@@ -1918,7 +1955,7 @@ if(class_exists('WooZone') != true) {
 			}
 
 			//<ins><span class="amount">£26.99</span></ins>
-			$text = !empty($price_update_date) ? '&nbsp;<em class="WooZone-price-info">' . sprintf( __('(as of %s)', $this->localizationName), $price_update_date) . '</em>' : '';
+			$text = !empty($price_update_date) ? '&nbsp;<em class="WooZone-price-info">' . sprintf( __('(' . ( $this->__translate_string( 'as of' ) ) . ' %s)', $this->localizationName), $price_update_date) . '</em>' : '';
 			$text .= $this->amz_product_free_shipping($post_id);
 
 			$reg_price = get_post_meta( get_the_ID(), '_regular_price');
@@ -2000,8 +2037,8 @@ if(class_exists('WooZone') != true) {
 					ob_start();
 			?>
 					<span class="WooZone-free-shipping">
-						&amp; <b><?php _e('FREE Shipping', $this->localizationName); ?></b>.
-						<a class="link" onclick="return WooZone.popup(this.href,'AmazonHelp','width=550,height=550,resizable=1,scrollbars=1,toolbar=0,status=0');" target="AmazonHelp" href="<?php echo $link; ?>"><?php _e('Details', $this->localizationName); ?></a>
+						&amp; <b><?php echo $this->__translate_string( 'FREE Shipping' ); ?></b>.
+						<a class="link" onclick="return WooZone.popup(this.href,'AmazonHelp','width=550,height=550,resizable=1,scrollbars=1,toolbar=0,status=0');" target="AmazonHelp" href="<?php echo $link; ?>"><?php echo $this->__translate_string( 'Details' ); ?></a>
 					</span>
 			<?php
 					$contents .= ob_get_clean();
@@ -3447,14 +3484,17 @@ if(class_exists('WooZone') != true) {
 							array( $this, 'manage_options_template')
 					);
 			
-			add_submenu_page(
-					$this->alias,
-					$this->alias . " " . __('Amazon Advanced Search', $this->localizationName),
-							__('Amazon Search', $this->localizationName),
-							'manage_options',
-							$this->alias . "&section=advanced_search",
-							array( $this, 'manage_options_template')
-					);
+			
+			if( $this->verify_module_status('advanced_search') == true ) {
+				add_submenu_page(
+						$this->alias,
+						$this->alias . " " . __('Amazon Advanced Search', $this->localizationName),
+								__('Amazon Search', $this->localizationName),
+								'manage_options',
+								$this->alias . "&section=advanced_search",
+								array( $this, 'manage_options_template')
+						);
+			}
 			
 			add_submenu_page(
 					$this->alias,
@@ -3465,14 +3505,16 @@ if(class_exists('WooZone') != true) {
 							array( $this, 'insane_import_redirect')
 					);
 			
-			add_submenu_page(
-					$this->alias,
-					$this->alias . " " . __('CSV bulk products import', $this->localizationName),
-							__('CSV import', $this->localizationName),
-							'manage_options',
-							$this->alias . "&section=csv_products_import",
-							array( $this, 'manage_options_template')
-					);
+			if( $this->verify_module_status('csv_products_import') == true ) {
+				add_submenu_page(
+						$this->alias,
+						$this->alias . " " . __('CSV bulk products import', $this->localizationName),
+								__('CSV import', $this->localizationName),
+								'manage_options',
+								$this->alias . "&section=csv_products_import",
+								array( $this, 'manage_options_template')
+						);
+			}
 		}
 
 		public function manage_options_template()
@@ -3759,6 +3801,8 @@ if(class_exists('WooZone') != true) {
 					}
 
 					// load the init of current loop module
+					//var_dump(array($alias => $this->cfg['modules'][$alias]));
+					//die();
 					if( $status == true && isset( $settings[$alias]['module_init'] ) ){
 						if( is_file($module_folder . $settings[$alias]['module_init']) ){
 							//if( $this->is_admin ) {
@@ -6665,7 +6709,12 @@ SELECT a.ID, a.post_title FROM {$wpdb->posts} AS a LEFT JOIN {$wpdb->postmeta} A
 			$__desc[] = ($retProd['hasGallery'] == 'true' ? "[gallery]" : "");
 			$__desc[] = !empty($retProd['EditorialReviews']) ? $retProd['EditorialReviews'] : '';
 			$__desc[] = (count($retProd['Feature']) > 0 &&  is_array($retProd['Feature']) == true ? implode("\n", $retProd['Feature']) : '');
-			$__desc[] = '[amz_corss_sell asin="' . ( $retProd['ASIN'] ) . '"]';
+			
+			$cross_selling = (isset($this->amz_settings["cross_selling"]) && $this->amz_settings["cross_selling"] == 'yes' ? true : false);
+			
+			if( $cross_selling == true ) {
+				$__desc[] = '[amz_corss_sell asin="' . ( $retProd['ASIN'] ) . '"]';
+			}
 			$desc = implode("\n", array_filter($__desc));
 
 			if ( 'both' == $retWhat ) {
@@ -7012,6 +7061,8 @@ SELECT a.ID, a.post_title FROM {$wpdb->posts} AS a LEFT JOIN {$wpdb->postmeta} A
 
 			// default db structure - integrity verification is done in function
 			$this->check_if_table_exists( $force );
+
+			$this->check_table_amz_locale_reference( $force ); // update 2017-nov
 
 			$need_check_alter_tables = $this->plugin_integrity_need_verification('check_alter_tables');
 			$need_check_cronjobs_prefix = $this->plugin_integrity_need_verification('check_cronjobs_prefix');
@@ -7425,7 +7476,7 @@ SELECT a.ID, a.post_title FROM {$wpdb->posts} AS a LEFT JOIN {$wpdb->postmeta} A
 			else {
 				if ( 'check_database' == $what ) {
 					foreach ($plugin_integrity as $key => $val) {
-						if ( ! in_array($key, array('check_tables', 'check_alter_tables', 'check_cronjobs_prefix')) ) {
+						if ( ! in_array($key, array('check_tables', 'check_alter_tables', 'check_cronjobs_prefix', 'check_table_amz_locale_reference')) ) {
 							continue 1;
 						}
 
@@ -7446,7 +7497,7 @@ SELECT a.ID, a.post_title FROM {$wpdb->posts} AS a LEFT JOIN {$wpdb->postmeta} A
 		// what: check_tables, check_alter_tables, check_cronjobs_prefix
 		public function plugin_integrity_need_verification( $what ) {
 			$ret = array(
-				'status'				=> false,
+				'status'			=> false,
 				'data'				=> array(),
 			);
 
@@ -7855,6 +7906,139 @@ SELECT a.ID, a.post_title FROM {$wpdb->posts} AS a LEFT JOIN {$wpdb->postmeta} A
 			}
 			return false;
 		}
+
+		public function translatable_strings()
+		{
+			if( isset($this->amz_settings) && count($this->amz_settings) > 0 ){
+				if( isset($this->amz_settings['string_trans']) && count($this->amz_settings['string_trans']) > 0 ){
+					$cc = 0;
+					foreach ($this->expressions as $key => $value) {
+						if( isset($this->amz_settings['string_trans'][$cc]) ){
+							$this->expressions[$key] = $this->amz_settings['string_trans'][$cc];
+						}
+
+						$cc++;
+					}
+				}
+			}
+		}
+
+		public function __translate_string( $string='' )
+		{
+			if( count($this->expressions) > 0 ){
+				if( in_array( $string, array_keys($this->expressions)) ){
+					return $this->expressions[$string];
+				}
+			}
+
+			return $string;
+		}
+
+		// update 2017-nov
+		private function check_table_amz_locale_reference( $force=false ) {
+			$table = 'amz_locale_reference';
+			$table_ = $this->db->prefix . $table;
+
+			$need_check_tables = $this->plugin_integrity_need_verification('check_table_'.$table);
+
+			if ( ! $need_check_tables['status'] && ! $force ) {
+				return true; // don't need verification yet!
+			}
+
+			// default sql - tables & tables data!
+			require_once( $this->cfg['paths']['plugin_dir_path'] . 'modules/setup_backup/default-sql.php' );
+
+			// retrieve all database tables & clean prefix
+			$dbTables = $this->db->get_results( "show tables;", OBJECT_K );
+			$dbTables = array_keys( $dbTables );
+			if ( empty($dbTables) || ! is_array($dbTables) ) {
+
+				$this->plugin_integrity_update_time('check_table_'.$table, array(
+					'status'	=> 'invalid',
+					'html'		=> sprintf( __('Check plugin table %s: error requesting tables list.', $this->localizationName), $table_ ),
+				));
+				return false; //something was wrong!
+			}
+
+			// table exists?
+			if ( ! in_array( $table_, $dbTables) ) {
+
+				$this->plugin_integrity_update_time('check_table_'.$table, array(
+					'status'	=> 'invalid',
+					'html'		=> sprintf( __('Check plugin table %s: missing.', $this->localizationName), $table_ ),
+				));
+				return false; //something was wrong!
+			}
+
+			// table has rows?
+			$query = "select count(a.ID) as nb from $table_ as a where 1=1;";
+			$res = $this->db->get_var( $query );
+			//var_dump('<pre>', $res , '</pre>'); echo __FILE__ . ":" . __LINE__;die . PHP_EOL;
+			if ( ($res === false) || ! $res ) {
+
+				$this->plugin_integrity_update_time('check_table_'.$table, array(
+					'status'	=> 'invalid',
+					'html'		=> sprintf( __('Check plugin table %s: is empty - no rows found.', $this->localizationName), $table_ ),
+				));
+				return false; //something was wrong!
+			}
+
+			// all fine
+			$this->plugin_integrity_update_time('check_table_'.$table, array(
+				'timeout'	=> time(),
+				'status'	=> 'valid',
+				'html'		=> sprintf( __('Check plugin table %s: installed ok.', $this->localizationName), $table_ ),
+			));
+			return true; // all is fine!
+		}
+
+		// update 2017-nov
+		public function get_country2mainaffid( $country, $pms=array() ) {
+			$pms = array_replace_recursive(array(
+				'country2mainaffid' => true, // true = country to mainaffid OR false = mainaffid to country
+				'com2us' 			=> true,
+				'toupper' 			=> true,
+			), $pms);
+			extract( $pms );
+
+			$ret = '';
+
+			if ( ! isset($country) || empty($country) ) {
+				return $ret;
+			}
+
+			$arr = $country2mainaffid ? $this->country2mainaffid : array_flip( $this->country2mainaffid );
+			if ( isset($arr["$country"]) ) {
+				$ret = $arr["$country"];
+			}
+
+			if ( $com2us && ('com' == $ret) ) {
+				$ret = 'us';
+			}
+			if ( $toupper ) {
+				$ret = strtoupper( $ret );
+			}
+			return $ret;
+		}
+
+		// update 2017-nov
+		public function get_mainaffid2country( $mainaffid, $pms=array() ) {
+			$pms = array_replace_recursive(array(
+				'country2mainaffid' => false, // true = country to mainaffid OR false = mainaffid to country
+				'com2us' 			=> false,
+				'toupper' 			=> false,
+				'withPrefixPoint' 	=> false,
+			), $pms);
+			extract( $pms );
+
+			$ret = $this->get_country2mainaffid( $mainaffid, $pms );
+
+			if ( $withPrefixPoint && ! empty($ret) ) {
+				$ret = '.' . $ret;
+			}
+			return $ret;
+		}
+
 	}
 }
 // __DIR__ - uses PHP 5.3 or higher

@@ -119,16 +119,16 @@ if (class_exists('WooZoneFrontend') != true) {
 					'ajax_url'				=> admin_url('admin-ajax.php'),
 					'checkout_url' 		=> $_checkout_url,
 					'lang' 					=> array(
-						'loading'								=> __('Loading...', $this->localizationName),
-						'closing'                   				=> __('Closing...', $this->localizationName),
-						'saving'                   				=> __('Saving...', $this->localizationName),
-						'amzcart_checkout'       		=> __('checkout done', $this->localizationName),
-						'amzcart_cancel' 					=> __('canceled', $this->localizationName),
-						'amzcart_checkout_msg'		=> __('all good.', $this->localizationName),
-						'amzcart_cancel_msg'			=> __('You must check or cancel all amazon shops!', $this->localizationName),
-						'available_yes'						=> __('available', $this->localizationName),
-						'available_no' 						=> __('not available', $this->localizationName),
-						'load_cross_sell_box'			=> __('Frequently Bought Together Loading...', $this->localizationName),
+						'loading'								=> WooZone()->__translate_string( 'Loading...' ),
+						'closing'                   				=> WooZone()->__translate_string( 'Closing...' ),
+						'saving'                   				=> WooZone()->__translate_string( 'Saving...' ),
+						'amzcart_checkout'       		=> WooZone()->__translate_string( 'checkout done' ),
+						'amzcart_cancel' 					=> WooZone()->__translate_string( 'canceled' ),
+						'amzcart_checkout_msg'		=> WooZone()->__translate_string( 'all good' ),
+						'amzcart_cancel_msg'			=> WooZone()->__translate_string( 'You must check or cancel all amazon shops!' ),
+						'available_yes'						=> WooZone()->__translate_string( 'available' ),
+						'available_no' 						=> WooZone()->__translate_string( 'not available' ),
+						'load_cross_sell_box'			=> WooZone()->__translate_string( 'Frequently Bought Together' ) . ' ' . WooZone()->__translate_string( 'Loading...' ),
 					),
 				);
 				wp_localize_script( 'WooZone-frontend-script', 'woozone_vars', $vars );
@@ -1495,7 +1495,7 @@ if (class_exists('WooZoneFrontend') != true) {
 
 				$backHtml[] = '<div class="cross-sell">';
 				$backHtml[] = '<span class="cross-sell-price-sep" data-price_dec_sep="' . wc_get_price_decimal_separator() . '" style="display: none;"></span>';
-				$backHtml[] =   '<h2>' . ( __('Frequently Bought Together', $this->localizationName ) ) . '</h2>';
+				$backHtml[] =   '<h2>' . ( __( WooZone()->__translate_string( 'Frequently Bought Together' ), $this->localizationName ) ) . '</h2>';
 				$backHtml[] =   '<div style="margin-top: 0px;" class="separator"></div>';
 
 				// :: box first row - with thumbs
@@ -1569,9 +1569,9 @@ if (class_exists('WooZoneFrontend') != true) {
 
 				// :: box second row - with titles & prices
 				$backHtml[] =   '<div class="cross-sell-buy-btn">';
-				$backHtml[] =   	'<span id="cross-sell-bpt">Price for all:</span>';
+				$backHtml[] =   	'<span id="cross-sell-bpt">' . WooZone()->__translate_string( 'Price for all' ) . ':</span>';
 				$backHtml[] =   	'<span id="cross-sell-buying-price" class="price">' . ( wc_price( $_total_price ) ) . '</span>';
-				$backHtml[] =       '<div style="clear:both"></div><a href="' . home_url(). '" id="cross-sell-add-to-cart"><img src="' . ( $this->the_plugin->cfg['paths']['freamwork_dir_url'] . 'images/btn_add-to-cart.png'  ) . '"/></a>';
+				$backHtml[] =       '<div style="clear:both"></div><a href="' . home_url(). '" id="cross-sell-add-to-cart">' . WooZone()->__translate_string( 'Add to cart' ) . '</a>';
 				$backHtml[] =   '</div>';
 
 				$backHtml[] = '<div class="cross-sell-buy-selectable">';
@@ -1584,7 +1584,7 @@ if (class_exists('WooZoneFrontend') != true) {
 					if ( $cc == 0 && ( $asin == $value['ASIN'] || $asin == $value['ParentASIN'] ) ) {
 						$backHtml[] =       '<li>';
 						$backHtml[] =           '<input type="checkbox" checked="checked" value="' . ( $value['ASIN'] ) . '">';
-						$backHtml[] =           '<div class="cross-sell-product-title"><strong>' . __('This item:', $this->localizationName) . ' </strong>' . $value['Title'] . '</div>';
+						$backHtml[] =           '<div class="cross-sell-product-title"><strong>' . __( WooZone()->__translate_string( 'This item' ), $this->localizationName) . ': </strong>' . $value['Title'] . '</div>';
 						$backHtml[] =           '<div class="cross-sell-item-price" data-item_price="' . $value['price'] . '">' . ( wc_price( $value['price'] ) ) . '</div>';
 						$backHtml[] =       '</li>';
 					}
@@ -2099,7 +2099,7 @@ if (class_exists('WooZoneFrontend') != true) {
 				foreach ($this->woo_tab_data as $tab) {
 
 					$tabs[ $tab['id'] ] = array(
-						'title'    => __('Amazon Customer Reviews', $this->localizationName),
+						'title'    => __( WooZone()->__translate_string( 'Amazon Customer Reviews' ), $this->localizationName),
 						'priority' => $priority,
 						'callback' => array($this, 'amazon_reviews_product_review_tab')
 					);

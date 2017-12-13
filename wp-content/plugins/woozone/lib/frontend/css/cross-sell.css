@@ -130,6 +130,17 @@ body  .cross-sell {
 				body .cross-sell .cross-sell-buy-selectable a:hover {
 					color: #FF9900;
 				}
+
+				body .kingdom-prod-details #cross-sell-add-to-cart:before {
+				    display: none;
+				}
+				.kingdom-prod-details #cross-sell-add-to-cart {
+				    padding: 11px 22px;
+				    text-transform: uppercase;
+					font-size: 14px;
+					font-weight: 700;
+					letter-spacing: 0.1em;
+				}
 			
 @media (min-width: 768px) and (max-width: 979px) { 
 	body .cross-sell ul#feq-products li {

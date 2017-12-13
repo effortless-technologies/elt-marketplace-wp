@@ -572,11 +572,11 @@ class wwcAmazonSyncronize
     
     private function filter_products( $products=array() ) {
         if ( empty($products) ) return array();
-        
+
         global $wpdb;
-        
+
         $last_updated_product = (int) get_option('WooZone_sync_last_updated_product', 0);
-        
+
         // range size
         $nrOfProducts = (int) $this->cfg['available_setup']['sync_products_per_request'];
         //if( $nrOfProducts == 0 ) $nrOfProducts = 10;

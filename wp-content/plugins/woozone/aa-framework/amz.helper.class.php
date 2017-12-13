@@ -292,125 +292,118 @@ if(class_exists('WooZoneAmazonHelper') != true) {
 			)));
 		}
 		
-		private function convertMainAffIdInCountry( $main_add_id='' )
-		{
-			if( $main_add_id == 'com' ) return 'US';
-			
-			return strtoupper( $main_add_id );
-		}
-		
 		public function getAmazonCategs()
 		{
-			$country = $this->convertMainAffIdInCountry( $this->amz_settings['main_aff_id'] );
-			$csv = $categs = array();
-		
-			// try to read the plugin_root/assets/browsenodes.csv file
-			// check if file exists
-			if( !is_file( $this->the_plugin->cfg['paths']['plugin_dir_path'] . 'assets/browsenodes.csv' ) ){
-				die( 'Unable to load file: ' . $this->the_plugin->cfg['paths']['plugin_dir_path'] . 'assets/browsenodes.csv' );
-			}
+			global $wpdb;
+			
+			$country = $this->the_plugin->get_country2mainaffid( $this->amz_settings['country'] );
 
-			$csv_file_content = file_get_contents( $this->the_plugin->cfg['paths']['plugin_dir_path'] . 'assets/browsenodes.csv' );
-			if( trim($csv_file_content) != "" ){
-				$rows = explode("\r", $csv_file_content);
-				if( count($rows) > 0 ){
-					foreach ($rows as $key => $value) {
-						$csv[] = explode(",", $value);
+			$table = $wpdb->prefix . "amz_locale_reference";
+			$query = "SELECT * FROM $table WHERE 1=1 AND country = %s ORDER BY department ASC, searchIndex ASC;";
+			$query = $wpdb->prepare( $query, $country );
+			$sql_search_index_by_country = $wpdb->get_results( $query );
+
+			$categs = array();
+			if( is_array( $sql_search_index_by_country ) && ! empty($sql_search_index_by_country) ) {
+				foreach( $sql_search_index_by_country as $search_index ) {
+
+					$key = $search_index->searchIndex;
+					$key = trim( $key );
+					$key = 'all' == strtolower($key) ? 'AllCategories' : $key;
+
+					$categ_nicename = $search_index->department;
+					$categ_nicename = trim( $categ_nicename );
+					$categ_nicename = '' == $categ_nicename ? $key : $categ_nicename;
+
+					$nodeid = $search_index->browseNode;
+
+					if( ( $nodeid <= 0 ) && ( $key != 'AllCategories' ) ) {
+						continue 1;
+					}
+
+					$nodeid = 'AllCategories' == $key ? 'all' : $nodeid;
+
+					$item_ = array(
+						'searchIndex' 		=> $key,
+						'department' 		=> $categ_nicename,
+						'browseNode' 		=> $nodeid,
+					);
+
+					// All should be first item
+					if ( 'AllCategories' == $key ) {
+						$categs = array( $key => $item_ ) + $categs;
+					}
+					else {
+						$categs[$key] = $item_;
 					}
 				}
 			}
-			 
-			// find current country in first row 
-			$pos = 0;
-			if( count($csv[0]) > 0 ){
-				foreach ($csv[0] as $key => $value) {
-					if( strtoupper($country) == strtoupper($value) ){
-						$pos = $key;
-					}
-				}
-			}
-			
-			if( $pos > 0 && count($csv) > 0 ){
-				foreach ($csv as $key => $value) {
-					// skip the header row	
-					if( $key == 0 ) continue;
-					
-					if( isset($value[$pos]) && trim($value[$pos]) != "" ){
-						$categs[$value[0]] = $value[$pos];
-					}
-				}
-			}
-			
+			//die( var_dump( "<pre>", $categs , "<pre>" ) . PHP_EOL .  __FILE__ . ":" . __LINE__  );  
 			return $categs;  
 		}
 
 		public function getAmazonItemSearchParameters()
 		{
-			$country = $this->convertMainAffIdInCountry( $this->amz_settings['main_aff_id'] );
-			$csv = $categs = array();
-			
-			
-			// try to read the plugin_root/assets/searchindexParam-{country}.csv file
-			// check if file exists
-			if( !is_file( $this->the_plugin->cfg['paths']['plugin_dir_path'] . 'assets/searchindexParam-' . ( $country ) . '.csv' ) ){
-				die( 'Unable to load file: ' . $this->the_plugin->cfg['paths']['plugin_dir_path'] . 'assets/searchindexParam-' . ( $country ) . '.csv' );
-			}
-			
-        	$csv_file_content = file_get_contents( $this->the_plugin->cfg['paths']['plugin_dir_path'] . 'assets/searchindexParam-' . ( $country ) . '.csv' );
-			if( trim($csv_file_content) != "" ){
-				$rows = explode("\r", $csv_file_content);
-				 
-				if( count($rows) > 0 ){
-					foreach ($rows as $key => $value) {
-						$csv[] = explode(",", trim($value));
+			global $wpdb;
+
+			$country = $this->the_plugin->get_country2mainaffid( $this->amz_settings['country'] );
+
+			$table = $wpdb->prefix . "amz_locale_reference";
+			$query = "SELECT * FROM $table WHERE 1=1 AND country = %s ORDER BY searchIndex ASC;";
+			$query = $wpdb->prepare( $query, $country );
+			$sql_search_index_by_country = $wpdb->get_results( $query );
+
+			$categs = array();
+			if( is_array( $sql_search_index_by_country ) && ! empty($sql_search_index_by_country) ) {
+				foreach( $sql_search_index_by_country as $search_index ) {
+
+					$key = $search_index->searchIndex;
+					$key = trim( $key );
+					if( $key != 'All' ) {
+						if( strpos( $search_index->itemSearchParams, "BrowseNode" ) == false ){
+							$search_index->itemSearchParams .= "#BrowseNode";
+						}
+						
 					}
-				}
-			}
-			
-			if( count($csv) > 0 ){
-				foreach ($csv as $key => $value) {
-					$categs[$value[0]] = explode(":", trim($value[1]));
+					$key = 'all' == strtolower($key) ? 'AllCategories' : $key;
+
+					$categs[$key] = explode( '#', $search_index->itemSearchParams );
 				}
 			}
 			
 			return $categs;  
 		}
-		
+
 		public function getAmazonSortValues()
 		{
-			$country = $this->convertMainAffIdInCountry( $this->amz_settings['main_aff_id'] );
-			$csv = $categs = array();
-			
-			
-			// try to read the plugin_root/assets/searchindexParam-{country}.csv file
-			// check if file exists
-			if( !is_file( $this->the_plugin->cfg['paths']['plugin_dir_path'] . 'assets/sortvalues-' . ( $country ) . '.csv' ) ){
-				die( 'Unable to load file: ' . $this->the_plugin->cfg['paths']['plugin_dir_path'] . 'assets/sortvalues-' . ( $country ) . '.csv' );
-			}
-			
-        	$csv_file_content = file_get_contents( $this->the_plugin->cfg['paths']['plugin_dir_path'] . 'assets/sortvalues-' . ( $country ) . '.csv' );
- 			if( trim($csv_file_content) != "" ){
-				$rows = explode("\r", $csv_file_content);
-				 
-				if( count($rows) > 0 ){
-					foreach ($rows as $key => $value) {
-						$csv[] = explode(",", trim($value));
-					}
+			global $wpdb;
+
+			$country = $this->the_plugin->get_country2mainaffid( $this->amz_settings['country'] );
+
+			$table = $wpdb->prefix . "amz_locale_reference";
+			$query = "SELECT * FROM $table WHERE 1=1 AND country = %s ORDER BY searchIndex ASC;";
+			$query = $wpdb->prepare( $query, $country );
+			$sql_search_index_by_country = $wpdb->get_results( $query );
+
+			$categs = array();
+			if( is_array( $sql_search_index_by_country ) && ! empty($sql_search_index_by_country) ) {
+				foreach( $sql_search_index_by_country as $search_index ) {
+
+					$key = $search_index->searchIndex;
+					$key = trim( $key );
+					$key = 'all' == strtolower($key) ? 'AllCategories' : $key;
+
+					$categs[$key] = explode( '#', $search_index->sortValues );
 				}
 			}
-			
-			if( count($csv) > 0 ){
-				foreach ($csv as $key => $value) {
-					$categs[$value[0]] = explode(":", trim($value[1]));
-				}
-			}
-			  
-			return $categs;  
+			//die( var_dump( "<pre>", $categs , "<pre>" ) . PHP_EOL .  __FILE__ . ":" . __LINE__  );  
+			return $categs; 
 		}
-		
+
 		public function browseNodeLookup( $nodeid )
 		{
 			$provider = 'amazon';
+
 			//$rsp = $this->the_plugin->get_ws_object( $provider )->api_make_request(array(
 			$rsp = $this->api_make_request(array(
 				'amz_settings'			=> $this->the_plugin->amz_settings,
@@ -423,6 +416,7 @@ if(class_exists('WooZoneAmazonHelper') != true) {
 				'responseGroup'			=> 'BrowseNodeInfo',
 				'method'				=> 'browseNodeLookup',
 			));
+			
 			$ret = $rsp['response'];
 			//$ret = $this->aaAmazonWS->responseGroup('BrowseNodeInfo')->browseNodeLookup( $nodeid );
             
