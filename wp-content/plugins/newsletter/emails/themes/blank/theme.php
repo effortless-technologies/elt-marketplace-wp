@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) exit;
         </p>
 
         <p>
-            here the forewords of your shiny new newsletter. Most of the times a simple layout is the best.
+            here the foreword of your shiny new newsletter. Most of the times a simple layout is the best.
         </p>
         <h2>There is more for you!</h2>
 
@@ -32,7 +32,7 @@ if (!defined('ABSPATH')) exit;
 
         <hr>
         <p>
-            To unsubscribe <a href="{unsubscription_url}">click here</a>, to edit your subscription
+            To cancel <a href="{unsubscription_url}">click here</a>, to edit your subscription
             <a href="{profile_url}">click here</a>.
         </p>
         <p>

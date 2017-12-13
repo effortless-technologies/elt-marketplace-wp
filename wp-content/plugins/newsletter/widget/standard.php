@@ -167,13 +167,6 @@ class NewsletterWidget extends WP_Widget {
     }
 
     function update($new_instance, $old_instance) {
-//        $instance = $old_instance;
-//        $instance['title'] = strip_tags($new_instance['title']);
-//        $instance['text'] = $new_instance['text'];
-//        if (isset($new_instance['old_form']))
-//            $instance['old_form'] = 1;
-//        else
-//            unset($instance['old_form']);
         return $new_instance;
     }
 

@@ -186,40 +186,6 @@ class NewsletterUsers extends NewsletterModule {
         return $text;
     }
 
-    /**
-     * Returns a list of users marked as "test user".
-     * @global Newsletter $newsletter
-     * @return array
-     */
-    function get_test_users() {
-        $newsletter = Newsletter::instance();
-        return $newsletter->get_test_users();
-    }
-
-    /**
-     * @global Newsletter $newsletter
-     */
-    function delete_user($id) {
-        $newsletter = Newsletter::instance();
-        return $newsletter->delete_user($id);
-    }
-
-    /**
-     *
-     * @global Newsletter $newsletter
-     * @param int|string $id_or_email
-     * @param string $status
-     * @return boolean
-     */
-    function set_user_status($id_or_email, $status) {
-        $newsletter = Newsletter::instance();
-        return $newsletter->set_user_status($id_or_email, $status);
-    }
-
-    function set_user_field($id, $field, $value) {
-        $this->store->set_field(NEWSLETTER_USERS_TABLE, $id, $field, $value);
-    }
-
 }
 
 NewsletterUsers::instance();

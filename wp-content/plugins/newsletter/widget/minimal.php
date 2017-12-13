@@ -29,7 +29,7 @@ class NewsletterWidgetMinimal extends WP_Widget {
         
 
         $form = '<div class="tnp tnp-widget-minimal">';
-        $form .= '<form action="' . esc_attr(home_url('/')) . '?na=s" method="post">';
+        $form .= '<form action="' . esc_attr(home_url('/')) . '?na=s" method="post" onsubmit="return newsletter_check(this)">';
         if (isset($instance['nl']) && is_array($instance['nl'])) {
             foreach ($instance['nl'] as $a) {
                 $form .= "<input type='hidden' name='nl[]' value='" . ((int) trim($a)) . "'>\n";
@@ -56,7 +56,8 @@ class NewsletterWidgetMinimal extends WP_Widget {
         if (!is_array($instance)) {
             $instance = array();
         }
-        $instance = array_merge(array('title' => '', 'text' => '', 'button'=>''), $instance);
+        $profile_options = NewsletterSubscription::instance()->get_options('profile');
+        $instance = array_merge(array('title' => '', 'text' => '', 'button'=>$profile_options['subscribe'], 'nl'=>array()), $instance);
         $options_profile = get_option('newsletter_profile');
         if (!is_array($instance['nl'])) {
             $instance['nl'] = array();

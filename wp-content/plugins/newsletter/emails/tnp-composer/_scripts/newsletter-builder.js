@@ -75,14 +75,11 @@ jQuery.fn.hover_edit = function () {
                     if (target.attr("data-type") == 'title') {
                         jQuery("#tnpc-edit-title .title").val(target.text());
                         jQuery("#tnpc-edit-title .color").val(target.css("color"));
-                        jQuery("#tnpc-edit-title .color").wpColorPicker({
-                            //                change: function (event, ui) {
-                            //                    jQuery('.bgcolor').iris('hide');
-                            //                },
-                        });
+                        jQuery("#tnpc-edit-title .color").wpColorPicker({});
                         jQuery("#tnpc-edit-title .color").wpColorPicker().iris('color', target.css("color"));
                         
                         jQuery("#tnpc-edit-title-font-size").val(parseInt(target.css("fontSize")));
+                        jQuery("#tnpc-edit-title-font-family").val(target.css("fontFamily"));
                         jQuery("#tnpc-edit-title-text-align").val(target.css("textAlign"));
                         
                         jQuery("#tnpc-edit-title").fadeIn(500);
@@ -94,6 +91,7 @@ jQuery.fn.hover_edit = function () {
                             target.css("color", jQuery("#tnpc-edit-title .color").val());
                             
                             target.css("fontSize", jQuery("#tnpc-edit-title-font-size").val() + "px");
+                            target.css("fontFamily", jQuery("#tnpc-edit-title-font-family").val());
                             target.css("textAlign", jQuery("#tnpc-edit-title-text-align").val());
                             
                             tnp_mobile_preview();
@@ -115,17 +113,6 @@ jQuery.fn.hover_edit = function () {
                             tnp_mobile_preview();
                         });
                     }
-
-                    //edit icon
-                    if (target.attr("data-type") == 'icon') {
-                        jQuery("#tnpc-edit-icon").fadeIn(500);
-                        jQuery("#tnpc-edit-icon .tnpc-edit-box").slideDown(500);
-                        jQuery("#tnpc-edit-icon i").click(function () {
-                            jQuery(this).parent().parent().parent().parent().fadeOut(500)
-                            jQuery(this).parent().parent().parent().slideUp(500)
-                            target.children('i').attr('class', jQuery(this).attr('class'));
-                        });
-                    }//
 
                 });
             }, function () {
@@ -342,19 +329,21 @@ jQuery(function () {
 //Drag & Drop
     jQuery("#newsletter-builder-area-center-frame-content").sortable({
         revert: false,
-        //placeholder: "placeholder",
+        placeholder: "placeholder",
         forcePlaceholderSize: true,
         opacity: 0.6,
         tolerance: "pointer",
         update: function (event, ui) {
+            //console.log(event);
+            //console.log(ui.item.data("id"));
             //debugger;
-            if (ui.item.hasClass("newsletter-sidebar-buttons-content-tab")) {
+            if (ui.item.attr("id") == "draggable-helper") {
                 loading_row = jQuery('<div style="text-align: center; padding: 20px; background-color: #d4d5d6; color: #52BE7F;"><i class="fa fa-cog fa-2x fa-spin" /></div>');
                 ui.item.before(loading_row);
                 ui.item.remove();
                 var data = {
                     'action': 'tnpc_render',
-                    'b': ui.item.data("file"),
+                    'b': ui.item.data("id"),
                     'full': 1
                 };
                 jQuery.post(ajaxurl, data, function (response) {
@@ -384,11 +373,20 @@ jQuery(function () {
 
     jQuery(".newsletter-sidebar-buttons-content-tab").draggable({
         connectToSortable: "#newsletter-builder-area-center-frame-content",
-        helper: "clone",
+        //helper: "clone",
+        helper: function(e) {
+            //console.log(e.currentTarget.dataset.id);
+            //debugger;
+            var helper = jQuery(document.getElementById("draggable-helper")).clone();
+            // Do not uset .data() with jQuery
+            helper.attr("data-id", e.currentTarget.dataset.id);
+            helper.html(e.currentTarget.dataset.name);
+            return helper;
+        },
         revert: false,
         start: function () {
             if (jQuery('.tnpc-row').length) {
-                jQuery('.tnpc-row').append('<div class="tnpc-drop-here">Drag&Drop blocks here!</div>');
+                //jQuery('.tnpc-row').append('<div class="tnpc-drop-here">Drag&Drop blocks here!</div>');
             } else {
                 jQuery('#newsletter-builder-area-center-frame-content').append('<div class="tnpc-drop-here">Drag&Drop blocks here!</div>');
             }
@@ -396,8 +394,6 @@ jQuery(function () {
         stop: function (event, ui) {
             //debugger;
             jQuery('.tnpc-drop-here').remove();
-
-
         }
     });
 
@@ -455,8 +451,6 @@ function create() {
     jQuery("#newsletter-preloaded-export .tnpc-row-delete").remove();
     jQuery("#newsletter-preloaded-export .tnpc-row-edit-block").remove();
     jQuery("#newsletter-preloaded-export .tnpc-row").removeClass("ui-draggable");
-//    jQuery("#newsletter-preloaded-export .tnpc-row-edit").removeAttr("data-type");
-//    jQuery("#newsletter-preloaded-export .tnpc-row-edit").removeClass("tnpc-row-edit");
     preload_export_html = jQuery("#newsletter-preloaded-export").html();
 
     if (preload_export_html.indexOf('<style type="text/css">') > -1) {
@@ -465,13 +459,10 @@ function create() {
         jQuery('#tnpc-form input[name="options[body]"]').attr('value', export_content);
         jQuery("#tnpc-form").submit();
     } else {
-        //jQuery.get(ajaxurl, {action: "tnpc_css"}, function (data) {
             jQuery.get(TNP_HOME_URL + "?na=emails-composer-css&ver=" + Math.random(), {action: "tnpc_css"}, function (data) {
-//        export_content = '<style>' + data + '</style><link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic" rel="stylesheet" type="text/css"><link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"><div id="tnpc-wrapper"><div id="tnpc-wrapper-newsletter">' + preload_export_html + '</div></div>';
             export_content = '<!DOCTYPE html><html><head><title>Newsletter</title><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="X-UA-Compatible" content="IE=edge" />';
             export_content += '<style type="text/css">' + data + '</style>';
-            export_content += '<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic" rel="stylesheet" type="text/css">';
-            export_content += '<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">';
+            export_content += '<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic" rel="stylesheet" type="text/css">';
             export_content += '</head><body style="margin: 0; padding: 0;">';
             export_content += preload_export_html;
             export_content += '</body></html>';

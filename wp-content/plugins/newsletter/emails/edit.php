@@ -5,29 +5,55 @@ $controls = new NewsletterControls();
 $module = NewsletterEmails::instance();
 
 // Always required
-$email = Newsletter::instance()->get_email((int) $_GET['id'], ARRAY_A);
-$email['options'] = maybe_unserialize($email['options']);
-if (!is_array($email['options']))
-    $email['options'] = array();
+$email = Newsletter::instance()->get_email($_GET['id'], ARRAY_A);
+if (empty($email['query'])) {
+    $email['query'] = "select * from " . NEWSLETTER_USERS_TABLE . " where status='C'";
+}
 
 if (empty($email)) {
     echo 'Wrong email identifier';
     return;
 }
+
 $email_id = $email['id'];
 
-// If there is no action we assume we are enter the first time so we populate the
-// $nc->data with the editable email fields
+$composer = isset($email['options']['composer']);
+
+if ($composer) {
+    wp_enqueue_style('tnpc-style', plugins_url('/tnp-composer/_css/newsletter-builder.css', __FILE__));
+}
+
+// Preferences conversions
+if (!$controls->is_action()) {
+    if (!isset($email['options']['lists'])) {
+
+        $options_profile = get_option('newsletter_profile');
+
+        if (empty($controls->data['preferences_status_operator'])) {
+            $email['options']['lists_operator'] = 'or';
+        } else {
+            $email['options']['lists_operator'] = 'and';
+        }
+        $controls->data['options_lists'] = array();
+        $controls->data['options_lists_exclude'] = array();
+
+        if (!empty($email['preferences'])) {
+            $preferences = explode(',', $email['preferences']);
+            $value = empty($email['options']['preferences_status']) ? 'on' : 'off';
+
+            foreach ($preferences as $x) {
+                if ($value == 'on') {
+                    $controls->data['options_lists'][] = $x;
+                } else {
+                    $controls->data['options_lists_exclude'][] = $x;
+                }
+            }
+        }
+    }
+}
+
 if (!$controls->is_action()) {
     $controls->data = $email;
-    if (!empty($email['preferences'])) {
-        $controls->data['preferences'] = explode(',', $email['preferences']);
-    }
-    if (!empty($email['sex'])) {
-        $controls->data['sex'] = explode(',', $email['sex']);
-    }
-
-    $controls->data = array_merge($controls->data, $email['options']);
 
     foreach ($email['options'] as $name => $value) {
         $controls->data['options_' . $name] = $value;
@@ -38,25 +64,33 @@ if ($controls->is_action('change-private')) {
     $data = array();
     $data['private'] = $controls->data['private'] ? 0 : 1;
     $data['id'] = $email['id'];
-    Newsletter::instance()->save_email($data);
+    $email = Newsletter::instance()->save_email($data, ARRAY_A);
     $controls->add_message_saved();
+
     $controls->data = $email;
-    $controls->data['private'] = $data['private'];
+    foreach ($email['options'] as $name => $value) {
+        $controls->data['options_' . $name] = $value;
+    }
 }
 
 if ($controls->is_action('test') || $controls->is_action('save') || $controls->is_action('send') || $controls->is_action('editor')) {
 
 
     // If we were editing with visual editor (==0), we must read the extra <body> content
-    $controls->data['message'] = str_ireplace('<script', '<noscript', $controls->data['message']);
-    $controls->data['message'] = str_ireplace('</script', '</noscript', $controls->data['message']);
+    if (!empty($controls->data['message'])) {
+        $controls->data['message'] = str_ireplace('<script', '<noscript', $controls->data['message']);
+        $controls->data['message'] = str_ireplace('</script', '</noscript', $controls->data['message']);
+    }
+
     if ($email['editor'] == 0) {
-        $x = strpos($email['message'], '<body');
-        if ($x !== false) {
-            $x = strpos($email['message'], '>', $x);
-            $email['message'] = substr($email['message'], 0, $x + 1) . $controls->data['message'] . '</body></html>';
-        } else {
-            $email['message'] = '<html><body>' . $controls->data['message'] . '</body></html>';
+        if (!empty($controls->data['message'])) {
+            $x = strpos($email['message'], '<body');
+            if ($x !== false) {
+                $x = strpos($email['message'], '>', $x);
+                $email['message'] = substr($email['message'], 0, $x + 1) . $controls->data['message'] . '</body></html>';
+            } else {
+                $email['message'] = '<html><body>' . $controls->data['message'] . '</body></html>';
+            }
         }
     } else {
         $email['message'] = $controls->data['message'];
@@ -66,19 +100,10 @@ if ($controls->is_action('test') || $controls->is_action('save') || $controls->i
     $email['track'] = $controls->data['track'];
     $email['private'] = $controls->data['private'];
 
-    // Builds the extended options
-    //$email['options'] = array();
-    $email['options']['preferences_status'] = $controls->data['preferences_status'];
-    if (isset($controls->data['preferences'])) {
-        $email['options']['preferences'] = $controls->data['preferences'];
-    } else {
-        $email['options']['preferences'] = array();
-    }
-    if (isset($controls->data['sex'])) {
-        $email['options']['sex'] = $controls->data['sex'];
-    } else {
-        $email['options']['sex'] = array();
-    }
+    // Reset the options
+    $email['options'] = array();
+    if ($composer)
+        $email['options']['composer'] = true;
 
     foreach ($controls->data as $name => $value) {
         if (strpos($name, 'options_') === 0) {
@@ -86,75 +111,60 @@ if ($controls->is_action('test') || $controls->is_action('save') || $controls->i
         }
     }
 
-    $email['options']['status'] = $controls->data['status'];
-    $email['options']['preferences_status_operator'] = $controls->data['preferences_status_operator'];
-    $email['options']['wp_users'] = $controls->data['wp_users'];
-
-    $email['options'] = serialize($email['options']);
-
-    if (isset($controls->data['preferences'])) {
-        $email['preferences'] = implode(',', $controls->data['preferences']);
-    } else {
-        $email['preferences'] = '';
-    }
-
-    if (isset($controls->data['sex'])) {
-        $email['sex'] = implode(',', $controls->data['sex']);
-    } else {
-        $email['sex'] = '';
-    }
-
+    //var_dump($email);
     // Before send, we build the query to extract subscriber, so the delivery engine does not
     // have to worry about the email parameters
-    if ($controls->data['status'] == 'S') {
+    if ($email['options']['status'] == 'S') {
         $query = "select * from " . NEWSLETTER_USERS_TABLE . " where status='S'";
     } else {
         $query = "select * from " . NEWSLETTER_USERS_TABLE . " where status='C'";
     }
 
-    if ($controls->data['wp_users'] == '1') {
+    if ($email['options']['wp_users'] == '1') {
         $query .= " and wp_user_id<>0";
     }
 
-
-    if (isset($controls->data['preferences'])) {
-        $preferences = $controls->data['preferences'];
-
-        // Not set one of the preferences specified
-        $operator = $controls->data['preferences_status_operator'] == 0 ? ' or ' : ' and ';
-        if ($controls->data['preferences_status'] == 1) {
-            $query .= " and (";
-            foreach ($preferences as $x) {
-                $query .= "list_" . ((int) $x) . "=0" . $operator;
-            }
-            $query = substr($query, 0, -4);
-            $query .= ")";
-        } else {
-            $query .= " and (";
-            foreach ($preferences as $x) {
-                $query .= "list_" . ((int) $x) . "=1" . $operator;
-            }
-            $query = substr($query, 0, -4);
-            $query .= ")";
+    $list_where = array();
+    if (isset($email['options']['lists']) && count($email['options']['lists'])) {
+        foreach ($email['options']['lists'] as $list) {
+            $list = (int) $list;
+            $list_where[] = 'list_' . $list . '=1';
         }
     }
 
-    if (isset($controls->data['sex'])) {
-        $sex = $controls->data['sex'];
-        if (is_array($sex)) {
+    if (!empty($list_where)) {
+        if (isset($email['options']['lists_operator']) && $email['options']['lists_operator'] == 'and') {
+            $query .= ' and (' . implode(' and ', $list_where) . ')';
+        } else {
+            $query .= ' and (' . implode(' or ', $list_where) . ')';
+        }
+    }
+
+    $list_where = array();
+    if (isset($email['options']['lists_exclude']) && count($email['options']['lists_exclude'])) {
+        foreach ($email['options']['lists_exclude'] as $list) {
+            $list = (int) $list;
+            $list_where[] = 'list_' . $list . '=0';
+        }
+    }
+    if (!empty($list_where)) {
+        $query .= ' and (' . implode(' or ', $list_where) . ')';
+    }
+
+    if (isset($email['options']['sex'])) {
+        $sex = $email['options']['sex'];
+        if (is_array($sex) && count($sex)) {
             $query .= " and sex in (";
             foreach ($sex as $x) {
-                $query .= "'" . esc_sql($x) . "', ";
+                $query .= "'" . esc_sql((string) $x) . "', ";
             }
             $query = substr($query, 0, -2);
             $query .= ")";
         }
     }
 
-    $res = Newsletter::instance()->save_email($email);
+    $e = Newsletter::instance()->save_email($email);
 
-    $e = $module->get_email($email_id);
-    $e->options = maybe_unserialize($e->options);
     $query = apply_filters('newsletter_emails_email_query', $query, $e);
 
     $email['query'] = $query;
@@ -174,6 +184,9 @@ if ($controls->is_action('test') || $controls->is_action('save') || $controls->i
 
     // Cleans up of tag
     $email['message'] = NewsletterModule::clean_url_tags($email['message']);
+
+    //$email = apply_filters('newsletter_emails_pre_save', $email);
+    //$module->logger->fatal($email);
 
     $res = Newsletter::instance()->save_email($email);
     if ($res === false) {
@@ -233,106 +246,64 @@ if ($controls->is_action('test')) {
         $controls->messages .= '<br>';
         $controls->messages .= '<a href="https://www.thenewsletterplugin.com/plugins/newsletter/subscribers-module#test" target="_blank">' .
                 __('Read more about test subscribers', 'newsletter') . '</a>.';
-
-        $controls->messages .= '<br>If diagnostic emails are delivered but test emails are not, try to change the encoding to "base 64" on main configuration panel';
     }
 }
 
-$template = '{message}';
 if ($email['editor'] == 0) {
-    $x = strpos($controls->data['message'], '<body');
-    // Some time the message in $nc->data is already cleaned up, it depends on action called
-    if ($x !== false) {
-        $x = strpos($controls->data['message'], '>', $x);
-        $y = strpos($controls->data['message'], '</body>');
-
-        $template = substr($controls->data['message'], 0, $x) . '{message}' . substr($controls->data['message'], $y);
-        $controls->data['message'] = substr($controls->data['message'], $x + 1, $y - $x - 1);
-    }
+    $controls->data['message'] = $module->extract_body($controls->data['message']);
 }
+
+if (isset($controls->data['options_status']) && $controls->data['options_status'] == 'S') {
+    $controls->warnings[] = __('This newsletter will be sent to not confirmed subscribers.', 'newsletter');
+}
+
+/*
+  $host = parse_url(home_url(), PHP_URL_HOST);
+  $parts = array_reverse(explode('.', $host));
+  $host = $parts[1] . '.' . $parts[0];
+
+  $re = '/["\'](https?:\/\/[^\/\s]+\/\S+\.(jpg|png|gif))["\']/i';
+  preg_match_all($re, $controls->data['message'], $matches);
+  $images = array();
+  if (isset($matches[1])) {
+  //echo 'Ci sono immagini';
+  //var_dump($matches[1]);
+  foreach ($matches[1] as $url) {
+  $h = parse_url($url, PHP_URL_HOST);
+  $p = array_reverse(explode('.', $h));
+  $h = $p[1] . '.' . $p[0];
+  if ($h == $host)
+  continue;
+  $images[] = $url;
+  }
+  }
+
+  if ($images) {
+  //$controls->warnings[] = __('Message body contains images from external domains.', 'newsletter') . ' <a href="">' . __('Read more', 'newsletter') . '</a>';
+  }
+ */
+/*
+  if ($images) {
+  $upload = wp_upload_dir();
+  $dir = $upload['basedir'] . '/newsletter/' . $email['id'];
+  $baseurl = $upload['baseurl'] . '/newsletter/' . $email['id'];
+
+  // Cannot work on systems with forced relative paths
+  if (strpos($baseurl, 'http') === 0) {
+  wp_mkdir_p($dir);
+  foreach ($images as $url) {
+  $file = basename(parse_url($url, PHP_URL_PATH));
+  $file = sanitize_file_name($file);
+  if (copy($url, $dir . '/' . $file)) {
+  $controls->data['message'] = str_replace($url, $baseurl . '/' . $file, $controls->data['message']);
+  }
+  }
+  }
+  }
+ */
 ?>
 
-
-<?php if ($email['editor'] == 1) { ?>
-
-<?php } else { ?>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.5.3/tinymce.min.js"></script>
-    <script type="text/javascript">
-        var template = <?php echo json_encode($template) ?>;
-
-        // https://www.tinymce.com/docs/advanced/editor-control-identifiers/#toolbarcontrols
-        tinymce.init({
-            height: 700,
-            mode: "specific_textareas",
-            editor_selector: "visual",
-            statusbar: true,
-            allow_conditional_comments: true,
-            table_toolbar: "tableprops tablecellprops tabledelete | tableinsertrowbefore tableinsertrowafter tabledeleterow | " +
-                    "tableinsertcolbefore tableinsertcolafter tabledeletecol",
-            toolbar: "formatselect fontselect fontsizeselect | bold italic underline strikethrough forecolor backcolor | alignleft alignright aligncenter alignjustify | bullist numlist | link unlink | image",
-            //theme: "advanced",
-            entity_encoding: "raw",
-            image_advtab: true,
-            image_title: true,
-            plugins: "table fullscreen legacyoutput textcolor colorpicker link image code lists advlist",
-            relative_urls: false,
-            remove_script_host: false,
-            document_base_url: "<?php echo esc_js(get_option('home')) ?>/",
-            content_css: ["<?php echo plugins_url('newsletter') ?>/emails/editor.css", "<?php echo home_url('/') . '?na=emails-css&id=' . $email_id . '&' . time(); ?>"]
-        });
-
-    </script>
-<?php } ?>
-
-<style>
-    #options-subject {
-        font-size: 20px;
-        display: inline-block;
-        margin-bottom: 10px;
-        width: 100%;
-    }
-
-</style>
-<script>
-    function tnp_media(name) {
-        var tnp_uploader = wp.media({
-            title: "Select an image",
-            button: {
-                text: "Select"
-            },
-            frame: 'post',
-            multiple: false,
-            displaySetting: true,
-            displayUserSettings: true
-        }).on("insert", function () {
-            wp.media;
-            var media = tnp_uploader.state().get("selection").first();
-            if (media.attributes.url.indexOf("http") !== 0)
-                media.attributes.url = "http:" + media.attributes.url;
-
-            if (!media.attributes.mime.startsWith("image")) {
-                if (typeof templateEditor !== "undefined") {
-                    templateEditor.getDoc().replaceRange(url, templateEditor.getDoc().getCursor());
-                } else {
-                    tinyMCE.execCommand('mceInsertLink', false, media.attributes.url);
-                }
-            } else {
-                var display = tnp_uploader.state().display(media);
-                var url = media.attributes.sizes[display.attributes.size].url;
-                if (typeof templateEditor !== "undefined") {
-                    templateEditor.getDoc().replaceRange('<img src="' + url + '">', templateEditor.getDoc().getCursor());
-                } else {
-                    tinyMCE.execCommand('mceInsertContent', false, '<img src="' + url + '" />');
-                }
-            }
-        }).open();
-    }
-
-</script>
-
-
-<div class="wrap" id="tnp-wrap">
+<div class="wrap tnp-emails tnp-emails-edit" id="tnp-wrap">
 
     <?php include NEWSLETTER_DIR . '/tnp-header.php'; ?>
 
@@ -344,25 +315,23 @@ if ($email['editor'] == 0) {
 
     <div id="tnp-body">
 
-        <?php
-        if ($controls->data['status'] == 'S') {
-            echo '<div class="newsletter-message">Warning! This email is configured to be sent to NOT CONFIRMED subscribers.</div>';
-        }
-        ?>
+
 
         <form method="post" action="" id="newsletter-form">
             <?php $controls->init(array('cookie_name' => 'newsletter_emails_edit_tab')); ?>
 
             <div class="tnp-submit">
+
                 <?php $controls->button_back('?page=newsletter_emails_index') ?>
                 <?php if ($email['status'] != 'sending' && $email['status'] != 'sent') $controls->button_save(); ?>
-                <?php if ($email['status'] != 'sending' && $email['status'] != 'sent') $controls->button_confirm('test', 'Save and test', 'Save and send test emails to test addresses?'); ?>
+                <?php if ($email['status'] != 'sending' && $email['status'] != 'sent') $controls->button('test', __('Test', 'newsletter')); ?>
 
                 <?php if ($email['status'] == 'new') $controls->button_confirm('send', __('Send', 'newsletter'), __('Start real delivery?', 'newsletter')); ?>
                 <?php if ($email['status'] == 'sending') $controls->button_confirm('pause', __('Pause', 'newsletter'), __('Pause the delivery?', 'newsletter')); ?>
                 <?php if ($email['status'] == 'paused') $controls->button_confirm('continue', __('Continue', 'newsletter'), 'Continue the delivery?'); ?>
                 <?php if ($email['status'] == 'paused') $controls->button_confirm('abort', __('Stop', 'newsletter'), __('This totally stop the delivery, ok?', 'newsletter')); ?>
-                <?php if ($email['status'] != 'sending' && $email['status'] != 'sent') $controls->button_confirm('editor', 'Save and switch to ' . ($email['editor'] == 0 ? 'HTML source' : 'visual') . ' editor', 'Sure?'); ?>
+                <?php if ($email['status'] != 'sending' && $email['status'] != 'sent') $controls->button('editor', __('Switch editor')); ?>
+                <?php //if ($images) $controls->button_confirm('import', __('Import images', 'newsletter'), 'Proceed?')  ?>
             </div>
 
             <?php $controls->text('subject', 70, 'Subject'); ?>
@@ -379,22 +348,17 @@ if ($email['editor'] == 0) {
 
                 <div id="tabs-a">
 
-
-
-
-
-                    <?php if ($email['editor'] == 0) { ?>
-                        <input type="button" class="button-primary" value="Add media" onclick="tnp_media()">
-
-                        <a href="https://www.thenewsletterplugin.com/plugins/newsletter/newsletter-tags" target="_blank"><?php _e('Available tags', 'newsletter') ?></a>
-                        <br><br>
-
-                        <?php $controls->editor('message', 30); ?>
-
-                    <?php } else { ?>
-                        <?php include __DIR__ . '/edit-html.php'; ?>
-                    <?php } ?>
-
+                    <?php
+                    if ($email['editor'] == 0) {
+                        if ($composer) {
+                            include __DIR__ . '/edit-composer.php';
+                        } else {
+                            include __DIR__ . '/edit-editor.php';
+                        }
+                    } else {
+                        include __DIR__ . '/edit-html.php';
+                    }
+                    ?>
 
                 </div>
 
@@ -413,58 +377,53 @@ if ($email['editor'] == 0) {
 
 
                 <div id="tabs-c">
+                    <p>
+                        <?php $controls->panel_help('https://www.thenewsletterplugin.com/documentation/newsletter-targeting') ?>
+                    </p>
+
+                    <p>
+                        <?php _e('Leaving all multichoice options unselected is like to select all them', 'newsletter'); ?>
+                    </p>
                     <table class="form-table">
-
-                        <tr valign="top">
-                            <th><?php _e('Gender', 'newsletter'); ?></th>
+                        <tr>
+                            <th><?php _e('Lists', 'newsletter') ?></th>
                             <td>
-                                <?php $controls->checkboxes_group('sex', array('f' => 'Women', 'm' => 'Men', 'n' => 'Not specified')); ?>
-                                <p class="description">
-                                    Leaving all gender options unselected disable this filter.
-                                </p>
+                                <?php
+                                $lists = $controls->get_list_options();
+                                ?>
+                                <?php $controls->select('options_lists_operator', array('or' => __('Match at least one of', 'newsletter'), 'and' => __('Match all of', 'newsletter'))); ?>
+
+                                <?php $controls->select2('options_lists', $lists, null, true, null, __('All', 'newsletter')); ?>
+
+                                <p><?php _e('must not in one of', 'newsletter') ?></p>
+
+                                <?php $controls->select2('options_lists_exclude', $lists, null, true, null, __('None', 'newsletter')); ?>
                             </td>
                         </tr>
-                        <tr valign="top">
-                            <th><?php _e('Lists', 'newsletter'); ?></th>
+                        <tr>
+                            <th><?php _e('Gender', 'newsletter') ?></th>
                             <td>
-                                Subscribers with
-                                <?php $controls->select('preferences_status_operator', array(0 => 'at least one list', 1 => 'all lists')); ?>
-
-                                <?php $controls->select('preferences_status', array(0 => 'active', 1 => 'not active')); ?>
-                                <?php _e('checked below', 'newsletter') ?>
-
-                                <?php $controls->preferences_group('preferences', true); ?>
-                                <p class="description">
-                                    You can address the newsletter to subscribers who selected at least one of the options or to who
-                                    has not selected at least one of the options.
-                                    <a href="https://www.thenewsletterplugin.com/plugins/newsletter/newsletter-preferences" target="_blank">Read more about the "NOT ACTIVE" usage</a>.
-                                </p>
+                                <?php $controls->checkboxes_group('options_sex', array('f' => 'Women', 'm' => 'Men', 'n' => 'Not specified')); ?>
                             </td>
                         </tr>
 
-                        <tr valign="top">
+
+                        <tr>
                             <th><?php _e('Status', 'newsletter') ?></th>
                             <td>
-                                <?php $controls->select('status', array('C' => __('Confirmed', 'newsletter'), 'S' => __('Not confirmed', 'newsletter'))); ?>
+                                <?php $controls->select('options_status', array('C' => __('Confirmed', 'newsletter'), 'S' => __('Not confirmed', 'newsletter'))); ?>
 
-                                <p class="description">
-                                    <?php _e('Send to not confirmed subscribers ONLY to ask for confirmation including the {subscription_confirm_url} tag.', 'newsletter') ?>
-                                </p>
                             </td>
                         </tr>
-                        <tr valign="top">
-                            <th>Only to WordPress users?</th>
+                        <tr>
+                            <th><?php _e('Only to subscribers linked to WP users', 'newsletter') ?></th>
                             <td>
-                                <?php $controls->yesno('wp_users'); ?>
-
-                                <p class="description">
-                                    Limit to the subscribers which are WordPress users as well.
-                                </p>
+                                <?php $controls->yesno('options_wp_users'); ?>
                             </td>
                         </tr>
-                        <tr valign="top">
+                        <tr>
                             <th>
-                                <?php _e('Subscribers count', 'newsletter') ?>
+                                <?php _e('Approximated subscribers count', 'newsletter') ?>
                             </th>
                             <td>
                                 <?php
@@ -487,12 +446,12 @@ if ($email['editor'] == 0) {
 
                 <div id="tabs-d">
                     <table class="form-table">
-                        <tr valign="top">
+                        <tr>
                             <th><?php _e('Keep private', 'newsletter') ?></th>
                             <td>
                                 <?php $controls->yesno('private'); ?>
                                 <?php if ($email['status'] == 'sent') { ?>
-                                <?php $controls->button('change-private', __('Toggle'))?>
+                                    <?php $controls->button('change-private', __('Toggle')) ?>
                                 <?php } ?>
                                 <p class="description">
                                     <?php _e('Hide/show from public sent newsletter list.', 'newsletter') ?>
@@ -500,19 +459,16 @@ if ($email['editor'] == 0) {
                                 </p>
                             </td>
                         </tr>
-                        <tr valign="top">
+                        <tr>
                             <th><?php _e('Track clicks and message opening', 'newsletter') ?></th>
                             <td>
                                 <?php $controls->yesno('track'); ?>
                             </td>
                         </tr>
-                        <tr valign="top">
+                        <tr>
                             <th><?php _e('Send on', 'newsletter') ?></th>
                             <td>
                                 <?php $controls->datetime('send_on'); ?> (now: <?php echo date_i18n(get_option('date_format') . ' ' . get_option('time_format')); ?>)
-                                <p class="description">
-                                    If the current date and time are wrong, check your timezone on the General WordPress settings.
-                                </p>
                             </td>
                         </tr>
                     </table>
@@ -522,47 +478,24 @@ if ($email['editor'] == 0) {
 
                 <div id="tabs-status">
                     <table class="form-table">
-                        <tr valign="top">
+                        <tr>
                             <th>Email status</th>
                             <td><?php echo esc_html($email['status']); ?></td>
                         </tr>
-                        <tr valign="top">
+                        <tr>
                             <th>Messages sent</th>
                             <td><?php echo $email['sent']; ?> of <?php echo $email['total']; ?></td>
                         </tr>
-                        <tr valign="top">
+                        <tr>
                             <th>Query (tech)</th>
                             <td><?php echo esc_html($email['query']); ?></td>
                         </tr>
-                        <tr valign="top">
+                        <tr>
                             <th>Token (tech)</th>
                             <td><?php echo esc_html($email['token']); ?></td>
                         </tr>
                     </table>
                 </div>
-
-                <!--
-                <div id="tabs-5">
-                    <p>Tags documented below can be used on newsletter body. Some of them can be used on subject as well.</p>
-    
-                    <p>
-                        Special tags, like the preference setting tag, can be used to highly interact with your subscribers, see
-                        the Newsletter Preferences page for examples.
-                    </p>
-                    --
-    
-                    <dl>
-                        <dt>{set_preference_N}</dt>
-                        <dd>
-                            This tag creates a URL which, once clicked, set the preference numner N on the user profile and redirecting the
-                            subscriber to his profile panel. Preferences can be configured on Subscription/Form fields panel.
-                        </dd>
-                    </dl>
-    
-                    </ul>
-                </div>
-                -->
-
             </div>
 
         </form>

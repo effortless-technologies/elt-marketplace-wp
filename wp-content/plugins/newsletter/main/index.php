@@ -25,14 +25,15 @@ $query = "select * from " . NEWSLETTER_USERS_TABLE . " order by id desc";
 $query .= " limit 10";
 $subscribers = $wpdb->get_results($query);
 
+// Retrieves the last standard newsletter
 $last_email = $wpdb->get_row(
         $wpdb->prepare("select * from " . NEWSLETTER_EMAILS_TABLE . " where type='message' and status in ('sent', 'sending') and send_on<%d order by id desc limit 1", time()));
 
 if ($last_email) {
     $last_email_sent = $last_email->sent;
-    $last_email_opened = $wpdb->get_var("select count(distinct user_id) from " . NEWSLETTER_STATS_TABLE . " where email_id=" . $last_email->id);
+    $last_email_opened = NewsletterStatistics::instance()->get_open_count($last_email->id);
     $last_email_notopened = $last_email_sent - $last_email_opened;
-    $last_email_clicked = $wpdb->get_var("select count(distinct user_id) from " . NEWSLETTER_STATS_TABLE . " where url<>'' and email_id=" . $last_email->id);
+    $last_email_clicked = NewsletterStatistics::instance()->get_click_count($last_email->id);
     $last_email_opened -= $last_email_clicked;
 
     $overall_sent = $wpdb->get_var("select sum(sent) from " . NEWSLETTER_EMAILS_TABLE . " where type='message' and status in ('sent', 'sending')");
@@ -70,7 +71,7 @@ $labels = array_reverse($labels);
 
     <div id="tnp-heading">
 
-        <h2>TNP <?php _e('Dashboard', 'newsletter') ?></h2>
+        <h2><?php _e('Dashboard', 'newsletter') ?></h2>
         <p><?php _e('Your powerful control panel', 'newsletter') ?></p>
 
     </div>
@@ -80,6 +81,7 @@ $labels = array_reverse($labels);
             <div id="dashboard-widgets" class="metabox-holder">
                 <div id="postbox-container-1" class="postbox-container">
                     <div id="normal-sortables" class="meta-box-sortables ui-sortable">
+                        
                         <!-- START Statistics -->
                         <div id="tnp-dash-statistics" class="postbox">
                             <h3><?php _e('Statistics', 'newsletter') ?>
@@ -160,6 +162,18 @@ $labels = array_reverse($labels);
                                     });
                                 </script>
 
+                            </div>
+                        </div>
+                        <!-- END Statistics -->
+                        
+                        
+                        
+<!-- START Statistics -->
+                        <div id="tnp-dash-statistics" class="postbox">
+                            <h3><?php _e('Subscriptions', 'newsletter') ?></h3>
+                            <div class="inside">
+
+
                                 <div id="canvas-holder">
                                     <canvas id="tnp-events-chart-canvas"></canvas>
                                 </div>
@@ -199,6 +213,7 @@ $labels = array_reverse($labels);
                             </div>
                         </div>
                         <!-- END Statistics -->
+                        
                         <!-- START Documentation -->
                         <div id="tnp-dash-documentation" class="postbox">
                             <h3><?php _e('Documentation', 'newsletter') ?>

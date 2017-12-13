@@ -1,12 +1,11 @@
 <?php
-if (!defined('ABSPATH')) exit;
+defined('ABSPATH') || exit;
 
 require_once NEWSLETTER_INCLUDES_DIR . '/controls.php';
 $controls = new NewsletterControls();
 $module = NewsletterEmails::instance();
-// Add the color picker css file       
+
 wp_enqueue_style('wp-color-picker');
-// Include our custom jQuery file with WordPress Color Picker dependency
 wp_enqueue_script('wp-color-picker');
 
 // TNP Composer style
@@ -14,7 +13,7 @@ wp_enqueue_style('tnpc-style', plugins_url('/tnp-composer/_css/newsletter-builde
 //wp_enqueue_style('tnpc-newsletter-style', plugins_url('/tnp-composer/css/newsletter.css', __FILE__));
 wp_enqueue_style('tnpc-newsletter-style', home_url('/') . '?na=emails-composer-css');
 
-if (($controls->is_action('save') || $controls->is_action('preview')) && !$_GET['id']) {
+if (($controls->is_action('save') || $controls->is_action('preview')) && !isset($_GET['id'])) {
 
     $module->save_options($controls->data);
 
@@ -39,7 +38,7 @@ To change your subscription follow: {profile_url}.';
     $email['type'] = 'message';
     $email['send_on'] = time();
     $email['query'] = "select * from " . NEWSLETTER_USERS_TABLE . " where status='C'";
-    
+
     $email = Newsletter::instance()->save_email($email, ARRAY_A);
 } elseif (isset($_GET['id'])) {
 
@@ -61,10 +60,10 @@ To change your subscription follow: {profile_url}.';
 if ($controls->is_action('preview')) {
     ?>
     <script>
-        location.href = "<?php echo $module->get_admin_page_url('cpreview'); ?>&id=<?php echo $email['id']; ?>";
+        location.href = "<?php echo $module->get_admin_page_url('edit'); ?>&id=<?php echo $email['id']; ?>";
     </script>
     <div class="wrap">
-        <p><a href="<?php echo $module->get_admin_page_url('cpreview'); ?>&id=<?php echo $email['id']; ?>">click here to proceed</a>.</p>
+        <p><a href="<?php echo $module->get_admin_page_url('edit'); ?>&id=<?php echo $email['id']; ?>">click here to proceed</a>.</p>
     </div>
     <?php
     return;
@@ -74,37 +73,33 @@ if ($controls->data == null) {
     $controls->data = $module->get_options();
 }
 
-//$body = $controls->data['body'];
 $body = "";
 if (isset($email)) {
     $body = $email['message'];
-} 
-
+}
 ?>
 
-<div class="wrap" id="tnp-wrap">
-
-    <?php $help_url = 'https://www.thenewsletterplugin.com/plugins/newsletter/newsletters-module'; ?>
-    <?php //include NEWSLETTER_DIR . '/tnp-header.php';  ?>
+<div class="wrap tnp-emails-composer" id="tnp-wrap">
 
     <div id="tnp-heading" class="tnp-composer-heading">
-
-        <img src="https://cdn.thenewsletterplugin.com/tests/tnp-composer-heading.png">
-        <h2><?php _e('Compose a newsletter', 'newsletter') ?></h2>
-        <a href="https://www.thenewsletterplugin.com/plugins/newsletter/composer" target="_blank"><i class="fa fa-life-ring"></i> <?php _e('Read the guide', 'newsletter') ?></a>
+        <!--
+                <img src="https://cdn.thenewsletterplugin.com/tests/tnp-composer-heading.png">
+                <h2><?php _e('Compose a newsletter', 'newsletter') ?></h2>
+                <a href="https://www.thenewsletterplugin.com/plugins/newsletter/composer" target="_blank"><i class="fa fa-life-ring"></i> <?php _e('Read the guide', 'newsletter') ?></a>
+        -->        
         <form method="post" action="" id="tnpc-form">
             <?php $controls->init(); ?>
             <?php $controls->hidden('subject'); ?>
             <?php $controls->hidden('body'); ?>
             <?php $controls->button_reset(); ?>
-            <?php $controls->button('save', __('Save','newsletter'), 'create();'); ?>
-            <?php $controls->button('preview', __('Save & Preview','newsletter') . ' &raquo;', 'create();'); ?>
+            <?php $controls->button('save', __('Save', 'newsletter'), 'create();'); ?>
+            <?php $controls->button('preview', __('Save & Preview', 'newsletter') . ' &raquo;', 'create();'); ?>
         </form>
     </div>
 
 
 
-        <?php include NEWSLETTER_DIR . '/emails/tnp-composer/index.php'; ?>
+    <?php include NEWSLETTER_DIR . '/emails/tnp-composer/index.php'; ?>
 
 
 </div>

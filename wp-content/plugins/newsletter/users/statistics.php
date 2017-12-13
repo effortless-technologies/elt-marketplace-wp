@@ -22,7 +22,7 @@ $controls = new NewsletterControls();
 
 <div class="wrap" id="tnp-wrap">
 
-<?php include NEWSLETTER_DIR . '/tnp-header.php'; ?>
+    <?php include NEWSLETTER_DIR . '/tnp-header.php'; ?>
 
     <div id="tnp-heading">
 
@@ -32,15 +32,15 @@ $controls = new NewsletterControls();
 
     <div id="tnp-body" class="tnp-users-statistics">
 
-<?php $controls->init(); ?>
+        <?php $controls->init(); ?>
 
         <div id="tabs">
 
             <ul>
                 <li><a href="#tab-overview">Overview</a></li>
-                <li><a href="#tabs-preferences">Lists</a></li>
+                <li><a href="#tabs-lists">Lists</a></li>
                 <li><a href="#tabs-countries">World Map</a></li>
-                <li><a href="#tabs-referrers">Referrers</a></li>
+                <li><a href="#tabs-referrers">Referrer</a></li>
                 <li><a href="#tabs-sources">Sources</a></li>
                 <li><a href="#tabs-gender">Gender</a></li>
                 <li><a href="#tabs-time">By time</a></li>
@@ -49,75 +49,73 @@ $controls = new NewsletterControls();
             <div id="tab-overview">
 
                 <table class="widefat" style="width: auto">
-                    <thead><tr><th>Status</th><th>Total</th></thead>
-                    <tr valign="top">
-                        <td>Any</td>
-                        <td>
-<?php echo $wpdb->get_var("select count(*) from " . NEWSLETTER_USERS_TABLE); ?>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Confirmed</td>
-                        <td>
-<?php echo $wpdb->get_var("select count(*) from " . NEWSLETTER_USERS_TABLE . " where status='C'"); ?>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Not confirmed</td>
-                        <td>
-<?php echo $wpdb->get_var("select count(*) from " . NEWSLETTER_USERS_TABLE . " where status='S'"); ?>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Subscribed to feed by mail</td>
-                        <td>
-<?php echo $wpdb->get_var("select count(*) from " . NEWSLETTER_USERS_TABLE . " where status='C' and feed=1"); ?>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Unsubscribed</td>
-                        <td>
-<?php echo $wpdb->get_var("select count(*) from " . NEWSLETTER_USERS_TABLE . " where status='U'"); ?>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Bounced</td>
-                        <td>
-<?php echo $wpdb->get_var("select count(*) from " . NEWSLETTER_USERS_TABLE . " where status='B'"); ?>
-                        </td>
-                    </tr>
+                    <thead>
+                        <tr>
+                            <th><?php _e('Status', 'newsletter') ?></th>
+                            <th><?php _e('Total', 'newsletter') ?></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><?php _e('Any', 'newsletter') ?></td>
+                            <td>
+                                <?php echo $wpdb->get_var("select count(*) from " . NEWSLETTER_USERS_TABLE); ?>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><?php _e('Confirmed', 'newsletter') ?></td>
+                            <td>
+                                <?php echo $wpdb->get_var("select count(*) from " . NEWSLETTER_USERS_TABLE . " where status='C'"); ?>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><?php _e('Not confirmed', 'newsletter') ?></td>
+                            <td>
+                                <?php echo $wpdb->get_var("select count(*) from " . NEWSLETTER_USERS_TABLE . " where status='S'"); ?>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><?php _e('Unsubscribed', 'newsletter') ?></td>
+                            <td>
+                                <?php echo $wpdb->get_var("select count(*) from " . NEWSLETTER_USERS_TABLE . " where status='U'"); ?>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><?php _e('Bounced', 'newsletter') ?></td>
+                            <td>
+                                <?php echo $wpdb->get_var("select count(*) from " . NEWSLETTER_USERS_TABLE . " where status='B'"); ?>
+                            </td>
+                        </tr>
+                    </tbody>
                 </table>
 
             </div>
 
 
-            <div id="tabs-preferences">
-
-                <div class="tab-preamble">
-                    <p>
-                        Subscriber count per list.
-                        <a href="https://www.thenewsletterplugin.com/plugins/newsletter/newsletter-preferences" target="_blank">Read more about lists</a> and/or
-                        configure them from te "Lists" panel.
-                    <p>
-                </div>
+            <div id="tabs-lists">
 
                 <table class="widefat" style="width: auto">
                     <thead>
                         <tr>
-                            <th>List</th>
-                            <th>Total</th>
-                    </thead>
-                    <?php for ($i = 1; $i <= NEWSLETTER_LIST_MAX; $i++) { ?>
-    <?php if (empty($options_profile['list_' . $i])) continue; ?>
-                        <tr>
-                            <td><?php echo '(' . $i . ') ' . esc_html($options_profile['list_' . $i]) ?></td>
-                            <td>
-    <?php echo $wpdb->get_var("select count(*) from " . NEWSLETTER_USERS_TABLE . " where list_" . $i . "=1 and status='C'"); ?>
-                            </td>
+                            <th>&nbsp;</th>
+                            <th><?php _e('List', 'newsletter') ?></th>
+                            <th><?php _e('Total', 'newsletter') ?> (*)</th>
                         </tr>
-<?php } ?>
+                    </thead>
+                    <tbody>
+                        <?php for ($i = 1; $i <= NEWSLETTER_LIST_MAX; $i++) { ?>
+                            <?php if (empty($options_profile['list_' . $i])) continue; ?>
+                            <tr>
+                                <td><?php echo $i ?></td>
+                                <td><?php echo esc_html($options_profile['list_' . $i]) ?></td>
+                                <td>
+                                    <?php echo $wpdb->get_var("select count(*) from " . NEWSLETTER_USERS_TABLE . " where list_" . $i . "=1 and status='C'"); ?>
+                                </td>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
                 </table>
-
+                (*) <?php _e('Confirmed', 'newsletter') ?>
             </div>
 
 
@@ -133,56 +131,66 @@ $controls = new NewsletterControls();
 
 
             <div id="tabs-referrers">
-                <div class="tab-preamble">
-                    <p>The referrer is a special (hidden) fields collected during the subscription. For example the widget
-                        adds the "widget" referrer to his generated form. With custom forms you can add
-                        your own referrer using an hidden field named "nr".
-                    </p>
-                </div>
+                <p>
+                    <?php $controls->panel_help('https://www.thenewsletterplugin.com/documentation/subscribers-statistics#referrer') ?>
+                </p>
                 <?php
-                $list = $wpdb->get_results("select referrer, count(*) as total from " . NEWSLETTER_USERS_TABLE . " where status='C' group by referrer order by total desc");
+                $list = $wpdb->get_results("select referrer, SUM(if(status='C', 1, 0)) as confirmed, SUM(if(status='S', 1, 0)) as unconfirmed, SUM(if(status='B', 1, 0)) as bounced, SUM(if(status='U', 1, 0)) as unsubscribed from " . NEWSLETTER_USERS_TABLE . " group by referrer order by confirmed desc");
                 ?>
                 <table class="widefat" style="width: auto">
                     <thead>
-                        <tr><th>Referrer</th><th>Total</th>
-                    </thead>
-<?php foreach ($list as $row) { ?>
                         <tr>
-                            <td><?php echo empty($row->referrer) ? '[undefined]' : esc_html($row->referrer) ?></td>
-                            <td><?php echo $row->total; ?></td>
+                            <th><?php _e('Referrer', 'newsletter') ?></th>
+                            <th><?php _e('Confirmed', 'newsletter') ?></th>
+                            <th><?php _e('Not confirmed', 'newsletter') ?></th>
+                            <th><?php _e('Unsubscribed', 'newsletter') ?></th>
+                            <th><?php _e('Bounced', 'newsletter') ?></th>
                         </tr>
-<?php } ?>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($list as $row) { ?>
+                            <tr>
+                                <td><?php echo empty($row->referrer) ? '[not set]' : esc_html($row->referrer) ?></td>
+                                <td><?php echo $row->confirmed; ?></td>
+                                <td><?php echo $row->unconfirmed; ?></td>
+                                <td><?php echo $row->unsubscribed; ?></td>
+                                <td><?php echo $row->bounced; ?></td>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
                 </table>
 
             </div>
 
 
             <div id="tabs-sources">
-
-                <div class="tab-preamble">
-                    <p>
-                        URLs from which the subscription started. For example, if you use the widget on your blog sidebar
-                        you can discover which page is converting more.
-                    </p>
-                </div>
-
+                <p>
+                    <?php $controls->panel_help('https://www.thenewsletterplugin.com/documentation/subscribers-statistics#source') ?>
+                </p>
                 <?php
-                $list = $wpdb->get_results("select http_referer, count(*) as total from " . NEWSLETTER_USERS_TABLE . " where status='C' group by http_referer order by count(*) desc limit 100");
+                $list = $wpdb->get_results("select http_referer, SUM(if(status='C', 1, 0)) as confirmed, SUM(if(status='S', 1, 0)) as unconfirmed, SUM(if(status='B', 1, 0)) as bounced, SUM(if(status='U', 1, 0)) as unsubscribed from " . NEWSLETTER_USERS_TABLE . " group by http_referer order by count(*) desc limit 100");
                 ?>
                 <table class="widefat" style="width: auto">
                     <thead>
                         <tr>
                             <th>URL</th>
-                            <th>Total</th>
+                            <th><?php _e('Confirmed', 'newsletter') ?></th>
+                            <th><?php _e('Not confirmed', 'newsletter') ?></th>
+                            <th><?php _e('Unsubscribed', 'newsletter') ?></th>
+                            <th><?php _e('Bounced', 'newsletter') ?></th>
+                        </tr>
                     </thead>
                     <tbody>
-<?php foreach ($list as $row) { ?>
+                        <?php foreach ($list as $row) { ?>
                             <tr>
-                                <td><?php echo empty($row->http_referer) ? '[undefined]' : esc_html($row->http_referer) ?></td>
-                                <td><?php echo $row->total; ?></td>
+                                <td><?php echo empty($row->http_referer) ? '[not set]' : $controls->print_truncated($row->http_referer, 120) ?></td>
+                                <td><?php echo $row->confirmed; ?></td>
+                                <td><?php echo $row->unconfirmed; ?></td>
+                                <td><?php echo $row->unsubscribed; ?></td>
+                                <td><?php echo $row->bounced; ?></td>
                             </tr>
-<?php } ?>
-                    <tbody>
+                        <?php } ?>
+                    </tbody>
                 </table>
 
             </div>
@@ -190,69 +198,47 @@ $controls = new NewsletterControls();
 
             <div id="tabs-gender">
 
-                    
+
                 <?php
-                $male_count = $wpdb->get_var("select count(*) from " . NEWSLETTER_USERS_TABLE . " where sex='m' and status='C'");
-                $female_count = $wpdb->get_var("select count(*) from " . NEWSLETTER_USERS_TABLE . " where sex='f' and status='C'");
-                $other_count = ($all_count - $male_count - $female_count);
-                $gender_data = array($female_count, $male_count, $other_count);
+                $male_count = $wpdb->get_row("select SUM(if(status='C', 1, 0)) as confirmed, SUM(if(status='S', 1, 0)) as unconfirmed, SUM(if(status='B', 1, 0)) as bounced, SUM(if(status='U', 1, 0)) as unsubscribed from " . NEWSLETTER_USERS_TABLE . " where sex='m'");
+                $female_count = $wpdb->get_row("select SUM(if(status='C', 1, 0)) as confirmed, SUM(if(status='S', 1, 0)) as unconfirmed, SUM(if(status='B', 1, 0)) as bounced, SUM(if(status='U', 1, 0)) as unsubscribed from " . NEWSLETTER_USERS_TABLE . " where sex='f'");
+                $none_count = $wpdb->get_row("select SUM(if(status='C', 1, 0)) as confirmed, SUM(if(status='S', 1, 0)) as unconfirmed, SUM(if(status='B', 1, 0)) as bounced, SUM(if(status='U', 1, 0)) as unsubscribed from " . NEWSLETTER_USERS_TABLE . " where sex='n'");
                 ?>
-
-                <div class="row">
-                    <div class="col-md-6">
-                        <canvas id="tnp-gender-chart" style="width: 300px!important; height: 300px!important"></canvas>
-                    </div>
-                    
-                    <div class="col-md-6">
-                        <table class="widefat" style="width: auto">
-                            <thead>
-                                <tr>
-                                    <th>Gender</th>
-                                    <th>Total</th>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>Male</td>
-                                <td><?php echo $male_count; ?></td>
+                
+                <table class="widefat">
+                    <thead>
+                        <tr>
+                            <th><?php _e('Gender', 'newsletter')?></th>
+                            <th><?php _e('Confirmed', 'newsletter') ?></th>
+                            <th><?php _e('Not confirmed', 'newsletter') ?></th>
+                            <th><?php _e('Unsubscribed', 'newsletter') ?></th>
+                            <th><?php _e('Bounced', 'newsletter') ?></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                                <td><?php _e('Female', 'newsletter')?></td>
+                                <td><?php echo $female_count->confirmed; ?></td>
+                                <td><?php echo $female_count->unconfirmed; ?></td>
+                                <td><?php echo $female_count->unsubscribed; ?></td>
+                                <td><?php echo $female_count->bounced; ?></td>
                             </tr>
                             <tr>
-                                <td>Female</td>
-                                <td><?php echo $female_count; ?></td>
+                                <td><?php _e('Female', 'newsletter')?></td>
+                                <td><?php echo $male_count->confirmed; ?></td>
+                                <td><?php echo $male_count->unconfirmed; ?></td>
+                                <td><?php echo $male_count->unsubscribed; ?></td>
+                                <td><?php echo $male_count->bounced; ?></td>
                             </tr>
                             <tr>
-                                <td>Other</td>
-                                <td><?php echo $other_count; ?></td>
+                                <td><?php _e('Not specified', 'newsletter')?></td>
+                                <td><?php echo $none_count->confirmed; ?></td>
+                                <td><?php echo $none_count->unconfirmed; ?></td>
+                                <td><?php echo $none_count->unsubscribed; ?></td>
+                                <td><?php echo $none_count->bounced; ?></td>
                             </tr>
-                        </table>
-                    </div>
-                </div>
-                <script>
-                    var gender_data = {
-                        labels: [
-                            "Female",
-                            "Male",
-                            "Other"
-                        ],
-                        datasets: [
-                            {
-                                data: <?php echo json_encode($gender_data) ?>,
-                                backgroundColor: [
-                                    "#2980B9",
-                                    "#27AE60",
-                                    "#555555"
-                                ],
-                                hoverBackgroundColor: [
-                                    "#2980B9",
-                                    "#27AE60",
-                                    "#555555"
-                                ]
-                            }]};
-
-                    jQuery(document).ready(function ($) {
-                        gender_ctx = $('#tnp-gender-chart').get(0).getContext("2d");
-                        new Chart(gender_ctx, {type: 'doughnut', data: gender_data, options: {responsive: false, legend: {labels: {boxWidth: 10}}}});
-                    });
-                </script>
+                    </tbody>
+                </table>
 
 
             </div>
@@ -281,7 +267,7 @@ $controls = new NewsletterControls();
 
     </div>
 
-<?php include NEWSLETTER_DIR . '/tnp-footer.php'; ?>
+    <?php include NEWSLETTER_DIR . '/tnp-footer.php'; ?>
 
 </div>
 

@@ -48,7 +48,7 @@ function newsletter_emails_get_theme_options($theme) {
 $themes = $module->themes->get_all_with_data();
 ?>
 
-<div class="wrap" id="tnp-wrap">
+<div class="wrap tnp-emails tnp-emails-theme" id="tnp-wrap">
 
     <?php include NEWSLETTER_DIR . '/tnp-header.php'; ?>
 

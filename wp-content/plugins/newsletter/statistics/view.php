@@ -8,16 +8,15 @@ $controls = new NewsletterControls();
 
 wp_enqueue_script('tnp-chart');
 
-$email_id = (int) $_GET['id'];
-$email = $module->get_email($email_id);
+$email = $module->get_email($_GET['id']);
 
-$module->maybe_fix_sent_stats($email);
+//$module->maybe_fix_sent_stats($email);
 $module->update_stats($email);
        
 
-$total_count = $module->get_total_count($email_id);
-$open_count = $module->get_open_count($email_id);
-$click_count = $module->get_click_count($email_id);
+$total_count = $module->get_total_count($email->id);
+$open_count = $module->get_open_count($email->id);
+$click_count = $module->get_click_count($email->id);
 
 ?>
 
@@ -25,11 +24,7 @@ $click_count = $module->get_click_count($email_id);
     <?php include NEWSLETTER_DIR . '/tnp-header.php' ?>
     <div id="tnp-heading">
         <h2><?php _e('Statistics of', 'newsletter') ?> "<?php echo htmlspecialchars($email->subject); ?>"</h2>
-
-        <?php $controls->show(); ?>
-
     </div>
-
 
     <div id="tnp-body" style="min-width: 500px">
         

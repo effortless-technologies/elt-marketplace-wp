@@ -28,13 +28,13 @@ defined('ABSPATH') || exit;
 
     <div id="tabs-a">
         <table class="form-table">
-            <tr valign="top">
+            <tr>
                 <th>Max new posts to include</th>
                 <td>
                     <?php $controls->select_number('theme_max_posts', 1, 50); ?>
                 </td>
             </tr>
-            <tr valign="top">
+            <tr>
                 <th>Categories to include</th>
                 <td><?php $controls->categories_group('theme_categories'); ?></td>
             </tr>
@@ -45,19 +45,19 @@ defined('ABSPATH') || exit;
                     <p class="description">Leave all uncheck for a default behavior.</p>
                 </td>
             </tr>
-            <tr valign="top">
+            <tr>
                 <th>Pre header message</th>
                 <td>
                     <?php $controls->textarea_fixed('theme_pre_message', '100%', 120); ?>
                 </td>
             </tr>
-            <tr valign="top">
+            <tr>
                 <th>Footer message</th>
                 <td>
                     <?php $controls->textarea_fixed('theme_footer_message', '100%', 120); ?>
                 </td>
             </tr>
-            <tr valign="top">
+            <tr>
                 <th>Read more label</th>
                 <td>
                     <?php $controls->text('theme_read_more'); ?>

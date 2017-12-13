@@ -63,24 +63,24 @@ if ($controls->is_action('import')) {
             continue;
         }
 
-        $subscriber = NewsletterUsers::instance()->get_user($email, ARRAY_A);
+        $subscriber = $module->get_user($email, ARRAY_A);
         if ($subscriber == null) {
             $subscriber = array();
             $subscriber['email'] = $email;
             if (isset($data[1])) {
-                $subscriber['name'] = $newsletter->normalize_name($data[1]);
+                $subscriber['name'] = $module->normalize_name($data[1]);
             }
             if (isset($data[2])) {
-                $subscriber['surname'] = $newsletter->normalize_name($data[2]);
+                $subscriber['surname'] = $module->normalize_name($data[2]);
             }
             if (isset($data[3])) {
-                $subscriber['sex'] = $newsletter->normalize_sex($data[3]);
+                $subscriber['sex'] = $module->normalize_sex($data[3]);
             }
             $subscriber['status'] = $controls->data['import_as'];
             foreach ($controls->data['preferences'] as $i) {
                 $subscriber['list_' . $i] = 1;
             }
-            NewsletterUsers::instance()->save_user($subscriber);
+            $module->save_user($subscriber);
             $results .= '[ADDED] ' . $line . "\n";
             $added_count++;
         } else {
@@ -91,10 +91,10 @@ if ($controls->is_action('import')) {
             }
 
             if ($mode == 'overwrite') {
-                $subscriber['name'] = $newsletter->normalize_name($data[1]);
-                $subscriber['surname'] = $newsletter->normalize_name($data[2]);
+                $subscriber['name'] = $module->normalize_name($data[1]);
+                $subscriber['surname'] = $module->normalize_name($data[2]);
                 if (isset($data[3])) {
-                    $subscriber['sex'] = $newsletter->normalize_sex($data[3]);
+                    $subscriber['sex'] = $module->normalize_sex($data[3]);
                 }
                 if (isset($controls->data['override_status'])) {
                     $subscriber['status'] = $controls->data['import_as'];
@@ -111,10 +111,10 @@ if ($controls->is_action('import')) {
             }
 
             if ($mode == 'update') {
-                $subscriber['name'] = $newsletter->normalize_name($data[1]);
-                $subscriber['surname'] = $newsletter->normalize_name($data[2]);
+                $subscriber['name'] = $module->normalize_name($data[1]);
+                $subscriber['surname'] = $module->normalize_name($data[2]);
                 if (isset($data[3])) {
-                    $subscriber['sex'] = $newsletter->normalize_sex($data[3]);
+                    $subscriber['sex'] = $module->normalize_sex($data[3]);
                 }
                 if (isset($controls->data['override_status'])) {
                     $subscriber['status'] = $controls->data['import_as'];
@@ -166,7 +166,7 @@ if ($controls->is_action('import')) {
 
         <table class="form-table">
 
-            <tr valign="top">
+            <tr>
                 <th><?php _e('Import Subscribers As', 'newsletter') ?></th>
                 <td>
                     <?php $controls->select('import_as', array('C' => __('Confirmed', 'newsletter'), 'S' => __('Not confirmed', 'newsletter'))); ?>
@@ -175,21 +175,21 @@ if ($controls->is_action('import')) {
                 </td>
             </tr>
 
-            <tr valign="top">
-                <th>Import mode</th>
+            <tr>
+                <th><?php _e('Import mode', 'newsletter') ?></th>
                 <td>
                     <?php $controls->select('mode', array('update' => 'Update', 'overwrite' => 'Overwrite', 'skip' => 'Skip')); ?>
                     if email is already present
-                    <div class="hints">
+                    <p class="description">
                         <strong>Update</strong>: <?php _e('user data will be updated, existing preferences will be left untouched and new ones will be added.', 'newsletter') ?><br />
                         <strong>Overwrite</strong>: <?php _e('user data will be overwritten with new informations (like name and preferences).', 'newsletter') ?><br />
                         <strong>Skip</strong>: <?php _e('user data will be left untouched if already present.', 'newsletter') ?>
-                    </div>
+                    </p>
                 </td>
             </tr>
 
-            <tr valign="top">
-                <th>Preferences</th>
+            <tr>
+                <th><?php _e('Lists', 'newsletter') ?></th>
                 <td>
                     <?php $controls->preferences_group('preferences', true); ?>
                     <div class="hints">
@@ -198,14 +198,14 @@ if ($controls->is_action('import')) {
                 </td>
             </tr>
 
-            <tr valign="top">
-                <th>Field Separator</th>
+            <tr>
+                <th><?php _e('Field separator', 'newsletter') ?></th>
                 <td>
                     <?php $controls->select('separator', array(';' => 'Semicolon', ',' => 'Comma', 'tab' => 'Tabulation')); ?>
                 </td>
             </tr>
 
-            <tr valign="top">
+            <tr>
                 <th>
                     <?php _e('CSV file', 'newsletter') ?>
             <div class="tnp-tip">
@@ -219,7 +219,7 @@ if ($controls->is_action('import')) {
                 <input type="file" name="csv_file" />
             </td>
             </tr>
-            <tr valign="top">
+            <tr>
                 <th>CSV text
             <div class="tnp-tip">
                 <span class="tip-button">Tip</span>

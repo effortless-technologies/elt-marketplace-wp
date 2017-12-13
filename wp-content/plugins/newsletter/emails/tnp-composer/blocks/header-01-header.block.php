@@ -14,7 +14,7 @@
                                             <?php if (!empty($block_options['header_logo']['url'])) { ?>
                                                 <img alt="<?php echo esc_attr($block_options['header_title']) ?>" src="<?php echo $block_options['header_logo']['url'] ?>" style="display: block; width: 180px;" border="0">
                                             <?php } else { ?>
-                                                <img alt="<?php echo esc_attr($block_options['header_title']) ?>" src="http://placehold.it/180x100&text=<?php echo esc_attr($block_options['header_title']) ?>" style="display: block; width: 180px;" border="0">
+                                                <img alt="<?php echo esc_attr($block_options['header_title']) ?>" src="https://placehold.it/180x100&text=<?php echo esc_attr($block_options['header_title']) ?>" style="display: block; width: 180px;" border="0">
                                             <?php } ?>
                                         </a>
                                     </td>

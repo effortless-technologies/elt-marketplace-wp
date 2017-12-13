@@ -13,5 +13,6 @@ $options = array(
     'sender_name' => get_option('blogname'),
     'editor' => 0,
     'scheduler_max' => 100,
-    'phpmailer'=>0
+    'phpmailer'=>0,
+    'debug'=>0
 );

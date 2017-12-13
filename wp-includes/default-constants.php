@@ -12,7 +12,8 @@
  *
  * @since 3.0.0
  *
- * @global int $blog_id
+ * @global int    $blog_id    The current site ID.
+ * @global string $wp_version The WordPress version string.
  */
 function wp_initial_constants() {
 	global $blog_id;
@@ -36,9 +37,9 @@ function wp_initial_constants() {
 		if ( false === wp_is_ini_value_changeable( 'memory_limit' ) ) {
 			define( 'WP_MEMORY_LIMIT', $current_limit );
 		} elseif ( is_multisite() ) {
-			define( 'WP_MEMORY_LIMIT', '256M' );
+			define( 'WP_MEMORY_LIMIT', '64M' );
 		} else {
-			define( 'WP_MEMORY_LIMIT', '256M' );
+			define( 'WP_MEMORY_LIMIT', '40M' );
 		}
 	}
 
@@ -349,7 +350,7 @@ function wp_templating_constants() {
 	define('STYLESHEETPATH', get_stylesheet_directory());
 
 	/**
-	 * Slug of the default theme for this install.
+	 * Slug of the default theme for this installation.
 	 * Used as the default theme when installing new sites.
 	 * It will be used as the fallback if the current theme doesn't exist.
 	 *

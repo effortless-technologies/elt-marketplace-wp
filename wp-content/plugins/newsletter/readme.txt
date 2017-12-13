@@ -1,8 +1,8 @@
 === Newsletter ===
 Tags: newsletter,email,subscription,mass mail,list build,email marketing,direct mailing,automation,automated
 Requires at least: 3.4.0
-Tested up to: 4.8.2
-Stable tag: 5.1.1
+Tested up to: 4.9.1
+Stable tag: 5.1.7
 Contributors: satollo,webagile,michael-travan
 
 Add a real newsletter system to your blog. For free. With unlimited newsletters and subscribers.
@@ -14,16 +14,16 @@ send and track e-mails, headache-free. It just works out of box!
 
 = Main Features =
 
-* NEW **responsive email Drag & Drop composer**
-* **Unlimited Subscribers** with statistics 
-* **Unlimited Emails** with tracking
+* **Responsive email Drag & Drop composer**
+* **Unlimited subscribers** with statistics 
+* **Unlimited newsletter** with tracking
 * Customizable **subscription widget**, **page** or **custom form**
 * Wordpress User Registration **seamless integration**
 * **Single** And **Double Opt-In** plus privacy checkbox for EU laws compliance
-* **Subscribers preferences** to fine-target your campaigns
+* **Subscribers lists** to fine-target your campaigns
 * SMTP-Ready 
 * Customizable Themes
-* Html and Text versions of Emails 
+* Newsletter with Html and Text message versions 
 * All messages are **fully translatable** from Admin Panel (no .po/.mo)
 * Diagnostics Panel to check your blog mailing capability 
 * **Compatible with Postman, WP Mail SMTP, Easy WP SMTP, Easy SMTP Mail, WP Mail Bank**
@@ -85,6 +85,46 @@ Thank you, The Newsletter Team
 
 == Changelog ==
 
+== 5.1.7 ==
+
+* NEW! Welcome wizard
+
+== 5.1.6 ==
+
+* Fix list selection on first save
+
+== 5.1.5 ==
+
+* Re-confirmation is now allows for unsubscribed and bounced 
+* Fixed to minimal widget and minimal css
+* Fixed the approx. subscriber count on newsletter creation (was showing encoded data)
+
+== 5.1.4 ==
+
+* Fixed notices on email edit panel
+* Added microdata to the call to action block
+* Added filter on name field while sending. [See this post](https://www.thenewsletterplugin.com/?p=54292)
+* Improved the online [viewability rules](https://www.thenewsletterplugin.com/documentation/newsletters-module#view-online) 
+* Fixed theme editor bad behavior
+* Fixed the min size of thumbnails on default theme
+* Removed references to font awesome where not used
+
+== 5.1.3 ==
+
+* Fixed newsletter duplication which was loosing the editor type
+* Fixed gender saving on targeting
+
+== 5.1.2 ==
+
+* Improved the speed report on status panel
+* Removed the obsolete diagnostic panel
+* Removed obsolete code
+* Removed the locked content menu entry (please install the free content lock extension)
+* Fixed validation call on widget minimal
+* Added more translatable strings
+* Fixed the editor CSS when a theme has its own
+* Confirmation is now activation
+* CSS clean up
 
 == 5.1.1 ==
 

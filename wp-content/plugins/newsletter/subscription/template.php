@@ -99,7 +99,7 @@ if (!$controls->is_action()) {
                 <?php $controls->button_save(); ?>
             </p>
             <table class="form-table">
-                <tr valign="top">
+                <tr>
                     <th>Enabled?</th>
                     <td>
                         <?php $controls->yesno('enabled'); ?>

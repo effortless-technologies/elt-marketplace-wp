@@ -93,7 +93,7 @@ class NewsletterSubscription extends NewsletterModule {
             case 'subscribe':
                 // Flood check
                 if (!empty($this->options['antiflood'])) {
-                    $ip = $_SERVER['REMOTE_ADDR'];
+                    $ip = (string) $_SERVER['REMOTE_ADDR'];
                     $email = $this->is_email($_REQUEST['ne']);
                     $updated = $wpdb->get_var($wpdb->prepare("select updated from " . NEWSLETTER_USERS_TABLE . " where ip=%s or email=%s order by updated desc limit 1", $ip, $email));
 
@@ -257,6 +257,10 @@ class NewsletterSubscription extends NewsletterModule {
         $this->init_options('template', false);
 
         return true;
+    }
+
+    function first_install() {
+
     }
 
     function admin_menu() {
@@ -426,7 +430,7 @@ class NewsletterSubscription extends NewsletterModule {
             }
         }
 
-        $user = $newsletter->save_user($user);
+        $user = $this->save_user($user);
 
         // Notification to admin (only for new confirmed subscriptions)
         if ($user->status == 'C') {
@@ -597,43 +601,41 @@ class NewsletterSubscription extends NewsletterModule {
             die('No subscriber found.');
         }
 
+        setcookie('newsletter', $user->id . '-' . $user->token, time() + 60 * 60 * 24 * 365, '/');
+
         if ($user->status == 'C') {
             do_action('newsletter_user_confirmed', $user);
             return $user;
         }
 
-        if ($user->status != 'S') {
-            $this->logger->debug('Was not in status S');
-            $user->status = 'E';
-            return $user;
-        }
-        setcookie('newsletter', $user->id . '-' . $user->token, time() + 60 * 60 * 24 * 365, '/');
-        $newsletter->set_user_status($user->id, 'C');
+//        if ($user->status != 'S') {
+//            $this->logger->debug('Was not in status S');
+//            $user->status = 'E';
+//            return $user;
+//        }
+
+        $this->set_user_status($user->id, 'C');
         $user->status = 'C';
         do_action('newsletter_user_confirmed', $user);
         $this->notify_admin($user, 'Newsletter subscription');
-
-        // Check if is connected to a wp user
-        if ($user->wp_user_id) {
-            /* @var $wpdb wpdb */
-            global $wpdb;
-            //$wpdb->update($wpdb->users, array('user_email'=>$user->email), array('id'=>$user->wp_user_id));
-        }
 
         if (!$emails) {
             return $user;
         }
 
-        if (empty($this->options['confirmed_disabled'])) {
-            $message = $this->options['confirmed_message'];
-            // TODO: This is always empty!
-            $message_text = $this->options['confirmed_message_text'];
-            $subject = $this->options['confirmed_subject'];
-
-            $this->mail($user->email, $newsletter->replace($subject, $user), $newsletter->replace($message, $user));
-        }
+        $this->send_message('confirmed', $user);
 
         return $user;
+    }
+
+    function send_message($type, $user) {
+        if (empty($this->options[$type . '_disabled'])) {
+            $message = $this->options[$type . '_message'];
+            //$message_text = $this->options[$type . '_message_text'];
+            $subject = $this->options[$type . '_subject'];
+
+            $this->mail($user->email, $this->replace($subject, $user), $this->replace($message, $user));
+        }
     }
 
     /**
@@ -644,64 +646,41 @@ class NewsletterSubscription extends NewsletterModule {
      */
     function unsubscribe() {
         $newsletter = Newsletter::instance();
-        $user = $this->get_user_from_request();
-
-        //$this->logger->debug('Unsubscription for:');
-        //$this->logger->debug($user);
-
-        setcookie('newsletter', '', time() - 3600);
-        if ($user == null) {
-            //$this->logger->debug('Not found');
-            die('Subscriber not found');
-        }
+        $user = $this->get_user_from_request(true);
 
         if ($user->status == 'U') {
             return $user;
         }
 
-        if ($user->status != 'C') {
-            $user->status = 'E';
-            return $user;
+        $newsletter->set_user_status($user->id, 'U');
+        do_action('newsletter_unsubscribed', $user);
+
+        global $wpdb;
+        if (isset($_REQUEST['nek'])) {
+            list($email_id, $email_token) = explode('-', $_REQUEST['nek']);
+            $wpdb->update(NEWSLETTER_USERS_TABLE, array('unsub_email_id' => (int) $email_id, 'unsub_time' => time()), array('id' => $user->id));
         }
 
-        if ($user->status == 'C') {
-            $newsletter->set_user_status($user->id, 'U');
-            do_action('newsletter_unsubscribed', $user);
-
-            global $wpdb;
-            if (isset($_REQUEST['nek'])) {
-                list($email_id, $email_token) = explode('-', $_REQUEST['nek']);
-                $wpdb->update(NEWSLETTER_USERS_TABLE, array('unsub_email_id' => (int) $email_id, 'unsub_time' => time()), array('id' => $user->id));
-            }
-
-            if (empty($this->options['unsubscribed_disabled'])) {
-                $this->mail($user->email, $newsletter->replace($this->options['unsubscribed_subject'], $user), $newsletter->replace($this->options['unsubscribed_message'], $user));
-            }
-            $this->notify_admin($user, 'Newsletter unsubscription');
+        if (empty($this->options['unsubscribed_disabled'])) {
+            $this->mail($user->email, $newsletter->replace($this->options['unsubscribed_subject'], $user), $newsletter->replace($this->options['unsubscribed_message'], $user));
         }
-
-        // Here the subscriber has status U
-        return $user;
+        $this->notify_admin($user, 'Newsletter unsubscription');
     }
 
     function save_profile() {
-        $newsletter = Newsletter::instance();
 
-        $user = $this->get_user_from_request();
-        if ($user == null) {
-            die('No subscriber found.');
-        }
+        $user = $this->get_user_from_request(true);
 
         $options_profile = get_option('newsletter_profile', array());
         $options_main = get_option('newsletter_main', array());
 
-        if (!$newsletter->is_email($_REQUEST['ne'])) {
+        if (!$this->is_email($_REQUEST['ne'])) {
             $user->alert = $this->options['profile_error'];
             return $user;
         }
 
         $email = $this->normalize_email(stripslashes($_REQUEST['ne']));
-        $email_changed = $email != $user->email;
+        $email_changed = ($email != $user->email);
 
         // If the email has been changed, check if it is available
         if ($email_changed) {
@@ -714,8 +693,8 @@ class NewsletterSubscription extends NewsletterModule {
 
         // General data
         $data['email'] = $email;
-        $data['name'] = $newsletter->normalize_name(stripslashes($_REQUEST['nn']));
-        $data['surname'] = $newsletter->normalize_name(stripslashes($_REQUEST['ns']));
+        $data['name'] = $this->normalize_name(stripslashes($_REQUEST['nn']));
+        $data['surname'] = $this->normalize_name(stripslashes($_REQUEST['ns']));
         if ($options_profile['sex_status'] >= 1) {
             $data['sex'] = $_REQUEST['nx'][0];
             // Wrong data injection check
@@ -751,7 +730,7 @@ class NewsletterSubscription extends NewsletterModule {
         // Feed by Mail service is saved here
         $data = apply_filters('newsletter_profile_save', $data);
 
-        $user = $newsletter->save_user($data);
+        $user = $this->save_user($data);
 
         // Email has been changed? Are we using double opt-in?
         $opt_in = (int) $this->options['noconfirmation'];
@@ -761,7 +740,7 @@ class NewsletterSubscription extends NewsletterModule {
             if (empty($this->options['confirmation_disabled'])) {
                 $message = $this->options['confirmation_message'];
                 $subject = $this->options['confirmation_subject'];
-                $res = $this->mail($user->email, $newsletter->replace($subject, $user), $newsletter->replace($message, $user));
+                $res = $this->mail($user->email, $this->replace($subject, $user), $this->replace($message, $user));
                 $alert = $this->options['profile_email_changed'];
             }
         }
@@ -826,31 +805,6 @@ class NewsletterSubscription extends NewsletterModule {
 
         header('Location: ' . self::add_qs($url, 'nm=' . $key . '&nk=' . $user->id . '-' . $user->token, false) . $params);
         die();
-    }
-
-    /**
-     * Loads the user using the request parameters (nk or nt and ni).
-     *
-     * @global Newsletter $newsletter
-     * @return null
-     */
-    function get_user_from_request() {
-        $newsletter = Newsletter::instance();
-
-        if (isset($_REQUEST['nk'])) {
-            list($id, $token) = @explode('-', $_REQUEST['nk'], 2);
-        } else if (isset($_REQUEST['ni'])) {
-            $id = (int) $_REQUEST['ni'];
-            $token = $_REQUEST['nt'];
-        } else {
-            return null;
-        }
-        $user = $newsletter->get_user($id);
-
-        if ($user == null || $token != $user->token) {
-            return null;
-        }
-        return $user;
     }
 
     function get_email_from_request() {
@@ -1688,7 +1642,7 @@ class NewsletterSubscription extends NewsletterModule {
         // Lists
         $lists = '';
         for ($i = 1; $i <= NEWSLETTER_LIST_MAX; $i++) {
-            if ($options['list_' . $i . '_status'] == 0) {
+            if ($options['list_' . $i . '_status'] == 0 || $options['list_' . $i . '_status'] == 3) {
                 continue;
             }
 
@@ -1807,12 +1761,13 @@ class NewsletterSubscription extends NewsletterModule {
 
     function get_subscription_form_minimal($attrs) {
         $options_profile = get_option('newsletter_profile');
-        if (!is_array($attrs))
+        if (!is_array($attrs)) {
             $attrs = array();
-        $attrs = array_merge(array('referrer' => 'minimal', 'button' => $options_profile['subscribe'], 'placeholder' => $options_profile['email']), $attrs);
+        }
+        $attrs = array_merge(array('class'=>'', 'referrer' => 'minimal', 'button' => $options_profile['subscribe'], 'placeholder' => $options_profile['email']), $attrs);
 
         $form = '';
-        $form .= '<div class="tnp tnp-subscription-minimal">';
+        $form .= '<div class="tnp tnp-subscription-minimal ' . $attrs['class'] . '">';
         $form .= '<form action="' . esc_attr(home_url('/')) . '?na=s" method="post">';
         $form .= '<input type="hidden" name="nr" value="' . esc_attr($attrs['referrer']) . '">';
         $form .= '<input class="tnp-email" type="email" required name="ne" value="" placeholder="' . esc_attr($attrs['placeholder']) . '">';

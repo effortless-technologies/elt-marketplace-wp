@@ -26,7 +26,7 @@ class NewsletterStatistics extends NewsletterModule {
             add_action('admin_enqueue_scripts', array($this, 'hook_admin_enqueue_scripts'));
         }
     }
-    
+
     function hook_admin_enqueue_scripts() {
         if (isset($_GET['page']) && (strpos($_GET['page'], 'newsletter_statistics') === 0 || strpos($_GET['page'], 'newsletter_reports') === 0)) {
             wp_enqueue_style('newsletter-admin-statistics', plugins_url('newsletter') . '/statistics/css/tnp-statistics.css', array('tnp-admin'), time());
@@ -165,7 +165,7 @@ class NewsletterStatistics extends NewsletterModule {
         global $wpdb, $charset_collate;
 
         parent::upgrade();
-        
+
         $sql = "CREATE TABLE `" . $wpdb->prefix . "newsletter_stats` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -181,17 +181,13 @@ class NewsletterStatistics extends NewsletterModule {
   KEY `email_id` (`email_id`),
   KEY `user_id` (`user_id`)
 ) $charset_collate;";
-        
+
         dbDelta($sql);
 
         if (empty($this->options['key'])) {
             $this->options['key'] = md5($_SERVER['REMOTE_ADDR'] . rand(100000, 999999) . time());
             $this->save_options($this->options);
         }
-
-        $this->upgrade_query("ALTER TABLE `{$wpdb->prefix}newsletter_emails` ADD COLUMN `open_count` int UNSIGNED NOT NULL DEFAULT 0");
-        $this->upgrade_query("ALTER TABLE `{$wpdb->prefix}newsletter_emails` ADD COLUMN `click_count`  int UNSIGNED NOT NULL DEFAULT 0");
-        $this->upgrade_query("alter table {$wpdb->prefix}newsletter_emails change column read_count open_count int not null default 0");
     }
 
     function admin_menu() {
@@ -273,11 +269,11 @@ class NewsletterStatistics extends NewsletterModule {
             $wpdb->query($wpdb->prepare("update " . NEWSLETTER_EMAILS_TABLE . " set send_on=unix_timestamp(created) where id=%d limit 1", $email->id));
             $email = $this->get_email($email->id);
         }
-        
+
         if ($email->status == 'sending') {
             return;
         }
-        
+
         if ($email->type == 'followup') {
             return;
         }
@@ -304,28 +300,27 @@ class NewsletterStatistics extends NewsletterModule {
         $wpdb->query($wpdb->prepare("update " . $wpdb->prefix . "newsletter_sent s1 join " . $wpdb->prefix . "newsletter_stats s2 on s1.user_id=s2.user_id and s1.email_id=s2.email_id and s1.email_id=%d set s1.open=1, s1.ip=s2.ip", $email->id));
         $wpdb->query($wpdb->prepare("update " . $wpdb->prefix . "newsletter_sent s1 join " . $wpdb->prefix . "newsletter_stats s2 on s1.user_id=s2.user_id and s1.email_id=s2.email_id and s2.url<>'' and s1.email_id=%d set s1.open=2, s1.ip=s2.ip", $email->id));
     }
-    
+
     function get_total_count($email_id) {
         global $wpdb;
-        return (int)$wpdb->get_var($wpdb->prepare("select count(*) from " . NEWSLETTER_SENT_TABLE . " where email_id=%d", $this->to_int_id($email_id)));
+        return (int) $wpdb->get_var($wpdb->prepare("select count(*) from " . NEWSLETTER_SENT_TABLE . " where email_id=%d", $this->to_int_id($email_id)));
     }
-    
+
     function get_open_count($email_id) {
         global $wpdb;
 
         return (int) $wpdb->get_var($wpdb->prepare("select count(*) from " . NEWSLETTER_SENT_TABLE . " where open>0 and email_id=%d", $this->to_int_id($email_id)));
-       
     }
 
     function get_click_count($email_id) {
         global $wpdb;
         return (int) $wpdb->get_var($wpdb->prepare("select count(*) from " . NEWSLETTER_SENT_TABLE . " where open>1 and email_id=%d", $this->to_int_id($email_id)));
     }
-    
+
     function get_error_count($email_id) {
         global $wpdb;
         return (int) $wpdb->get_var($wpdb->prepare("select count(*) from " . NEWSLETTER_SENT_TABLE . " where status>0 and email_id=%d", $this->to_int_id($email_id)));
-    }    
+    }
 
 }
 

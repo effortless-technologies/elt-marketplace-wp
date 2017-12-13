@@ -29,13 +29,13 @@ $controls->merge_defaults($theme_defaults);
 ?>
 <p>This theme build an email loading all new posts after the date of the last run.</p>
 <table class="form-table">
-    <tr valign="top">
+    <tr>
         <th>Max new posts to include</th>
         <td>
             <?php $controls->text('theme_max_posts', 5); ?> (it defaults to 10 if empty or invalid)
         </td>
     </tr>
-    <tr valign="top">
+    <tr>
         <th>Categories</th>
         <td>
             <?php $controls->categories_group('theme_categories'); ?>

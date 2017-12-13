@@ -52,7 +52,7 @@ class NewsletterLogger {
         }
         if (is_wp_error($text)) {
             /* @var $text WP_Error */
-            $text = $text->get_error_message() . ' (' . $text->get_error_code() . ')';
+            $text = $text->get_error_message() . ' (' . $text->get_error_code() . ') - ' . print_r($text->get_error_data(), true);
         } else {
             if (is_array($text) || is_object($text)) $text = print_r($text, true);
         }

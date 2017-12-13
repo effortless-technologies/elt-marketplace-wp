@@ -43,7 +43,7 @@ if ($controls->is_action('save')) {
                 <div id="tabs-forms">
                     <table class="form-table">
                         <?php for ($i = 1; $i <= 10; $i++) { ?>
-                            <tr valign="top">
+                            <tr>
                                 <th>Form <?php echo $i; ?></th>
                                 <td>
                                     <?php $controls->textarea('form_' . $i); ?>

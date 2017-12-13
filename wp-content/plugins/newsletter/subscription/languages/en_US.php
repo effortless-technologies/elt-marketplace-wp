@@ -14,6 +14,7 @@ $options = array();
 
 $options['noconfirmation'] = 0;
 $options['antiflood'] = 10;
+$options['notify_email'] = get_option('admin_email');
 
 // Profile page
 $options['profile_text'] = __("{profile_form}

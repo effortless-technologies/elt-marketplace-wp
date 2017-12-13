@@ -43,6 +43,11 @@ if ($controls->is_action('reschedule')) {
     $controls->add_message_done();
 }
 
+if ($controls->is_action('trigger')) {
+    Newsletter::instance()->hook_newsletter();
+    $controls->messages = 'Triggered';
+}
+
 if ($controls->is_action('test')) {
 
     if (!NewsletterModule::is_email($controls->data['test_email'])) {
@@ -64,7 +69,9 @@ if ($controls->is_action('test')) {
         $r = $module->mail($controls->data['test_email'], 'Newsletter test email at ' . date(DATE_ISO8601), $text);
 
         $controls->messages .= 'Email sent with Newsletter';
-        if ($module->mail_method) {
+        if ($module->the_mailer) {
+            $controls->messages .= ' (with a mailer extension)';
+        } else if ($module->mail_method) {
             $controls->messages .= ' (with a mail delivery extension)';
         } else {
             $smtp_options = $module->get_smtp_options();
@@ -496,6 +503,7 @@ $options = $module->get_options('status');
                                 <?php $controls->button('reschedule', 'Reset') ?>
                             <?php } else if ($delta <= -600) { ?>
                                 The scheduler is very late: <?php echo $delta ?> seconds (<a href="https://www.thenewsletterplugin.com/plugins/newsletter/newsletter-delivery-engine" target="_blank">read more</a>)
+                                <?php $controls->button('trigger', 'Trigger') ?>
                             <?php } else { ?>
                                 Next execution is planned in <?php echo $delta ?> seconds (negative values are ok).
                             <?php } ?>
@@ -721,15 +729,27 @@ $options = $module->get_options('status');
                         ?>
                         <tr>
                             <td>
-                                Send timing
+                                Send details
                             </td>
                             <td>
-
+                            <?php if ($send_mean > 1) { ?>
+                                <span class="tnp-ko">KO</span>
+                            <?php } else { ?>
+                                <span class="tnp-ok">OK</span>
+                            <?php } ?>
                             </td>
                             <td>
+                                <?php if ($send_mean > 1) { ?>
+                                <strong>Sending an email is taking more than 1 second, rather slow.</strong>
+                                <a href="https://www.thenewsletterplugin.com/documentation/status-panel#status-performance" target="_blank">Read more</a>.
+                                <?php } ?>
                                 Average time to send an email: <?php echo sprintf("%.2f", $send_mean) ?> seconds<br>
-                                Max mean time measured: <?php echo $send_max ?> seconds<br>
-                                Min mean time measured: <?php echo $send_min ?> seconds<br>
+                                <?php if ($send_mean > 0) { ?>
+                                Max speed: <?php echo sprintf("%.2f", 1.0/$send_mean*3600) ?> emails per hour<br>
+                                <?php } ?>
+                                
+                                Max mean time measured: <?php echo sprintf("%.2f", $send_max) ?> seconds<br>
+                                Min mean time measured: <?php echo sprintf("%.2f", $send_min) ?> seconds<br>
                                 Total email in the sample: <?php echo $send_total_emails ?><br>
                                 Runs in the sample: <?php echo count($send_calls); ?><br> 
                                 Runs prematurely interrupted: <?php echo sprintf("%.2f", (count($send_calls) - $send_completed) * 100.0 / count($send_calls)) ?>%<br>
@@ -752,7 +772,7 @@ $options = $module->get_options('status');
                         </td>
                         <td>
                             <?php if (defined('WP_DEBUG') && WP_DEBUG) { ?>
-                                WordPress is in debug mode it is not recommended on a production system. See the constant WP_DEBUG insde the wp-config.php.
+                                WordPress is in debug mode it is not recommended on a production system. See the constant WP_DEBUG inside the wp-config.php.
                             <?php } else { ?>
 
                             <?php } ?>
@@ -782,11 +802,13 @@ $options = $module->get_options('status');
                         <td>
                             Your memory limit is set to <?php echo $memory ?> megabyte<br>
                             <?php if ($memory < 64) { ?>
-                                This value is too low you should increase it adding <code>define('WP_MEMORY_LIMIT', '64M');</code> to your wp-config.php.
+                                This value is too low you should increase it adding <code>define('WP_MEMORY_LIMIT', '64M');</code> to your <code>wp-config.php</code>.
+                                <a href="https://www.thenewsletterplugin.com/documentation/status-panel#status-memory" target="_blank">Read more</a>.
                             <?php } else if ($memory < 128) { ?>
-                                The value should be fine, it depends on how many plugin you're running and how many resource are required by your theme.
-                                Blank pages are usually syntoms of low memory. Eventually increase it adding <code>define('WP_MEMORY_LIMIT', '128M');</code>
-                                to your wp-config.php.
+                                The value should be fine, it depends on how many plugins you're running and how many resource are required by your theme.
+                                Blank pages may happen with low memory problems. Eventually increase it adding <code>define('WP_MEMORY_LIMIT', '128M');</code>
+                                to your <code>wp-config.php</code>.
+                                <a href="https://www.thenewsletterplugin.com/documentation/status-panel#status-memory" target="_blank">Read more</a>.
                             <?php } else { ?>
 
                             <?php } ?>

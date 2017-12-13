@@ -1,5 +1,5 @@
 <?php
-if (!defined('ABSPATH')) exit;
+defined('ABSPATH') || exit;
 ?>
 <div id="tnp-footer">
     <div>
@@ -13,6 +13,7 @@ if (!defined('ABSPATH')) exit;
             <li><a href="https://www.thenewsletterplugin.com/account"><?php _e('Your Account', 'newsletter') ?></a></li>
             <li><a href="https://www.thenewsletterplugin.com/forums"><?php _e('Forum', 'newsletter') ?></a></li>
             <li><a href="https://www.thenewsletterplugin.com/blog"><?php _e('Blog', 'newsletter') ?></a></li>
+        </ul>
     </div>
     <div>
         <form target="_blank" action="https://www.thenewsletterplugin.com/?na=s" method="post">

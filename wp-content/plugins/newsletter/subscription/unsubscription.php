@@ -75,7 +75,7 @@ if (!$controls->is_action()) {
             <?php $controls->init(); ?>
 
             <table class="form-table">
-                <tr valign="top">
+                <tr>
                     <th><?php _e('Unsubscription message', 'newsletter') ?></th>
                     <td>
                         <?php $controls->wp_editor('unsubscription_text'); ?>
@@ -87,7 +87,7 @@ if (!$controls->is_action()) {
                     </td>
                 </tr>
 
-                <tr valign="top">
+                <tr>
                     <th><?php _e('Goodbye message', 'newsletter') ?></th>
                     <td>
                         <?php $controls->wp_editor('unsubscribed_text'); ?>
@@ -97,7 +97,7 @@ if (!$controls->is_action()) {
                     </td>
                 </tr>
 
-                <tr valign="top">
+                <tr>
                     <th><?php _e('Goodbye email', 'newsletter') ?></th>
                     <td>
                         <?php $controls->email('unsubscribed', 'wordpress', true); ?>

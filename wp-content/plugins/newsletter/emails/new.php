@@ -135,7 +135,7 @@ function newsletter_emails_get_theme_options($theme) {
 }
 ?>
 
-<div class="wrap" id="tnp-wrap">
+<div class="wrap tnp-emails tnp-emails-new" id="tnp-wrap">
 
     <?php include NEWSLETTER_DIR . '/tnp-header.php'; ?>
 
@@ -167,8 +167,10 @@ function newsletter_emails_get_theme_options($theme) {
                     </td>
                 </tr>
                 <tr>
-                    <td style="width: 600px; vertical-align: top; padding-top: 10px">
+                    <td style="width: 500px; vertical-align: top;">
+                        <div class="tnp-emails-theme-options">
                         <?php @include $module->get_current_theme_file_path('theme-options.php'); ?>
+                        </div>
                     </td>
                     <td style="vertical-align: top; padding-top: 15px; padding-left: 15px">
                         <iframe src="<?php echo wp_nonce_url(home_url('/', is_ssl() ? 'https' : 'http') . '?na=emails-preview&ts=' . time(), 'view'); ?>" height="700" style="width: 100%; border: 1px solid #ccc"></iframe>

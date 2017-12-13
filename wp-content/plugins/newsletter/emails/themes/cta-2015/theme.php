@@ -95,51 +95,7 @@ $social_icon_url = plugins_url('newsletter') . '/emails/themes/cta-2015/images';
                         </tr>
                     </table>
 
-                    <!-- social -->
-                    <table cellpadding="5" align="center">
-                        <tr>
-                            <?php if (!empty($theme_options['main_facebook_url'])) { ?>
-                                <td align="center" valign="top">
-                                    <a href="<?php echo $theme_options['main_facebook_url'] ?>"><img src="<?php echo $social_icon_url ?>/facebook.png" alt="Facebook"></a>
-                                </td>
-                            <?php } ?>
-
-                            <?php if (!empty($theme_options['main_googleplus_url'])) { ?>
-                                <td align="center" valign="top">
-                                    <a href="<?php echo $theme_options['main_googleplus_url'] ?>"><img src="<?php echo $social_icon_url ?>/googleplus.png"></a>
-                                </td>
-                            <?php } ?>
-
-                            <?php if (!empty($theme_options['main_twitter_url'])) { ?>
-                                <td align="center" valign="top">
-                                    <a href="<?php echo $theme_options['main_twitter_url'] ?>"><img src="<?php echo $social_icon_url ?>/twitter.png"></a>
-                                </td>
-                            <?php } ?>
-
-                            <?php if (!empty($theme_options['main_linkedin_url'])) { ?>
-                                <td align="center" valign="top">
-                                    <a href="<?php echo $theme_options['main_linkedin_url'] ?>"><img src="<?php echo $social_icon_url ?>/linkedin.png"></a>
-                                </td>
-                            <?php } ?>
-
-                            <?php if (!empty($theme_options['main_youtube_url'])) { ?>
-                                <td align="center" valign="top">
-                                    <a href="<?php echo $theme_options['main_youtube_url'] ?>"><img src="<?php echo $social_icon_url ?>/youtube.png"></a>
-                                </td>
-                            <?php } ?>
-
-                            <?php if (!empty($theme_options['main_vimeo_url'])) { ?>
-                                <td align="center" valign="top">
-                                    <a href="<?php echo $theme_options['main_vimeo_url'] ?>"><img src="<?php echo $social_icon_url ?>/vimeo.png"></a>
-                                </td>
-                            <?php } ?>
-                            <?php if (!empty($theme_options['main_instagram_url'])) { ?>
-                                <td align="center" valign="top">
-                                    <a href="<?php echo $theme_options['main_instagram_url'] ?>"><img src="<?php echo $social_icon_url ?>/instagram.png"></a>
-                                </td>
-                            <?php } ?>    
-                        </tr>
-                    </table>
+                    <?php include WP_PLUGIN_DIR . '/newsletter/emails/themes/default/footer.php'; ?>
 
                     <!-- spacer -->
                     <table cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff" border="0" width="100%">

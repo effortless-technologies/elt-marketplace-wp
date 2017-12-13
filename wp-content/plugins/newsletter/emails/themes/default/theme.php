@@ -12,10 +12,10 @@
 
 global $newsletter, $post;
 
-if (!defined('ABSPATH')) exit;
+defined('ABSPATH') || exit;
 
-$color = $theme_options['theme_color'];
-if (empty($color)) $color = '#000000';
+if (empty($theme_options['theme_color'])) $color = '#555555';
+else $color = $theme_options['theme_color'];
 
 if (isset($theme_options['theme_posts'])) {
     $filters = array();
@@ -50,7 +50,7 @@ if (isset($theme_options['theme_posts'])) {
         </style>
     </head>
     <body style="margin: 0!important; padding: 0!important">
-        <div style="background-color: #ECF2F6; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 14px; color: #666; margin: 0 auto; padding: 0;">
+        <div style="background-color: #f4f4f4; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 14px; color: #666; margin: 0 auto; padding: 0;">
         
         <br>
         <table align="center" bgcolor="#ffffff" width="100%" style="max-width: 600px; width: 100%; border-collapse: collapse; background-color: #000" cellpadding="0" cellspacing="0" border="0">
@@ -97,7 +97,7 @@ if (isset($theme_options['theme_posts'])) {
                                 <?php foreach ($posts as $post) { setup_postdata($post); ?>
                                     <tr>
                                         <?php if (isset($theme_options['theme_thumbnails'])) { ?>
-                                        <td valign="top"><a target="_blank"  href="<?php echo get_permalink($post); ?>"><img width="75" src="<?php echo newsletter_get_post_image($post->ID); ?>" alt="image"></a></td>
+                                        <td valign="top"><a target="_blank"  href="<?php echo get_permalink($post); ?>"><img width="75" style="width: 75px; min-width: 75px" src="<?php echo newsletter_get_post_image($post->ID); ?>" alt="image"></a></td>
                                         <?php } ?>
                                         <td valign="top">
                                             <a target="_blank"  href="<?php echo get_permalink(); ?>" style="font-size: 20px; line-height: 26px"><?php the_title(); ?></a>

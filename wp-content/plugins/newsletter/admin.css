@@ -1,9 +1,9 @@
 
 @import url(//fonts.googleapis.com/css?family=Montserrat:400,700);
-@import url(//fonts.googleapis.com/css?family=Source+Sans+Pro:700);
+@import url(//fonts.googleapis.com/css?family=Open+Sans:400,600);
 @import url(//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
 @import url(css/dropdown.css);
-@import url(css/jquery-ui/jquery-ui.css);
+@import url(//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css);
 
 /* Bootstrap like */
 
@@ -29,6 +29,7 @@
 .row:after {
     display: table;
     content: " ";
+    
 }
 .row:after {
     clear: both;
@@ -60,34 +61,69 @@
 
 @media all and (max-width: 1100px) {
     .col-md-12 {width: 100%;}
-.col-md-11 {width: 100%;}
-.col-md-10 {width: 100%;}
-.col-md-9 {width: 100%;}
-.col-md-8 {width: 100%;}
-.col-md-7 {width: 100%;}
-.col-md-6 {width: 100%;}
-.col-md-5 {width: 100%;}
-.col-md-4 {width: 100%;}
-.col-md-3 {width: 100%;}
-.col-md-2 {width: 100%;}
-.col-md-1 {width: 100%;}
+    .col-md-11 {width: 100%;}
+    .col-md-10 {width: 100%;}
+    .col-md-9 {width: 100%;}
+    .col-md-8 {width: 100%;}
+    .col-md-7 {width: 100%;}
+    .col-md-6 {width: 100%;}
+    .col-md-5 {width: 100%;}
+    .col-md-4 {width: 100%;}
+    .col-md-3 {width: 100%;}
+    .col-md-2 {width: 100%;}
+    .col-md-1 {width: 100%;}
 }
+
+.tnp-row-padded {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.tnp-col-3-boxed {
+    width: 30%;
+    border: 1px solid #3c414c;
+    padding: 0px 0px 30px 0px;
+    border-radius: 10px;
+}
+
+.tnp-margin-top {
+    margin-top: 80px;
+}
+
 
 
 /* Global Fonts */
 
-#tnp-wrap {
+#tnp-wrap, 
+#tnp-header, 
+#tnp-body p, 
+#tnp-body td,
+#tnp-body td p,
+#tnp-body input,
+#tnp-body select,
+#tnp-body textarea {
     font-family: "Open Sans", sans-serif;
 }
 
+#tnp-body h1, 
+#tnp-body h2, 
+#tnp-body h3, 
+#tnp-body h4 {
+    font-family: "Montserrat", sans-serif;
+}
 
-/* HEADER *********************************************************************/
+
+/*******************************************************************************
+ * Header
+ */
+
 #tnp-header {
     text-align: left;
     font-size: 12px;
-    xheight: 110px;
     color: #fff;
-    font-family: "Montserrat",sans-serif;
+    font-family: "Montserrat", sans-serif;
 }
 
 #tnp-header input {
@@ -134,54 +170,6 @@
     margin: 15px 0;
 }
 
-/* Admin header for extensions */
-#newsletter-header-ext {
-    text-align: left;
-    background-color: #fff;
-    padding: 10px;
-    font-size: 12px;
-    border: 1px solid #ccc;
-    float: right;
-    width: 300px;
-}
-
-#newsletter-header-ext a {
-    margin-right: 10px;
-    text-decoration: none;
-}
-
-#newsletter-path {
-
-}
-
-#newsletter-nav {
-    margin-bottom: 15px;
-}
-
-.newsletter-separator {
-    clear: both;
-    height: 5px;
-}
-
-/*
-.tnp-wrap, .tnp-wrap td, .tnp-wrap th, .tnp-wrap input, .tnp-wrap textarea {
-    font-size: 13px;
-    font-family: sans-serif;
-    line-height: 130%;
-}
-*/
-
-#tnp-body,
-#tnp-body p,
-#tnp-body td,
-#tnp-body th,
-#tnp-body input,
-#tnp-body select,
-#tnp-body textarea
-{
-    xfont-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
-}
-
 /* Default font colors for our dark background page body */
 #tnp-body h1, 
 #tnp-body h2, 
@@ -189,12 +177,6 @@
 #tnp-body h4, 
 #tnp-body p {
     color: #fff;
-}
-
-#tnp-body td h1,  
-#tnp-body td h2,
-#tnp-body td h3 {
-    font-family: "Montserrat",sans-serif!important;
 }
 
 #tnp-body a, #tnp-body a:hover, #tnp-body a:visited, #tnp-body a:active {
@@ -221,6 +203,11 @@
     color: #fff;
     background-color: #3498db;
     text-shadow: none;
+}
+
+/* Icon in button media selector */
+#tnp-body span.wp-media-buttons-icon:before {
+    color: #fff;
 }
 
 /* Standard button */
@@ -262,20 +249,14 @@
     color: #27AE60; /* Green */
 }
 
+
+/* Tables of class form-table */
 #tnp-body .form-table {
     background-color: #fff;
     border: 1px solid #ECF0F1;
     margin-top: 2em;
-}
-
-#tnp-body .widefat thead {
-    background-color: #3498DB;
-    font-family: "Montserrat", sans-serif;
-    color: #fff !important;
-}
-
-#tnp-body .widefat thead tr th {
-    color: #fff !important;
+    border-spacing: 4px;
+    border-collapse: separate;
 }
 
 #tnp-body .form-table th {
@@ -284,9 +265,7 @@
     max-width: 200px;
     color: #000000;
     background-color: #ECF0F1;
-    border-bottom: 4px solid #fff;
-
-    
+    vertical-align: top;
 }
 
 #tnp-body .form-table th small {
@@ -314,12 +293,34 @@
     text-align: left;
     font-weight: bold;
 }
-/* End of a table inside a form table */
 
-/* Wide fat tables */
+
+/*******************************************************************************
+ * Wide fat tables 
+ */
+
+#tnp-body .widefat {
+    width: auto;
+}
+
 #tnp-body .widefat th {
     text-align: left;
 }
+
+#tnp-body .widefat thead {
+    background-color: #3498DB;
+    font-family: "Montserrat", sans-serif;
+    color: #fff !important;
+}
+
+#tnp-body .widefat thead tr th {
+    color: #fff !important;
+}
+
+#tnp-body .widefat td, .widefat th {
+    vertical-align: middle;
+}
+
 
 /* Buttons on widgets top bar */
 #tnp-body .tnp-widget h3 a, 
@@ -356,40 +357,6 @@
     color: #fff;
 }
 
-#tnp-body #tabs .ui-widget-header {
-    background: #28313C;
-    border: 0;
-}
-
-#tnp-body #tabs .ui-tabs-panel {
-    padding: 15px!important;
-    background-color: #fff;
-}
-
-#tnp-body #tabs a.ui-tabs-anchor,
-#tnp-body #tabs a.ui-tabs-anchor:visited {
-    color: #444;
-}
-
-
-
-div.submit {
-    margin-top: 5px;
-    padding: 5px;
-}
-
-.bordered-table {
-    border-collapse: collapse;
-}
-
-.bordered-table td, .bordered-table th {
-    border: 1px solid #ccc;
-    padding: 3px;
-}
-
-.newsletter-button {
-    font-size: 10px;
-}
 table.clicks td {
     border: 1px solid #666;
     padding: 2px;
@@ -410,34 +377,6 @@ table.clicks {
 }
 .grid th {
     background-color: #aaa;
-}
-
-
-
-.hints {
-    xborder: 1px solid #e4e4ee;
-    xbackground-color: #f4f4ff;
-    xpadding: 5px;
-    margin-top: 10px;
-    xborder-radius: 4px 4px;
-    font-size: 13px;
-    color: #666;
-    font-style: italic;
-    xbackground-color: #fcf8e3;
-    xborder-color: #faebcc;
-}
-
-.intro {
-    font-size: 11px;
-    margin: 6px 6px 8px;
-}
-
-
-.newsletter-badge {
-    color: #fff;
-    background-color: #666;
-    border-radius: 5px;
-    padding: 1px 5px;
 }
 
 .tnp-checkboxes label {
@@ -505,15 +444,11 @@ table.clicks {
     display: inline;
 }
 
-.ui-tabs .ui-tabs-nav li a {
-    font-size: 14px;
-}
 
 
 
-.widefat td, .widefat th {
-    vertical-align: middle;
-}
+
+
 
 /*
 .form-table td label {
@@ -616,65 +551,6 @@ table.clicks {
     margin-bottom: 1em;
 }
 
-.newsletter-buttons-bottom {
-}
-
-.newsletter-buttons-top {
-}
-
-/* Text under the panel title to explain the panel purpose. */
-/*
-.preamble {
-    margin-bottom: 15px;
-    border-radius: 3px;
-    background-color: #f4f4f4;
-    padding: 10px;
-    background-image: url("images/preamble.png");
-    background-repeat: no-repeat;
-    background-position: left;
-    padding-left: 65px;
-    font-size: 13px;
-    font-family: sans-serif;
-}
-
-.preamble p {
-    margin: 0;
-}
-*/
-
-.newsletter-preamble {
-    margin-bottom: 15px;
-    xborder-radius: 3px;
-    xbackground-color: #f4f4f4;
-    xpadding: 10px;
-    xbackground-image: url("images/preamble.png");
-    xbackground-repeat: no-repeat;
-    xbackground-position: left;
-    xpadding-left: 65px;
-    font-size: 13px;
-    xfont-family: sans-serif;
-}
-
-.newsletter-preamble p {
-    margin: 0;
-}
-
-.tab-preamble {
-    font-size: 13px;
-    line-height: normal;
-    xfont-family: sans-serif;
-    xcolor: #3a87ad;
-    xbackground-color: #d9edf7;
-    xborder: 1px solid #bce8f1;
-    xpadding: 15px;
-    xmargin-bottom: 20px;
-    xborder-radius: 4px;
-}
-
-.tab-preamble p {
-    margin: 0 0 5px 0;
-}
-
 .tnp-paginator {
     margin-top: 10px;
     margin-bottom: 5px;
@@ -746,9 +622,6 @@ table.clicks {
     color: #444;
 }
 
-.tnp-wrap a[target=_blank] {
-}
-
 /* .tnp-wrap a[target=_blank]:after {
     content: "»";
 }*/
@@ -780,11 +653,6 @@ table.clicks {
 }
 
 /* CSS General Font Styles */
-
-.tnp-wrap p {
-    /*font-family: "Montserrat";*/
-    font-weight: 400;
-}
 
 p.description {
     font-size: 12px !important;
@@ -824,26 +692,6 @@ p.description {
     margin-left: 10px;
 }
 
-/* Stefano 4.0 */
-
-.ui-tabs {
-    border-color: #28313C;
-    background-color: #28313C;
-    border: 0;
-}
-
-.ui-tabs .ui-tabs-nav {
-    margin: 0;
-    padding: .2em .2em 0 0;
-    background-color: #f2f2f2;
-}
-
-.ui-tabs .ui-tabs-panel {
-    padding: 1em 0;
-    background-color: #f2f2f2;
-    margin: 0;
-    border: 0;
-}
 
 /* Altrimenti si crea una striscia bianca in mezzo alla pagina! */
 
@@ -876,9 +724,9 @@ p.description {
     /* background-color: #34495E; */
     /* color: #fff !important; */
     margin-bottom: 10px;
-/*    width: 200px;*/
+    /*    width: 200px;*/
     /* text-align: right; */
-/*    border-bottom: 2px solid #27AE60;*/
+    /*    border-bottom: 2px solid #27AE60;*/
 }
 
 
@@ -1102,16 +950,16 @@ p.description {
 
 /* Footer */
 
-#tnp-footer div {
-    width: 33%;
-    display: inline-block;
-}
-
 #tnp-footer {
     margin-top: 10px;
     padding: 20px 10px 10px 40px;
     background-color: #28313C;
     font-family: "Montserrat", sans-serif;
+}
+
+#tnp-footer div {
+    width: 33%;
+    display: inline-block;
 }
 
 #tnp-footer a {
@@ -1375,10 +1223,69 @@ table.widefat {
     margin: 5px;
 }
 
+/*******************************************************************************
+ * Overrides some jQuery UI styles, specially for tabs and only inside the 
+ * #tnp-body div 
+ */
 
-/* Extension Panel */
+#tnp-body .ui-widget {
+    font-family: "Montserrat", sans-serif;
+}
+
+#tnp-body #tabs .ui-widget-header {
+    background: #28313C;
+    border: 0;
+}
+
+#tnp-body #tabs .ui-tabs-panel {
+    padding: 15px!important;
+    background-color: #fff;
+}
+
+#tnp-body #tabs a.ui-tabs-anchor,
+#tnp-body #tabs a.ui-tabs-anchor:visited {
+    color: #444;
+}
+
+#tnp-body .ui-tabs .ui-tabs-nav li a {
+    font-size: 14px;
+}
+
+#tnp-body .ui-tabs {
+    border-color: #28313C;
+    background-color: #28313C;
+    border: 0;
+}
+
+#tnp-body .ui-tabs .ui-tabs-nav {
+    margin: 0;
+    padding: .2em .2em 0 0;
+    background-color: #f2f2f2;
+}
+
+#tnp-body .ui-tabs .ui-tabs-panel {
+    padding: 1em 0;
+    background-color: #f2f2f2;
+    margin: 0;
+    border: 0;
+}
+
+#tnp-body .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+    background: #fff !important;
+    font-weight: normal;
+    font-family: "Montserrat", sans-serif;
+}
+
+#tnp-body .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    border: none;
+    background: #ECF0F1;
+    font-family: "Montserrat", sans-serif;
+}
 
 
+/*******************************************************************************
+ * Extension Panel 
+ */
 
 .tnp-extension-premium-box, .tnp-extension-free-box, .tnp-integration-box {
     width: 300px; 
@@ -1401,18 +1308,6 @@ table.widefat {
     font-size: 14px;
     margin-top: 0px;
 }
-
-/*.tnp-extension-premium-box {
-    border-top: 10px solid #F39C12;
-}
-
-.tnp-extension-free-box {
-    border-top: 10px solid #2ECC71;
-}
-
-.tnp-integration-box {
-    border-top: 10px solid #3498DB;
-}*/
 
 .tnp-extension-premium-box h3 {
     font-family: "Montserrat", sans-serif;
@@ -1613,16 +1508,386 @@ img.tnp-extensions-free-badge {
     margin-bottom: 20px;
 }
 
-/* Michael - Nuovo Stile Tabelle Plugin */
 
-.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
-    background: #fff !important;
-    font-weight: normal;
-    font-family: "Montserrat", sans-serif;
+/* Theme options and theme preview styles */
+
+#tnp-body div.tnp-emails-theme-options {
+    background-color: #fff;
+    padding: 10px;
+    margin-top: 14px;
 }
 
 .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
     border: none;
     background: #ECF0F1;
     font-family: "Montserrat", sans-serif;
+}
+
+
+
+/* -------------------------------- 
+
+Tnp Welcome Slider
+
+-------------------------------- */
+
+.cd-slider-wrapper {
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  /* hide horizontal scrollbar on IE11 */
+  overflow: hidden;
+  margin: 0 auto;
+}
+.cd-slider-wrapper .cd-slider, .cd-slider-wrapper .cd-slider > li {
+  height: 100%;
+  width: 100%;
+}
+
+.tnp-logo-big {
+    width: 300px;
+}
+
+.tnp-row {
+    display: table-row;
+}
+
+.tnp-third {
+    width: 33%;
+    float: left;
+}
+
+.tnp-welcome-confirm-button {
+    color: #fff;
+    padding: 10px 30px;
+    background-color: #2ECC71;
+    font-weight: 700;
+    font-size: 15px;
+    box-shadow: 0 20px 38px rgba(0, 0, 0, 0.16);
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    margin: 20px auto 0px;
+}
+
+.tnp-welcome-confirm-button:hover {
+    box-shadow: 0 0 38px rgba(0, 0, 0, 0.16);
+    color: #fff;
+}
+
+.tnp-welcome-confirm-button:visited {
+    color: #fff;
+    text-decoration: none;
+}
+
+.tnp-welcome-link-button {
+    color: #fff;
+    padding: 10px 30px;
+    background-color: #3498DB;
+    font-weight: 700;
+    font-size: 15px;
+    box-shadow: 0 20px 38px rgba(0, 0, 0, 0.16);
+    text-decoration: none;
+}
+
+.tnp-welcome-link-button:hover {
+    box-shadow: 0 0 38px rgba(0, 0, 0, 0.16);
+    color: #fff;
+}
+
+.tnp-welcome-link-button:visited {
+    color: #fff;
+    text-decoration: none;
+}
+
+#tnp-welcome input[type="text"], #tnp-welcome input[type="email"] {
+    max-width: 90%;
+} 
+
+.tnp-welcome-next {
+    background-color: #2ECC71;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    margin: 0px 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.16);
+    width: -moz-fit-content;
+    width: -webkit-fit-content;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+}
+
+.tnp-welcome-next:hover {
+    box-shadow: 0 0 38px rgba(0, 0, 0, 0.16);
+    color: #fff;
+}
+
+.tnp-welcome-next:visited {
+    color: #fff;
+    text-decoration: none;
+}
+
+.tnp-welcome-prev {
+    background-color: #3498DB;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    margin: 0px 0px 0px 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.16);
+    width: -moz-fit-content;
+    width: -webkit-fit-content;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+}
+
+.tnp-welcome-prev:hover {
+    box-shadow: 0 0 38px rgba(0, 0, 0, 0.16);
+    color: #fff;
+}
+
+.tnp-welcome-prev:visited {
+    color: #fff;
+    text-decoration: none;
+}
+
+.tnp-welcome-next svg {
+    margin-left: 10px;
+}
+
+.tnp-welcome-prev svg {
+    margin-right: 10px;
+}
+
+.cd-slider input {
+    width: 250px;
+    height: 40px;
+    border: 1px solid #6c7280;
+    background: #454a56;
+    color: white;
+    color: white;
+    padding: 0px 10px;
+}
+
+.cd-slider > li {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  /* used to vertically center its content */
+  display: table;
+  background-position: center center;
+  background-repeat: no-repeat;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.cd-slider > li.visible {
+  /* selected slide */
+  position: relative;
+  z-index: 2;
+  opacity: 1;
+}
+.cd-slider > li:first-of-type {
+  background-color: #2B313A;
+}
+.cd-slider > li:nth-of-type(2) {
+  background-color: #2B313A;
+}
+.cd-slider > li:nth-of-type(3) {
+  background-color: #2B313A;
+}
+.cd-slider > li:nth-of-type(4) {
+  background-color: #2B313A;
+}
+.cd-slider > li:first-of-type, .cd-slider > li:nth-of-type(2), .cd-slider > li:nth-of-type(3), .cd-slider > li:nth-of-type(4) {
+  background-size: cover;
+}
+.cd-slider > li > div {
+  /* vertically center the slider content */
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+.cd-slider > li h2, .cd-slider > li p {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  line-height: 1.2;
+  margin: 0 auto 14px;
+  color: #ffffff;
+  width: 90%;
+  max-width: 320px;
+}
+.cd-slider > li h2 {
+    font-size: 40px;
+  }
+  .cd-slider > li p {
+    font-size: 18px;
+    line-height: 26px;
+    text-align: left;
+    color: #B8C3C9;
+    margin: 40px auto;
+  }
+  
+.cd-slider > li .cd-btn {
+  display: inline-block;
+  padding: 1.2em 1.4em;
+  margin-top: .8em;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: .25em;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #ffffff;
+  text-transform: uppercase;
+  -webkit-transition: background-color 0.2s;
+  -moz-transition: background-color 0.2s;
+  transition: background-color 0.2s;
+}
+.no-touch .cd-slider > li .cd-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+@media only screen and (min-width: 768px) {
+  .cd-slider > li h2, .cd-slider > li p {
+    max-width: 520px;
+  }
+  .cd-slider > li h2 {
+    font-size: 40px;
+  }
+  .cd-slider > li p {
+    font-size: 18px;
+    line-height: 26px;
+    text-align: left;
+    color: #B8C3C9;
+    margin: 40px auto;
+    
+  }
+}
+@media only screen and (min-width: 1170px) {
+  .cd-slider > li h2, .cd-slider > li p {
+    margin-bottom: 20px;
+  }
+  .cd-slider > li h2 {
+    font-size: 40px;
+  }
+  .cd-slider > li p {
+    font-size: 18px;
+    line-height: 26px;
+    text-align: center;
+    color: #B8C3C9;
+    margin: 30px auto;
+  }
+}
+
+/* -------------------------------- 
+
+Tnp Welcome Slider Navigation
+
+-------------------------------- */
+.cd-slider-navigation {
+    position: relative;
+    bottom: 110px;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+}
+
+/* svg cover layer */
+
+.cd-svg-cover {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+}
+.cd-svg-cover path {
+  fill: #ED6A6A;
+}
+.cd-svg-cover.is-animating {
+  z-index: 4;
+  opacity: 1;
+  -webkit-transition: opacity 0.6s;
+  -moz-transition: opacity 0.6s;
+  transition: opacity 0.6s;
+}
+
+/* Switch element style */
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {display:none;}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+#tnp-body div.tnp-emails-theme-options table.form-table {
+    margin: 0;
+}
+
+#tnp-body div.tnp-emails-theme-options h3 {
+    color: #000;
+}
+
+.tnp-emails-edit #options-subject {
+    font-size: 20px;
+    display: inline-block;
+    margin-bottom: 10px;
+    width: 100%;
 }

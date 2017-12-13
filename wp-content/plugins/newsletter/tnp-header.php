@@ -25,10 +25,17 @@ function newsletter_print_entries($group) {
         }
     }
 }
+
+// Check the status to show a warning if needed
+$status_options = Newsletter::instance()->get_options('status');
+$warning = false;
+
+$warning |= empty($status_options['mail']);
+
 ?>
 
 <div class="tnp-drowpdown" id="tnp-header">
-    <a href="?page=newsletter_main_index"><img src="<?php echo plugins_url('newsletter'); ?>/images/header/tnp-logo-red-header.png" class="tnp-header-logo"style="vertical-align: bottom;"></a>
+    <a href="?page=newsletter_main_index"><img src="<?php echo plugins_url('newsletter'); ?>/images/header/tnp-logo-red-header.png" class="tnp-header-logo" style="vertical-align: bottom;"></a>
     <ul>
         <li><a href="#"><i class="fa fa-users"></i> <?php _e('Subscribers', 'newsletter') ?> <i class="fa fa-chevron-down"></i></a>
             <ul>
@@ -51,25 +58,32 @@ function newsletter_print_entries($group) {
             <ul>
                 <li><a href="?page=newsletter_subscription_options"><i class="fa fa-sign-in"></i> <?php _e('Subscription', 'newsletter') ?>
                         <small><?php _e('The subscription process in detail', 'newsletter') ?></small></a></li>
-                        
-      
-                <li><a href="?page=newsletter_subscription_profile"><i class="fa fa-check-square-o"></i> <?php _e('Subscription Form Fields, Buttons, Labels', 'newsletter') ?>
-                        <small><?php _e('When and what data to collect', 'newsletter') ?></small></a></li>
-                <li><a href="?page=newsletter_subscription_lists"><i class="fa fa-th-list"></i> <?php _e('Lists', 'newsletter') ?>
-                        <small><?php _e('Profile the subscribers for a better targeting', 'newsletter') ?></small></a></li>
-                <li><a href="?page=newsletter_subscription_unsubscription"><i class="fa fa-sign-out"></i> <?php _e('Unsubscription', 'newsletter') ?>
-                        <small><?php _e('How to give the last goodbye (or avoid it!)', 'newsletter') ?></small></a></li>
-                <?php if (!file_exists(WP_PLUGIN_DIR . '/newsletter-lock')) { ?>       
-                <li><a href="?page=newsletter_lock_index"><i class="fa fa-lock"></i> <?php _e('Locked Content', 'newsletter') ?>
-                        <small><?php _e('Make your best content available only upon subscription', 'newsletter') ?></small></a></li>
-                <?php } ?>     
-                <li><a href="?page=newsletter_subscription_forms"><i class="fa fa-pencil"></i> <?php _e('Custom Forms', 'newsletter') ?>
-                        <small><?php _e('Hand coded form storage', 'newsletter') ?></small></a></li>
-                <li><a href="?page=newsletter_subscription_template"><i class="fa fa-file-text-o"></i> <?php _e('Messages Template', 'newsletter') ?>
-                        <small><?php _e('Change the look of your service emails', 'newsletter') ?></small></a></li>
+
+
+                <li>
+                    <a href="?page=newsletter_subscription_profile"><i class="fa fa-check-square-o"></i> <?php _e('Subscription Form Fields, Buttons, Labels', 'newsletter') ?>
+                        <small><?php _e('When and what data to collect', 'newsletter') ?></small></a>
+                </li>
+                <li>
+                    <a href="?page=newsletter_subscription_lists"><i class="fa fa-th-list"></i> <?php _e('Lists', 'newsletter') ?>
+                        <small><?php _e('Profile the subscribers for a better targeting', 'newsletter') ?></small></a>
+                </li>
+                <li>
+                    <a href="?page=newsletter_subscription_unsubscription"><i class="fa fa-sign-out"></i> <?php _e('Unsubscription', 'newsletter') ?>
+                        <small><?php _e('How to give the last goodbye (or avoid it!)', 'newsletter') ?></small></a>
+                </li>
+
+                <li>
+                    <a href="?page=newsletter_subscription_forms"><i class="fa fa-pencil"></i> <?php _e('Custom Forms', 'newsletter') ?>
+                        <small><?php _e('Hand coded form storage', 'newsletter') ?></small></a>
+                </li>
+                <li>
+                    <a href="?page=newsletter_subscription_template"><i class="fa fa-file-text-o"></i> <?php _e('Messages Template', 'newsletter') ?>
+                        <small><?php _e('Change the look of your service emails', 'newsletter') ?></small></a>
+                </li>
                 <?php
                 newsletter_print_entries('subscription');
-                ?>            
+                ?>
             </ul>
         </li>
         <li><a href="#"><i class="fa fa-newspaper-o"></i> <?php _e('Newsletters', 'newsletter') ?> <i class="fa fa-chevron-down"></i></a>
@@ -89,18 +103,31 @@ function newsletter_print_entries($group) {
                         <small><?php _e('Delivery speed, sender details, ...', 'newsletter') ?></small></a></li>
                 <li><a href="?page=newsletter_main_info"><i class="fa fa-info"></i> <?php _e('Company Info', 'newsletter') ?>
                         <small><?php _e('Social, address, logo and general info', 'newsletter') ?></small></a></li>
-                <li><a href="?page=newsletter_main_smtp"><i class="fa fa-envelope-o"></i> <?php _e('SMTP', 'newsletter') ?>
-                        <small><?php _e('External mail servers', 'newsletter') ?></small></a></li>
-                <li><a href="?page=newsletter_main_diagnostic"><i class="fa fa-tasks"></i> <?php _e('Diagnostics', 'newsletter') ?>
-                        <small><?php _e('Something not working? Start here!', 'newsletter') ?></small></a></li>
+
+                <?php if (!class_exists('NewsletterSmtp')) { ?>
+                <li>
+                    <a href="?page=newsletter_main_smtp"><i class="fa fa-envelope-o"></i> <?php _e('SMTP', 'newsletter') ?>
+                        <small><?php _e('External mail server', 'newsletter') ?></small>
+                    </a>
+                </li>
+                <?php } ?>
+
                 <?php
                 newsletter_print_entries('settings');
                 ?>
             </ul>
         </li>
-        <li><a href="?page=newsletter_main_status"><i class="fa fa-thermometer"></i> <?php _e('Status', 'newsletter') ?></a></li>
+
+        <li>
+            <a href="?page=newsletter_main_status"><i class="fa fa-thermometer"></i> <?php _e('Status', 'newsletter') ?>
+            <?php if ($warning) { ?>
+            <i class="fa fa-exclamation-triangle" style="color: red;"></i>
+            <?php } ?>
+            </a>
+        </li>
+
         <?php
-        if (empty(Newsletter::instance()->options['contract_key'])) {
+        if (empty(Newsletter::instance()->options['contract_key']) && !defined('NEWSLETTER_LICENSE_KEY')) {
             ?>
             <li class="tnp-professional-extensions-button"><a href="https://www.thenewsletterplugin.com/premium?utm_source=plugin&utm_medium=link&utm_campaign=header" target="_blank">
                     <i class="fa fa-trophy"></i> <?php _e('Get Professional Extensions', 'newsletter') ?></a>
@@ -109,25 +136,18 @@ function newsletter_print_entries($group) {
             ?>
             <?php if (empty(Newsletter::instance()->options['licence_expires'])) { ?>
                 <li class="tnp-professional-extensions-button-red">
-                    <a href="?page=newsletter_main_main">            
-                        <i class="fa fa-hand-paper-o" style="color: white"></i> <?php _e('Licence not valid', 'newsletter') ?>
-                    </a>
+                    <a href="?page=newsletter_main_main"><i class="fa fa-hand-paper-o" style="color: white"></i> <?php _e('Licence not valid', 'newsletter') ?></a>
                 <?php } else { ?>
                     <?php if (Newsletter::instance()->options['licence_expires'] > time()) { ?>
                     <li class="tnp-professional-extensions-button">
-                        <a href="?page=newsletter_main_extensions">
-                            <i class="fa fa-check-square-o"></i> <?php _e('Licence active', 'newsletter') ?>
-                        </a>
+                        <a href="?page=newsletter_main_extensions"><i class="fa fa-check-square-o"></i> <?php _e('Licence active', 'newsletter') ?></a>
                     <?php } elseif (Newsletter::instance()->options['licence_expires'] < time()) { ?>
                     <li class="tnp-professional-extensions-button-red">
-                        <a href="?page=newsletter_main_main">
-                            <i class="fa fa-hand-paper-o" style="color: white"></i> <?php _e('Licence expired', 'newsletter') ?>
-                        </a>
+                        <a href="?page=newsletter_main_main"><i class="fa fa-hand-paper-o" style="color: white"></i> <?php _e('Licence expired', 'newsletter') ?></a>
                     <?php } ?>
                 <?php } ?>
-                </a>
             </li>
-        <?php } ?>        
+        <?php } ?>
     </ul>
 </div>
 
@@ -136,7 +156,7 @@ function newsletter_print_entries($group) {
     <div class="tnp-notice">
         <a href="<?php echo $_SERVER['REQUEST_URI'] . '&noheader=1&dismiss=rate' ?>" class="tnp-dismiss">&times;</a>
 
-        We never asked before and we're curious: <a href="http://wordpress.org/extend/plugins/newsletter/" target="_blank">would you rate this plugin</a>?
+        We never asked before and we're curious: <a href="http://wordpress.org/plugins/newsletter/" target="_blank">would you rate this plugin</a>?
         (few seconds required - account on WordPress.org required, every blog owner should have one...). <strong>Really appreciated, The Newsletter Team</strong>.
 
     </div>
@@ -151,27 +171,6 @@ function newsletter_print_entries($group) {
 
     </div>
 <?php } ?>
-
-<?php 
-$newsletter_wp_options = get_option('newsletter_wp');
-if (isset($_GET['debug']) || !isset($dismissed['newsletter-wp']) && !is_plugin_active('/newsletter-wpusers/wpusers.php') && !empty($newsletter_wp_options['subscribe'])) { ?>
-    <div class="tnp-notice">
-        <a href="<?php echo $_SERVER['REQUEST_URI'] . '&noheader=1&dismiss=newsletter-wp' ?>" class="tnp-dismiss">&times;</a>
-        The <strong>WP Users Integration</strong> feature is now managed with a free extension. Please install it from the 
-        <a href="?page=newsletter_main_extensions">Extensions panel</a>. Thank you.
-    </div>
-<?php }  ?>
-
-<?php 
-$newsletter_lock_options = get_option('newsletter_lock');
-if (isset($_GET['debug']) || !isset($dismissed['newsletter-lock']) && !file_exists(WP_PLUGIN_DIR . '/newsletter-wp') && !empty($newsletter_lock_options['enabled'])) { ?>
-    <div class="tnp-notice">
-        <a href="<?php echo $_SERVER['REQUEST_URI'] . '&noheader=1&dismiss=newsletter-lock' ?>" class="tnp-dismiss">&times;</a>
-        The <strong>Locked Content</strong> feature is now managed with a free extension. Please install it from the 
-        <a href="?page=newsletter_main_extensions">Extensions panel</a>. Thank you.
-    </div>
-<?php }  ?>
-
 
 <?php if (isset($_GET['debug']) || !isset($dismissed['newsletter-subscribe']) && get_option('newsletter_install_time') && get_option('newsletter_install_time') < time() - 86400 * 15) { ?>
     <div class="tnp-notice">

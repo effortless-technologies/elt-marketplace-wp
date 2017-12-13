@@ -1,5 +1,6 @@
 <?php
-if (!defined('ABSPATH')) exit;
+if (!defined('ABSPATH'))
+    exit;
 
 @include_once NEWSLETTER_INCLUDES_DIR . '/controls.php';
 $controls = new NewsletterControls();
@@ -53,7 +54,7 @@ if ($controls->is_action()) {
 
         $controls->data['confirmed_url'] = trim($controls->data['confirmed_url']);
         $controls->data['confirmation_url'] = trim($controls->data['confirmation_url']);
-        
+
         if (!empty($controls->data['page'])) {
             $controls->data['url'] = ''; // do not unset
         }
@@ -132,7 +133,7 @@ if (empty($controls->data['page'])) {
     $controls->messages .= '<p>You should set a dedicated page for Newsletter which used to interact with your subscribers.</p>';
 } else {
     $post = get_post($controls->data['page']);
-    
+
     if (!$post || $post->post_status != 'publish') {
         $controls->errors .= '<p>The dedicated page selected below does not exist anymore or has been unpublished. Please, select a different one.</p>';
     } else {
@@ -141,7 +142,6 @@ if (empty($controls->data['page'])) {
         }
     }
 }
-
 ?>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.20.2/codemirror.css" type="text/css">
@@ -172,15 +172,7 @@ if (empty($controls->data['page'])) {
     <div id="tnp-heading">
 
         <h2><?php _e('Subscription, Profile Page Configuration', 'newsletter') ?></h2>
-
-        <p>
-            In this panel you can configure the subscription, set up every message, the single or double opt in and
-            even a customized subscription form.
-        </p>
-        <p>
-            Page layout where messages are shown is managed by subscription/page.php file which contains instruction on how to
-            customize it OR use a WordPress page for messages as described on subscription configuration.
-        </p>
+        <?php $controls->page_help('https://www.thenewsletterplugin.com/documentation/subscription') ?>
 
     </div>
 
@@ -190,60 +182,54 @@ if (empty($controls->data['page'])) {
             <?php $controls->init(); ?>
             <div id="tabs">
                 <ul>
-                    <li><a href="#tabs-general">General</a></li>
-                    <li><a href="#tabs-2">Subscription</a></li>
-                    <li><a href="#tabs-3">Confirmation</a></li>
-                    <li><a href="#tabs-4">Welcome</a></li>
-                    <li><a href="#tabs-9">Profile</a></li>
-                    <li><a href="#tabs-7">Docs</a></li>
+                    <li><a href="#tabs-general"><?php _e('General', 'newsletter') ?></a></li>
+                    <li><a href="#tabs-2"><?php _e('Subscription', 'newsletter') ?></a></li>
+                    <li><a href="#tabs-3"><?php _e('Activation', 'newsletter') ?></a></li>
+                    <li><a href="#tabs-4"><?php _e('Welcome', 'newsletter') ?></a></li>
+                    <li><a href="#tabs-9"><?php _e('Profile', 'newsletter') ?></a></li>
                 </ul>
 
                 <div id="tabs-general">
                     <table class="form-table">
-                        <tr valign="top">
-                            <th>Opt In</th>
+                        <tr>
+                            <th><?php _e('Opt In', 'newsletter') ?></th>
                             <td>
-                                <?php $controls->select('noconfirmation', array(0 => 'Double Opt In', 1 => 'Single Opt In')); ?>
-                                <p class="description">
-                                    <strong>Double Opt In</strong> means subscribers need to confirm their email address by an activation link sent them on a activation email message.<br />
-                                    <strong>Single Opt In</strong> means subscribers do not need to confirm their email address.<br />
-                                </p>
+                                <?php $controls->select('noconfirmation', array(0 => __('Double Opt In', 'newsletter'), 1 => __('Single Opt In', 'newsletter'))); ?>
+                                <?php $controls->help('https://www.thenewsletterplugin.com/documentation/subscription#opt-in') ?>
                             </td>
                         </tr>
-                        <tr valign="top">
-                            <th>Newsletter dedicated page</th>
+                        <tr>
+                            <th><?php _e('Dedicated page', 'newsletter') ?></th>
                             <td>
-                                <?php $controls->page('page', 'The Newsletter standard unstyled page'); ?>
+                                <?php $controls->page('page', __('Unstyled page', 'newsletter')); ?>
                                 <?php
                                 if (empty($controls->data['url']) && empty($controls->data['page'])) {
-                                    $controls->button('create', 'Create a page for me');
+                                    $controls->button('create', __('Create the page', 'newsletter'));
                                 }
                                 ?>
                                 <?php if (!empty($controls->data['url'])) { ?>
-                                <p class="description">
-                                    <strong>
-                                        You're currently using the URL <code><?php echo esc_html($controls->data['url'])?></code>
-                                        as dedicated page. Please select the corrisponding page above (new as version 4.6.5+).
-                                    </strong>
-                                </p>
+                                    <!-- do not translate, will be removed -->
+                                    <p class="description">
+                                        <strong>
+                                            You're currently using the URL <code><?php echo esc_html($controls->data['url']) ?></code>
+                                            as dedicated page. Please select the corrisponding page above (new as version 4.6.5+).
+                                        </strong>
+                                    </p>
                                 <?php } ?>
                             </td>
                         </tr>
-                        <tr valign="top">
-                            <th>Notifications</th>
+                        <tr>
+                            <th><?php _e('Notifications', 'newsletter') ?></th>
                             <td>
                                 <?php $controls->yesno('notify'); ?>
-                                to: <?php $controls->text_email('notify_email'); ?> (email address, leave empty for the WordPress administration email <?php echo get_option('admin_email'); ?>)
-                                <p class="description">
-                                    Notifications are sent on confirmed subscriptions and cancellations.
-                                </p>
+                                <?php $controls->text_email('notify_email'); ?>
                             </td>
                         </tr>
-                        <tr valign="top">
-                            <th><?php _e('Custom styles', 'newsletter')?></th>
+                        <tr>
+                            <th><?php _e('Custom styles', 'newsletter') ?></th>
                             <td>
                                 <?php if (apply_filters('newsletter_enqueue_style', true) === false) { ?>
-                                <p><strong>Warning: Newsletter styles and custom styles are disable by your theme or a plugin.</strong></p>
+                                    <p><strong>Warning: Newsletter styles and custom styles are disable by your theme or a plugin.</strong></p>
                                 <?php } ?>
                                 <?php $controls->textarea('css'); ?>
                             </td>
@@ -255,47 +241,42 @@ if (empty($controls->data['page'])) {
                 <div id="tabs-2">
 
                     <table class="form-table">
-                        <tr valign="top">
-                            <th>Subscription page</th>
+                        <tr>
+                            <th><?php _e('Subscription page', 'newsletter') ?><br><?php echo $controls->help('https://www.thenewsletterplugin.com/documentation/newsletter-tags') ?></th>
                             <td>
                                 <?php $controls->wp_editor('subscription_text'); ?>
-                                <p class="description">
-                                    Use <strong>{subscription_form}</strong> to insert the subscription form where you prefer in the text or
-                                    <strong>{subscription_form_N}</strong> (with N from 1 to 10) to insert one of the custom forms.
-                                </p>
                             </td>
                         </tr>
-                        <tr valign="top">
-                            <th><?php _e('Forced lists', 'newsletter')?></th>
+                        <tr>
+                            <th><?php _e('Forced lists', 'newsletter') ?></th>
                             <td>
                                 <?php $controls->preferences(); ?>
-                                <p class="description">
-                                    Add to new subscribers these lists by default.
-                                </p>
                             </td>
                         </tr>
-                        <tr valign="top">
-                            <th>Disable antibot/antispam?</th>
+                        <tr>
+                            <th><?php _e('Disable antibot/antispam?', 'newsletter') ?></th>
                             <td>
                                 <?php $controls->yesno('antibot_disable'); ?>
                                 <p class="description">
-                                    Required for ajax form subsmissions.
+                                    <?php _e ('Disable for ajax form submission', 'newsletter'); ?>
                                 </p>
                             </td>
                         </tr>
-                        <tr valign="top">
-                            <th>Antiflood</th>
+                        <tr>
+                            <th><?php _e('Antiflood', 'newsletter') ?></th>
                             <td>
-                                <?php $controls->select('antiflood', array(
-                                    0=>__('Disabled', 'newsletter'), 
-                                    5=>'5 ' . __('seconds', 'newsletter'),
-                                    10=>'10 ' . __('seconds', 'newsletter'),
-                                    15=>'15 ' . __('seconds', 'newsletter'),
-                                    30=>'30 ' . __('seconds', 'newsletter'),
-                                    60=>'1 ' . __('minute', 'newsletter'),
-                                    120=>'2 ' . __('minutes', 'newsletter'),
-                                    300=>'5 ' . __('minutes', 'newsletter')
-                                    )); ?>
+                                <?php
+                                $controls->select('antiflood', array(
+                                    0 => __('Disabled', 'newsletter'),
+                                    5 => '5 ' . __('seconds', 'newsletter'),
+                                    10 => '10 ' . __('seconds', 'newsletter'),
+                                    15 => '15 ' . __('seconds', 'newsletter'),
+                                    30 => '30 ' . __('seconds', 'newsletter'),
+                                    60 => '1 ' . __('minute', 'newsletter'),
+                                    120 => '2 ' . __('minutes', 'newsletter'),
+                                    300 => '5 ' . __('minutes', 'newsletter')
+                                ));
+                                ?>
                                 <?php $controls->help('https://www.thenewsletterplugin.com/documentation/antiflood') ?>
                             </td>
                         </tr>
@@ -305,11 +286,11 @@ if (empty($controls->data['page'])) {
 
                     <table class="form-table">
                         <!--
-                        <tr valign="top">
+                        <tr>
                             <th>Already subscribed page content</th>
                             <td>
-                        <?php //$controls->wp_editor('already_confirmed_text'); ?><br>
-                        <?php //$controls->checkbox('resend_welcome_email_disabled', 'Do not resend the welcome email'); ?>
+                        <?php //$controls->wp_editor('already_confirmed_text');  ?><br>
+                        <?php //$controls->checkbox('resend_welcome_email_disabled', 'Do not resend the welcome email');  ?>
                                 <p class="description">
                                     Shown when the email is already subscribed and confirmed. The welcome email, if not disabled, will
                                     be sent. Find out more on this topic on its
@@ -318,13 +299,10 @@ if (empty($controls->data['page'])) {
                             </td>
                         </tr>
                         -->
-                        <tr valign="top">
-                            <th>Error page content</th>
+                        <tr>
+                            <th><?php _e('Error page', 'newsletter') ?></th>
                             <td>
                                 <?php $controls->wp_editor('error_text'); ?>
-                                <p class="description">
-                                    Message shown when the email is bounced or other errors occurred.
-                                </p>
                             </td>
                         </tr>
                     </table>
@@ -332,47 +310,33 @@ if (empty($controls->data['page'])) {
 
 
                 <div id="tabs-3">
-
-                    <p>This configuration applies only when you sent the double opt-in mode.</p>
-
+                    
+                    <p><?php _e('Only for double opt-in mode.', 'newsletter') ?></p>
+                    <?php $controls->panel_help('https://www.thenewsletterplugin.com/documentation/subscription#activation') ?>
+                    
                     <table class="form-table">
-                        <tr valign="top">
-                            <th>Confirmation required message</th>
+                        <tr>
+                            <th><?php _e('Activation message', 'newsletter') ?></th>
                             <td>
                                 <?php $controls->wp_editor('confirmation_text'); ?>
-                                <p class="description">
-                                    This message is shown to just subscribed users which require to confirm the subscription
-                                    following the instructions sent them with the following email. Invite them to check the mailbox and to
-                                    give a look to the spam folder if no messages are received within 10 minutes.
-                                </p>
                             </td>
                         </tr>
 
-                        <tr valign="top">
-                            <th>Alternative custom confirmation required page</th>
+                        <tr>
+                            <th><?php _e ('Alternative activation page', 'newsletter'); ?></th>
                             <td>
-                                <?php $controls->text('confirmation_url', 70); ?>
-                                <p class="description">
-                                    A full page address (http://yourblog.com/confirm) to be used instead of message above.
-                                    If left empty the message above is used.
-                                </p>
+                                <?php $controls->text('confirmation_url', 70, 'https://...'); ?>
                             </td>
                         </tr>
 
 
                         <!-- CONFIRMATION EMAIL -->
-                        <tr valign="top">
-                            <th>Confirmation email</th>
+                        <tr>
+                            <th><?php _e('Activation email', 'newsletter') ?></th>
                             <td>
                                 <?php $controls->email('confirmation', 'wordpress'); ?>
+                                <br>
                                 <?php $controls->button('test-confirmation', 'Send a test'); ?>
-                                <p class="description">
-                                    Message sent by email to new subscribers with instructions to confirm their subscription
-                                    (for double opt-in process). Do not forget to add the <strong>{subscription_confirm_url}</strong>
-                                    that users must click to activate their subscription.<br />
-                                    Sometime can be useful to add a <strong>{unsubscription_url}</strong> to let users to
-                                    cancel if they wrongly subscribed to your newsletter.
-                                </p>
                             </td>
                         </tr>
                     </table>
@@ -380,58 +344,41 @@ if (empty($controls->data['page'])) {
 
 
                 <div id="tabs-4">
+                    <p>
+                        <?php $controls->panel_help('https://www.thenewsletterplugin.com/documentation/subscription#welcome') ?>
+                    </p>
                     <table class="form-table">
-                        <tr valign="top">
-                            <th>Welcome message</th>
+                        <tr>
+                            <th><?php _e('Welcome message', 'newsletter') ?></th>
                             <td>
                                 <?php $controls->wp_editor('confirmed_text'); ?>
-                                <p class="description">
-                                    Showed when the user follow the confirmation URL sent to him with previous email
-                                    settings or if signed up directly with no double opt-in process. You can use the <strong>{profile_form}</strong> tag to let the user to
-                                    complete it's profile.
-                                </p>
                             </td>
                         </tr>
 
-                        <tr valign="top">
-                            <th>Alternative custom welcome page</th>
+                        <tr>
+                            <th><?php _e('Alternative welcome page URL', 'newsletter') ?></th>
                             <td>
-                                <?php $controls->text('confirmed_url', 70); ?>
-                                <p class="description">
-                                    A full page address (http://yourblog.com/welcome) to be used instead of message above. If empty the message is
-                                    used.
-                                </p>
+                                <?php $controls->text('confirmed_url', 70, 'https://...'); ?>
                             </td>
                         </tr>
 
-                        <tr valign="top">
-                            <th>Conversion tracking code<br/><small>ADVANCED</small></th>
+                        <tr>
+                            <th><?php _e('Conversion tracking code', 'newsletter') ?>
+                            <?php $controls->help('https://www.thenewsletterplugin.com/documentation/subscription#conversion') ?></th>
                             <td>
                                 <?php $controls->textarea('confirmed_tracking'); ?>
-                                <p class="description">
-                                    The code is injected AS-IS in welcome page and can be used to track conversion
-                                    (you can use PHP if needed). It does not work with a custom welcome page.
-                                    Conversion code is usually supply by tracking services,
-                                    like Google AdWords, Google Analytics and so on.
-                                </p>
                             </td>
                         </tr>
 
                         <!-- WELCOME/CONFIRMED EMAIL -->
-                        <tr valign="top">
+                        <tr>
                             <th>
-                                Welcome email<br /><small>The right place where to put bonus content link</small>
+                                <?php _e('Welcome email', 'newsletter') ?>
                             </th>
                             <td>
                                 <?php $controls->email('confirmed', 'wordpress', true); ?>
+                                <br>
                                 <?php $controls->button('test-confirmed', 'Send a test'); ?>
-                                <p class="description">
-                                    Email sent to the user to confirm his subscription, the successful confirmation
-                                    page, the welcome email. This is the right message where to put a <strong>{unlock_url}</strong> link to remember to the
-                                    user where is the premium content (if any, main configuration panel).<br />
-                                    It's a good idea to add the <strong>{unsubscription_url}</strong> too and the <strong>{profile_url}</strong>
-                                    letting users to cancel or manage/complete their profile.
-                                </p>
                             </td>
                         </tr>
 
@@ -441,34 +388,24 @@ if (empty($controls->data['page'])) {
                 <!-- PROFILE -->
                 <div id="tabs-9">
 
-                    <p>
-                        The page shown when the subscriber wants to edit his profile following the link
-                        {profile_url} you added to a newsletter pr the welcome email.
-                    </p>
-
-
                     <table class="form-table">
-                        <tr valign="top">
-                            <th>Customized profile page</th>
-                            <td>
-                                <?php $controls->text('profile_url', 70); ?>
-                                <p class="description">
-                                    A full page address (e.g. http://yourblog.com/profile) to be used to show and edit the subscriber profile.
-                                    Leave empty to use an auto generated page or the main Newsletter page with the message below.
-                                    <br>
-                                    The custom page must contain the [newsletter_profile] shortcode.
-                                </p>
-                            </td>
-                        </tr>
-                        <tr valign="top">
-                            <th>Profile page</th>
+
+                        <tr>
+                            <th><?php _e('Profile page', 'newsletter') ?>
+                                <br><?php $controls->help('https://www.thenewsletterplugin.com/documentation/subscription#profile') ?>
+                            </th>
                             <td>
                                 <?php $controls->wp_editor('profile_text'); ?>
-                                <p class="description">
-                                    This is the page where subscribers can edit their data and it must contain the {profile_form} tag. <a href="'https://www.thenewsletterplugin.com/plugins/newsletter/subscription-module#profile" target="_blank">Read more</a>.
-                                </p>
                             </td>
                         </tr>
+
+                        <tr>
+                            <th><?php _e('Alternative profile page URL', 'newsletter') ?></th>
+                            <td>
+                                <?php $controls->text('profile_url', 70); ?>
+                            </td>
+                        </tr>
+
                         <tr>
                             <th>Other messages</th>
                             <td>
@@ -486,48 +423,11 @@ if (empty($controls->data['page'])) {
                     </table>
                 </div>
 
-                <div id="tabs-7">
-
-                    <h4>User's data</h4>
-                    <p>
-                        <strong>{name}</strong>
-                        The user name<br />
-                        <strong>{surname}</strong>
-                        The user surname<br />
-                        <strong>{email}</strong>
-                        The user email<br />
-                        <strong>{ip}</strong>
-                        The IP address from where the subscription started<br />
-                        <strong>{id}</strong>
-                        The user id<br />
-                        <strong>{token}</strong>
-                        The user secret token<br />
-                        <strong>{profile_N}</strong>
-                        The user profile field number N (from 1 to 19)<br />
-                    </p>
-
-                    <h4>Action URLs and forms</h4>
-                    <p>
-                        <strong>{subscription_confirm_url}</strong>
-                        URL to build a link to confirmation of subscription when double opt-in is used. To be used on confirmation email.<br />
-                        <strong>{unsubscription_url}</strong>
-                        URL to build a link to start the cancellation process. To be used on every newsletter to let the user to cancel.<br />
-                        <strong>{unsubscription_confirm_url}</strong>
-                        URL to build a link to an immediate cancellation action. Can be used on newsletters if you want an immediate cancellation or
-                        on cancellation page (displayed on {unsubscription_url}) to ask a cancellation confirmation.<br />
-                        <strong>{profile_url}</strong>
-                        URL to build a link to user's profile page (see the User Profile panel)<br />
-                        <strong>{unlock_url}</strong>
-                        Special URL to build a link that on click unlocks protected contents. See Main Configuration panel.<br />
-                        <strong>{profile_form}</strong>
-                        Insert the profile form with user's data. Usually it make sense only on welcome page.<br />
-                    </p>
-                </div>
             </div>
 
             <p>
-                <?php $controls->button_save(); ?>
-                <?php $controls->button_confirm('reset', 'Reset all', 'Are you sure you want to reset all?'); ?>
+                <?php $controls->button_save() ?>
+                <?php $controls->button_reset() ?>
             </p>
 
         </form>

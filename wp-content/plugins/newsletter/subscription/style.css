@@ -46,6 +46,7 @@ CUSTOM CSS RULES.
     text-shadow: none;
     color: #444;
     font-size: 14px;
+    line-height: 20px;
     margin: 0;
     line-height: normal;
     box-sizing: border-box;
@@ -263,6 +264,7 @@ CUSTOM CSS RULES.
     background-color: #f4f4f4;
     color: #444;
     font-size: 14px;
+    line-height: 20px;
     box-sizing: border-box;
     border-radius: 0px;
 }
@@ -271,6 +273,7 @@ CUSTOM CSS RULES.
     width: 29%;
     box-sizing: border-box;
     display: inline-block;
+    padding: 10px;
     border: 1px;
     border-color: #ddd;
     background-color: #444;
@@ -278,6 +281,7 @@ CUSTOM CSS RULES.
     text-shadow: none;
     color: #fff;
     font-size: 14px;
+    line-height: 20px;
     box-sizing: border-box;
     border-radius: 0px;
 }
