@@ -1,0 +1,61 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:5.6
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+    ports:
+      - 3306:3306
+  #
+  # wordpress:
+  #   # depends_on:
+  #   #   - db
+  #   # image: wordpress:latest
+  #   # ports:
+  #   #   - 8000:80
+  #   # restart: always
+  #   # environment:
+  #   #   MYSQL_ROOT_PASSWORD: password
+  #   #   WORDPRESS_DB_HOST: db:3306
+  #   #   WORDPRESS_DB_USER: wordpress
+  #   #   WORDPRESS_DB_PASSWORD: wordpress
+  #   image: wordpress
+  #   # volumes:
+  #   #   - ./:/var/www/html
+  #   ports:
+  #     - "3000:3000"
+  #   # links:
+  #   #   - db:mysql
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: password
+  #     WORDPRESS_DB_HOST: 35.225.145.116:3306
+  #     WORDPRESS_DB_USER: root
+  #     WORDPRESS_DB_PASSWORD: password
+
+volumes:
+  db_data:
+
+# version: "2"
+# services:
+#   my-wpdb:
+#     image: mariadb
+#     ports:
+#       - "8081:3306"
+#     environment:
+#       MYSQL_ROOT_PASSWORD: ChangeMeIfYouWant
+#   my-wp:
+#     image: wordpress
+#     volumes:
+#       - ./:/var/www/html
+#     ports:
+#       - "8080:80"
+#     links:
+#       - my-wpdb:mysql
+#     environment:
