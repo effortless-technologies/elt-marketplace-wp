@@ -2,3 +2,6 @@ d_rsa
 id_rsa.pub
 /.ssh
 wp-config.php
+/wp-content/uploads/wc-logs/*
+.DS_Store
+/wp-content/wflogs/config.php
