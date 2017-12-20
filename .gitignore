@@ -5,3 +5,5 @@ wp-config.php
 /wp-content/uploads/wc-logs/*
 .DS_Store
 /wp-content/wflogs/config.php
+/wp-content/debug.log
+/.idea
