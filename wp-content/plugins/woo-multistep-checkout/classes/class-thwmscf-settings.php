@@ -99,6 +99,7 @@ class THWMSCF_Settings {
 			'title_billing' => 'Billing details',
 			'title_shipping' => 'Shipping details',
 			'title_order_review' => 'Your order',
+			'title_test' => 'Test',
 			'step_bg_color'   => '#B2B2B0',
 			'step_text_color' => '#8B8B8B',
 			'step_bg_color_active'   => '#018DC2',
@@ -142,6 +143,9 @@ class THWMSCF_Settings {
 			),
 			'title_order_review' => array(
 				'name'=>'title_order_review', 'label'=>'Your order', 'type'=>'text', 'value'=>'Your order'
+			),
+			'title_test' => array(
+				'name'=>'title_test', 'label'=>'test', 'type'=>'text', 'value'=>'test'
 			),
 			'title_display_styles' => array('title'=>'Display Styles', 'type'=>'separator', 'colspan'=>'4'),
 			'tab_align' => array(  
@@ -273,6 +277,12 @@ class THWMSCF_Settings {
 							$this->render_form_field_blank();
 							?>
 						</tr>
+                        <tr>
+							<?php
+							$this->render_form_field_element($fields['title_test'], $this->cell_props_L);
+							$this->render_form_field_blank();
+							?>
+                        </tr>
 						
 						<?php $this->render_form_section_separator($fields['title_display_styles']); ?>
 						<tr>
