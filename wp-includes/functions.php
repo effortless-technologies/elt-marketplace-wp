@@ -3835,7 +3835,7 @@ function _deprecated_function( $function, $version, $replacement = null ) {
 		if ( function_exists( '__' ) ) {
 			if ( ! is_null( $replacement ) ) {
 				/* translators: 1: PHP function name, 2: version number, 3: alternative function name */
-				trigger_error( sprintf( __('%1$s is <strong>deprecated</strong> since version %2$s! Use %3$s instead.'), $function, $version, $replacement ) );
+//				trigger_error( sprintf( __('%1$s is <strong>deprecated</strong> since version %2$s! Use %3$s instead.'), $function, $version, $replacement ) );
 			} else {
 				/* translators: 1: PHP function name, 2: version number */
 				trigger_error( sprintf( __('%1$s is <strong>deprecated</strong> since version %2$s with no alternative available.'), $function, $version ) );
