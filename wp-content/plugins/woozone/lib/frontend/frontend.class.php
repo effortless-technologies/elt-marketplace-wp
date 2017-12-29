@@ -5,6 +5,96 @@
 * lines of code that are very important.
 */
 !defined('ABSPATH') and exit;
+
+class AmazonProducts {
+	public $products = null;
+    public $shops = null;
+    public $is_multiple = null;
+    public $cart_items = object;
+
+	public function __construct() {
+        add_filter('woozone_woo_cart_amazon_get_products', array($this, 'get_products'));
+        add_filter('woozone_woo_cart_amazon_remove_amz_products', array($this, 'filter_amz_product'), 10, 2);
+		add_action('woozone_woo_cart_amazon_parse_cart_items', array($this, 'parse_cart_items'), 10, 1);
+		add_filter('woozone_woo_cart_get_cart_price', array($this, 'get_cart_price'), 10, 1);
+	}
+
+	public function setup_amz_products($woozone_frontend) {
+		$shops = $woozone_frontend->woo_cart_get_amazon_prods_bycountry();
+
+		$is_multiple = $woozone_frontend->woo_cart_is_amazon_multiple($shops);
+		if ( empty($is_multiple) ) return true;
+
+		// more than 1 amazon shops: product belonging to different amazon shops
+		if ( $is_multiple > 1 ) {
+			$woozone_frontend->woo_cart_update_meta_amazon_prods();
+			$woozone_frontend->woo_cart_delete_amazon_prods();
+			//echo '<script>setTimeout(function() { window.location.reload(true); }, 1);</script>';
+			return true;
+		}
+    }
+
+	public function parse_cart_items($items) {
+		$_cart_items_keys = array_keys($items);
+		$_cart_items = array();
+		$_amz_products_keys = array_keys($this->products);
+		foreach($_cart_items_keys as $key=>$_cart_item_key) {
+			foreach($_amz_products_keys as $key=>$_amz_product_key) {
+				if($_amz_product_key == $_cart_item_key) {
+				    $_cart_items[$_cart_item_key] = $items[$_cart_item_key];
+                }
+            }
+		}
+
+        $this->products = $_cart_items;
+    }
+
+    public function delete_cart_items() {
+	    // TODO: implement
+    }
+
+
+	public function get_products() {
+	    return $this->products;
+    }
+
+    public function filter_amz_product($items, $amz_cart_items) {
+	    $_items_keys = array_keys($items);
+        $_amz_products_keys = array_keys($amz_cart_items);
+	    $_parsed_cart_items = $items;
+	    foreach($_items_keys as $key=>$_item_key) {
+	        foreach($_amz_products_keys as $key=>$_amz_product_key) {
+		        if($_item_key == $_amz_product_key) {
+			        unset($_parsed_cart_items[$_amz_product_key]);
+		        }
+            }
+        }
+
+        return $_parsed_cart_items;
+    }
+
+    public function get_cart_price($items) {
+        $total_cart_price = 0;
+	    $_items_keys = array_keys($items);
+	    foreach($_items_keys as $val => $item_key) {
+	        $item = $items[$item_key];
+	        $total_cart_price = $total_cart_price + $item[line_total];
+        }
+
+        return $total_cart_price;
+    }
+
+    public function get_non_amz_cart_price($items) {
+	    $total_cart_price = 0;
+	    $_items_keys = array_keys($items);
+	    foreach($_items_keys as $val => $item_key) {
+		    $item = $items[$item_key];
+		    $total_cart_price = $total_cart_price + $item[line_total];
+	    }
+
+	    return $total_cart_price;
+    }
+}
    
 if (class_exists('WooZoneFrontend') != true) {
     class WooZoneFrontend
@@ -33,7 +123,7 @@ if (class_exists('WooZoneFrontend') != true) {
 		private $current_theme = null;
 
 		private $woo_tab_data = false;
-		
+		public $amazon_products = null;
 
         /*
         * Required __construct() function that initalizes the AA-Team Framework
@@ -53,7 +143,12 @@ if (class_exists('WooZoneFrontend') != true) {
 			$this->localizationName = $this->the_plugin->localizationName;
 			
 			$this->current_theme = wp_get_theme(); //get_current_theme() - deprecated notice!
-			//var_dump('<pre>',$this->current_theme,'</pre>');  
+			//var_dump('<pre>',$this->current_theme,'</pre>');
+
+	        $this->amazon_products = new AmazonProducts($this);
+//	        $this->amazon_products->products = $this->woo_cart_get_amazon_prods();
+//	        $this->amazon_products->shops = $this->woo_cart_get_amazon_prods_bycountry();
+//	        $this->amazon_products->is_multiple = $this->woo_cart_is_amazon_multiple( $this->amazon_products->shops );
 
 			// wp actions - frontend
 			if ( ! $this->is_admin ) {
@@ -71,6 +166,11 @@ if (class_exists('WooZoneFrontend') != true) {
 			// wp ajax actions
 			add_action('wp_ajax_WooZone_frontend', array( $this, 'ajax_requests') );
 			add_action('wp_ajax_nopriv_WooZone_frontend', array( $this, 'ajax_requests') );
+
+			// new amazon cart redirect functions
+	        add_action('woozone_woo_cart_store_amazon_prods', array($this, 'woo_cart_store_amazon_prods'));
+            add_action('woozone_woo_cart_amazon_redirect', array($this, 'woo_cart_amazon_redirect'));
+            add_action('woozone_woo_cart_setup_amz_products', array($this, 'woo_cart_setup_amz_products'));
 
 			// checkout email: wp ajax actions
 			if ( $this->p_type == 'simple' ) {
@@ -204,7 +304,9 @@ if (class_exists('WooZoneFrontend') != true) {
 			}
 			// end box with product country check
 			//::::::::::::::::::::::::::::::::::::
-			
+
+			// TODO: important
+
 			$redirect_cart = (isset($_REQUEST['redirectCart']) && $_REQUEST['redirectCart']) != '' ? $_REQUEST['redirectCart'] : '';
 			if( isset($redirect_cart) && $redirect_cart == 'true' ) {
 				if ( ! $this->the_plugin->disable_amazon_checkout )
@@ -705,6 +807,8 @@ if (class_exists('WooZoneFrontend') != true) {
 				$this->redirect_cart();
 			}
 		}
+
+		// TODO: important
 		
 		public function redirect_cart() {
 			//global $woocommerce;
@@ -751,10 +855,10 @@ if (class_exists('WooZoneFrontend') != true) {
 				<input type="hidden" name="AssociateTag" value="<?php echo $affID;?>"/>
 				<?php /*<input type="hidden" name="SubscriptionId" value="<?php echo $this->amz_settings['AccessKeyID'];?>"/>*/ ?>
 				<input type="hidden" name="AWSAccessKeyId" value="<?php echo $this->amz_settings['AccessKeyID'];?>"/>
-				<?php 
-					$cc = 1; 
+				<?php
+					$cc = 1;
 					foreach ($products as $key => $value){
-				?>      
+				?>
 						<input type="hidden" name="ASIN.<?php echo $cc;?>" value="<?php echo $value['asin'];?>"/>
 						<input type="hidden" name="Quantity.<?php echo $cc;?>" value="<?php echo $value['quantity'];?>"/>
 				<?php
@@ -1294,6 +1398,56 @@ if (class_exists('WooZoneFrontend') != true) {
 			//var_dump('<pre>', $cart_items_nb, '</pre>'); echo __FILE__ . ":" . __LINE__;die . PHP_EOL;
 		}
 
+		public function woo_cart_store_amazon_prods() {
+
+		    // Store Amazon products in the amz_prods instance var
+
+            $this->amazon_products->setup_amz_products($this);
+			$this->amazon_products->products = $this->woo_cart_get_amazon_prods();
+			$this->amazon_products->shops = $this->woo_cart_get_amazon_prods_bycountry();
+			$this->amazon_products->is_multiple = $this->woo_cart_is_amazon_multiple( $this->amazon_products->shops );
+
+//			$this->woo_cart_update_meta_amazon_prods();
+//			if ( empty($is_multiple) ) return true;
+
+			// Delete Amazon products for woo cart
+//			$this->woo_cart_delete_amazon_prods();
+        }
+
+        public function woo_cart_amazon_redirect() {
+	        //global $woocommerce;
+
+	        $shops = $this->amazon_products->shops;
+
+	        $is_multiple = $this->amazon_products->is_multiple;
+	        if ( empty($is_multiple) ) return true;
+
+	        // more than 1 amazon shops: product belonging to different amazon shops
+	        if ( $is_multiple > 1 ) {
+		        $this->woo_cart_update_meta_amazon_prods();
+//				$this->woo_cart_delete_amazon_prods();
+		        //echo '<script>setTimeout(function() { window.location.reload(true); }, 1);</script>';
+		        return true;
+	        }
+
+	        // single amazon shops: all products from cart will go to single amazon shop at checkout
+	        foreach ($shops as $key => $value) {
+		        if ( empty($value) ) continue 1;
+
+		        $domain = $value['domain'];
+		        $affID = $value['affID'];
+		        $country_name = $value['name'];
+		        $products = $value['products'];
+		        $nb_products = count($products);
+	        }
+
+        }
+
+        public function woo_cart_setup_amz_products() {
+		    $this->amazon_products->setup_amz_products($this);
+        }
+
+        // TODO: important
 
 		/**
 		 * Cross Sell - Similarity Products
@@ -1302,11 +1456,11 @@ if (class_exists('WooZoneFrontend') != true) {
 		{
 			$amz_cross_sell = isset($_GET['amz_cross_sell']) ? (string) $_GET['amz_cross_sell'] : false;
 			if ( false === $amz_cross_sell ) return '';
-			
+
 			$asins = isset($_GET['asins']) ? $_GET['asins'] : '';
 			$asins = trim($asins);
 			if ( '' == $asins ) return '';
-			
+
 			$asins = explode(',', $asins);
 			if ( empty($asins) ) return '';
 
@@ -1314,7 +1468,7 @@ if (class_exists('WooZoneFrontend') != true) {
 			if (0) {
 
 				//$GLOBALS['WooZone'] = $this;
-				
+
 				if ( $this->the_plugin->is_aateam_demo_keys() ) {
 					return '';
 				}
@@ -1326,7 +1480,7 @@ if (class_exists('WooZoneFrontend') != true) {
 						'quantity' => 1
 					);
 				}
-   
+
 				$provider = 'amazon';
 				$rsp = $this->the_plugin->get_ws_object( $provider )->api_make_request(array(
 					'amz_settings'          => $this->amz_settings,
@@ -1340,7 +1494,7 @@ if (class_exists('WooZoneFrontend') != true) {
 					'method'                => 'cartThem',
 				));
 				$cart = $rsp['response'];
-      
+
 				// debug only
 				//$this->amzHelper->aaAmazonWS->cartKill();
 				//$cart = $this->amzHelper->aaAmazonWS->responseGroup('Cart')->cartThem($selectedItems);
@@ -1350,9 +1504,9 @@ if (class_exists('WooZoneFrontend') != true) {
 				$config = $this->amz_settings;
 				// AssociateTag => $user_country['affID']
 				// SubscriptionId => $config['AccessKeyID']
-    
+
 				$cart_items = isset($cart['CartItems']['CartItem']) ? $cart['CartItems']['CartItem'] : array();
-				//var_dump('<pre>', $cart['PurchaseURL'], $cart_items, '</pre>'); echo __FILE__ . ":" . __LINE__;die . PHP_EOL;    
+				//var_dump('<pre>', $cart['PurchaseURL'], $cart_items, '</pre>'); echo __FILE__ . ":" . __LINE__;die . PHP_EOL;
 				if( count($cart_items) ){
 					header('Location: ' . $cart['PurchaseURL'] . "%26tag=" . $user_country['affID']); // & = %26 => link must be encoded
 					exit();
@@ -1374,7 +1528,7 @@ if (class_exists('WooZoneFrontend') != true) {
 					'quantity' => 1
 				);
 			}
-			
+
 			if ( empty($products) ) return true;
 
 			$domain = substr($user_country['website'], 1); //$this->amz_settings['country']; //substr($user_country['website'], 1);
@@ -1385,10 +1539,10 @@ if (class_exists('WooZoneFrontend') != true) {
 				$html[] = '<img src="' . ( $this->the_plugin->cfg['paths']['freamwork_dir_url'] . 'images/checkout_loading.gif'  ) . '" style="margin: 10px auto;">';
 				$html[] = "<h3>" . ( str_replace( '{amazon_website}', 'www.amazon.' . $domain, $this->amz_settings["redirect_checkout_msg"]) ) . "</h3>";
 			}
-    	
+
 			//$checkout_type =  isset($this->amz_settings['checkout_type']) && $this->amz_settings['checkout_type'] == '_blank' ? '_blank' : '_self';
 			$checkout_type = '_self';
-			
+
 			ob_start();
 			?>
 
@@ -1396,10 +1550,10 @@ if (class_exists('WooZoneFrontend') != true) {
 				<input type="hidden" name="AssociateTag" value="<?php echo $affID;?>"/>
 				<?php /*<input type="hidden" name="SubscriptionId" value="<?php echo $this->amz_settings['AccessKeyID'];?>"/>*/ ?>
 				<input type="hidden" name="AWSAccessKeyId" value="<?php echo $this->amz_settings['AccessKeyID'];?>"/>
-				<?php 
-					$cc = 1; 
+				<?php
+					$cc = 1;
 					foreach ($products as $key => $value){
-				?>      
+				?>
 						<input type="hidden" name="ASIN.<?php echo $cc;?>" value="<?php echo $value['asin'];?>"/>
 						<input type="hidden" name="Quantity.<?php echo $cc;?>" value="<?php echo $value['quantity'];?>"/>
 				<?php
@@ -1417,11 +1571,11 @@ if (class_exists('WooZoneFrontend') != true) {
 				}, <?php echo $redirect_in;?>);
 			</script>
 
-			<?php 
+			<?php
 			$html[] = ob_get_contents(); //ob_clean();
 			echo implode(PHP_EOL, $html);
 			exit;
-			
+
 			} // end II
 		}
 

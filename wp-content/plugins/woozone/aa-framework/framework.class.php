@@ -1488,6 +1488,8 @@ if(class_exists('WooZone') != true) {
 				add_filter( 'get_post_metadata', array($this, 'get_post_metadata'), 999, 4 );
 			}
 
+			// TODO: important
+
 			$redirect_asin = (isset($_REQUEST['redirectAmzASIN']) && $_REQUEST['redirectAmzASIN']) != '' ? $_REQUEST['redirectAmzASIN'] : '';
 			if( isset($redirect_asin) && strlen($redirect_asin) == 10 ) {
 				if ( ! $this->disable_amazon_checkout )
@@ -2486,6 +2488,9 @@ if(class_exists('WooZone') != true) {
 
 		private function redirect_amazon( $redirect_asin='' )
 		{
+
+		    // TODO: important
+
 			/*$get_user_location = wp_remote_get( 'http://api.hostip.info/country.php?ip=' . $_SERVER["REMOTE_ADDR"] );
 			if( isset($get_user_location->errors) ) {
 				$main_aff_site = $this->main_aff_site();
@@ -2494,15 +2499,15 @@ if(class_exists('WooZone') != true) {
 				$user_country = $this->amzForUser($get_user_location['body']);
 			}*/
 			$user_country = $this->get_country_perip_external();
-			
+
 			$config = $this->amz_settings;
-			
+
 			if( isset($redirect_asin) && trim($redirect_asin) != "" ){
 				$post_id = $this->get_post_id_by_meta_key_and_value('_amzASIN', $redirect_asin);
-								
+
 				$redirect_to_amz = (int) get_post_meta($post_id, '_amzaff_redirect_to_amazon', true);
 				update_post_meta($post_id, '_amzaff_redirect_to_amazon', (int)($redirect_to_amz+1));
-								
+
 								$redirect_to_amz2 = (int) get_post_meta($post_id, '_amzaff_redirect_to_amazon_prev', true);
 								update_post_meta($post_id, '_amzaff_redirect_to_amazon_prev', (int)($redirect_to_amz2+1));
 			}
@@ -2510,12 +2515,12 @@ if(class_exists('WooZone') != true) {
 			if( isset($config["90day_cookie"]) && $config["90day_cookie"] == 'yes' ){
 		?>
 			<form id="amzRedirect" method="GET" action="//www.amazon<?php echo $user_country['website'];?>/gp/aws/cart/add.html">
-				<input type="hidden" name="AssociateTag" value="<?php echo $user_country['affID'];?>"/> 
-				<input type="hidden" name="SubscriptionId" value="<?php echo $config['AccessKeyID'];?>"/> 
+				<input type="hidden" name="AssociateTag" value="<?php echo $user_country['affID'];?>"/>
+				<input type="hidden" name="SubscriptionId" value="<?php echo $config['AccessKeyID'];?>"/>
 				<input type="hidden" name="ASIN.1" value="<?php echo $redirect_asin;?>"/>
-				<input type="hidden" name="Quantity.1" value="1"/> 
-			</form> 
-		<?php 
+				<input type="hidden" name="Quantity.1" value="1"/>
+			</form>
+		<?php
 			die('
 				<script>
 				setTimeout(function() {
@@ -2523,16 +2528,16 @@ if(class_exists('WooZone') != true) {
 				}, 1);
 				</script>
 			');
-			}else{ 
+			}else{
 				$link = 'http://www.amazon' . ( $user_country['website'] ) . '/gp/product/' . ( $redirect_asin ) . '/?tag=' . ( $user_country['affID'] ) . '';
-		
+
 				die('<meta http-equiv="refresh" content="0; url=' . ( $link ) . '">');
-			/* 
+			/*
 			<!--form id="amzRedirect" method="GET" action="<?php echo $link;?>">
-			</form--> 
+			</form-->
 				*/
 			}
-			
+
 		}
 
 		public function get_post_id_by_meta_key_and_value($key, $value) 

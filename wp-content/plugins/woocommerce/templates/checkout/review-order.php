@@ -31,7 +31,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php
 			do_action( 'woocommerce_review_order_before_cart_contents' );
 
-			foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
+		    $cart = WC()->cart->get_cart();
+		    do_action('woozone_woo_cart_amazon_parse_cart_items', $cart);
+		    $amz_cart_items = '';
+		    $amz_cart_items = apply_filters( 'woozone_woo_cart_amazon_get_products', $amz_cart_items);
+		    $non_amz_cart_items = apply_filters('woozone_woo_cart_amazon_remove_amz_products', $cart, $amz_cart_items);
+
+			foreach ( $non_amz_cart_items as $cart_item_key => $cart_item ) {
 				$_product     = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
 
 				if ( $_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters( 'woocommerce_checkout_cart_item_visible', true, $cart_item, $cart_item_key ) ) {

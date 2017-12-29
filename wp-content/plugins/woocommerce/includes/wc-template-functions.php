@@ -1624,6 +1624,34 @@ if ( ! function_exists( 'woocommerce_order_review' ) ) {
 	}
 }
 
+if ( ! function_exists( 'woocommerce_amazon_checkout_cart' ) ) {
+
+	/**
+	 * Create a separate cart for Amazon Products
+	 *
+	 * @subpackage    Checkout
+	 *
+	 * @param bool $deprecated Deprecated param.
+	 */
+	function woocommerce_amazon_checkout_cart( $deprecated = false ) {
+		wc_get_template( 'checkout/amazon-cart.php', array( 'checkout' => WC()->checkout() ) );
+	}
+}
+
+if ( ! function_exists( 'woocommerce_non_amazon_checkout_cart' ) ) {
+
+	/**
+	 * Create a separate cart for Non Amazon Products
+	 *
+	 * @subpackage    Checkout
+	 *
+	 * @param bool $deprecated Deprecated param.
+	 */
+	function woocommerce_non_amazon_checkout_cart( $deprecated = false ) {
+		wc_get_template( 'checkout/non-amazon-cart.php', array( 'checkout' => WC()->checkout() ) );
+	}
+}
+
 if ( ! function_exists( 'woocommerce_checkout_payment' ) ) {
 
 	/**

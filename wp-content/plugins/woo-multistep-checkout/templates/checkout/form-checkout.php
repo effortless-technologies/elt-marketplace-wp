@@ -88,18 +88,25 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 			</div>
 		<!--</div>-->
 
-		<?php do_action( 'woocommerce_checkout_after_customer_details' ); ?>
+		<?php do_action( 'woozone_woo_cart_store_amazon_prods' ); ?>
+		<?php do_action( 'woozone_woo_cart_amazon_redirect' ); ?>
 
 	<?php endif; ?>
 
 <div class="thwmscf-tab-panel" id="thwmscf-tab-panel-3">
-	<h3 id="order_review_heading"><?php _e( 'Your order', 'woocommerce' ); ?></h3>
+<!--	<h3 id="order_review_heading">--><?php //_e( 'Your order', 'woocommerce' ); ?><!--</h3>-->
 
 	<?php do_action( 'woocommerce_checkout_before_order_review' ); ?>
 
 	<div id="order_review" class="woocommerce-checkout-review-order">
-		<?php do_action( 'woocommerce_checkout_order_review' ); ?>
-	</div>
+        <h3>Products to be fulfilled by Effortless Marketplace</h3>
+		<?php do_action( 'woocommerce_non_amazon_checkout_cart_review' ); ?>
+<!--		--><?php //do_action('woocommerce_amazon_checkout_cart_review'); ?>
+        <h3>Products to be fulfilled by Amazon</h3>
+		<?php do_action('woocommerce_amazon_checkout_cart_review'); ?>
+    </div>
+
+    <?php do_action('woocommerce_checkout_order_review'); ?>
 
 	<?php do_action( 'woocommerce_checkout_after_order_review' ); ?>
 </div>
