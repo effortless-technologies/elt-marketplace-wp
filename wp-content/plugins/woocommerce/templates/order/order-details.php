@@ -29,6 +29,8 @@ $show_customer_details = is_user_logged_in() && $order->get_user_id() === get_cu
 $downloads             = $order->get_downloadable_items();
 $show_downloads        = $order->has_downloadable_item() && $order->is_download_permitted();
 
+// TODO: important
+
 if ( $show_downloads ) {
 	wc_get_template( 'order/order-downloads.php', array( 'downloads' => $downloads, 'show_title' => true ) );
 }
@@ -84,6 +86,8 @@ if ( $show_downloads ) {
 	</table>
 
 	<?php do_action( 'woocommerce_order_details_after_order_table', $order ); ?>
+
+    <a href="#" onclick="amazon_checkout_redirect()">Continue to Amazon Checkout/a>
 </section>
 
 <?php

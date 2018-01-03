@@ -475,4 +475,55 @@ add_action( 'after_setup_theme', 'bm_title_tag' );
 include_once("templatemela/megnor-functions.php");
 require_once( get_template_directory() . '/templatemela/options.php' );
 add_action( 'admin_menu', 'my_plugin_menu' );
+
+//global $AMZ_PRODUCT_KEYS;
+//
+//function setup_amz_product_keys_store() {
+//    if(!is_array($GLOBALS["AMZ_PRODUCT_KEYS"])) {
+//	    trigger_error(sprintf("Setup AMZ Products CALLED"));
+//	    $GLOBALS["AMZ_PRODUCT_KEYS"] = array();
+//    }
+////    } else if(empty($GLOBALS["AMZ_PRODUCT_KEYS"])) {
+////
+////    }
+//}
+//add_action('init', 'setup_amz_product_keys_store');
+
+function myStartSession() {
+	if(!session_id()) {
+	    trigger_error("Start Session CALLED");
+
+		$_SESSION['AMZ_PRODUCT_KEYS'] = array();
+		session_start();
+	}
+}
+add_action('init', 'myStartSession', 1);
+
+function set_key_amz_product_keys_store($_amz_product_key) {
+    if(!$_SESSION['AMZ_PRODUCT_KEYS'] = null) {
+	    trigger_error("Creating AMZ PRODUCTS ARRAY");
+	    $_SESSION['AMZ_PRODUCT_KEYS'] = array();
+    }
+
+    trigger_error("Store Amz Key CALLLED");
+    array_push($_SESSION['AMZ_PRODUCT_KEYS'], $_amz_product_key);
+
+    $json = json_encode($_SESSION['AMZ_PRODUCT_KEYS']);
+    trigger_error(sprintf($json));
+}
+add_action('theme_set_key_amz_product_keys_store', 'set_key_amz_product_keys_store', 10, 1);
+
+function get_key_amz_product_keys_store() {
+    return $_SESSION['AMZ_PRODUCT_KEYS'];
+}
+add_filter('theme_get_key_amz_products_keys_store', 'get_key_amz_product_keys_store', 10);
+
+add_action('wp_head', 'myplugin_ajaxurl');
+
+function myplugin_ajaxurl() {
+	echo '<script type="text/javascript">
+           var ajaxurl = "' . admin_url('admin-ajax.php') . '";
+         </script>';
+}
+
 ?>

@@ -1,3 +1,33 @@
+function amazon_checkout_redirect() {
+    // jQuery.ajax({
+    //     type: "GET",
+    //     url: "next.php", /* this will make an ajax request to next.php, which contains the call to your original delete function. Essentially, this ajax call will hit your original server-side function from the client-side.*/
+    //     // data: "userID="+userID+"&unsubscribe=true", /*here you can pass a POST variable to next.php that will be interpreted by the conditional function.*/
+    //     success: function(msg){
+    //         alert( "Redirect Successful" );
+    //     }
+    // });
+
+	console.log("CALLED")
+
+    data = { action: 'woozone_woo_cart_amazon_redirect' };
+
+    jQuery.post(ajaxurl, data, function(response){
+        alert(response);
+        // window.location.href = "/checkout-2/"
+    });
+
+    // jQuery.ajax({
+    //     type: "post",
+    //     dataType: "json",
+    //     url: ajaxurl,
+    //     data: formData,
+    //     success: function(msg){
+    //         console.log(msg);
+    //     }
+    // });
+}
+
 (function( $ ) {
 	'use strict';
 	
@@ -9,7 +39,7 @@
 	
 	var button_prev = $('#action-prev');
 	var button_next = $('#action-next');
-	
+
 	var active_step = 1;
 
 	function initialize_thwmsc(){

@@ -115,5 +115,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<?php do_action( 'woocommerce_review_order_after_order_total' ); ?>
 
+        <div class="thwmscf-buttons">
+            <input type="button" id="action-prev" class="button-prev" value="<?php _e( 'Previous', 'thwmsc' ); ?>">
+<!--            <input type="button" id="action-next" class="button-next" value="--><?php //_e( 'Next', 'thwmsc' ); ?><!--">-->
+        </div>
 	</tfoot>
 </table>

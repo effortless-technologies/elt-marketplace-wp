@@ -42,6 +42,7 @@ class AmazonProducts {
 			foreach($_amz_products_keys as $key=>$_amz_product_key) {
 				if($_amz_product_key == $_cart_item_key) {
 				    $_cart_items[$_cart_item_key] = $items[$_cart_item_key];
+				    do_action('theme_set_key_amz_product_keys_store', $_amz_product_key);
                 }
             }
 		}
@@ -169,7 +170,8 @@ if (class_exists('WooZoneFrontend') != true) {
 
 			// new amazon cart redirect functions
 	        add_action('woozone_woo_cart_store_amazon_prods', array($this, 'woo_cart_store_amazon_prods'));
-            add_action('woozone_woo_cart_amazon_redirect', array($this, 'woo_cart_amazon_redirect'));
+            add_action('woozone_woo_cart_amazon_redirect', array($this, 'redirect_cart'));
+	        add_action('wp_ajax_nopriv_woozone_woo_cart_amazon_redirect', array($this, 'redirect_cart'));
             add_action('woozone_woo_cart_setup_amz_products', array($this, 'woo_cart_setup_amz_products'));
 
 			// checkout email: wp ajax actions
@@ -808,8 +810,6 @@ if (class_exists('WooZoneFrontend') != true) {
 			}
 		}
 
-		// TODO: important
-		
 		public function redirect_cart() {
 			//global $woocommerce;
 
@@ -872,7 +872,7 @@ if (class_exists('WooZoneFrontend') != true) {
 			<script type="text/javascript">
 				setTimeout(function() {
 					document.getElementById("amzRedirect").submit();
-					<?php 
+					<?php
 						//if( (int)$woocommerce->cart->cart_contents_count > 0 && $checkout_type == '_blank' ){
 						if ( $nb_products && $checkout_type == '_blank' ) {
 					?>
@@ -883,7 +883,7 @@ if (class_exists('WooZoneFrontend') != true) {
 				}, <?php echo $redirect_in;?>);
 			</script>
 
-			<?php 
+			<?php
 			$html[] = ob_get_contents(); //ob_clean();
 			echo implode(PHP_EOL, $html);
 

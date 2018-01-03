@@ -19,6 +19,8 @@ class WC_Form_Handler {
 	 * Hook in methods.
 	 */
 	public static function init() {
+		trigger_error(sprintf("Form Handler INSTANTIATED"));
+
 		add_action( 'template_redirect', array( __CLASS__, 'redirect_reset_password_link' ) );
 		add_action( 'template_redirect', array( __CLASS__, 'save_address' ) );
 		add_action( 'template_redirect', array( __CLASS__, 'save_account_details' ) );
@@ -277,7 +279,35 @@ class WC_Form_Handler {
 	 * Process the checkout form.
 	 */
 	public static function checkout_action() {
+
+		trigger_error(sprintf("Checkout Action CALLED"));
+
 		if ( isset( $_POST['woocommerce_checkout_place_order'] ) || isset( $_POST['woocommerce_checkout_update_totals'] ) ) {
+
+			wc_nocache_headers();
+
+			if ( WC()->cart->is_empty() ) {
+				wp_redirect( wc_get_page_permalink( 'cart' ) );
+				exit;
+			}
+
+			wc_maybe_define_constant( 'WOOCOMMERCE_CHECKOUT', true );
+
+//			WC()->cart
+
+			WC()->checkout()->process_checkout();
+		}
+	}
+
+	/**
+	 * Process the checkout form new.
+	 */
+	public static function checkout_action_new(/* $amz_cart_items */) {
+
+//		trigger_error(sprintf("Checkout Action New CALLED"));
+
+		if ( isset( $_POST['woocommerce_checkout_place_order'] ) || isset( $_POST['woocommerce_checkout_update_totals'] ) ) {
+
 			wc_nocache_headers();
 
 			if ( WC()->cart->is_empty() ) {
