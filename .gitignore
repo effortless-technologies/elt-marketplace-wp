@@ -7,3 +7,5 @@ wp-config.php
 /wp-content/wflogs/config.php
 /wp-content/debug.log
 /.idea
+wp-content/uploads/wpo_wcpdf/dompdf/*
+wp-content/uploads/wcmp_pdf_invoice/*
