@@ -1,69 +1,29 @@
 function amazon_checkout_redirect() {
-    // jQuery.ajax({
-    //     type: "GET",
-    //     url: "next.php", /* this will make an ajax request to next.php, which contains the call to your original delete function. Essentially, this ajax call will hit your original server-side function from the client-side.*/
-    //     // data: "userID="+userID+"&unsubscribe=true", /*here you can pass a POST variable to next.php that will be interpreted by the conditional function.*/
-    //     success: function(msg){
-    //         alert( "Redirect Successful" );
-    //     }
-    // });
-
-	console.log("CALLED")
-
-    data = { action: 'woozone_woo_cart_amazon_redirect' };
-
-    jQuery.post(ajaxurl, data, (response)=>{
-		
-		/*var page = document.getElementById('primary');
-		page.innerHTML = response;
-        console.log(response);*/
-		
-		
-		
-		function PopupCenter(url, title, w, h) {
-			// Fixes dual-screen position  Most browsers      Firefox
-			var dualScreenLeft = window.screenLeft != undefined ? window.screenLeft : screen.left;
-			var dualScreenTop = window.screenTop != undefined ? window.screenTop : screen.top;
-
-			var width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
-			var height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
-
-			var left = ((width / 2) - (w / 2)) + dualScreenLeft;
-			var top = ((height / 2) - (h / 2)) + dualScreenTop;
-			var newWindow = window.open(url, title, 'scrollbars=yes, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
-			
-			newWindow.onload = (e)=>{
-				newWindow.document.body.innerHTML = response;
-				setTimeout(function() {
-					newWindow.document.getElementById("amzRedirect").submit();
-			}, 3000);
-			};
-
-			// Puts focus on the newWindow
-			/*if (window.focus) {
-				newWindow.focus();
-			}*/
-		}
-		
-		PopupCenter('./','Complete Purchase','600','400');  
-		
-		
-		/*setTimeout(function() {
-					document.getElementById("amzRedirect").submit();
-		}, 3000);*/
-        // window.location.href = "/checkout-2/"
-    });
-
-    // jQuery.ajax({
-    //     type: "post",
-    //     dataType: "json",
-    //     url: ajaxurl,
-    //     data: formData,
-    //     success: function(msg){
-    //         console.log(msg);
-    //     }
-    // });
+	
+	var _rBlock = document.getElementById('amazon-redirect-block');
+	//_rBlock.innerHTML = "<iframe id='amazon-redirect-frame' name='amazon-redirect-frame' src='./checkout-2'></iframe>";
+	//_rFrame = document.getElementById('amazon-redirect-frame');
+	_rBlock.style.display = "block";
+	_rBlock.style.width = "100%";
+	_rBlock.style.height = "1px";	
+	_rBlock.style.border = "1px solid #EFEFEF";
+	_rBlock.innerHTML = "";
+	//var _rFrameBody = window["amazon-redirect-frame"].document.body;
+	//_rFrameBody.innerHTML = '';
+    var _data = { action: 'woozone_woo_cart_amazon_redirect' };
+    jQuery.post(ajaxurl, _data, function(_r){
+		//console.log(_r);
+		_rBlock.innerHTML = _r;
+		  jQuery( "#amazon-redirect-block" ).animate({height: "110px"}, 3200, ()=>{				
+				 setTimeout(function() { document.getElementById("amzRedirect").submit(); }, 3000);
+			});    
+    });	
+	
 }
+
+
+
+
 
 (function( $ ) {
 	'use strict';

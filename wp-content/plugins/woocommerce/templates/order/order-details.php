@@ -87,10 +87,42 @@ if ( $show_downloads ) {
 
 	<?php do_action( 'woocommerce_order_details_after_order_table', $order ); ?>
 
-    <a href="#" onclick="amazon_checkout_redirect()">Continue to Amazon Checkout/a>
+    <div id="amazon-redirect-block" style="font-size:1.2em;display:block; width:100%;">
+	<a href="#" id="amazon_checkout_redirect" onclick="amazon_checkout_redirect()">Continue to Amazon Checkout (<span id="amazon-count-down">6</span>)</a>
+	</div>
+	
+	
 </section>
+<script>
+
+
+
+ document.addEventListener("DOMContentLoaded", function(_e) {
+		var _cd = document.getElementById('amazon-count-down');
+		var _start = (new Date()).getTime();
+		var _from = 13;
+		var _last = _from+0;
+		function _tick(){
+			var _cdl = document.getElementById('amazon_checkout_redirect');
+			if(!_cdl){return;}
+			var _now = Math.floor(_from - (((new Date()).getTime() - _start)/1000));
+				if(_now < _last){
+					_cd.innerHTML = _now;
+					_last = _now;
+					if(_now <= 0){						
+						_cdl.click();
+						return;
+					}
+				}
+				setTimeout(()=>{_tick();}, 1000/30);
+		};
+		_tick();
+ });
+</script>
 
 <?php
 if ( $show_customer_details ) {
 	wc_get_template( 'order/order-details-customer.php', array( 'order' => $order ) );
 }
+?>
+
