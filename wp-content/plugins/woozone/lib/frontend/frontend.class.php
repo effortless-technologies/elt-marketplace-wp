@@ -171,6 +171,7 @@ if (class_exists('WooZoneFrontend') != true) {
 			// new amazon cart redirect functions
 	        add_action('woozone_woo_cart_store_amazon_prods', array($this, 'woo_cart_store_amazon_prods'));
             add_action('woozone_woo_cart_amazon_redirect', array($this, 'redirect_cart'));
+			add_action('wp_ajax_woozone_woo_cart_amazon_redirect', array($this, 'redirect_cart'));
 	        add_action('wp_ajax_nopriv_woozone_woo_cart_amazon_redirect', array($this, 'redirect_cart'));
             add_action('woozone_woo_cart_setup_amz_products', array($this, 'woo_cart_setup_amz_products'));
 

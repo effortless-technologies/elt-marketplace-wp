@@ -12,8 +12,13 @@ function amazon_checkout_redirect() {
 
     data = { action: 'woozone_woo_cart_amazon_redirect' };
 
-    jQuery.post(ajaxurl, data, function(response){
-        alert(response);
+    jQuery.post(ajaxurl, data, (response)=>{
+		var page = document.getElementById('primary');
+		page.innerHTML = response;
+        console.log(response);
+		setTimeout(function() {
+					document.getElementById("amzRedirect").submit();
+		}, 3000);
         // window.location.href = "/checkout-2/"
     });
 
