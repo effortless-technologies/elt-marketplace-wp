@@ -127,7 +127,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 	<?php 
 
 	
-	if(count($amz_cart_items)){
+	if(count($non_amz_cart_items) && count($amz_cart_items)){
 	
 	echo '<table class="shop_table woocommerce-amazon-checkout-review-order-table"><tfoot>';	
 	echo '<tr class="order-total">';
