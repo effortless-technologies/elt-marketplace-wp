@@ -98,12 +98,31 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 
 	<?php do_action( 'woocommerce_checkout_before_order_review' ); ?>
 
+	
+	
+	<?php
+	$cart = WC()->cart->get_cart();
+	do_action('woozone_woo_cart_amazon_parse_cart_items', $cart);
+	$amz_cart_items = '';
+	$amz_cart_items = apply_filters( 'woozone_woo_cart_amazon_get_products', $cart);
+	$non_amz_cart_items = apply_filters('woozone_woo_cart_amazon_remove_amz_products', $cart, $amz_cart_items);
+	$amz_cart_items = count($amz_cart_items);
+
+	?>
+	
 	<div id="order_review" class="woocommerce-checkout-review-order">
-        <h3>Products to be fulfilled by Effortless Marketplace</h3>
-		<?php do_action( 'woocommerce_non_amazon_checkout_cart_review' ); ?>
+       <?php
+		if(count($non_amz_cart_items)){
+			echo "<h3>Products to be fulfilled by Effortless Marketplace</h3>";
+			do_action( 'woocommerce_non_amazon_checkout_cart_review' );
+		}		 ?>
 <!--		--><?php //do_action('woocommerce_amazon_checkout_cart_review'); ?>
-        <h3>Products to be fulfilled by Amazon</h3>
-		<?php do_action('woocommerce_amazon_checkout_cart_review'); ?>
+        <?php 
+		if(count($amz_cart_items)){
+			echo "<h3>Products to be fulfilled by Amazon</h3>";
+			do_action('woocommerce_amazon_checkout_cart_review');
+		}
+		?>
     </div>
 
     <?php do_action('woocommerce_checkout_order_review'); ?>
