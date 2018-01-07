@@ -54,7 +54,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<tr class="cart-subtotal">
 		<th><?php _e( 'Subtotal', 'woocommerce' ); ?></th>
-		<td><?php echo $cart_price;; ?></td>
+		<td><?php echo "$".number_format($cart_price, 2, '.', ''); ?></td>
 	</tr>
 
 	<?php foreach ( WC()->cart->get_coupons() as $code => $coupon ) : ?>
@@ -99,10 +99,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<?php do_action( 'woocommerce_review_order_before_order_total' ); ?>
 
-	<tr class="order-total">
-		<th><?php _e( 'Total', 'woocommerce' ); ?></th>
-		<td><?php wc_cart_totals_order_total_html(); ?></td>
-	</tr>
+	<?php 
+	if(!count($amz_cart_items)){
+	echo '<tr class="order-total">';
+		echo '<th>';
+		_e( 'Total', 'woocommerce' );
+		echo '</th>';
+		echo '<td>';
+		wc_cart_totals_order_total_html();
+		echo '</td>';
+	echo '</tr>';
+	}
+	?>
+	
 
 	<?php do_action( 'woocommerce_review_order_after_order_total' ); ?>
 
