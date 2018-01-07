@@ -30,10 +30,12 @@ $_cart_json = json_encode($_cart);
 $_amz_product_keys = null;
 $_amz_product_keys = apply_filters('theme_get_key_amz_products_keys_store', $_amz_product_keys);
 
-foreach($_amz_product_keys as $key=>$_amz_product_key) {
-	$_bool = WC()->cart->restore_cart_item($_amz_product_key);
-	$_json_ = json_encode($_bool);
-	trigger_error(sprintf($_json_));
+if(count($_amz_product_keys != count($_cart))) {
+	foreach($_amz_product_keys as $key=>$_amz_product_key) {
+		$_bool = WC()->cart->restore_cart_item($_amz_product_key);
+		$_json_ = json_encode($_bool);
+		trigger_error(sprintf($_json_));
+	}
 }
 
 $_cart = WC()->cart->get_cart();
