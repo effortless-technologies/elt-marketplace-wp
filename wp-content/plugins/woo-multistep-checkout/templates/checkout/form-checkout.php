@@ -123,6 +123,30 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 			do_action('woocommerce_amazon_checkout_cart_review');
 		}
 		?>
+		
+	<?php 
+
+	
+	if(count($amz_cart_items)){
+	
+	echo '<table class="shop_table woocommerce-amazon-checkout-review-order-table"><tfoot>';	
+	echo '<tr class="order-total">';
+		echo '<th style="width:90%; text-align:right;">';
+		_e( 'Total', 'woocommerce' );
+		echo '</th>';
+		echo '<td style="width:10%; text-align:left;">';
+		wc_cart_totals_order_total_html();
+		echo '</td>';
+	echo '</tr>';
+	}
+	?>
+
+
+	</tfoot>
+</table>
+	
+	
+	
     </div>
 
     <?php do_action('woocommerce_checkout_order_review'); ?>
