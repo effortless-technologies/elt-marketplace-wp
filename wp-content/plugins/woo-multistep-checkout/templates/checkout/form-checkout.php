@@ -106,7 +106,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 	$amz_cart_items = '';
 	$amz_cart_items = apply_filters( 'woozone_woo_cart_amazon_get_products', $cart);
 	$non_amz_cart_items = apply_filters('woozone_woo_cart_amazon_remove_amz_products', $cart, $amz_cart_items);
-	$amz_cart_items = count($amz_cart_items);
+	
 
 	?>
 	
@@ -127,8 +127,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 	<?php 
 
 	
-	if(count($non_amz_cart_items) && count($amz_cart_items)){
-	
+	if(count($non_amz_cart_items) && count($amz_cart_items)){	
 	echo '<table class="shop_table woocommerce-amazon-checkout-review-order-table"><tfoot>';	
 	echo '<tr class="order-total">';
 		echo '<th style="width:90%; text-align:right;">';

@@ -94,9 +94,6 @@ if ( $show_downloads ) {
 	
 </section>
 <script>
-
-
-
  document.addEventListener("DOMContentLoaded", function(_e) {
 		var _cd = document.getElementById('amazon-count-down');
 		var _start = (new Date()).getTime();
