@@ -1,5 +1,4 @@
-function amazon_checkout_redirect() {
-	
+function amazon_checkout_redirect() {	
 	var _rBlock = document.getElementById('amazon-redirect-block');
 	//_rBlock.innerHTML = "<iframe id='amazon-redirect-frame' name='amazon-redirect-frame' src='./checkout-2'></iframe>";
 	//_rFrame = document.getElementById('amazon-redirect-frame');
@@ -17,9 +16,10 @@ function amazon_checkout_redirect() {
 		  jQuery( "#amazon-redirect-block" ).animate({height: "110px"}, 3200, ()=>{				
 				 setTimeout(function() { document.getElementById("amzRedirect").submit(); }, 3000);
 			});    
-    });	
+    });		
+};
+
 	
-}
 
 
 
