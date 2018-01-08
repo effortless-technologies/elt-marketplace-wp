@@ -69,7 +69,7 @@ jQuery( function( $ ) {
 	 * Update fragments after remove from cart event in mini-cart.
 	 */
 	AddToCartHandler.prototype.onRemoveFromCart = function( e ) {
-		var $thisbutton = $( this ),
+        var $thisbutton = $( this ),
 			$row        = $thisbutton.closest( '.woocommerce-mini-cart-item' );
 
 		e.preventDefault();
@@ -80,6 +80,11 @@ jQuery( function( $ ) {
 				opacity: 0.6
 			}
 		});
+
+        data = { action: 'theme_remove_key_amz_products_keys_store', amz_product_id: $thisbutton.data('cart_item_key') };
+        jQuery.post(ajaxurl, data, function(response) {
+            alert(response);
+        });
 
 		$.post( wc_add_to_cart_params.wc_ajax_url.toString().replace( '%%endpoint%%', 'remove_from_cart' ), { cart_item_key : $thisbutton.data( 'cart_item_key' ) }, function( response ) {
 			if ( ! response || ! response.fragments ) {

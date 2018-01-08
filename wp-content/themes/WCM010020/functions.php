@@ -489,6 +489,13 @@ add_action( 'admin_menu', 'my_plugin_menu' );
 //}
 //add_action('init', 'setup_amz_product_keys_store');
 
+add_action('wp_head', 'myplugin_ajaxurl');
+function myplugin_ajaxurl() {
+	echo '<script type="text/javascript">
+           var ajaxurl = "' . admin_url('admin-ajax.php') . '";
+         </script>';
+}
+
 function myStartSession() {
 	if(!session_id()) {
 	    trigger_error("Start Session CALLED");
@@ -518,12 +525,20 @@ function get_key_amz_product_keys_store() {
 }
 add_filter('theme_get_key_amz_products_keys_store', 'get_key_amz_product_keys_store', 10);
 
-add_action('wp_head', 'myplugin_ajaxurl');
+function remove_key_amz_product_keys_store($_amz_product_id) {
+	trigger_error("Remove Amz Key CALLLED");
+	unset($_SESSION['AMZ_PRODUCT_KEYS'][$_amz_product_id]);
 
-function myplugin_ajaxurl() {
-	echo '<script type="text/javascript">
-           var ajaxurl = "' . admin_url('admin-ajax.php') . '";
-         </script>';
+	$json = json_encode($_SESSION['AMZ_PRODUCT_KEYS']);
+	trigger_error(sprintf($json));
 }
+add_action('theme_remove_key_amz_products_keys_store', 'remove_key_amz_product_keys_store', 10, 1);
+add_action('wp_ajax_theme_remove_key_amz_products_keys_store', 'remove_key_amz_product_keys_store', 10, 1);
+add_action('wp_ajax_nopriv_theme_remove_key_amz_products_keys_store', 'remove_key_amz_product_keys_store', 10, 1);
 
-?>
+function purge_amz_product_keys_store() {
+    trigger_error('Purge AMZ products CALLED');
+
+    $_SESSION['AMZ_PRODUCT_KEYS'] = array();
+}
+add_action('theme_purge_amz_products_keys_store', 'purge_amz_product_keys_store', 10);
