@@ -98,8 +98,6 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 
 	<?php do_action( 'woocommerce_checkout_before_order_review' ); ?>
 
-	
-	
 	<?php
 	$cart = WC()->cart->get_cart();
 	do_action('woozone_woo_cart_amazon_parse_cart_items', $cart);
@@ -109,7 +107,9 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 	
 
 	?>
-	
+
+<!--    // TODO: this is where the logic lies that changes for the 3 uses cases of the cart (amz vs elt vs amx/elt)-->
+
 	<div id="order_review" class="woocommerce-checkout-review-order">
        <?php
 		if(count($non_amz_cart_items)){
@@ -154,13 +154,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 		do_action( 'woocommerce_checkout_after_order_review' );
 	}
 	?>
-	
-	
-    
 </div>
-
-
-
 
 </form>
 	</div>
@@ -171,9 +165,6 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 </div>
 
 <?php do_action( 'woocommerce_after_checkout_form', $checkout ); ?>
-
-
-
 
 <script>
  document.addEventListener("DOMContentLoaded", function(_e) { 
