@@ -87,20 +87,41 @@ if ( $show_downloads ) {
 
 	<?php do_action( 'woocommerce_order_details_after_order_table', $order ); ?>
 
-    <div id="amazon-redirect-block" style="font-size:1.2em;display:block; width:100%;">
-	<a href="#" id="amazon_checkout_redirect" onclick="amazon_checkout_redirect()">Continue to Amazon Checkout (<span id="amazon-count-down">6</span>)</a>
-	</div>
+	<?php 
+		$cart = WC()->cart->get_cart();
+		    do_action('woozone_woo_cart_amazon_parse_cart_items', $cart);
+		    $amz_cart_items = '';
+		    $amz_cart_items = apply_filters( 'woozone_woo_cart_amazon_get_products', $amz_cart_items);
+		    
+			if(count($amz_cart_items)){
+				
+				echo '<div id="amazon-redirect-block" style="font-size:1.2em;display:block; width:100%;">'.
+				'<a href="#" id="amazon_checkout_redirect" onclick="amazon_checkout_redirect()">Continue to Amazon Checkout (<span id="amazon-count-down">6</span>)</a>'.
+				'</div>';
+				
+				
+			}
+	
+	
+	?>
+	
+	
+    
 	
 	
 </section>
-<script>
+
+<?php 
+
+if(count($amz_cart_items)){
+	echo'<script>
  document.addEventListener("DOMContentLoaded", function(_e) {
-		var _cd = document.getElementById('amazon-count-down');
+		var _cd = document.getElementById("amazon-count-down");
 		var _start = (new Date()).getTime();
 		var _from = 13;
 		var _last = _from+0;
 		function _tick(){
-			var _cdl = document.getElementById('amazon_checkout_redirect');
+			var _cdl = document.getElementById("amazon_checkout_redirect");
 			if(!_cdl){return;}
 			var _now = Math.floor(_from - (((new Date()).getTime() - _start)/1000));
 				if(_now < _last){
@@ -115,7 +136,9 @@ if ( $show_downloads ) {
 		};
 		_tick();
  });
-</script>
+</script>';
+}
+?>
 
 <?php
 if ( $show_customer_details ) {
