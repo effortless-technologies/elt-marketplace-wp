@@ -75,6 +75,11 @@ class AmazonProducts {
     }
 
     public function get_cart_price($items) {
+
+	    trigger_error('Get Cart Price CALLED!');
+	    $json = json_encode($items);
+	    trigger_error($json);
+
         $_total_cart_price = 0;
 	    $_items_keys = array_keys($items);
 	    foreach($_items_keys as $val => $item_key) {
@@ -83,6 +88,9 @@ class AmazonProducts {
         }
 	    number_format(1152.9, 2);
 	    $_total_cart_price_parsed = number_format($_total_cart_price, 2);
+
+	    trigger_error($_total_cart_price_parsed);
+
 	    return '$' . $_total_cart_price_parsed;
     }
 

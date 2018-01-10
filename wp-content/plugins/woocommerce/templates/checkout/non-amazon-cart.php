@@ -25,7 +25,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$amz_cart_items = '';
 	$amz_cart_items = apply_filters( 'woozone_woo_cart_amazon_get_products', $amz_cart_items);
 	$non_amz_cart_items = apply_filters('woozone_woo_cart_amazon_remove_amz_products', $cart, $amz_cart_items);
-
 	$cart_price = apply_filters('woozone_woo_cart_get_cart_price', $non_amz_cart_items);
 
 	foreach ( $non_amz_cart_items as $cart_item_key => $cart_item ) {
@@ -54,7 +53,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<tr class="cart-subtotal">
 		<th><?php _e( 'Subtotal', 'woocommerce' ); ?></th>
-		<td><?php echo "$".number_format($cart_price, 2, '.', ''); ?></td>
+		<td><?php echo $cart_price; ?></td>
 	</tr>
 
 	<?php foreach ( WC()->cart->get_coupons() as $code => $coupon ) : ?>
@@ -66,11 +65,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<?php if ( WC()->cart->needs_shipping() && WC()->cart->show_shipping() ) : ?>
 
-		<?php do_action( 'woocommerce_review_order_before_shipping' ); ?>
+<!--		--><?php //do_action( 'woocommerce_review_order_before_shipping' ); ?>
 
-		<?php wc_cart_totals_shipping_html(); ?>
+<!--		--><?php //wc_cart_totals_shipping_html(); ?>
 
-		<?php do_action( 'woocommerce_review_order_after_shipping' ); ?>
+<!--		--><?php //do_action( 'woocommerce_review_order_after_shipping' ); ?>
 
 	<?php endif; ?>
 
@@ -99,17 +98,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<?php do_action( 'woocommerce_review_order_before_order_total' ); ?>
 
-	<?php 
-	if(!count($amz_cart_items)){
+	<?php
 	echo '<tr class="order-total">';
 		echo '<th>';
 		_e( 'Total', 'woocommerce' );
 		echo '</th>';
 		echo '<td>';
-		wc_cart_totals_order_total_html();
+//		wc_cart_totals_order_total_html();
+	    echo $cart_price;
 		echo '</td>';
 	echo '</tr>';
-	}
 	?>
 	
 

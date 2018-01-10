@@ -97,11 +97,7 @@ if ( $show_downloads ) {
 			}
 
 	?>
-	
-	
     
-	
-	
 </section>
 
 <?php 

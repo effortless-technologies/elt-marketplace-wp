@@ -24,10 +24,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	do_action('woozone_woo_cart_amazon_parse_cart_items', $cart);
 	$amz_cart_items = '';
 	$amz_cart_items = apply_filters( 'woozone_woo_cart_amazon_get_products', $amz_cart_items);
-
-	$json = json_encode($amz_cart_items);
-	trigger_error(sprintf($json));
-
 	$cart_price = apply_filters('woozone_woo_cart_get_cart_price', $amz_cart_items);
 
 	foreach ( $amz_cart_items as $cart_item_key => $cart_item ) {
@@ -102,7 +98,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<?php do_action( 'woocommerce_review_order_before_order_total' ); ?>
 
 	<tr class="order-total">
-		<th><?php _e( 'Total', 'woocommerce' ); ?></th>
+		<th><?php _e( 'Subtotal', 'woocommerce' ); ?></th>
 		<td><?php echo $cart_price; ?></td>
 	</tr>
 

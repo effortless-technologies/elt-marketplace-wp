@@ -40,7 +40,6 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 	$thwmscf_title_billing = !empty($thwmscf_settings['title_billing']) ? wptexturize($thwmscf_settings['title_billing']) : "Billing";
 	$thwmscf_title_shipping = !empty($thwmscf_settings['title_shipping']) ? wptexturize($thwmscf_settings['title_shipping']) : "Shipping";
 	$thwmscf_title_order_review = !empty($thwmscf_settings['title_order_review']) ? wptexturize($thwmscf_settings['title_order_review']) : "Your order";
-    $thwmscf_title_test = !empty($thwmscf_settings['title_test']) ? wptexturize($thwmscf_settings['title_test']) : "Test";
 ?>
 
 <div id="thwmscf_wrapper" class="thwmscf-wrapper">  
@@ -123,20 +122,20 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 			do_action('woocommerce_amazon_checkout_cart_review');
 		}
 		?>
-		
+
 	<?php 
 
 	
 	if(count($non_amz_cart_items) && count($amz_cart_items)){	
 	echo '<table class="shop_table woocommerce-amazon-checkout-review-order-table"><tfoot>';	
-	echo '<tr class="order-total">';
-		echo '<th style="width:90%; text-align:right;">';
-		_e( 'Total', 'woocommerce' );
-		echo '</th>';
-		echo '<td style="width:10%; text-align:left;">';
-		wc_cart_totals_order_total_html();
-		echo '</td>';
-	echo '</tr>';
+//	echo '<tr class="order-total">';
+//		echo '<th style="width:90%; text-align:right;">';
+//		_e( 'Total', 'woocommerce' );
+//		echo '</th>';
+//		echo '<td style="width:10%; text-align:left;">';
+//		wc_cart_totals_order_total_html();
+//		echo '</td>';
+//	echo '</tr>';
 	}
 	?>
 
