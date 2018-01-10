@@ -303,11 +303,7 @@ class WC_Form_Handler {
 	 * Process the checkout form new.
 	 */
 	public static function checkout_action_new(/* $amz_cart_items */) {
-
-//		trigger_error(sprintf("Checkout Action New CALLED"));
-
 		if ( isset( $_POST['woocommerce_checkout_place_order'] ) || isset( $_POST['woocommerce_checkout_update_totals'] ) ) {
-
 			wc_nocache_headers();
 
 			if ( WC()->cart->is_empty() ) {
@@ -316,7 +312,6 @@ class WC_Form_Handler {
 			}
 
 			wc_maybe_define_constant( 'WOOCOMMERCE_CHECKOUT', true );
-
 			WC()->checkout()->process_checkout();
 		}
 	}

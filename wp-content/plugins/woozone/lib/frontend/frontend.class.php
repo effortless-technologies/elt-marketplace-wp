@@ -75,25 +75,25 @@ class AmazonProducts {
     }
 
     public function get_cart_price($items) {
-        $total_cart_price = 0;
+        $_total_cart_price = 0;
 	    $_items_keys = array_keys($items);
 	    foreach($_items_keys as $val => $item_key) {
 	        $item = $items[$item_key];
-	        $total_cart_price = $total_cart_price + $item[line_total];
+	        $_total_cart_price = $_total_cart_price + $item[line_total];
         }
-
-        return $total_cart_price;
+	    number_format(1152.9, 2);
+	    $_total_cart_price_parsed = number_format($_total_cart_price, 2);
+	    return '$' . $_total_cart_price_parsed;
     }
 
     public function get_non_amz_cart_price($items) {
-	    $total_cart_price = 0;
+	    $_total_cart_price = 0;
 	    $_items_keys = array_keys($items);
 	    foreach($_items_keys as $val => $item_key) {
 		    $item = $items[$item_key];
-		    $total_cart_price = $total_cart_price + $item[line_total];
+		    $_total_cart_price = $_total_cart_price + $item[line_total];
 	    }
-
-	    return $total_cart_price;
+	    return $_total_cart_price;
     }
 }
    
