@@ -92,8 +92,8 @@ if ( $show_downloads ) {
             echo '<div id="amazon-redirect-block" style="font-size:1.2em;display:block; width:100%;">'.
 				'<a href="#" id="amazon_checkout_redirect" onclick="amazon_checkout_redirect()">Continue to Amazon Checkout</a>'.
 				'</div>';
-				
-				
+
+
 			}
 
 	?>
