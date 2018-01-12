@@ -898,6 +898,8 @@ if (class_exists('WooZoneFrontend') != true) {
 
 			$this->woo_cart_update_meta_amazon_prods();
 			$this->woo_cart_delete_amazon_prods();
+			do_action('theme_purge_amz_products_keys_store');
+
 			exit();
 			return true;
 		}

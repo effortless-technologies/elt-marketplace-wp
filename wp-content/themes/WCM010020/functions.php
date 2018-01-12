@@ -527,6 +527,7 @@ add_filter('theme_get_key_amz_products_keys_store', 'get_key_amz_product_keys_st
 
 function remove_key_amz_product_keys_store($_amz_product_id) {
 	trigger_error("Remove Amz Key CALLLED");
+
 	unset($_SESSION['AMZ_PRODUCT_KEYS'][$_amz_product_id]);
 
 	$json = json_encode($_SESSION['AMZ_PRODUCT_KEYS']);
