@@ -118,6 +118,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 <!--		--><?php //do_action('woocommerce_amazon_checkout_cart_review'); ?>
         <?php 
 		if(count($amz_cart_items)){
+			do_action('theme_set_had_amz_products_key_store', true);
 			echo "<h3>Products to be fulfilled by Amazon</h3>";
 			do_action('woocommerce_amazon_checkout_cart_review');
 		}
@@ -126,8 +127,8 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 	<?php 
 
 	
-	if(count($non_amz_cart_items) && count($amz_cart_items)){	
-	echo '<table class="shop_table woocommerce-amazon-checkout-review-order-table"><tfoot>';	
+	if(count($non_amz_cart_items) && count($amz_cart_items)){
+	    echo '<table class="shop_table woocommerce-amazon-checkout-review-order-table"><tfoot>';
 //	echo '<tr class="order-total">';
 //		echo '<th style="width:90%; text-align:right;">';
 //		_e( 'Total', 'woocommerce' );

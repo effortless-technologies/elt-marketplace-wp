@@ -507,9 +507,15 @@ function myStartSession() {
 add_action('init', 'myStartSession', 1);
 
 function set_key_amz_product_keys_store($_amz_product_key) {
-    if(!$_SESSION['AMZ_PRODUCT_KEYS'] = null) {
+    if(!$_SESSION['AMZ_PRODUCT_KEYS'] == null) {
 	    trigger_error("Creating AMZ PRODUCTS ARRAY");
 	    $_SESSION['AMZ_PRODUCT_KEYS'] = array();
+    }
+
+    if(!$_SESSION['HAD_AMZ_PRODUCT_KEYS'] == null) {
+        trigger_error('Creating AMZ key status');
+
+	    $_SESSION['HAD_AMZ_PRODUCT_KEYS'] = false;
     }
 
     trigger_error("Store Amz Key CALLLED");
@@ -543,3 +549,17 @@ function purge_amz_product_keys_store() {
     $_SESSION['AMZ_PRODUCT_KEYS'] = array();
 }
 add_action('theme_purge_amz_products_keys_store', 'purge_amz_product_keys_store', 10);
+
+function get_had_amz_products_key_store() {
+    trigger_error('GET Had AMZ products CALLED');
+
+    return $_SESSION['HAD_AMZ_PRODUCT_KEYS'];
+}
+add_filter('theme_get_had_amz_products_key_store', 'get_had_amz_products_key_store', 10);
+
+function set_had_amz_products_key_store($_amz_products_bool) {
+	trigger_error('SET Had AMZ products CALLED');
+
+	$_SESSION['HAD_AMZ_PRODUCT_KEYS'] = $_amz_products_bool;
+}
+add_action('theme_set_had_amz_products_key_store', 'set_had_amz_products_key_store', 10, 1);
