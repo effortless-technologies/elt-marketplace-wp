@@ -20,6 +20,7 @@ if(class_exists('WooZone') != true) {
 
 // Initalize the your plugin
 $WooZone = new WooZone();
+global $WZ;
 
 // Add an activation hook
 register_activation_hook(__FILE__, array(&$WooZone, 'activate'));

@@ -105,6 +105,9 @@ class WC_Cart extends WC_Legacy_Cart {
 	 * Constructor for the cart class. Loads options and hooks in the init method.
 	 */
 	public function __construct() {
+
+		trigger_error(sprintf("Cart INSTANTIATED"));
+
 		$this->session          = new WC_Cart_Session( $this );
 		$this->fees_api         = new WC_Cart_Fees( $this );
 		$this->tax_display_cart = get_option( 'woocommerce_tax_display_cart' );
@@ -116,6 +119,7 @@ class WC_Cart extends WC_Legacy_Cart {
 		add_action( 'woocommerce_check_cart_items', array( $this, 'check_cart_items' ), 1 );
 		add_action( 'woocommerce_check_cart_items', array( $this, 'check_cart_coupons' ), 1 );
 		add_action( 'woocommerce_after_checkout_validation', array( $this, 'check_customer_coupons' ), 1 );
+		add_action( 'woocommerce_get_cart', array( $this, 'get_cart') );
 	}
 
 	/*
@@ -614,19 +618,29 @@ class WC_Cart extends WC_Legacy_Cart {
 	 * @param bool $clear_persistent_cart Should the persistant cart be cleared too. Defaults to true.
 	 */
 	public function empty_cart( $clear_persistent_cart = true ) {
+
+		trigger_error("Empty Cart CALLED");
+
 		$this->cart_contents              = array();
-		$this->removed_cart_contents      = array();
+//		$this->removed_cart_contents      = array();
 		$this->shipping_methods           = array();
 		$this->coupon_discount_totals     = array();
 		$this->coupon_discount_tax_totals = array();
 		$this->applied_coupons            = array();
 		$this->totals                     = $this->default_totals;
 
-		if ( $clear_persistent_cart ) {
-			$this->session->persistent_cart_destroy();
-		}
+		$_had_amz_products = null;
+		$_had_amz_products = apply_filters('theme_get_key_amz_products_keys_store', $_had_amz_products);
 
-		do_action( 'woocommerce_cart_emptied' );
+		trigger_error(sprintf($_had_amz_products));
+
+		if($_had_amz_products == false) {
+			if ( $clear_persistent_cart ) {
+				$this->session->persistent_cart_destroy();
+			}
+
+			do_action( 'woocommerce_cart_emptied' );
+		}
 	}
 
 	/**

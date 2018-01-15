@@ -1,0 +1,53 @@
+.thpladmin-form-table td.thpladmin-form-section-title {
+    font-weight: bold;
+    border-bottom: 1px dashed #cecece;
+}
+.thpladmin-form-table td {
+    padding: 5px 0px;
+}
+.thpladmin-colorpick {
+    border-left: 0 !important;
+    width: 10em !important;
+    margin-left: 0px !important;
+}
+.thpladmin-colorpickpreview {
+    padding: 6px 3px 6px 20px;
+    border: 1px solid #ddd;
+    /*border-right: 0;*/
+    background-color: #FFFFFF;
+}
+.thwmsc_number{
+    width: 5em !important;
+}
+#wmsc_setting_form select{
+    height: initial;
+}
+form#wmsc_advanced_form select {
+    height: initial;
+}
+td.order_sections {
+    padding: 0 7px;
+    cursor: move;
+    font-size: 15px;
+    text-align: center;
+    vertical-align: middle;
+}
+td.sort::before {
+    content: '\f333';
+    font-family: Dashicons;
+    text-align: center;
+    line-height: 1;
+    color: #999;
+    display: block;
+    width: 17px;
+    float: left;
+    height: 100%;
+}
+.wmsc_sort_table tr:nth-child(odd) td{
+    background: #f9f9f9;
+}
+.button-danger{ 
+    color: #fff;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}

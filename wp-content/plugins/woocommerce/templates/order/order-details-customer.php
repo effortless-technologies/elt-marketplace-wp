@@ -19,6 +19,29 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+
+$_cart_items = "";
+$_cart_items = apply_filters('theme_get_key_amz_products_keys_store', $_cart_items);
+$_json = json_encode($_cart_items);
+
+$_cart = WC()->cart->get_cart();
+$_cart_json = json_encode($_cart);
+
+$_amz_product_keys = null;
+$_amz_product_keys = apply_filters('theme_get_key_amz_products_keys_store', $_amz_product_keys);
+
+if(count($_amz_product_keys != count($_cart))) {
+	foreach($_amz_product_keys as $key=>$_amz_product_key) {
+		$_bool = WC()->cart->restore_cart_item($_amz_product_key);
+		$_json_ = json_encode($_bool);
+		trigger_error(sprintf($_json_));
+	}
+}
+
+$_cart = WC()->cart->get_cart();
+$json = json_encode($_cart);
+trigger_error(sprintf($json));
+
 ?>
 <section class="woocommerce-customer-details">
 
@@ -58,6 +81,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		</section><!-- /.col2-set -->
 
-	<?php endif; ?>
+    <?php endif; ?>
+
+    <?php echo $_json; ?>
+	<?php echo $json; ?>
 
 </section>
