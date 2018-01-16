@@ -103,11 +103,10 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 	$amz_cart_items = '';
 	$amz_cart_items = apply_filters( 'woozone_woo_cart_amazon_get_products', $cart);
 	$non_amz_cart_items = apply_filters('woozone_woo_cart_amazon_remove_amz_products', $cart, $amz_cart_items);
-	
 
 	?>
 
-<!--    // TODO: this is where the logic lies that changes for the 3 uses cases of the cart (amz vs elt vs amx/elt)-->
+<!--    // TODO: this is where the logic lies that changes for the 3 uses cases of the cart (amz vs elt vs amx/elt) -->
 
 	<div id="order_review" class="woocommerce-checkout-review-order">
        <?php
@@ -124,7 +123,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 		}
 		?>
 
-	<?php 
+	<?php
 
 	
 	if(count($non_amz_cart_items) && count($amz_cart_items)){
