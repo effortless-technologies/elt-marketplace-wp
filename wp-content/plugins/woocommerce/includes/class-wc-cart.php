@@ -640,6 +640,8 @@ class WC_Cart extends WC_Legacy_Cart {
 			}
 
 			do_action( 'woocommerce_cart_emptied' );
+		} elseif($_had_amz_products == true) {
+			do_action('theme_set_had_amz_products_key_store', false);
 		}
 	}
 
