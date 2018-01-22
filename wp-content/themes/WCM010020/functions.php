@@ -507,12 +507,12 @@ function myStartSession() {
 add_action('init', 'myStartSession', 1);
 
 function set_key_amz_product_keys_store($_amz_product_key) {
-    if(!$_SESSION['AMZ_PRODUCT_KEYS'] == null) {
+    if(!$_SESSION['AMZ_PRODUCT_KEYS']) {
 	    trigger_error("Creating AMZ PRODUCTS ARRAY");
 	    $_SESSION['AMZ_PRODUCT_KEYS'] = array();
     }
 
-    if(!$_SESSION['HAD_AMZ_PRODUCT_KEYS'] == null) {
+    if(!$_SESSION['HAD_AMZ_PRODUCT_KEYS']) {
         trigger_error('Creating AMZ key status');
 
 	    $_SESSION['HAD_AMZ_PRODUCT_KEYS'] = false;
