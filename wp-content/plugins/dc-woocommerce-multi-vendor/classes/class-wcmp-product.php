@@ -1328,13 +1328,7 @@ class WCMp_Product {
         } else {
             $is_display = true;
         }
-
-        $report_abuse_text = $WCMp->vendor_caps->frontend_cap;
-        if (isset($report_abuse_text['report_abuse_text']) && !empty($report_abuse_text['report_abuse_text'])) {
-            $display_text = $report_abuse_text['report_abuse_text'];
-        } else {
-            $display_text = __('Report Abuse', 'dc-woocommerce-multi-vendor');
-        }
+        
         if ($is_display) {
             ?>
             <a href="#" id="report_abuse"><?php echo $display_text; ?></a><br>
