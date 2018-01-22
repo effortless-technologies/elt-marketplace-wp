@@ -632,8 +632,6 @@ class WC_Cart extends WC_Legacy_Cart {
 		$_had_amz_products = null;
 		$_had_amz_products = apply_filters('theme_get_key_amz_products_keys_store', $_had_amz_products);
 
-		trigger_error(sprintf($_had_amz_products));
-
 		if($_had_amz_products == false) {
 			if ( $clear_persistent_cart ) {
 				$this->session->persistent_cart_destroy();
