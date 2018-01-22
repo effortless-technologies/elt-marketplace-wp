@@ -60,7 +60,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 		<li class="thwmscf-tab"><a href="javascript:void(0)" id="step-2" data-step="2"><?php echo $thwmscf_title_shipping; ?></a></li>
 		<li class="thwmscf-tab"><a href="javascript:void(0)" id="step-3" data-step="3" class="last"><?php echo $thwmscf_title_order_review; ?></a></li>
 <!--        <li class="thwmscf-tab"><a href="javascript:void(0)" id="step-4" data-step="4" class="last">--><?php //echo $thwmscf_title_test; ?><!--</a></li>-->
-	</ul>Fform
+	</ul>
 	<div id="thwmscf-tab-panels" class="thwmscf-tab-panels">
 	<?php 
 	if($enable_login_reminder){
