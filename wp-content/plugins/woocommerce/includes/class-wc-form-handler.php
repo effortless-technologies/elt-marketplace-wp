@@ -19,8 +19,6 @@ class WC_Form_Handler {
 	 * Hook in methods.
 	 */
 	public static function init() {
-		trigger_error(sprintf("Form Handler INSTANTIATED"));
-
 		add_action( 'template_redirect', array( __CLASS__, 'redirect_reset_password_link' ) );
 		add_action( 'template_redirect', array( __CLASS__, 'save_address' ) );
 		add_action( 'template_redirect', array( __CLASS__, 'save_account_details' ) );
@@ -279,9 +277,6 @@ class WC_Form_Handler {
 	 * Process the checkout form.
 	 */
 	public static function checkout_action() {
-
-		trigger_error(sprintf("Checkout Action CALLED"));
-
 		if ( isset( $_POST['woocommerce_checkout_place_order'] ) || isset( $_POST['woocommerce_checkout_update_totals'] ) ) {
 
 			wc_nocache_headers();

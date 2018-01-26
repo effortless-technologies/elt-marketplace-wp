@@ -169,7 +169,6 @@ function wc_clear_cart_after_payment() {
 			$order = wc_get_order( $order_id );
 
 			if ( $order && $order->get_order_key() === $order_key ) {
-				trigger_error("HEREHERHEREHREHREHRER");
 				WC()->cart->empty_cart();
 			}
 		}
