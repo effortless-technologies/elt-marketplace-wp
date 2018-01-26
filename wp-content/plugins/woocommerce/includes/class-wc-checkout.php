@@ -941,15 +941,9 @@ class WC_Checkout {
 	 * Process the checkout after the confirm order button is pressed.
 	 */
 	public function process_checkout() {
-
-		trigger_error(sprintf("Process Checkout CALLED"));
-
 		$_amz_product_keys = null;
 		$_amz_product_keys = apply_filters('theme_get_key_amz_products_keys_store', $_amz_product_keys);
 		$_cart_total = WC()->cart->get_cart_contents_count();
-
-		$json = json_encode($_amz_product_keys);
-		trigger_error(sprintf($json));
 
 		if($_cart_total != count($_amz_product_keys)) {
 			foreach($_amz_product_keys as $key=>$_amz_product_key) {
@@ -1000,10 +994,6 @@ class WC_Checkout {
 					throw new Exception( $order_id->get_error_message() );
 				}
 
-//				$_cart = WC()->cart->get_cart();
-//				$json = json_encode($_cart);
-//				trigger_error(sprintf($json));
-
 				do_action( 'woocommerce_checkout_order_processed', $order_id, $posted_data, $order );
 
 				if ( WC()->cart->needs_payment() ) {
@@ -1024,12 +1014,7 @@ class WC_Checkout {
 
 		foreach($_amz_product_keys as $key=>$_amz_product_key) {
 			$_bool = WC()->cart->restore_cart_item($_amz_product_key);
-			trigger_error(sprintf($_bool));
 		}
-
-		$_cart = WC()->cart->get_cart();
-		$json = json_encode($_cart);
-		trigger_error(sprintf($json));
 	}
 
 	/**
