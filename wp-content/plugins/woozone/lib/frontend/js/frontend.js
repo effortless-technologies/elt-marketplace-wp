@@ -41,7 +41,7 @@ WooZone = (function ($) {
 				if( src.indexOf('//') == 0 ){
 					if( src.indexOf("ssl-images") != false ){
 						that.attr('src', "https:" + src );
-						that.attr('srcset', "https:" + that.attr('srcset'));
+						//that.attr('srcset', "https:" + that.attr('srcset'));
 					}
 				}
 			});

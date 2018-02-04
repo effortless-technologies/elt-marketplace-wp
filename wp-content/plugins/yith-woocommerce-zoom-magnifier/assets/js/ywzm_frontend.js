@@ -46,7 +46,7 @@ jQuery(document).ready(function ($) {
     }).on('reset_image', function (event) {
         yith_wcmg_zoom.attr('href', yith_wcmg_default_zoom);
         yith_wcmg_image.attr('src', yith_wcmg_default_image);
-        yith_wcmg_image.attr('srcset', yith_wcmg_default_image);
+        //yith_wcmg_image.attr('srcset', yith_wcmg_default_image);
         yith_wcmg_image.attr('src-orig', yith_wcmg_default_image);
 
         if (yith_wcmg.data('yith_magnifier')) {
