@@ -51,14 +51,14 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 						), $cart_item_key );
 						?>
 						<?php if ( ! $_product->is_visible() ) : ?>
-							<?php //echo str_replace( array( 'http:', 'https:' ), '', $thumbnail ) . $product_name . '&nbsp;'; ?>
+							<?php echo str_replace( array( 'http:', 'https:' ), '', $thumbnail ) . $product_name . '&nbsp;'; ?>
 							
 						<?php else : ?>
 							<a href="<?php echo esc_url( $product_permalink ); ?>">
-								<?php //echo str_replace( array( 'http:', 'https:' ), '', $thumbnail ) . $product_name . '&nbsp;'; ?>
+								<?php echo str_replace( array( 'http:', 'https:' ), '', $thumbnail ) . $product_name . '&nbsp;'; ?>
 							</a>
 						<?php endif; ?>
-						<?php //echo WC()->cart->get_item_data( $cart_item ); ?>
+						<?php echo WC()->cart->get_item_data( $cart_item ); ?>
 
 						<?php echo apply_filters( 'woocommerce_widget_cart_item_quantity', '<span class="quantity">' . sprintf( '%s &times; %s', $cart_item['quantity'], $product_price ) . '</span>', $cart_item, $cart_item_key ); ?>
 					</li>
@@ -66,7 +66,7 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 				}
 			}
 
-			//do_action( 'woocommerce_mini_cart_contents' );
+			do_action( 'woocommerce_mini_cart_contents' );
 		?>
 	</ul>
 
@@ -82,4 +82,4 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 
 <?php endif; ?>
 
-<?php //do_action( 'woocommerce_after_mini_cart' ); ?>
+<?php do_action( 'woocommerce_after_mini_cart' ); ?>
