@@ -6825,3 +6825,43 @@ ul.accepted-payment-methods li{display:inline-block !important;margin:0 5px 5px 
 }
 .by-vendor-name-link { clear: both; }
 .description_data td {  padding: 15px; }
+
+
+
+
+/*---OHHH JEEZ RICK....---*/
+.pGal-block .pGal-sub-images{line-height:0;}
+.pGal-block .pGal-sub-image{
+	display:inline-block;
+	width:23%;
+	margin:1%;
+	height:auto;
+}
+
+.pGal-block .pGal-sub-image img{
+	pointer-events:none;
+}
+.pGal-block .pGal-sub-image.active-image{
+	opacity:0.65;
+}
+
+.woocommerce-page div.product span.price{
+	float:initial !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
