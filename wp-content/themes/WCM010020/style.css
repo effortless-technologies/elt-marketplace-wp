@@ -7333,6 +7333,9 @@ display:none;
 }
 
 
+/*--- SHUT UP MORTY --*/
+.summary.entry-summary .read-more{display:none;}
+
 
 
 
