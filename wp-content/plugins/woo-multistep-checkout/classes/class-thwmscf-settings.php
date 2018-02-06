@@ -552,11 +552,11 @@ class THWMSCF_Settings {
 			$tab_align = isset($display_prop['tab_align']) && $display_prop['tab_align'] ? 'text-align:'.$display_prop['tab_align'].';' : '';
 			
 			if(isset($display_prop['tab_panel_bg_color']) && $display_prop['tab_panel_bg_color']){
-				$tab_panel_style = 'background:'.$display_prop['tab_panel_bg_color'].' !important;';
+				$tab_panel_style = 'background:'.$display_prop['tab_panel_bg_color'].';';
 			}
 			
 			if(isset($display_prop['step_bg_color']) && $display_prop['step_bg_color']){
-				$tab_style = 'background:'.$display_prop['step_bg_color'].' !important;';
+				$tab_style = 'background:'.$display_prop['step_bg_color'].';';
 			}
 			if(isset($display_prop['step_text_color']) && $display_prop['step_text_color']){
 				$tab_style .= $tab_style ? ' color:'.$display_prop['step_text_color'].'' : 'color:'.$display_prop['step_text_color'].'';
@@ -564,7 +564,7 @@ class THWMSCF_Settings {
 			}
 			
 			if(isset($display_prop['step_bg_color_active']) && $display_prop['step_bg_color_active']){
-				$tab_style_active = 'background:'.$display_prop['step_bg_color_active'].' !important;';
+				$tab_style_active = 'background:'.$display_prop['step_bg_color_active'].';';
 			}
 			if(isset($display_prop['step_text_color_active']) && $display_prop['step_text_color_active']){
 				$tab_style_active .= $tab_style_active ? ' color:'.$display_prop['step_text_color_active'].'' : 'color:'.$display_prop['step_text_color_active'].'';
