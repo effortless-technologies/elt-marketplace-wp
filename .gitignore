@@ -10,3 +10,5 @@ wp-config.php
 wp-content/uploads/wpo_wcpdf/dompdf/*
 wp-content/uploads/wcmp_pdf_invoice/*
 wp-content/uploads/wpo_wcpdf/dompdf/log.htm
+wp-content/uploads/*
+wp-content/plugins/woozone/cache/*
