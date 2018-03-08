@@ -7335,6 +7335,34 @@ display:none;
 
 /*--- SHUT UP MORTY --*/
 .summary.entry-summary .read-more{display:none;}
+.wcmp_vendor_banner {
+    background-position: center !important;
+}
+#amazon_checkout_redirect{
+    position: absolute;
+}
+#amazon_checkout_redirect:hover #amazon-count-down{
+    transform: scaleX(0.82) scaleY(1.1);
+}
+
+#amazon-count-down{
+	transition: all 0.32s ease-in;
+	-webkit-transition:	all 0.32s ease-in;
+    display: block;
+    position: absolute;
+    width: auto;
+    padding: 12px 6px;
+    margin-top: -64px;
+    color: black;
+    transform: scaleX(0.8) scaleY(1.0);
+    width: 100%;
+    text-align: center;
+    background: white;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+	-webkit-box-shadow: 3px 3px 3px 1px rgba(0,0,0,0.4);
+	box-shadow: 3px 3px 3px 1px rgba(0,0,0,0.4);
+}
 
 
 

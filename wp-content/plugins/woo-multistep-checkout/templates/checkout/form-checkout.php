@@ -145,9 +145,14 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
     </div>
 <?php
 	if(!count($non_amz_cart_items) && count($amz_cart_items)){
-		echo '<div id="amazon-redirect-block" style="font-size:1.2em;display:block; width:100%;">'.
-		'<a href="#amazon-redirect-block" id="amazon_checkout_redirect" onclick="amazon_checkout_redirect()">Continue to Amazon Checkout <!--(<span id="amazon-count-down">6</span>)<!--">--></a>'.
-		'</div>';		
+		//https://storage.googleapis.com/stateless-effortlessmarketplac/2018/03/8bdd74a4-em-amz-redirect.jpg
+		echo '<div id="amazon-redirect-block" style="font-size:1.2em;display:block;width:918px;max-width:100%;margin-left: -16px;">';
+		echo '<a href="#amazon-redirect-block" id="amazon_checkout_redirect" onclick="amazon_checkout_redirect()">';
+		echo '<img src="https://storage.googleapis.com/stateless-effortlessmarketplac/2018/03/8bdd74a4-em-amz-redirect.jpg" />';		
+		echo '<span id="amazon-count-down">CLICK HERE TO CHECKOUT REMAINING ITEMS ON AMAZON</span>';
+		echo '</a>';
+		echo '</div>';	
+		
 	}else{
 		do_action('woocommerce_checkout_order_review');
 		do_action( 'woocommerce_checkout_after_order_review' );
@@ -180,7 +185,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 					if(!_cdl || watch.style.display == 'none'){return;}
 					var _now = Math.floor(_from - (((new Date()).getTime() - _start)/1000));
 					if(_now < _last){
-						_cd.innerHTML = _now;
+						//_cd.innerHTML = _now;
 						_last = _now;
 						if(_now <= 0){						
 							_cdl.click();
