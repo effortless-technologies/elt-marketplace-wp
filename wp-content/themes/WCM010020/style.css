@@ -7336,7 +7336,9 @@ display:none;
 /*--- SHUT UP MORTY --*/
 .summary.entry-summary .read-more{display:none;}
 
-
+.wcmp_vendor_banner {
+    background-position: center !important;
+}
 
 
 
