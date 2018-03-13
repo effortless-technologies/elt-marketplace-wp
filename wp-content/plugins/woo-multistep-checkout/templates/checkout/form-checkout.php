@@ -146,7 +146,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 <?php
 	if(!count($non_amz_cart_items) && count($amz_cart_items)){
 		echo '<div id="amazon-redirect-block" style="font-size:1.2em;display:block; width:100%;">'.
-		'<a href="#amazon-redirect-block" id="amazon_checkout_redirect" onclick="amazon_checkout_redirect()">Continue to Amazon Checkout <!--(<span id="amazon-count-down">6</span>)<!--">--></a>'.
+		'<a href="#amazon-redirect-block" id="amazon_checkout_redirect" onclick="amazon_checkout_redirect()">Continue to Amazon Checkout</a>'.
 		'</div>';		
 	}else{
 		do_action('woocommerce_checkout_order_review');
@@ -195,7 +195,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 		}		
 	 };	 
 	 
-	_listen();	
+	//_listen();	
 		
  });
 </script>
