@@ -37,9 +37,9 @@ if(!empty($items)) {
 				<td>		
 					<?php
 						if ( $product->is_in_stock() ) {
-							echo '<mark class="instock">' . __( 'In stock', 'woocommerce' ) . '</mark>';
+							echo '<mark class="instock">' . __( 'In stock', 'wcmp-vendor_frontend_report' ) . '</mark>';
 						} else {
-							echo '<mark class="outofstock">' . __( 'Out of stock', 'woocommerce' ) . '</mark>';
+							echo '<mark class="outofstock">' . __( 'Out of stock', 'wcmp-vendor_frontend_report' ) . '</mark>';
 						}
 					?>
 				</td>
@@ -71,7 +71,7 @@ if(!empty($items)) {
 							$actions = apply_filters( 'woocommerce_admin_stock_report_product_actions', $actions, $product );
 	
 							foreach ( $actions as $action ) {
-								printf( '<a class="button tips %s" href="%s" data-tip="%s ' . __( 'product', 'woocommerce' ) . '">%s</a>', $action['action'], esc_url( $action['url'] ), esc_attr( $action['name'] ), $action['name'] );
+								printf( '<a class="button tips %s" href="%s" data-tip="%s ' . __( 'product', 'wcmp-vendor_frontend_report' ) . '">%s</a>', $action['action'], esc_url( $action['url'] ), esc_attr( $action['name'] ), $action['name'] );
 							}
 						?>
 					</p>

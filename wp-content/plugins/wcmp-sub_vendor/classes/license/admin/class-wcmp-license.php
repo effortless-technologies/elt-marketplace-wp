@@ -13,7 +13,7 @@ class WCMp_License {
         add_action('admin_enqueue_scripts', array(&$this, 'enqueue_admin_script'), 50);
 
         add_menu_page(
-                __('WCMp License', $WCMP_Sub_Vendor->text_domain), __('WCMp License', $WCMP_Sub_Vendor->text_domain), 'manage_woocommerce', 'wcmp-license', array($this, 'create_wcmp_license_settings'), $WCMp->plugin_url . 'assets/images/dualcube.png'
+                __('WCMp License', 'wcmp-sub_vendor'), __('WCMp License', 'wcmp-sub_vendor'), 'manage_woocommerce', 'wcmp-license', array($this, 'create_wcmp_license_settings'), $WCMp->plugin_url . 'assets/images/dualcube.png'
         );
     }
 
@@ -69,14 +69,14 @@ class WCMp_License {
 
         foreach ($this->get_wcmp_license_tabs() as $tab => $name) :
             if ($tab == $current) :
-                printf(__("<h2>%s License</h2>", $WCMP_Sub_Vendor->text_domain), $name);
+                printf(__("<h2>%s License</h2>", 'wcmp-sub_vendor'), $name);
             endif;
         endforeach;
 
         $tab_desc = $this->get_wcmp_license_tab_desc();
         foreach ($this->get_wcmp_license_tabs() as $tabd => $named) :
             if ($tabd == $current && !empty($tab_desc[$tabd])) :
-                printf(__("<h4 style='border-bottom: 1px solid rgb(215, 211, 211);padding-bottom: 21px;'>%s</h4>", $WCMP_Sub_Vendor->text_domain), $tab_desc[$tabd]);
+                printf(__("<h4 style='border-bottom: 1px solid rgb(215, 211, 211);padding-bottom: 21px;'>%s</h4>", 'wcmp-sub_vendor'), $tab_desc[$tabd]);
             endif;
         endforeach;
     }

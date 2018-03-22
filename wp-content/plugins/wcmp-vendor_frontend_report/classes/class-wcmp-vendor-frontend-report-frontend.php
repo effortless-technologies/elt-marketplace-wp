@@ -23,7 +23,7 @@ class WCMP_Vendor_Frontend_Report_Frontend {
             if ($selected_item == "advance_vendor_report") {
                 echo 'class="selected_menu"';
             }
-            ?> data-menu_item="advance_vendor_report" target="_blank" href="<?php echo apply_filters('wcmp_advance_vendor_report', get_permalink($pages['frontend_vendor_reports'])); ?>"><?php _e('- Reports', $WCMp_Vendor_Frontend_Report->text_domain); ?></a></li>
+            ?> data-menu_item="advance_vendor_report" target="_blank" href="<?php echo apply_filters('wcmp_advance_vendor_report', get_permalink($pages['frontend_vendor_reports'])); ?>"><?php _e('- Reports', 'wcmp-vendor_frontend_report'); ?></a></li>
             <?php
         }
 
@@ -31,14 +31,14 @@ class WCMP_Vendor_Frontend_Report_Frontend {
             global $WCMp_Vendor_Frontend_Report;
             $pages = get_option("wcmp_pages_settings_name");
             ?>
-        <td><a class="frontend_vendor_reports button"  href=<?php echo get_permalink($pages['frontend_vendor_reports']); ?>><strong><?php _e('Reports', $WCMp_Vendor_Frontend_Report->text_domain); ?></strong></a></td>
+        <td><a class="frontend_vendor_reports button"  href=<?php echo get_permalink($pages['frontend_vendor_reports']); ?>><strong><?php _e('Reports', 'wcmp-vendor_frontend_report'); ?></strong></a></td>
         <?php
     }
 
     function add_menu_to_wcmp_vendor_dashboard_nav($nav) {
         global $WCMp_Vendor_Frontend_Report;
         $nav['vendor-report']['submenu']['advance-vendor-report'] = array(
-            'label' => __('Reports', $WCMp_Vendor_Frontend_Report->text_domain)
+            'label' => __('Reports', 'wcmp-vendor_frontend_report')
             , 'url' => get_permalink(get_wcmp_vendor_settings('frontend_vendor_reports', 'vendor', 'general'))
             , 'capability' => apply_filters('wcmp_vendor_dashboard_menu_vendor_advance_report_capability', true)
             , 'position' => 20

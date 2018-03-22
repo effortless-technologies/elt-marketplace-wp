@@ -5,11 +5,6 @@ class WCMp_Frontend_Product_Manager_Template {
 
 	public function __construct() {
 		$this->template_url = 'wcmp-frontend-product-manager/';
-		add_action('wcmp_frontend_product_manager_template', array(&$this, 'output_wcmp_frontend_product_manager'));
-	}
-
-	public function output_wcmp_frontend_product_manager() {
-	  $this->get_template('wcmp_frontend_product_manager_template.php', array('demo_value' => "This is just Demo Template Content"));
 	}
 
 	/**

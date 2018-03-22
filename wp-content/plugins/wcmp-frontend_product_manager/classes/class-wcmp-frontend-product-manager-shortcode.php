@@ -6,39 +6,10 @@ class WCMp_Frontend_Product_Manager_Shortcode {
 	public function __construct() {
 		
 		// Product Manager Shortcodes
-		add_shortcode('wcmp_frontend_product_manager', array(&$this, 'frontend_product_manager'));
-		
-		add_shortcode('wcmp_pending_products', array(&$this, 'wcmp_pending_products'));
-		
-		// Coupon Manager Shortcodes
-		add_shortcode('wcmp_frontend_coupon_manager', array(&$this, 'frontend_coupon_manager'));
-		
-		add_shortcode('wcmp_coupons', array(&$this, 'wcmp_coupons'));
+
 	}
 
-	public function frontend_product_manager($attr) {
-		global $WCMp_Frontend_Product_Manager;
-		$this->load_class('frontend-product-manager');
-		return $this->shortcode_wrapper(array('Frontend_Product_Manager_Shortcode', 'output'));
-	}
-	
-	public function wcmp_pending_products($attr) {
-		global $WCMp_Frontend_Product_Manager;
-		$this->load_class('wcmp-pending-products');
-		return $this->shortcode_wrapper(array('WCMp_Pending_Products_Shortcode', 'output'));
-	}
-	
-	public function frontend_coupon_manager($attr) {
-		global $WCMp_Frontend_Product_Manager;
-		$this->load_class('frontend-coupon-manager');
-		return $this->shortcode_wrapper(array('Frontend_Coupon_Manager_Shortcode', 'output'));
-	}
-	
-	public function wcmp_coupons($attr) {
-		global $WCMp_Frontend_Product_Manager;
-		$this->load_class('wcmp-coupons');
-		return $this->shortcode_wrapper(array('WCMp_Coupons_Shortcode', 'output'));
-	}
+
 
 	/**
 	 * Helper Functions

@@ -16,15 +16,22 @@ global $WCMp;
     <form name="vendor_sort" method="get">
         <div class="vendor_sort">
             <select class="select short" id="vendor_sort_type" name="vendor_sort_type">
-                <option value="registered" <?php if ($sort_type == 'registered') {
-    echo 'selected="selected"';
-} ?> ><?php echo __('By date', 'dc-woocommerce-multi-vendor'); ?></option>
-                <option value="name" <?php if ($sort_type == 'name') {
-    echo 'selected="selected"';
-} ?> ><?php echo __('By Alphabetically', 'dc-woocommerce-multi-vendor'); ?></option>
-                <option value="category" <?php if ($sort_type == 'category') {
-                echo 'selected="selected"';
-            } ?> ><?php echo __('By Category', 'dc-woocommerce-multi-vendor'); ?></option>
+                <?php
+                $vendor_sort_type = apply_filters('wcmp_vendor_list_vendor_sort_type', array(
+                    'registered' => __('By date', 'dc-woocommerce-multi-vendor'),
+                    'name' => __('By Alphabetically', 'dc-woocommerce-multi-vendor'),
+                    'category' => __('By Category', 'dc-woocommerce-multi-vendor'),
+                ));
+                if ($vendor_sort_type && is_array($vendor_sort_type)) {
+                    foreach ($vendor_sort_type as $key => $label) {
+                        $selected = '';
+                        if ($sort_type == $key) {
+                            $selected = 'selected="selected"';
+                        }
+                        echo '<option value="' . $key . '" ' . $selected . '>' . $label . '</option>';
+                    }
+                }
+                ?>
             </select>
             <?php
             $product_category = get_terms('product_cat');
@@ -37,15 +44,16 @@ global $WCMp;
                 }
             }
             ?>
-            <select name="vendor_sort_category" id="vendor_sort_category" class="select"><?php echo $options_html; ?></select>					
+            <select name="vendor_sort_category" id="vendor_sort_category" class="select"><?php echo $options_html; ?></select>
+<?php do_action('wcmp_vendor_list_vendor_sort_extra_attributes'); ?>
             <input value="<?php echo __('Sort', 'dc-woocommerce-multi-vendor'); ?>" type="submit">
         </div>
     </form>
     <div class="wcmp_vendor_list_wrap">
-<?php
-if ($vendor_info && is_array($vendor_info)) {
-    foreach ($vendor_info as $vendor) {
-        ?>
+        <?php
+        if ($vendor_info && is_array($vendor_info)) {
+            foreach ($vendor_info as $vendor) {
+                ?>
                 <div class="wcmp_sorted_vendors">
                     <?php do_action('wcmp_vendor_lists_single_before_image', $vendor['term_id'], $vendor['ID']); ?>
                     <a href="<?php echo $vendor['vendor_permalink']; ?>">
@@ -56,17 +64,17 @@ if ($vendor_info && is_array($vendor_info)) {
                     $rating_info = wcmp_get_vendor_review_info($vendor['term_id']);
                     $WCMp->template->get_template('review/rating_vendor_lists.php', array('rating_val_array' => $rating_info));
                     ?>
-                <?php do_action('wcmp_vendor_lists_single_after_image', $vendor['term_id'], $vendor['ID']); ?>
-                <?php $button_text = apply_filters('wcmp_vendor_lists_single_button_text', $vendor['vendor_name']); ?>
+                    <?php do_action('wcmp_vendor_lists_single_after_image', $vendor['term_id'], $vendor['ID']); ?>
+                    <?php $button_text = apply_filters('wcmp_vendor_lists_single_button_text', $vendor['vendor_name']); ?>
                     <a href="<?php echo $vendor['vendor_permalink']; ?>" class="button"><?php echo $button_text; ?></a> 
-        <?php do_action('wcmp_vendor_lists_single_after_button', $vendor['term_id'], $vendor['ID']); ?>
+                <?php do_action('wcmp_vendor_lists_single_after_button', $vendor['term_id'], $vendor['ID']); ?>
                 </div>
-    <?php
-    }
-} else {
-    _e('No vendor found!', 'dc-woocommerce-multi-vendor');
-}
-?>
+                <?php
+            }
+        } else {
+            _e('No vendor found!', 'dc-woocommerce-multi-vendor');
+        }
+        ?>
     </div>
 </div>
 

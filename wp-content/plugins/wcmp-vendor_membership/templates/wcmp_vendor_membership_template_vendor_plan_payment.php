@@ -85,6 +85,7 @@ if (isset($plan_id) && !empty($plan_id)) {
                     <div class="wcmp-regi-12">
                         <label><input type="radio" name="wvm_payment_method" class="wvm_payment_method" value="card" /> Pay via card.</label>
                     </div>
+                    <?php do_action('wcmp_after_vendor_membership_payment_methods'); ?>
                     <div class="clearboth"></div>
                 </div>
 

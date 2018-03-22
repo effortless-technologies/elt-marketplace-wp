@@ -33,7 +33,7 @@ class WCMP_Vendor_Frontend_Report_Admin {
             update_wcmp_vendor_settings('frontend_vendor_reports', get_option('wcmp_vendor_frontend_report_page_id'), 'vendor', 'general');
         }
         
-        $settings_tab_options["sections"]["wcmp_pages_section"]["fields"]["frontend_vendor_reports"] = array('title' => __('Advanced Vendor Reports', $WCMp_Vendor_Frontend_Report->text_domain), 'type' => 'select', 'options' => $pages_array, 'hints' => __('Choose your preferred page for Vendor Frontend Report.', $WCMp_Vendor_Frontend_Report->text_domain));
+        $settings_tab_options["sections"]["wcmp_pages_section"]["fields"]["frontend_vendor_reports"] = array('title' => __('Advanced Vendor Reports', 'wcmp-vendor_frontend_report'), 'type' => 'select', 'options' => $pages_array, 'hints' => __('Choose your preferred page for Vendor Frontend Report.', 'wcmp-vendor_frontend_report'));
         return $settings_tab_options;
     }
 

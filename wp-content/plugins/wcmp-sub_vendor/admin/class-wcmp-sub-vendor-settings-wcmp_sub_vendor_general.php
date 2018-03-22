@@ -25,30 +25,30 @@ class WCMP_Sub_Vendor_Settings_Gneral {
     $settings_tab_options = array("tab" => "{$this->tab}",
                                   "ref" => &$this,
                                   "sections" => array(
-                                                      "default_settings_section" => array("title" =>  __('Demo Default Settings', $WCMP_Sub_Vendor->text_domain), // Section one
+                                                      "default_settings_section" => array("title" =>  __('Demo Default Settings', "wcmp-sub_vendor"), // Section one
                                                                                          "fields" => array("id" => array('title' => '', 'type' => 'hidden', 'id' => 'id', 'name' => 'id', 'value' => 999), // Hidden
-                                                                                                           "id_number" => array('title' => __('ID Number', $WCMP_Sub_Vendor->text_domain), 'type' => 'text', 'id' => 'id_number', 'label_for' => 'id_number', 'name' => 'id_number', 'hints' => __('Enter your ID Number here.', $WCMP_Sub_Vendor->text_domain), 'desc' => __('It will represent your identification.', $WCMP_Sub_Vendor->text_domain)), // Text
-                                                                                                           "about" => array('title' => __('About', $WCMP_Sub_Vendor->text_domain) , 'type' => 'textarea', 'id' => 'about', 'label_for' => 'about', 'name' => 'about', 'rows' => 5, 'placeholder' => __('About you', $WCMP_Sub_Vendor->text_domain), 'desc' => __('It will represent your significant.', $WCMP_Sub_Vendor->text_domain)), // Textarea
-                                                                                                           "bio" => array('title' => __('Bio', $WCMP_Sub_Vendor->text_domain), 'type' => 'wpeditor', 'id' => 'bio', 'label_for' => 'bio', 'name' => 'bio'), //Wp Eeditor
-                                                                                                           "is_enable" => array('title' => __('Enable', $WCMP_Sub_Vendor->text_domain), 'type' => 'checkbox', 'id' => 'is_enable', 'label_for' => 'is_enable', 'name' => 'is_enable', 'value' => 'Enable'), // Checkbox
-                                                                                                           "offday" => array('title' => __('Off Day', $WCMP_Sub_Vendor->text_domain), 'type' => 'radio', 'id' => 'offday', 'label_for' => 'offday', 'name' => 'offday', 'dfvalue' => 'wednesday', 'options' => array('sunday' => 'Sunday', 'monday' => 'Monday', 'tuesday' => 'Tuesday', 'wednesday' => 'Wednesday', 'thrusday' => 'Thrusday'), 'hints' => __('Choose your preferred week offday.', $WCMP_Sub_Vendor->text_domain), 'desc' => __('By default Saterday will be offday.', $WCMP_Sub_Vendor->text_domain)), // Radio
-                                                                                                           "preference" => array('title' => __('Preference', $WCMP_Sub_Vendor->text_domain), 'type' => 'select', 'id' => 'preference', 'label_for' => 'preference', 'name' => 'preference', 'options' => array('one' => 'One Time', 'two' => 'Two Time', 'three' => 'Three Time'), 'hints' => __('Choose your preferred occurence count.', $WCMP_Sub_Vendor->text_domain)), // Select
-                                                                                                           "logo" => array('title' => __('Logo', $WCMP_Sub_Vendor->text_domain), 'type' => 'upload', 'id' => 'logo', 'label_for' => 'logo', 'name' => 'logo', 'prwidth' => 125, 'hints' => __('Your presentation.', $WCMP_Sub_Vendor->text_domain), 'desc' => __('Represent your graphical signature.', $WCMP_Sub_Vendor->text_domain)), // Upload
-                                                                                                           "dc_colorpicker" => array('title' => __('Choose Color', $WCMP_Sub_Vendor->text_domain), 'type' => 'colorpicker', 'id' => 'dc_colorpicker', 'label_for' => 'dc_colorpicker', 'name' => 'dc_colorpicker', 'default' => '000000', 'hints' => __('Choose your color here.', $WCMP_Sub_Vendor->text_domain), 'desc' => __('This lets you choose your desired color.', $WCMP_Sub_Vendor->text_domain)), // Colorpicker
-                                                                                                           "dc_datepicker" => array('title' => __('Choose DOB', $WCMP_Sub_Vendor->text_domain), 'type' => 'datepicker', 'id' => 'dc_datepicker', 'label_for' => 'dc_datepicker', 'name' => 'dc_datepicker', 'hints' => __('Choose your DOB here', $WCMP_Sub_Vendor->text_domain), 'desc' => __('This lets you choose your date of birth.', $WCMP_Sub_Vendor->text_domain), 'custom_attributes' => array('date_format' => 'dd-mm-yy')), // Datepicker
-                                                                                                           "slider" => array('title' => __('Slider', $WCMP_Sub_Vendor->text_domain) , 'type' => 'multiinput', 'id' => 'slider', 'label_for' => 'slider', 'name' => 'slider', 'options' => array(
-                                                                                                               "title" => array('label' => __('Title', $WCMP_Sub_Vendor->text_domain) , 'type' => 'text', 'label_for' => 'title', 'name' => 'title', 'class' => 'regular-text'),
-                                                                                                               "content" => array('label' => __('Content', $WCMP_Sub_Vendor->text_domain), 'type' => 'textarea', 'label_for' => 'content', 'name' => 'content', 'cols' => 40),
-                                                                                                               "image" => array('label' => __('Image', $WCMP_Sub_Vendor->text_domain), 'type' => 'upload', 'label_for' => 'image', 'name' => 'image', 'prwidth' => 125),
-                                                                                                               "url" => array('label' => __('URL', $WCMP_Sub_Vendor->text_domain) , 'type' => 'url', 'label_for' => 'url', 'name' => 'url', 'class' => 'regular-text'),
-                                                                                                               "published" => array('label' => __('Published ON', $WCMP_Sub_Vendor->text_domain), 'type' => 'datepicker', 'id' => 'published', 'label_for' => 'published', 'name' => 'published', 'hints' => __('Published Date', $WCMP_Sub_Vendor->text_domain), 'custom_attributes' => array('date_format' => 'dd th M, yy'))
+                                                                                                           "id_number" => array('title' => __('ID Number', "wcmp-sub_vendor"), 'type' => 'text', 'id' => 'id_number', 'label_for' => 'id_number', 'name' => 'id_number', 'hints' => __('Enter your ID Number here.', "wcmp-sub_vendor"), 'desc' => __('It will represent your identification.', "wcmp-sub_vendor")), // Text
+                                                                                                           "about" => array('title' => __('About', "wcmp-sub_vendor") , 'type' => 'textarea', 'id' => 'about', 'label_for' => 'about', 'name' => 'about', 'rows' => 5, 'placeholder' => __('About you', "wcmp-sub_vendor"), 'desc' => __('It will represent your significant.', "wcmp-sub_vendor")), // Textarea
+                                                                                                           "bio" => array('title' => __('Bio', "wcmp-sub_vendor"), 'type' => 'wpeditor', 'id' => 'bio', 'label_for' => 'bio', 'name' => 'bio'), //Wp Eeditor
+                                                                                                           "is_enable" => array('title' => __('Enable', "wcmp-sub_vendor"), 'type' => 'checkbox', 'id' => 'is_enable', 'label_for' => 'is_enable', 'name' => 'is_enable', 'value' => 'Enable'), // Checkbox
+                                                                                                           "offday" => array('title' => __('Off Day', "wcmp-sub_vendor"), 'type' => 'radio', 'id' => 'offday', 'label_for' => 'offday', 'name' => 'offday', 'dfvalue' => 'wednesday', 'options' => array('sunday' => 'Sunday', 'monday' => 'Monday', 'tuesday' => 'Tuesday', 'wednesday' => 'Wednesday', 'thrusday' => 'Thrusday'), 'hints' => __('Choose your preferred week offday.', "wcmp-sub_vendor"), 'desc' => __('By default Saterday will be offday.', "wcmp-sub_vendor")), // Radio
+                                                                                                           "preference" => array('title' => __('Preference', "wcmp-sub_vendor"), 'type' => 'select', 'id' => 'preference', 'label_for' => 'preference', 'name' => 'preference', 'options' => array('one' => 'One Time', 'two' => 'Two Time', 'three' => 'Three Time'), 'hints' => __('Choose your preferred occurence count.', "wcmp-sub_vendor")), // Select
+                                                                                                           "logo" => array('title' => __('Logo', "wcmp-sub_vendor"), 'type' => 'upload', 'id' => 'logo', 'label_for' => 'logo', 'name' => 'logo', 'prwidth' => 125, 'hints' => __('Your presentation.', "wcmp-sub_vendor"), 'desc' => __('Represent your graphical signature.', "wcmp-sub_vendor")), // Upload
+                                                                                                           "dc_colorpicker" => array('title' => __('Choose Color', "wcmp-sub_vendor"), 'type' => 'colorpicker', 'id' => 'dc_colorpicker', 'label_for' => 'dc_colorpicker', 'name' => 'dc_colorpicker', 'default' => '000000', 'hints' => __('Choose your color here.', "wcmp-sub_vendor"), 'desc' => __('This lets you choose your desired color.', "wcmp-sub_vendor")), // Colorpicker
+                                                                                                           "dc_datepicker" => array('title' => __('Choose DOB', "wcmp-sub_vendor"), 'type' => 'datepicker', 'id' => 'dc_datepicker', 'label_for' => 'dc_datepicker', 'name' => 'dc_datepicker', 'hints' => __('Choose your DOB here', "wcmp-sub_vendor"), 'desc' => __('This lets you choose your date of birth.', "wcmp-sub_vendor"), 'custom_attributes' => array('date_format' => 'dd-mm-yy')), // Datepicker
+                                                                                                           "slider" => array('title' => __('Slider', "wcmp-sub_vendor") , 'type' => 'multiinput', 'id' => 'slider', 'label_for' => 'slider', 'name' => 'slider', 'options' => array(
+                                                                                                               "title" => array('label' => __('Title', "wcmp-sub_vendor") , 'type' => 'text', 'label_for' => 'title', 'name' => 'title', 'class' => 'regular-text'),
+                                                                                                               "content" => array('label' => __('Content', "wcmp-sub_vendor"), 'type' => 'textarea', 'label_for' => 'content', 'name' => 'content', 'cols' => 40),
+                                                                                                               "image" => array('label' => __('Image', "wcmp-sub_vendor"), 'type' => 'upload', 'label_for' => 'image', 'name' => 'image', 'prwidth' => 125),
+                                                                                                               "url" => array('label' => __('URL', "wcmp-sub_vendor") , 'type' => 'url', 'label_for' => 'url', 'name' => 'url', 'class' => 'regular-text'),
+                                                                                                               "published" => array('label' => __('Published ON', "wcmp-sub_vendor"), 'type' => 'datepicker', 'id' => 'published', 'label_for' => 'published', 'name' => 'published', 'hints' => __('Published Date', "wcmp-sub_vendor"), 'custom_attributes' => array('date_format' => 'dd th M, yy'))
                                                                                                                )
                                                                                                              )
                                                                                                            )
                                                                                          ), 
                                                       "custom_settings_section" => array("title" => "Demo Custom Settings", // Another section
-                                                                                         "fields" => array("location" => array('title' => __('Location', $WCMP_Sub_Vendor->text_domain), 'type' => 'text', 'id' => 'location', 'name' => 'location', 'hints' => __('Location', $WCMP_Sub_Vendor->text_domain)),
-                                                                                                           "role" => array('title' => __('Role', $WCMP_Sub_Vendor->text_domain), 'type' => 'text', 'id' => 'role', 'name' => 'role', 'hints' => __('Role', $WCMP_Sub_Vendor->text_domain))
+                                                                                         "fields" => array("location" => array('title' => __('Location', "wcmp-sub_vendor"), 'type' => 'text', 'id' => 'location', 'name' => 'location', 'hints' => __('Location', "wcmp-sub_vendor")),
+                                                                                                           "role" => array('title' => __('Role', "wcmp-sub_vendor"), 'type' => 'text', 'id' => 'role', 'name' => 'role', 'hints' => __('Role', "wcmp-sub_vendor"))
                                                                                                           )
                                                                                          )
                                                       )
@@ -77,7 +77,7 @@ class WCMP_Sub_Vendor_Settings_Gneral {
       add_settings_error(
         "dc_{$this->tab}_settings_name",
         esc_attr( "dc_{$this->tab}_settings_admin_error" ),
-        __('Item ID should be an intiger.', $WCMP_Sub_Vendor->text_domain),
+        __('Item ID should be an intiger.', "wcmp-sub_vendor"),
         'error'
       );
       $hasError = true;
@@ -98,7 +98,7 @@ class WCMP_Sub_Vendor_Settings_Gneral {
       add_settings_error(
         "dc_{$this->tab}_settings_name",
         esc_attr( "dc_{$this->tab}_settings_admin_error" ),
-        __('Please upload your unique logo.', $WCMP_Sub_Vendor->text_domain),
+        __('Please upload your unique logo.', "wcmp-sub_vendor"),
         'error'
       );
       $hasError = true;
@@ -126,7 +126,7 @@ class WCMP_Sub_Vendor_Settings_Gneral {
       add_settings_error(
         "dc_{$this->tab}_settings_name",
         esc_attr( "dc_{$this->tab}_settings_admin_updated" ),
-        __('General settings updated', $WCMP_Sub_Vendor->text_domain),
+        __('General settings updated', "wcmp-sub_vendor"),
         'updated'
       );
     }
@@ -139,7 +139,7 @@ class WCMP_Sub_Vendor_Settings_Gneral {
    */
   public function default_settings_section_info() {
     global $WCMP_Sub_Vendor;
-    _e('Enter your default settings below', $WCMP_Sub_Vendor->text_domain);
+    _e('Enter your default settings below', "wcmp-sub_vendor");
   }
   
   /** 
@@ -147,7 +147,7 @@ class WCMP_Sub_Vendor_Settings_Gneral {
    */
   public function custom_settings_section_info() {
     global $WCMP_Sub_Vendor;
-    _e('Enter your custom settings below', $WCMP_Sub_Vendor->text_domain);
+    _e('Enter your custom settings below', "wcmp-sub_vendor");
   }
   
 }

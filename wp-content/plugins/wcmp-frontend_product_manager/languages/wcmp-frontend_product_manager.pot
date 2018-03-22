@@ -1,0 +1,2170 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: WCMp Frontend Manager\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-03-19 06:00+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco - https://localise.biz/"
+
+#: includes/wcmp-frontend-product-manager-core-functions.php:137
+msgid "Insert Product Title before submit."
+msgstr ""
+
+#: includes/wcmp-frontend-product-manager-core-functions.php:138
+msgid "Product SKU must be unique."
+msgstr ""
+
+#: includes/wcmp-frontend-product-manager-core-functions.php:139
+msgid "Variation SKU must be unique."
+msgstr ""
+
+#: includes/wcmp-frontend-product-manager-core-functions.php:140
+msgid "Product Successfully Saved."
+msgstr ""
+
+#: includes/wcmp-frontend-product-manager-core-functions.php:141
+msgid "Product Successfully Published."
+msgstr ""
+
+#: includes/wcmp-frontend-product-manager-core-functions.php:153
+msgid "Insert Coupon Title before submit."
+msgstr ""
+
+#: includes/wcmp-frontend-product-manager-core-functions.php:154
+msgid "Coupon Successfully Saved."
+msgstr ""
+
+#: includes/wcmp-frontend-product-manager-core-functions.php:155
+msgid "Coupon Successfully Published."
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcgrouped.php:29
+#: templates/wcmp-fpm-view-wcgrouped.php:32
+msgid "Grouped Products"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:16
+#: templates/wcmp-fpm-view-wcbookings.php:15
+msgid "January"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:17
+#: templates/wcmp-fpm-view-wcbookings.php:16
+msgid "February"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:18
+#: templates/wcmp-fpm-view-wcbookings.php:17
+msgid "March"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:19
+#: templates/wcmp-fpm-view-wcbookings.php:18
+msgid "April"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:20
+#: templates/wcmp-fpm-view-wcbookings.php:19
+msgid "May"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:21
+#: templates/wcmp-fpm-view-wcbookings.php:20
+msgid "June"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:22
+#: templates/wcmp-fpm-view-wcbookings.php:21
+msgid "July"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:23
+#: templates/wcmp-fpm-view-wcbookings.php:22
+msgid "August"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:24
+#: templates/wcmp-fpm-view-wcbookings.php:23
+msgid "September"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:25
+#: templates/wcmp-fpm-view-wcbookings.php:24
+msgid "October"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:26
+#: templates/wcmp-fpm-view-wcbookings.php:25
+msgid "November"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:27
+#: templates/wcmp-fpm-view-wcbookings.php:26
+msgid "December"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:31
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:311
+#: templates/wcmp-fpm-view-wcbookings.php:30
+#: templates/wcmp-fpm-view-wcbookings.php:351
+msgid "Monday"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:32
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:312
+#: templates/wcmp-fpm-view-wcbookings.php:31
+#: templates/wcmp-fpm-view-wcbookings.php:352
+msgid "Tuesday"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:33
+#: templates/wcmp-fpm-view-wcbookings.php:32
+msgid "Wednesday"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:34
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:314
+#: templates/wcmp-fpm-view-wcbookings.php:33
+#: templates/wcmp-fpm-view-wcbookings.php:354
+msgid "Thursday"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:35
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:315
+#: templates/wcmp-fpm-view-wcbookings.php:34
+#: templates/wcmp-fpm-view-wcbookings.php:355
+msgid "Friday"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:36
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:316
+#: templates/wcmp-fpm-view-wcbookings.php:35
+#: templates/wcmp-fpm-view-wcbookings.php:356
+msgid "Saturday"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:37
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:310
+#: templates/wcmp-fpm-view-wcbookings.php:36
+#: templates/wcmp-fpm-view-wcbookings.php:350
+msgid "Sunday"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:41
+#: templates/wcmp-fpm-view-wcbookings.php:40
+#, php-format
+msgid "Week %s"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:45
+#: templates/wcmp-fpm-view-wcbookings.php:44
+#: templates/wcmp-fpm-view-wcbookings.php:52
+msgid "Date range"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:46
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:55
+#: templates/wcmp-fpm-view-wcbookings.php:45
+#: templates/wcmp-fpm-view-wcbookings.php:53
+msgid "Range of months"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:47
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:56
+#: templates/wcmp-fpm-view-wcbookings.php:46
+#: templates/wcmp-fpm-view-wcbookings.php:54
+msgid "Range of weeks"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:48
+#: templates/wcmp-fpm-view-wcbookings.php:47
+#: templates/wcmp-fpm-view-wcbookings.php:55
+msgid "Range of days"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:54
+msgid "Range of certain nights"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:57
+msgid "Range of nights during the week"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:263
+#: templates/wcmp-fpm-view-wcbookings.php:301
+msgid "Choose Resource"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:272
+#: templates/wcmp-fpm-view-wcbookings.php:310
+msgid "Availability Options"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:278
+msgid "Number of rooms available"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:278
+msgid "The maximum number of rooms available."
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:280
+msgid "Bookings can be made starting"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:282
+msgid "Bookings can be made starting type"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:282
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:286
+#: templates/wcmp-fpm-view-wcbookings.php:319
+#: templates/wcmp-fpm-view-wcbookings.php:321
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:159
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:167
+#: classes/class-wcmp-frontend-product-manager-wcaccommodation.php:239
+msgid "Month(s)"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:282
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:286
+#: templates/wcmp-fpm-view-wcbookings.php:319
+#: templates/wcmp-fpm-view-wcbookings.php:321
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:159
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:167
+#: classes/class-wcmp-frontend-product-manager-wcaccommodation.php:239
+msgid "Day(s)"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:282
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:286
+msgid "Week(s)"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:282
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:286
+msgid "into the future"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:284
+msgid "Bookings can only be made"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:286
+msgid "Bookings can only be made type"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:290
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:330
+#: templates/wcmp-fpm-view-wcbookings.php:329
+msgid "Rules"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:290
+#: templates/wcmp-fpm-view-wcbookings.php:329
+msgid ""
+"Rules with lower priority numbers will override rules with a higher priority "
+"(e.g. 9 overrides 10 ). Ordering is only applied within the same priority "
+"and higher order overrides lower order."
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:291
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:331
+#: templates/wcmp-fpm-view-wcrental.php:94
+#: templates/wcmp-fpm-view-wcbookings.php:330
+#: templates/wcmp-fpm-view-wcbookings.php:373
+#: templates/wcmp-fpm-view-wcbookings.php:425
+msgid "Type"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:292
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:294
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:296
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:298
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:332
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:334
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:336
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:338
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:340
+#: templates/wcmp-fpm-view-wcrental.php:95
+#: templates/wcmp-fpm-view-wcbookings.php:331
+#: templates/wcmp-fpm-view-wcbookings.php:333
+#: templates/wcmp-fpm-view-wcbookings.php:335
+#: templates/wcmp-fpm-view-wcbookings.php:337
+#: templates/wcmp-fpm-view-wcbookings.php:339
+#: templates/wcmp-fpm-view-wcbookings.php:374
+#: templates/wcmp-fpm-view-wcbookings.php:376
+#: templates/wcmp-fpm-view-wcbookings.php:378
+#: templates/wcmp-fpm-view-wcbookings.php:380
+#: templates/wcmp-fpm-view-wcbookings.php:382
+msgid "From"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:293
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:295
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:297
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:299
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:333
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:335
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:337
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:339
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:341
+#: templates/wcmp-fpm-view-wcrental.php:96
+#: templates/wcmp-fpm-view-wcbookings.php:332
+#: templates/wcmp-fpm-view-wcbookings.php:334
+#: templates/wcmp-fpm-view-wcbookings.php:336
+#: templates/wcmp-fpm-view-wcbookings.php:338
+#: templates/wcmp-fpm-view-wcbookings.php:340
+#: templates/wcmp-fpm-view-wcbookings.php:375
+#: templates/wcmp-fpm-view-wcbookings.php:377
+#: templates/wcmp-fpm-view-wcbookings.php:379
+#: templates/wcmp-fpm-view-wcbookings.php:381
+#: templates/wcmp-fpm-view-wcbookings.php:383
+msgid "To"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:301
+#: templates/wcmp-fpm-view-wcrental.php:97
+#: templates/wcmp-fpm-view-wcbookings.php:341
+msgid "Bookable"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:301
+msgid ""
+"If not bookable, users won't be able to choose this block for their "
+"accommodation-booking."
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:302
+#: templates/wcmp-fpm-view-wcbookings.php:342
+msgid "Priority"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:309
+#: templates/wcmp-fpm-view-wcbookings.php:349
+msgid "Restrict start days?"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:313
+#: templates/wcmp-fpm-view-wcbookings.php:353
+msgid "Wednesday "
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:323
+msgid "Rates"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:327
+msgid "Standard room rate"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:327
+msgid "OStandard cost for booking the room."
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:328
+#: templates/wcmp-fpm-view-wcbookings.php:371
+msgid "Display cost"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:328
+#: templates/wcmp-fpm-view-wcbookings.php:371
+msgid ""
+"The cost is displayed to the user on the frontend. Leave blank to have it "
+"calculated for you. If a booking has varying costs, this will be prefixed "
+"with the word `from:`."
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaccommodationbookings.php:343
+msgid "Cost"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbundle.php:19
+#: templates/wcmp-fpm-view-wcvariable.php:127
+#: templates/wcmp-fpm-view-wcvariable.php:128
+msgid "Standard"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbundle.php:19
+msgid "Tabular"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbundle.php:37
+msgid "Select One"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbundle.php:142
+msgid "Bundled Products"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbundle.php:147
+msgid "Layout"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbundle.php:147
+msgid ""
+"Select the Tabular option to have the thumbnails, descriptions and "
+"quantities of bundled products arranged in a table. Recommended for "
+"displaying multiple bundled products with configurable quantities."
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbundle.php:154
+msgid "Add Products in bundle"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbundle.php:155
+msgid "Product Name"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbundle.php:155
+msgid ""
+"Select a product and add it to this bundle by clicking its name in the "
+"results list."
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbundle.php:156
+msgid "Filter Variations"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbundle.php:156
+msgid "Check to enable only a subset of the available variations."
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbundle.php:161
+msgid "Override Default Selections"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbundle.php:161
+msgid ""
+"In effect for this bundle only. The available options are in sync with the "
+"filtering settings above. Always save any changes made above before "
+"configuring this section."
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbundle.php:163
+msgid "Optional"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbundle.php:163
+msgid "Check this option to mark the bundled product as optional."
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbundle.php:164
+msgid "Quantity Min"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbundle.php:165
+msgid "Quantity Max"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbundle.php:166
+msgid "Shipped Individually"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbundle.php:166
+msgid ""
+"Check this option if this bundled item is shipped separately from the bundle."
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbundle.php:167
+msgid "Priced Individually"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbundle.php:167
+msgid ""
+"Check this option to have the price of this bundled item added to the base "
+"price of the bundle."
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbundle.php:168
+msgid "Discount %"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbundle.php:168
+msgid ""
+"Discount applied to the regular price of this bundled product when Priced "
+"Individually is checked. If a Discount is applied to a bundled product which "
+"has a sale price defined, the sale price will be overridden."
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbundle.php:169
+msgid "Visibility Of Product details"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbundle.php:169
+msgid ""
+"Controls the visibility of the bundled item in the single-product template "
+"of this bundle."
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbundle.php:170
+msgid "Visibility Of Cart/checkout"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbundle.php:170
+msgid "Controls the visibility of the bundled item in cart/checkout templates."
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbundle.php:171
+msgid "Visibility Of Order details"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbundle.php:172
+msgid "Price Visibility Of Product details"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbundle.php:172
+msgid ""
+"Controls the visibility of the bundled-item price in the single-product "
+"template of this bundle."
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbundle.php:173
+msgid "Price Visibility Of Cart/checkout"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbundle.php:173
+msgid ""
+"Controls the visibility of the bundled-item price in cart/checkout templates."
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbundle.php:174
+msgid "Price Visibility Of Order details"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbundle.php:175
+msgid "Hide Thumbnail"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbundle.php:175
+msgid "Check this option to hide the thumbnail image of this bundled product."
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbundle.php:176
+msgid "Override Title"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbundle.php:176
+msgid "Check this option to override the default product title."
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbundle.php:178
+msgid "Override Short Description"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbundle.php:178
+msgid "Check this option to override the default short product description."
+msgstr ""
+
+#: templates/wcmp_fpm-view-yithauction.php:59
+#: templates/wcmp_fpm-view-wcsauction.php:57
+#: classes/class-wcmp-frontend-product-manager-wcyithauction.php:50
+#: classes/class-wcmp-frontend-product-manager-admin.php:39
+#: classes/class-wcmp-frontend-product-manager-wcsauction.php:43
+#: classes/class-wcmp-frontend-product-manager-frontend.php:121
+msgid "Auction"
+msgstr ""
+
+#: templates/wcmp_fpm-view-yithauction.php:63
+#: templates/wcmp_fpm-view-wcsauction.php:64
+msgid "Starting Price"
+msgstr ""
+
+#: templates/wcmp_fpm-view-yithauction.php:64
+msgid "Bid up"
+msgstr ""
+
+#: templates/wcmp_fpm-view-yithauction.php:65
+msgid "Minimum increment amount"
+msgstr ""
+
+#: templates/wcmp_fpm-view-yithauction.php:66
+#: templates/wcmp_fpm-view-wcsauction.php:66
+msgid "Reserve price"
+msgstr ""
+
+#: templates/wcmp_fpm-view-yithauction.php:67
+#: templates/wcmp_fpm-view-wcsauction.php:67
+msgid "Buy it now price"
+msgstr ""
+
+#: templates/wcmp_fpm-view-yithauction.php:68
+#: templates/wcmp_fpm-view-wcsauction.php:68
+msgid "Auction Date From"
+msgstr ""
+
+#: templates/wcmp_fpm-view-yithauction.php:69
+#: templates/wcmp_fpm-view-wcsauction.php:69
+msgid "Auction Date To"
+msgstr ""
+
+#: templates/wcmp_fpm-view-yithauction.php:70
+msgid "Time to add overtime"
+msgstr ""
+
+#: templates/wcmp_fpm-view-yithauction.php:70
+msgid ""
+"Number of minutes before auction ends to check if overtime added. (Override "
+"the settings option)"
+msgstr ""
+
+#: templates/wcmp_fpm-view-yithauction.php:71
+msgid "Overtime"
+msgstr ""
+
+#: templates/wcmp_fpm-view-yithauction.php:71
+msgid ""
+"Number of minutes by which the auction will be extended. (Overrride the "
+"settings option)"
+msgstr ""
+
+#: templates/wcmp_fpm-view-yithauction.php:72
+msgid "Time value for automatic rescheduling"
+msgstr ""
+
+#: templates/wcmp_fpm-view-yithauction.php:73
+msgid "Select unit for automatic rescheduling"
+msgstr ""
+
+#: templates/wcmp_fpm-view-yithauction.php:73
+msgid "days"
+msgstr ""
+
+#: templates/wcmp_fpm-view-yithauction.php:73
+msgid "hours"
+msgstr ""
+
+#: templates/wcmp_fpm-view-yithauction.php:73
+msgid "minutes"
+msgstr ""
+
+#: templates/wcmp_fpm-view-yithauction.php:74
+msgid "Show bid up"
+msgstr ""
+
+#: templates/wcmp_fpm-view-yithauction.php:75
+msgid "Show overtime"
+msgstr ""
+
+#. %d: products count
+#: templates/html-csv-import-done.php:17
+#, php-format
+msgid "%s product imported"
+msgid_plural "%s products imported"
+msgstr[0] ""
+msgstr[1] ""
+
+#. %d: products count
+#: templates/html-csv-import-done.php:25
+#, php-format
+msgid "%s product updated"
+msgid_plural "%s products updated"
+msgstr[0] ""
+msgstr[1] ""
+
+#. %d: products count
+#: templates/html-csv-import-done.php:33
+#, php-format
+msgid "%s product was skipped"
+msgid_plural "%s products were skipped"
+msgstr[0] ""
+msgstr[1] ""
+
+#. %d: products count
+#: templates/html-csv-import-done.php:41
+#, php-format
+msgid "Failed to import %s product"
+msgid_plural "Failed to import %s products"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/html-csv-import-done.php:47
+msgid "View import log"
+msgstr ""
+
+#. %d: import results
+#: templates/html-csv-import-done.php:51
+msgid "Import complete!"
+msgstr ""
+
+#: templates/html-csv-import-done.php:58
+#: classes/class-wcmp-frontend-product-manager-wcsauction.php:159
+msgid "Product"
+msgstr ""
+
+#: templates/html-csv-import-done.php:59
+msgid "Reason for failure"
+msgstr ""
+
+#: templates/html-csv-import-done.php:101
+msgid "View products"
+msgstr ""
+
+#: templates/nocap.php:10
+msgid "You do not have the capability to submit product."
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcrental.php:78
+msgid "Price Calculation"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcrental.php:82
+msgid "Set Price Type"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcrental.php:82
+msgid "General Pricing"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcrental.php:82
+msgid "Choose a price type - this controls the schema."
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcrental.php:83
+msgid "Hourly Price"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcrental.php:83
+msgid "Hourly price will be applicabe if booking or rental days min 1day"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcrental.php:83
+#: templates/wcmp-fpm-view-wcrental.php:84
+msgid "Enter price here"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcrental.php:84
+msgid "General Price"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcrental.php:89
+msgid "Availability"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcrental.php:93
+msgid "Product Availabilities"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcrental.php:93
+msgid "Please select the date range to be disabled for the product."
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcrental.php:94
+msgid "Custom Date"
+msgstr ""
+
+#: templates/wcmp_fpm-view-wcsauction.php:61
+msgid "Item condition"
+msgstr ""
+
+#: templates/wcmp_fpm-view-wcsauction.php:61
+msgid "New"
+msgstr ""
+
+#: templates/wcmp_fpm-view-wcsauction.php:61
+msgid "Used"
+msgstr ""
+
+#: templates/wcmp_fpm-view-wcsauction.php:62
+msgid "Auction type"
+msgstr ""
+
+#: templates/wcmp_fpm-view-wcsauction.php:62
+msgid "Normal"
+msgstr ""
+
+#: templates/wcmp_fpm-view-wcsauction.php:62
+msgid "Reverse"
+msgstr ""
+
+#: templates/wcmp_fpm-view-wcsauction.php:63
+msgid "Proxy bidding?"
+msgstr ""
+
+#: templates/wcmp_fpm-view-wcsauction.php:65
+msgid "Bid increment"
+msgstr ""
+
+#: templates/wcmp_fpm-view-wcsauction.php:66
+msgid ""
+"A reserve price is the lowest price at which you are willing to sell your "
+"item. If you don't want to sell your item below a certain price, you can set "
+"a reserve price. The amount of your reserve price is not disclosed to your "
+"bidders, but they will see that your auction has a reserve price and whether "
+"or not the reserve has been met. If a bidder does not meet that price, you "
+"are not obligated to sell your item."
+msgstr ""
+
+#: templates/wcmp_fpm-view-wcsauction.php:67
+msgid ""
+"Buy it now disappears when bid exceeds the Buy now price for normal auction, "
+"or is lower than reverse auction"
+msgstr ""
+
+#: templates/wcmp_fpm-view-wcsauction.php:71
+msgid "Automatic relist auction"
+msgstr ""
+
+#: templates/wcmp_fpm-view-wcsauction.php:72
+msgid "Relist if fail after n hours"
+msgstr ""
+
+#: templates/wcmp_fpm-view-wcsauction.php:73
+msgid "Relist if not paid after n hours"
+msgstr ""
+
+#: templates/wcmp_fpm-view-wcsauction.php:74
+msgid "Relist auction duration in h"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcvariable.php:104
+#: templates/wcmp-fpm-view-wcvariable.php:126
+msgid "Same as parent"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcvariable.php:105
+msgid "No shipping class"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcvariable.php:138
+#: templates/wcmp-fpm-view-wcvariable.php:149
+msgid "Variations"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcvariable.php:142
+msgid "Default Form Values:"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcvariable.php:148
+msgid "Variations Options"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcvariable.php:148
+msgid "Choose option"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcvariable.php:148
+msgid "Set regular prices"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcvariable.php:148
+msgid "Regular price increase"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcvariable.php:148
+msgid "Regular price decrease"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcvariable.php:148
+msgid "Set sale prices"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcvariable.php:148
+msgid "Sale price increase"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcvariable.php:148
+msgid "Sale price decrease"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcvariable.php:151
+msgid "Enable"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcvariable.php:152
+msgid "Virtual"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcvariable.php:153
+msgid "Downloadable"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcvariable.php:154
+msgid "Image"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcvariable.php:155
+msgid "SKU"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcvariable.php:156
+msgid "Regular Price"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcvariable.php:157
+msgid "Sale Price"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcvariable.php:158
+msgid "Manage Stock"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcvariable.php:159
+msgid "Stock Qty"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcvariable.php:160
+msgid "Allow Backorders?"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcvariable.php:160
+msgid "Do not Allow"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcvariable.php:160
+msgid "Allow, but notify customer"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcvariable.php:160
+msgid "Allow"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcvariable.php:161
+msgid "Stock status"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcvariable.php:161
+msgid "In stock"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcvariable.php:161
+msgid "Out of stock"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcvariable.php:162
+msgid "Weight"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcvariable.php:163
+msgid "Length"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcvariable.php:164
+msgid "Width"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcvariable.php:165
+msgid "Height"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcvariable.php:166
+msgid "File"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcvariable.php:167
+msgid "File Name"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcvariable.php:168
+msgid "Download Limit"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcvariable.php:168
+msgid "Unlimited"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcvariable.php:169
+msgid "Download Expiry"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcvariable.php:169
+msgid "Never"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcvariable.php:170
+msgid "Shipping class"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcvariable.php:171
+msgid "Tax class"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcvariable.php:172
+#: templates/wcmp-fpm-view-wcaddons.php:50
+#: templates/wcmp-fpm-view-wcbookings.php:411
+msgid "Description"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaddons.php:26
+msgid "Additional custom price input"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaddons.php:27
+msgid "Additional price multiplier"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaddons.php:28
+msgid "Checkboxes"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaddons.php:29
+msgid "Custom input (textarea)"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaddons.php:30
+msgid "Any text"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaddons.php:31
+msgid "Email address"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaddons.php:32
+msgid "Only letters"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaddons.php:33
+msgid "Only letters and numbers"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaddons.php:34
+msgid "Only numbers"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaddons.php:35
+msgid "File upload"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaddons.php:36
+msgid "Radio buttons"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaddons.php:37
+msgid "Select box"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaddons.php:42
+#: templates/wcmp-fpm-view-wcaddons.php:46
+msgid "Add-ons"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaddons.php:47
+msgid "Group"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaddons.php:48
+#: classes/class-wcmp-frontend-product-manager-ajax.php:44
+#: classes/class-wcmp-frontend-product-manager-ajax.php:56
+msgid "Name"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaddons.php:51
+msgid "Required fields?"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaddons.php:53
+#: templates/wcmp-fpm-view-wcbookings.php:425
+msgid "Label"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaddons.php:54
+msgid "Price"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaddons.php:55
+#: templates/wcmp-fpm-view-wcbookings.php:412
+msgid "Min"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcaddons.php:56
+#: templates/wcmp-fpm-view-wcbookings.php:413
+msgid "Max"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:48
+#: templates/wcmp-fpm-view-wcbookings.php:58
+msgid "Time Range (all week)"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:49
+#: templates/wcmp-fpm-view-wcbookings.php:59
+msgid "Date Range with time"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:56
+msgid "Person count"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:57
+msgid "Block count"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:63
+msgid "+"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:64
+msgid "-"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:65
+msgid "×"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:66
+msgid "÷"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:67
+msgid "="
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:317
+msgid "Max bookings per block"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:317
+msgid ""
+"The maximum bookings allowed for each block. Can be overridden at resource "
+"level."
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:318
+msgid "Minimum block bookable"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:319
+msgid "Minimum block bookable type"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:319
+#: templates/wcmp-fpm-view-wcbookings.php:321
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:159
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:167
+#: classes/class-wcmp-frontend-product-manager-wcaccommodation.php:239
+msgid "Hour(s)"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:319
+#: templates/wcmp-fpm-view-wcbookings.php:321
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:159
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:167
+#: classes/class-wcmp-frontend-product-manager-wcaccommodation.php:239
+msgid "Minute(s)"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:320
+msgid "Maximum block bookable"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:321
+msgid "Maximum block bookable type"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:322
+msgid "Require a buffer period of"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:322
+msgid "between bookings"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:323
+msgid "Adjacent Buffering?"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:323
+msgid ""
+"By default buffer period applies forward into the future of a booking. "
+"Enabling this option will apply adjacently ( Before and After Bookings)."
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:324
+msgid "All dates are..."
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:324
+msgid "available by default"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:324
+msgid "not-available by default"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:324
+msgid "This option affects how you use the rules below."
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:325
+msgid "Check rules against..."
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:325
+msgid "All blocks being booked"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:325
+msgid "The starting block only"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:325
+msgid "This option affects how bookings are checked for availability."
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:341
+msgid ""
+"If not bookable, users won't be able to choose this block for their booking."
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:364
+msgid "Costs"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:369
+#: templates/wcmp-fpm-view-wcbookings.php:386
+#: templates/wcmp-fpm-view-wcbookings.php:387
+msgid "Base cost"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:369
+msgid "One-off cost for the booking as a whole."
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:370
+#: templates/wcmp-fpm-view-wcbookings.php:388
+#: templates/wcmp-fpm-view-wcbookings.php:389
+msgid "Block cost"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:370
+msgid ""
+"This is the cost per block booked. All other costs (for resources and "
+"persons) are added to this."
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:372
+msgid "Pricing Range"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:384
+msgid "From "
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:385
+msgid "To "
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:396
+msgid "Persons"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:401
+msgid "Min persons"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:401
+msgid "The minimum number of persons per booking."
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:402
+msgid "Max persons"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:402
+msgid "The maximum number of persons per booking."
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:403
+msgid "Multiply all costs by person count"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:403
+msgid ""
+"Enable this to multiply the entire cost of the booking (block and base costs)"
+" by the person count."
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:404
+msgid "Count persons as bookings"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:404
+msgid ""
+"Enable this to count each person as a booking until the max bookings per "
+"block (in availability) is reached."
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:405
+msgid "Enable person types"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:405
+msgid ""
+"Person types allow you to offer different booking costs for different types "
+"of individuals, for example, adults and children."
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:406
+msgid "Person Types"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:407
+msgid "Type Name"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:408
+#: templates/wcmp-fpm-view-wcbookings.php:430
+msgid "Base Cost"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:409
+#: templates/wcmp-fpm-view-wcbookings.php:431
+msgid "Block Cost"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:420
+#: templates/wcmp-fpm-view-wcbookings.php:428
+msgid "Resources"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:425
+msgid "The label shown on the frontend if the resource is customer defined."
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:426
+msgid "Resources are..."
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:426
+msgid "Customer selected"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:426
+msgid "Automatically assigned"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:426
+msgid ""
+"Customer selected resources allow customers to choose one from the booking "
+"form."
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:427
+msgid "Available for Resources"
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:427
+msgid ""
+"Resources are used if you have multiple bookable items, e.g. room types, "
+"instructors or ticket types. Availability for resources is global across all "
+"bookable products. Choose to associate with your product."
+msgstr ""
+
+#: templates/wcmp-fpm-view-wcbookings.php:429
+msgid "Title"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcvariable.php:49
+msgid "Variable"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcvariable.php:99
+#, php-format
+msgid "Variation #%s of %s"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcgrouped.php:27
+msgid "Grouped"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-ajax.php:42
+#: classes/class-wcmp-frontend-product-manager-ajax.php:54
+msgid "Attributes"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-ajax.php:45
+#: classes/class-wcmp-frontend-product-manager-ajax.php:57
+msgid "Value(s):"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-ajax.php:46
+#: classes/class-wcmp-frontend-product-manager-ajax.php:58
+msgid "Visible on the product page"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-ajax.php:47
+#: classes/class-wcmp-frontend-product-manager-ajax.php:59
+msgid "Use as Variation"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-ajax.php:57
+#, php-format
+msgid "Enter some text, or some attributes by \"%s\" separating values."
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:65
+#: classes/class-wcmp-frontend-product-manager-frontend.php:115
+msgid "Bookable product"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:84
+#: classes/class-wcmp-frontend-product-manager-wcaccommodation.php:158
+msgid "Has Resouces"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:85
+#: classes/class-wcmp-frontend-product-manager-wcaccommodation.php:159
+msgid "Has Persons"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:97
+#: classes/class-wcmp-frontend-product-manager-wcaccommodation.php:173
+msgid "Bookings: Multiply cost by person count"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:98
+msgid "Bookings: Multiply cost by block count"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:152
+#: classes/class-wcmp-frontend-product-manager-wcaccommodation.php:226
+msgid "Booking Options"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:157
+msgid "Booking Duration"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:157
+msgid "Fixed blocks of"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:157
+msgid "Customer defined blocks of"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:158
+msgid "booking duration"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:159
+msgid "booking duration type"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:160
+msgid "Minimum duration"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:160
+msgid "The minimum allowed duration the user can input."
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:161
+msgid "Maximum duration"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:161
+msgid "The maximum allowed duration the user can input."
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:162
+msgid "Enable Calendar Range Picker?"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:162
+msgid ""
+"Lets the user select a start and end date on the calendar - duration will be "
+"calculated automatically."
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:163
+#: classes/class-wcmp-frontend-product-manager-wcaccommodation.php:235
+msgid "Calendar display mode"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:163
+#: classes/class-wcmp-frontend-product-manager-wcaccommodation.php:235
+msgid "Display calendar on click"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:163
+#: classes/class-wcmp-frontend-product-manager-wcaccommodation.php:235
+msgid "Calendar always visible"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:164
+#: classes/class-wcmp-frontend-product-manager-wcaccommodation.php:236
+msgid "Requires confirmation?"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:164
+msgid ""
+"Check this box if the booking requires admin approval/confirmation. Payment "
+"will not be taken during checkout."
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:165
+#: classes/class-wcmp-frontend-product-manager-wcaccommodation.php:237
+msgid "Can be cancelled?"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:165
+msgid ""
+"Check this box if the booking can be cancelled by the customer after it has "
+"been purchased. A refund will not be sent automatically."
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:166
+msgid "Booking can be cancelled until"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:167
+msgid "Booking cancelled type"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:167
+msgid "before the start date."
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:420
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:506
+msgid "Bookings"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:426
+#: classes/class-wcmp-frontend-product-manager.php:300
+msgid "All Bookings"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:434
+#: classes/class-wcmp-frontend-product-manager.php:296
+msgid "Calendar"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:506
+msgid "Status"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:506
+msgid "Start Date"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:506
+msgid "End Date"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:506
+msgid "Action"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:514
+msgid "Details"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:521
+msgid "You do not have any Bookings yet!!!"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:567
+msgid "Booking Created:"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:572
+msgid "Order Number:"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:583
+msgid "Booking Status:"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:595
+#: classes/class-wcmp-frontend-product-manager-admin.php:26
+msgid "Booking"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:602
+msgid "Booked Product:"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:615
+msgid "Resource:"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:629
+msgid "Person(s):"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:652
+msgid "Booking Start Date:"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:657
+msgid "Booking End Date:"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:661
+msgid "All day booking:"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:671
+msgid "Customer"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:685
+msgid "Name:"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:695
+msgid "User Email:"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:706
+msgid "Address:"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:711
+msgid "No billing address set."
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:716
+msgid "Email:"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:722
+msgid "Phone:"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:733
+msgid "N/A"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings.php:748
+msgid "You are not allowed to view this booking."
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings-calendar.php:232
+#: classes/class-wcmp-frontend-product-manager-wcbookings-calendar.php:381
+msgid "Booked by"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings-calendar.php:236
+msgid "All Day"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbookings-calendar.php:243
+#: classes/class-wcmp-frontend-product-manager-wcbookings-calendar.php:387
+msgid "Resource #"
+msgstr ""
+
+#. 1: person id 2: person name 3: person count
+#. 1: person id 2: person name 3: person count
+#: classes/class-wcmp-frontend-product-manager-wcbookings-calendar.php:249
+#: classes/class-wcmp-frontend-product-manager-wcbookings-calendar.php:396
+#, php-format
+msgid "Person #%1$s - %2$s (%3$s)"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcsubscriptions.php:47
+#: classes/class-wcmp-frontend-product-manager-frontend.php:111
+msgid "Simple subscription"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcsubscriptions.php:51
+#: classes/class-wcmp-frontend-product-manager-frontend.php:112
+msgid "Variable subscription"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcsubscriptions.php:82
+#: classes/class-wcmp-frontend-product-manager-wcsubscriptions.php:144
+#, php-format
+msgid "Subscription price (%s)"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcsubscriptions.php:82
+#: classes/class-wcmp-frontend-product-manager-wcsubscriptions.php:144
+msgid "Choose the subscription price, billing interval and period."
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcsubscriptions.php:85
+#: classes/class-wcmp-frontend-product-manager-wcsubscriptions.php:86
+#: classes/class-wcmp-frontend-product-manager-wcsubscriptions.php:87
+#: classes/class-wcmp-frontend-product-manager-wcsubscriptions.php:88
+#: classes/class-wcmp-frontend-product-manager-wcsubscriptions.php:146
+#: classes/class-wcmp-frontend-product-manager-wcsubscriptions.php:147
+#: classes/class-wcmp-frontend-product-manager-wcsubscriptions.php:148
+#: classes/class-wcmp-frontend-product-manager-wcsubscriptions.php:149
+#: classes/class-wcmp-frontend-product-manager-wcsubscriptions.php:150
+msgid "Subscription length"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcsubscriptions.php:85
+#: classes/class-wcmp-frontend-product-manager-wcsubscriptions.php:86
+#: classes/class-wcmp-frontend-product-manager-wcsubscriptions.php:87
+#: classes/class-wcmp-frontend-product-manager-wcsubscriptions.php:88
+#: classes/class-wcmp-frontend-product-manager-wcsubscriptions.php:147
+#: classes/class-wcmp-frontend-product-manager-wcsubscriptions.php:148
+#: classes/class-wcmp-frontend-product-manager-wcsubscriptions.php:149
+#: classes/class-wcmp-frontend-product-manager-wcsubscriptions.php:150
+msgid ""
+"Automatically expire the subscription after this length of time. This length "
+"is in addition to any free trial or amount of time provided before a "
+"synchronised first renewal date."
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcsubscriptions.php:89
+#: classes/class-wcmp-frontend-product-manager-wcsubscriptions.php:151
+#, php-format
+msgid "Sign-up fee (%s)"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcsubscriptions.php:89
+#: classes/class-wcmp-frontend-product-manager-wcsubscriptions.php:151
+msgid ""
+"Optionally include an amount to be charged at the outset of the subscription."
+" The sign-up fee will be charged immediately, even if the product has a free "
+"trial or the payment dates are synced."
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcsubscriptions.php:90
+#: classes/class-wcmp-frontend-product-manager-wcsubscriptions.php:152
+msgid "Free Trial"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcsubscriptions.php:90
+#: classes/class-wcmp-frontend-product-manager-wcsubscriptions.php:152
+msgid ""
+"An optional period of time to wait before charging the first recurring "
+"payment. Any sign up fee will still be charged at the outset of the "
+"subscription."
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcsubscriptions.php:91
+msgid "Trial type"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcsubscriptions.php:111
+msgid "One time shipping"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcsubscriptions.php:111
+msgid ""
+"Shipping for subscription products is normally charged on the initial order "
+"and all renewal orders. Enable this to only charge shipping once on the "
+"initial order. Note: for this setting to be enabled the subscription must "
+"not have a free trial or a synced renewal date."
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcsubscriptions.php:131
+msgid "Limit subscription"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcsubscriptions.php:131
+msgid "Do not limit"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcsubscriptions.php:131
+msgid "Limit to one active subscription"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcsubscriptions.php:131
+msgid "Limit to one of any status"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcsubscriptions.php:131
+msgid "Only allow a customer to have one subscription to this product."
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcsubscriptions.php:145
+msgid "subscription period interval strings"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcsubscriptions.php:153
+msgid "available time periods"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager.php:249
+#: classes/class-wcmp-frontend-product-manager.php:288
+#: classes/class-wcmp-frontend-product-manager-wcsauction.php:109
+#: classes/class-wcmp-frontend-product-manager-wcsauction.php:125
+#: classes/class-wcmp-frontend-product-manager-wcsauction.php:159
+msgid "Auctions"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager.php:249
+msgid "Set Endpoint for Vendor Dashboard Auctions page"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager.php:280
+#: classes/class-wcmp-frontend-product-manager.php:317
+#: classes/class-wcmp-frontend-product-manager-frontend.php:48
+msgid "Import"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager.php:284
+#: classes/class-wcmp-frontend-product-manager.php:325
+#: classes/class-wcmp-frontend-product-manager-frontend.php:55
+msgid "Export"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager.php:292
+msgid "Booking Details"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager.php:402
+msgctxt "page_slug"
+msgid "wcmp-frontend_product_manager"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager.php:402
+msgid "Product Manager"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager.php:403
+msgctxt "page_slug"
+msgid "wcmp_products"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager.php:403
+msgid "Products"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager.php:408
+msgctxt "page_slug"
+msgid "wcmp_frontend_coupon_manager"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager.php:408
+msgid "Coupon Manager"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager.php:409
+msgctxt "page_slug"
+msgid "wcmp_coupons"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager.php:409
+msgid "Coupons"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-import-controller.php:57
+msgid "The file is empty, please try again with a new file."
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-import-controller.php:65
+#: classes/class-wcmp-frontend-product-manager-import-controller.php:76
+msgid "Bundled Items (JSON-encoded)"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-import-controller.php:66
+#: classes/class-wcmp-frontend-product-manager-import-controller.php:77
+msgid "Bundle Layout"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-import-controller.php:67
+#: classes/class-wcmp-frontend-product-manager-import-controller.php:78
+msgid "Bundle Group Mode"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-import-controller.php:68
+#: classes/class-wcmp-frontend-product-manager-import-controller.php:79
+msgid "Bundle Cart Editing"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-import-controller.php:69
+#: classes/class-wcmp-frontend-product-manager-import-controller.php:80
+msgid "Bundle Sold Individually"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-import-controller.php:225
+msgid "The file does not exist, please try again."
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-admin.php:29
+msgid "Accommodation Booking"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-admin.php:32
+msgid "Product bundle"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-admin.php:35
+msgid "Simple Subscription"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-admin.php:36
+msgid "Variable Subscription"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-admin.php:62
+msgid "Vendor Import Capability"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-admin.php:62
+msgid "Allow vendors to import products."
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-admin.php:63
+msgid "Vendor Export Capability"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-admin.php:63
+msgid "Allow vendors to export products."
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-admin.php:183
+msgid ""
+"Offer a single frontend dashboard for all vendor purpose and eliminate their "
+"backend access requirement."
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbundle.php:49
+#: classes/class-wcmp-frontend-product-manager-frontend.php:108
+msgid "Product Bundle"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbundle.php:79
+msgid "No"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbundle.php:79
+msgid "Yes"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbundle.php:79
+msgid "Matching configurations only"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbundle.php:85
+msgid "Sold individually"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbundle.php:113
+msgid "Group mode"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbundle.php:113
+msgid ""
+"Modifies the visibility and indentation  of parent/child line items in "
+"cart/order templates.."
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbundle.php:115
+msgid "Editing in cart"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbundle.php:221
+#: classes/class-wcmp-frontend-product-manager-wcbundle.php:228
+msgid ""
+"To hide item for variable/variable subscription product from the single-"
+"product template, please define defaults for its variation attributes."
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcbundle.php:257
+msgid ""
+"Invalid Group mode selected. No parent is only applicable to unassembled "
+"bundles. To make this bundle an unassembled one:1)Under Product Data, enable "
+"the Virtual option. 2)Ensure that Regular Price and Sale Price are empty. 3)"
+"Go to Bundled Products tab and enable Shipped Individually."
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcsauction.php:159
+msgid "User"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcsauction.php:159
+msgid "Bid"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcsauction.php:159
+msgid "Date"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcsauction.php:173
+msgid "You do not have any Auctions yet!!!"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcaccommodation.php:57
+#: classes/class-wcmp-frontend-product-manager-frontend.php:118
+msgid "Accommodation product"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcaccommodation.php:175
+msgid "Bookings: Multiply cost by number of nights"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcaccommodation.php:231
+msgid "Minimum number of nights allowed in a booking"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcaccommodation.php:231
+msgid "The minimum allowed duration the user can stay."
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcaccommodation.php:233
+msgid "Maximum number of nights allowed in a booking"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcaccommodation.php:233
+msgid "The maximum allowed duration the user can stay."
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcaccommodation.php:235
+msgid "Choose how the calendar is displayed on the booking form."
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcaccommodation.php:236
+msgid ""
+"Check this box if the accommodation-booking requires admin "
+"approval/confirmation. Payment will not be taken during checkout."
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcaccommodation.php:237
+msgid ""
+"Check this box if the accommodation-booking can be cancelled by the customer "
+"after it has been purchased. A refund will not be sent automatically."
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcaccommodation.php:238
+msgid "Cancellation up till"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcaccommodation.php:239
+msgid "Cancellation up till type"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcaccommodation.php:239
+msgid "before check-in."
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcrental.php:34
+msgid "Rental product"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcexternal.php:27
+msgid "External/Affiliate product"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcexternal.php:54
+msgid "Product URL"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-wcexternal.php:55
+msgid "Button Text"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-frontend.php:46
+#: classes/class-wcmp-frontend-product-manager-frontend.php:53
+msgid "Product Manager "
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-frontend.php:124
+msgid "Rental Product"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-frontend.php:242
+msgid "No Default"
+msgstr ""
+
+#. Name of the plugin
+#: classes/class-wcmp-frontend-product-manager-license.php:163
+msgid "Advanced Frontend Manager"
+msgstr ""
+
+#: classes/class-wcmp-frontend-product-manager-license.php:340
+#, php-format
+msgid ""
+"The Advanced Frontend Manager License Key has not been activated, so the "
+"plugin is inactive! %sClick here%s to activate the license key and the "
+"plugin."
+msgstr ""
+
+#: lib/php/class-fpm-wp-fields.php:331
+msgid "Upload"
+msgstr ""
+
+#: lib/php/class-fpm-wp-fields.php:332
+msgid "Remove"
+msgstr ""
+
+#: classes/license/admin/class-wcmp-license.php:16
+#: classes/license/admin/class-wcmp-license.php:17
+msgid "WCMp License"
+msgstr ""
+
+#: classes/license/admin/class-wcmp-license.php:79
+#, php-format
+msgid "<h2>%s License</h2>"
+msgstr ""
+
+#: classes/license/admin/class-wcmp-license.php:86
+#, php-format
+msgid ""
+"<h4 style='border-bottom: 1px solid rgb(215, 211, 211);padding-bottom: 21px;"
+"'>%s</h4>"
+msgstr ""
+
+#: classes/license/admin/class-wcmp-frontend-product-manager-settings-license.php:53
+msgid "License Activation"
+msgstr ""
+
+#: classes/license/admin/class-wcmp-frontend-product-manager-settings-license.php:54
+msgid "API License Key"
+msgstr ""
+
+#: classes/license/admin/class-wcmp-frontend-product-manager-settings-license.php:55
+msgid "API License email"
+msgstr ""
+
+#: classes/license/admin/class-wcmp-frontend-product-manager-settings-license.php:58
+msgid "License Deactivation"
+msgstr ""
+
+#: classes/license/admin/class-wcmp-frontend-product-manager-settings-license.php:59
+msgid "Deactivate API License Key"
+msgstr ""
+
+#: classes/license/admin/class-wcmp-frontend-product-manager-settings-license.php:59
+msgid "Deactivates an API License Key so it can be used on another blog."
+msgstr ""
+
+#: classes/license/admin/class-wcmp-frontend-product-manager-settings-license.php:92
+msgid "Please insert your license key."
+msgstr ""
+
+#: classes/license/admin/class-wcmp-frontend-product-manager-settings-license.php:99
+msgid "Please insert your license email."
+msgstr ""
+
+#: classes/license/admin/class-wcmp-frontend-product-manager-settings-license.php:128
+msgid "Plugin activated. "
+msgstr ""
+
+#: classes/license/admin/class-wcmp-frontend-product-manager-settings-license.php:136
+msgid "Connection failed to the License Key API server. Try again later."
+msgstr ""
+
+#: classes/license/admin/class-wcmp-frontend-product-manager-settings-license.php:202
+msgid "Plugin license deactivated."
+msgstr ""
+
+#: classes/license/admin/class-wcmp-frontend-product-manager-settings-license.php:228
+msgid ""
+"The license could not be deactivated. Use the License Deactivation tab to "
+"manually deactivate the license before activating a new license."
+msgstr ""
+
+#. Description of the plugin
+msgid ""
+"Allow your vendors to manage their individual shops from the front end using "
+"the Advanced Frontend Manager."
+msgstr ""
+
+#. URI of the plugin
+msgid "https://wc-marketplace.com/product/wcmp-frontend-product-manager/"
+msgstr ""
+
+#. Author of the plugin
+msgid "WC Marketplace, Arim Ghosh"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://wc-marketplace.com"
+msgstr ""

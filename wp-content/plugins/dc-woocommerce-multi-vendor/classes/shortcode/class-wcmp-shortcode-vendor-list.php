@@ -7,6 +7,7 @@ if (!defined('ABSPATH')) {
 if (!class_exists('WCMp_Shortcode_Vendor_List')) {
 
     class WCMp_Shortcode_Vendor_List {
+
         /**
          * Filter vendor list
          * @global object $WCMp
@@ -39,20 +40,21 @@ if (!class_exists('WCMp_Shortcode_Vendor_List')) {
                         $vendor_info[$vendor->id] = array(
                             'vendor_permalink' => $vendor->permalink,
                             'vendor_name' => $vendor->user_data->display_name,
-                            'vendor_image' => $vendor->image ? $vendor->image : $WCMp->plugin_url . 'assets/images/WP-stdavatar.png',
+                            'vendor_image' => $vendor->get_image() ? $vendor->get_image('image', array(125, 125)) : $WCMp->plugin_url . 'assets/images/WP-stdavatar.png',
                             'ID' => $vendor->id,
                             'term_id' => $vendor->term_id
                         );
                     }
                 }
             } else {
-                $vendors = get_wcmp_vendors(array('orderby' => $orderby, 'order' => $order));
-                foreach ($vendors as $vendor){
-                    if(!in_array($vendor->id, $block_vendors)){
+                $sort_type = isset($_REQUEST['vendor_sort_type']) ? $_REQUEST['vendor_sort_type'] : '';
+                $vendors = get_wcmp_vendors(apply_filters('wcmp_vendor_list_get_wcmp_vendors_args', array('orderby' => $orderby, 'order' => $order), $sort_type, $_GET));
+                foreach ($vendors as $vendor) {
+                    if (!in_array($vendor->id, $block_vendors)) {
                         $vendor_info[$vendor->id] = array(
                             'vendor_permalink' => $vendor->permalink,
                             'vendor_name' => $vendor->user_data->display_name,
-                            'vendor_image' => $vendor->image ? $vendor->image : $WCMp->plugin_url . 'assets/images/WP-stdavatar.png',
+                            'vendor_image' => $vendor->get_image() ? $vendor->get_image('image', array(125, 125)) : $WCMp->plugin_url . 'assets/images/WP-stdavatar.png',
                             'ID' => $vendor->id,
                             'term_id' => $vendor->term_id
                         );
@@ -61,6 +63,7 @@ if (!class_exists('WCMp_Shortcode_Vendor_List')) {
             }
             return $vendor_info;
         }
+
         /**
          * Output vendor list shortcode
          * @global object $WCMp

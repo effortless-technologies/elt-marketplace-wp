@@ -45,6 +45,8 @@ class WCMp_Admin {
             add_action('admin_notices', array(&$this, 'wcmp_service_page_notice'));
         }
         add_action('wp_dashboard_setup', array(&$this, 'wcmp_remove_wp_dashboard_widget'));
+        add_filter('woocommerce_order_actions', array(&$this, 'woocommerce_order_actions'));
+        add_action('woocommerce_order_action_regenerate_order_commissions', array(&$this, 'regenerate_order_commissions'));
     }
 
     function adding_vendor_application_meta_boxes($post_type, $post) {
@@ -189,8 +191,8 @@ class WCMp_Admin {
 
     public function remove_commission_from_sales_report($order_id) {
         global $wpdb;
-        $myorder = get_post($order_id);
-        $post_type = $myorder->post_type;
+        $order = get_post($order_id);
+        $post_type = $order->post_type;
         if ($post_type == 'shop_order') {
             $args = array(
                 'posts_per_page' => -1,
@@ -311,10 +313,10 @@ class WCMp_Admin {
             $admin_bar->add_menu(
                     array(
                         'id' => 'shop_settings',
-                        'title' => __('Shop Settings', 'dc-woocommerce-multi-vendor'),
-                        'href' => wcmp_get_vendor_dashboard_endpoint_url(get_wcmp_vendor_settings('wcmp_store_settings_endpoint', 'vendor', 'general', 'shop-front')),
+                        'title' => __('Storefront', 'dc-woocommerce-multi-vendor'),
+                        'href' => wcmp_get_vendor_dashboard_endpoint_url(get_wcmp_vendor_settings('wcmp_store_settings_endpoint', 'vendor', 'general', 'storefront')),
                         'meta' => array(
-                            'title' => __('Shop Settings', 'dc-woocommerce-multi-vendor'),
+                            'title' => __('Storefront', 'dc-woocommerce-multi-vendor'),
                             'target' => '_blank',
                             'class' => 'shop-settings'
                         ),
@@ -326,7 +328,7 @@ class WCMp_Admin {
     function load_class($class_name = '') {
         global $WCMp;
         if ('' != $class_name) {
-            require_once ($WCMp->plugin_path . '/admin/class-' . esc_attr($WCMp->token) . '-' . esc_attr($class_name) . '.php');
+            require_once ($WCMp->plugin_path . 'admin/class-' . esc_attr($WCMp->token) . '-' . esc_attr($class_name) . '.php');
         } // End If Statement
     }
 
@@ -344,7 +346,7 @@ class WCMp_Admin {
         ?>
         <div style="clear: both"></div>
         <div id="dc_admin_footer">
-        <?php _e('Powered by', 'dc-woocommerce-multi-vendor'); ?> <a href="https://wc-marketplace.com/" target="_blank"><img src="<?php echo $WCMp->plugin_url . 'assets/images/dualcube.png'; ?>"></a><?php _e('WC Marketplace', 'dc-woocommerce-multi-vendor'); ?> &copy; <?php echo date('Y'); ?>
+            <?php _e('Powered by', 'dc-woocommerce-multi-vendor'); ?> <a href="https://wc-marketplace.com/" target="_blank"><img src="<?php echo $WCMp->plugin_url . 'assets/images/dualcube.png'; ?>"></a><?php _e('WC Marketplace', 'dc-woocommerce-multi-vendor'); ?> &copy; <?php echo date('Y'); ?>
         </div>
         <?php
     }
@@ -381,7 +383,7 @@ class WCMp_Admin {
     }
 
     public function wcmp_admin_menu() {
-        if(is_user_wcmp_vendor(get_current_vendor_id())){
+        if (is_user_wcmp_vendor(get_current_vendor_id())) {
             remove_menu_page('edit.php');
             remove_menu_page('edit-comments.php');
             remove_menu_page('tools.php');
@@ -462,8 +464,12 @@ class WCMp_Admin {
             wp_enqueue_script('WCMp_ajax-chosen', $WCMp->plugin_url . 'assets/admin/js/ajax-chosen.jquery' . $suffix . '.js', array('jquery', 'WCMp_chosen'), $WCMp->version, true);
             wp_enqueue_script('wcmp-admin-product-js', $WCMp->plugin_url . 'assets/admin/js/product' . $suffix . '.js', array('jquery'), $WCMp->version, true);
             wp_localize_script('wcmp-admin-product-js', 'dc_vendor_object', array('security' => wp_create_nonce("search-products")));
-            if (get_wcmp_vendor_settings('is_singleproductmultiseller', 'general') == 'Enable') {
+            if (get_wcmp_vendor_settings('is_singleproductmultiseller', 'general') == 'Enable' && in_array($screen->id, array('product'))) {
                 wp_enqueue_script('wcmp_admin_product_auto_search_js', $WCMp->plugin_url . 'assets/admin/js/admin-product-auto-search' . $suffix . '.js', array('jquery'), $WCMp->version, true);
+                wp_localize_script('wcmp_admin_product_auto_search_js', 'wcmp_admin_product_auto_search_js_params', array(
+                    'ajax_url' => admin_url('admin-ajax.php'),
+                    'search_products_nonce' => wp_create_nonce('search-products'),
+                ));
             }
         endif;
 
@@ -494,7 +500,6 @@ class WCMp_Admin {
         if (in_array($screen->id, array('woocommerce_page_wc-reports', 'toplevel_page_wc-reports'))) :
             wp_enqueue_script('wcmp_report_js', $WCMp->plugin_url . 'assets/admin/js/report' . $suffix . '.js', array('jquery'), $WCMp->version, true);
             wp_enqueue_style('wcmp_report_css', $WCMp->plugin_url . 'assets/admin/css/report' . $suffix . '.css', array(), $WCMp->version);
-            $WCMp->library->font_awesome_lib();
         endif;
         if (in_array($screen->id, array('wcmp_page_wcmp-extensions'))) :
             wp_enqueue_style('admin-extensions', $WCMp->plugin_url . 'assets/admin/css/admin-extensions' . $suffix . '.css', array(), $WCMp->version);
@@ -523,15 +528,16 @@ class WCMp_Admin {
             <div class="round3"></div>
             <div class="round4"></div>
             <div class="wcmp_banner-content">
-                <span class="txt">Get WC Marketplace setup as per your store requirements, totally FREE! Excited?  </span>
+                <span class="txt"><?php _e('WC Marketplace 3.0! It’s online marketplace experience at its highest level yet.', 'dc-woocommerce-multi-vendor') ?>  </span>
                 <div class="rightside">        
-                    <a href="https://wc-marketplace.com/wcmp-services/?install=1" target="_blank" class="wcmp_btn_service_claim_now" onclick="dismiss_servive_notice(event);">Claim Now</a>
-                    <span class="link"><a href="javascript:void(0)" onclick="dismiss_servive_notice(event);">No, Thanks!</a></span>
+                    <a href="https://wc-marketplace.com/version-highlights/" target="_blank" class="wcmp_btn_service_claim_now"><?php _e('Version Highlights', 'dc-woocommerce-multi-vendor'); ?></a>
+                    <span class="link"><a href="https://wc-marketplace.com/version-highlights/?utm_source=WordPress&utm_medium=wp_admin&utm_campaign=admin_notice" target="_blank"><?php _e('Lend a Hand?', 'dc-woocommerce-multi-vendor'); ?></a></span>
+                    <button onclick="dismiss_servive_notice(event);" type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button>
                 </div>
 
             </div>
         </div>
-        <style type="text/css">.clearfix{clear:both}.wcmp_admin_new_banner.updated{border-left:0}.wcmp_admin_new_banner{box-shadow:0 3px 1px 1px rgba(0,0,0,.2);padding:10px 30px;background:#fff;position:relative;overflow:hidden;clear:both;border-top:2px solid #7b589e;text-align:left;background-size:contain}.wcmp_admin_new_banner .round{width:200px;height:200px;position:absolute;border-radius:100%;border:30px solid rgba(157,42,255,.05);top:-150px;left:73px;z-index:1}.wcmp_admin_new_banner .round1{position:absolute;border-radius:100%;border:45px solid rgba(194,108,144,.05);bottom:-82px;right:-58px;width:180px;height:180px;z-index:1}.wcmp_admin_new_banner .round2,.wcmp_admin_new_banner .round3{border-radius:100%;width:180px;height:180px;position:absolute;z-index:1}.wcmp_admin_new_banner .round2{border:18px solid rgba(194,108,144,.05);top:35px;left:249px}.wcmp_admin_new_banner .round3{border:45px solid rgba(31,194,255,.05);top:2px;right:40%}.wcmp_admin_new_banner .round4{position:absolute;border-radius:100%;border:31px solid rgba(31,194,255,.05);top:11px;left:-49px;width:100px;height:100px;z-index:1}.wcmp_banner-content{display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;align-items:center}.wcmp_admin_new_banner .txt{color:#333;font-size:18px;line-height:1.4;width:calc(100% - 330px);position:relative;z-index:2;display:inline-block;font-weight:400;float:left;padding-left:8px}.wcmp_admin_new_banner .link,.wcmp_admin_new_banner .wcmp_btn_service_claim_now{font-weight:400;display:inline-block;z-index:2;padding:0 20px;position:relative}.wcmp_admin_new_banner .rightside{float:right;width:303px}.wcmp_admin_new_banner .wcmp_btn_service_claim_now{cursor:pointer;background:#7b589e;height:40px;color:#fff;font-size:20px;text-align:center;border:none;margin:5px 13px;border-radius:5px;text-decoration:none;line-height:40px}.wcmp_admin_new_banner button:hover{opacity:.8;transition:.5s}.wcmp_admin_new_banner .link{font-size:18px;line-height:49px;background:0 0;height:50px}.wcmp_admin_new_banner .link a{color:#333;text-decoration:none}@media (max-width:990px){.wcmp_admin_new_banner::before{left:-4%;top:-12%}}@media (max-width:767px){.wcmp_admin_new_banner::before{left:0;top:0;transform:rotate(0);width:10px}.wcmp_admin_new_banner .txt{width:400px;max-width:100%;text-align:center;padding:0;margin:0 auto 5px;float:none;display:block;font-size:17px;line-height:1.6}.wcmp_admin_new_banner .rightside{width:100%;padding-left:10px;text-align:center;box-sizing:border-box}.wcmp_admin_new_banner .wcmp_btn_service_claim_now{margin:10px 0}.wcmp_banner-content{display:block}}</style>
+        <style type="text/css">.clearfix{clear:both}.wcmp_admin_new_banner.updated{border-left:0}.wcmp_admin_new_banner{box-shadow:0 3px 1px 1px rgba(0,0,0,.2);padding:10px 30px;background:#fff;position:relative;overflow:hidden;clear:both;border-top:2px solid #8abee5;text-align:left;background-size:contain}.wcmp_admin_new_banner .round{width:200px;height:200px;position:absolute;border-radius:100%;border:30px solid rgba(157,42,255,.05);top:-150px;left:73px;z-index:1}.wcmp_admin_new_banner .round1{position:absolute;border-radius:100%;border:45px solid rgba(194,108,144,.05);bottom:-82px;right:-58px;width:180px;height:180px;z-index:1}.wcmp_admin_new_banner .round2,.wcmp_admin_new_banner .round3{border-radius:100%;width:180px;height:180px;position:absolute;z-index:1}.wcmp_admin_new_banner .round2{border:18px solid rgba(194,108,144,.05);top:35px;left:249px}.wcmp_admin_new_banner .round3{border:45px solid rgba(31,194,255,.05);top:2px;right:40%}.wcmp_admin_new_banner .round4{position:absolute;border-radius:100%;border:31px solid rgba(31,194,255,.05);top:11px;left:-49px;width:100px;height:100px;z-index:1}.wcmp_banner-content{display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;align-items:center}.wcmp_admin_new_banner .txt{color:#333;font-size:18px;line-height:1.4;width:calc(100% - 330px);position:relative;z-index:2;display:inline-block;font-weight:400;float:left;padding-left:8px}.wcmp_admin_new_banner .link,.wcmp_admin_new_banner .wcmp_btn_service_claim_now{font-weight:400;display:inline-block;z-index:2;padding:0 20px;position:relative}.wcmp_admin_new_banner .rightside{float:right;width:500px}.wcmp_admin_new_banner .wcmp_btn_service_claim_now{cursor:pointer;background:#8abee5;height:40px;color:#fff;font-size:20px;text-align:center;border:none;margin:5px 13px;border-radius:5px;text-decoration:none;line-height:40px}.wcmp_admin_new_banner button:hover{opacity:.8;transition:.5s}.wcmp_admin_new_banner .link{font-size:18px;line-height:49px;background:0 0;height:50px}.wcmp_admin_new_banner .link a{color:#333;text-decoration:none}@media (max-width:990px){.wcmp_admin_new_banner::before{left:-4%;top:-12%}}@media (max-width:767px){.wcmp_admin_new_banner::before{left:0;top:0;transform:rotate(0);width:10px}.wcmp_admin_new_banner .txt{width:400px;max-width:100%;text-align:center;padding:0;margin:0 auto 5px;float:none;display:block;font-size:17px;line-height:1.6}.wcmp_admin_new_banner .rightside{width:100%;padding-left:10px;text-align:center;box-sizing:border-box}.wcmp_admin_new_banner .wcmp_btn_service_claim_now{margin:10px 0}.wcmp_banner-content{display:block}}.wcmp_admin_new_banner button.notice-dismiss{z-index:1;position:absolute;top:50%;transform:translateY(-50%)}</style>
         <script type="text/javascript">
             function dismiss_servive_notice(e, i) {
                 jQuery.post(ajaxurl, {action: "dismiss_wcmp_servive_notice"}, function (e) {
@@ -554,6 +560,35 @@ class WCMp_Admin {
             unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_quick_press']);
             unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_primary']);
         }
+    }
+
+    public function woocommerce_order_actions($actions) {
+        $actions['regenerate_order_commissions'] = __('Regenerate order commissions', 'dc-woocommerce-multi-vendor');
+        return $actions;
+    }
+
+    /**
+     * Regenerate order commissions
+     * @param Object $order
+     * @since 3.0.2
+     */
+    public function regenerate_order_commissions($order) {
+        global $wpdb, $WCMp;
+        if (!in_array($order->get_status(), $WCMp->commission->completed_statuses)) {
+            return;
+        }
+        $table_name = $wpdb->prefix . 'wcmp_vendor_orders';
+        delete_post_meta($order->get_id(), '_commissions_processed');
+        delete_post_meta($order->get_id(), '_wcmp_order_processed');
+        $commission_ids = get_post_meta($order->get_id(), '_commission_ids', true) ? get_post_meta($order->get_id(), '_commission_ids', true) : array();
+        if ($commission_ids && is_array($commission_ids)) {
+            foreach ($commission_ids as $commission_id) {
+                wp_delete_post($commission_id, true);
+            }
+        }
+        delete_post_meta($order->get_id(), '_commission_ids');
+        $wpdb->delete($table_name, array('order_id' => $order->get_id()), array('%d'));
+        $WCMp->commission->wcmp_process_commissions($order->get_id());
     }
 
 }

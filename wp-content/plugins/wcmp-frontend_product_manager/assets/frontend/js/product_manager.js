@@ -216,7 +216,7 @@ jQuery(document).ready(function($) {
       var multi_input_blockEle = multi_input_holder.children('.multi_input_block:first').clone(false);
       
       multi_input_blockEle.find('textarea,input:not(input[type=button],input[type=submit],input[type=checkbox],input[type=radio])').val('');
-       multi_input_blockEle.find('input[type=checkbox]').attr('checked', false);
+      multi_input_blockEle.find('input[type=checkbox]').attr('checked', false);
       multi_input_blockEle.children('.dc-wp-fields-uploader,.multi_input_block_element:not(.multi_input_holder)').each(function() {
         var ele = $(this);
         var ele_name = ele.data('name');
@@ -747,6 +747,7 @@ jQuery(document).ready(function($) {
 				removed_person_types : removed_person_types
 			}	
 			$.post(woocommerce_params.ajax_url, data, function(response) {
+				//console.log(response);
 				if(response) {
 					$response_json = $.parseJSON(response);
 					if($response_json.status) {

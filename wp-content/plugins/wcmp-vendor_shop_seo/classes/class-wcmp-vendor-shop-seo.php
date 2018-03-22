@@ -22,7 +22,7 @@ class WCMp_Vendor_Shop_SEO {
         $this->file = $file;
         $this->plugin_url = trailingslashit(plugins_url('', $plugin = $file));
         $this->plugin_path = trailingslashit(dirname($file));
-        $this->option_settings = get_wcmp_vendor_settings('wcmp_general_settings_name');
+        $this->option_settings = get_wcmp_vendor_settings('','general');
         $this->token = WCMP_VENDOR_SHOP_SEO_PLUGIN_TOKEN;
         $this->text_domain = WCMP_VENDOR_SHOP_SEO_TEXT_DOMAIN;
         $this->version = WCMP_VENDOR_SHOP_SEO_PLUGIN_VERSION;

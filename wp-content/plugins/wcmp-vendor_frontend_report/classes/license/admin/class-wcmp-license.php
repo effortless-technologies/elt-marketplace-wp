@@ -13,8 +13,8 @@ class WCMp_License {
 		add_action('admin_enqueue_scripts', array(&$this, 'enqueue_admin_script'), 50);		
 		
 		add_menu_page(
-				__('WCMp License', $WCMp_Vendor_Frontend_Report->text_domain), 
-				__('WCMp License', $WCMp_Vendor_Frontend_Report->text_domain), 
+				__('WCMp License', 'wcmp-vendor_frontend_report'), 
+				__('WCMp License', 'wcmp-vendor_frontend_report'), 
 				'manage_woocommerce', 
 				'wcmp-license', 
 				array( $this, 'create_wcmp_license_settings' ),
@@ -76,14 +76,14 @@ class WCMp_License {
     
     foreach( $this->get_wcmp_license_tabs() as $tab => $name ) :
       if ( $tab == $current ) :
-        printf( __( "<h2>%s License</h2>", $WCMp_Vendor_Frontend_Report->text_domain) , $name);
+        printf( __( "<h2>%s License</h2>", 'wcmp-vendor_frontend_report') , $name);
       endif;
     endforeach;
     
     $tab_desc = $this->get_wcmp_license_tab_desc();
     foreach( $this->get_wcmp_license_tabs() as $tabd => $named ) :
       if ( $tabd == $current && !empty($tab_desc[$tabd]) ) :
-        printf( __( "<h4 style='border-bottom: 1px solid rgb(215, 211, 211);padding-bottom: 21px;'>%s</h4>", $WCMp_Vendor_Frontend_Report->text_domain) , $tab_desc[$tabd]);
+        printf( __( "<h4 style='border-bottom: 1px solid rgb(215, 211, 211);padding-bottom: 21px;'>%s</h4>", 'wcmp-vendor_frontend_report') , $tab_desc[$tabd]);
       endif;
     endforeach;
   }

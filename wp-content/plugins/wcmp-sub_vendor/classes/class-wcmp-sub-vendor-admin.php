@@ -21,10 +21,14 @@ class WCMP_Sub_Vendor_Admin {
                     add_action('admin_bar_menu', array(&$this, 'add_sub_vendor_toolbar_items'), 80);
                     add_action('admin_menu', array(&$this, 'remove_admin_menu_items'));
                     add_filter('wcmp_additional_fields_product_vendor_tab', array(&$this, 'reporting_vendor_name'));
+                    add_action('admin_title', array(&$this, 'block_staff_to_view_others_product'));
+                    add_filter('views_edit-product',  array(&$this, 'staff_update_product_counter'));
+                    add_filter('redirect_post_location',  array(&$this, 'redirect_not_editable_coupons_to_listing_page'), 10, 2 );
                 }
                 if ($user_role == 'administrator') {
                     add_filter('editable_roles', array(&$this, 'hide_sub_vendor_role_from_admin'));
-                    add_action('pre_user_query', array(&$this, 'remove_sub_vendors_from_user_list'));
+                    add_filter('users_list_table_query_args', array(&$this, 'remove_sub_vendors_from_user_list'));
+                    add_action('admin_init', array(&$this, 'block_admin_to_view_staff'));
                 }
             }
         }
@@ -32,7 +36,7 @@ class WCMP_Sub_Vendor_Admin {
         $this->load_class('settings');
         $this->settings = new WCMP_Sub_Vendor_Settings();
     }
-
+    
     function load_class($class_name = '') {
         global $WCMP_Sub_Vendor;
         if ('' != $class_name) {
@@ -45,7 +49,7 @@ class WCMP_Sub_Vendor_Admin {
         ?>
         <div style="clear: both"></div>
         <div id="dc_admin_footer">
-            <?php _e('Powered by', $WCMP_Sub_Vendor->text_domain); ?> <a href="http://dualcube.com" target="_blank"><img src="<?php echo $WCMP_Sub_Vendor->plugin_url . '/assets/images/dualcube.png'; ?>"></a><?php _e('Dualcube', $WCMP_Sub_Vendor->text_domain); ?> &copy; <?php echo date('Y'); ?>
+            <?php _e('Powered by', "wcmp-sub_vendor"); ?> <a href="http://dualcube.com" target="_blank"><img src="<?php echo $WCMP_Sub_Vendor->plugin_url . '/assets/images/dualcube.png'; ?>"></a><?php _e('Dualcube', "wcmp-sub_vendor"); ?> &copy; <?php echo date('Y'); ?>
         </div>
         <?php
     }
@@ -55,6 +59,7 @@ class WCMP_Sub_Vendor_Admin {
      */
     public function enqueue_admin_script() {
         global $WCMP_Sub_Vendor;
+        
         $screen = get_current_screen();
 
         // Enqueue admin script and stylesheet from here
@@ -74,47 +79,35 @@ class WCMP_Sub_Vendor_Admin {
     public function dc_sub_vendor_role() {
         add_role('dc_sub_vendor', 'Vendor Staff', array('read' => true, // true allows this capability
             'edit_posts' => true,
-            'edit_pages' => false,
-            'edit_others_posts' => false,
-            'create_posts' => false,
-            'manage_categories' => false,
-            'publish_posts' => false,
-            'edit_themes' => false,
-            'install_plugins' => false,
-            'update_plugin' => false,
-            'update_core' => false,
-            'log_in' => false
                 )
         );
     }
+    
+    public function change_sub_vendor_author( $post_id ) {
+    	
+    	$current_vendor = wp_get_current_user();
+    	$reporting_vendor = get_user_meta($current_vendor->ID, '_report_vendor', true);
+    	
+    	$post = get_post($post_id);
+        
+    	remove_action('save_post', array(&$this, 'change_sub_vendor_author'));
 
-    public function change_sub_vendor_author() {
-        $current_vendor = wp_get_current_user();
-        $reporting_vendor = get_user_meta($current_vendor->ID, '_report_vendor');
-
-        $args = array(
-            'author' => $current_vendor->ID,
-            'orderby' => 'post_date',
-            'order' => 'ASC',
-            'post_type' => 'product',
-            'post_status' => 'pending'
-        );
-
-
-        $current_user_posts = get_posts($args);
-
-        foreach ($current_user_posts as $key => $value) {
-
-            $arg = array(
-                'ID' => $value->ID,
-                'post_author' => $reporting_vendor[0],
-            );
-            wp_update_post($arg);
-        }
-    }
+    	if($post->post_author != $reporting_vendor && ($post->post_status == 'pending' || $post->post_status == 'future' || $post->post_status == 'draft' || $post->post_status == 'publish')) {
+    		$arg = array(
+    			'ID' => $post_id,
+    			'post_author' => $reporting_vendor
+			);
+			wp_update_post($arg);
+			$vendor_term = get_user_meta( $reporting_vendor, '_vendor_term_id', true );
+			$term = get_term( $vendor_term , 'dc_vendor_shop' );
+			wp_delete_object_term_relationships( $post_id, 'dc_vendor_shop' );
+			wp_set_post_terms( $post_id, $term->name , 'dc_vendor_shop', true );
+		}
+		add_action('save_post', array(&$this, 'change_sub_vendor_author'));
+		 
+	}
 
     public function modify_post_list($query) {
-
         $current_vendor = wp_get_current_user();
         $reporting_vendor = get_user_meta($current_vendor->ID, '_report_vendor');
         if ($query->query['post_type'] == 'post' || $query->query['post_type'] == 'product') {
@@ -132,7 +125,7 @@ class WCMP_Sub_Vendor_Admin {
                 array(
                     'id' => 'vendor_dashboard',
                     'title' => __('Frontend  Dashboard', ''),
-                    'href' => get_permalink($plugin_pages['vendor_dashboard']),
+                    'href' => get_permalink(wcmp_vendor_dashboard_page_id()),
                     'meta' => array(
                         'title' => __('Frontend Dashboard', ''),
                         'target' => '_blank',
@@ -157,38 +150,94 @@ class WCMP_Sub_Vendor_Admin {
 
     public function remove_sub_vendors_from_user_list($user_search) {
         global $wpdb;
-        $user = wp_get_current_user();
-        $where = 'WHERE 1=1';
 
-        // Temporarily remove this hook otherwise we might be stuck in an infinite loop
-        remove_action('pre_user_query', array(&$this, 'remove_sub_vendors_from_user_list'));
+        $prefix = $wpdb->prefix;
+        $meta_name = "{$prefix}capabilities";
 
-        $user_query = new WP_User_Query(array('role' => 'dc_sub_vendor'));
-        $sub_vendors = $user_query->get_results();
-        if(!empty($sub_vendors) && is_array($sub_vendors)){
-            $sub_vendor_ids = array();
-            foreach ($sub_vendors as $sub_vendor) {
-                $sub_vendor_ids[] = $sub_vendor->ID;
-            }
-
-            $where .= ' AND ' . $wpdb->users . '.ID NOT IN (' . implode(',', $sub_vendor_ids) . ')';
-
-            $user_search->query_where = str_replace(
-                    'WHERE 1=1', $where, $user_search->query_where
-            );
-        }
-
-        //Re-add the hook
-        add_action('pre_user_query', array(&$this, 'remove_sub_vendors_from_user_list'));
+        $user_search['meta_query'] = array(
+            'relation' => 'AND',
+            array(
+                'key' => "{$meta_name}",
+                'value' => 'dc_sub_vendor',
+                'compare' => 'NOT LIKE'
+            )
+        );
+        return $user_search;
     }
 
+    public function block_admin_to_view_staff() {
+        global $pagenow;
+        if ($pagenow == 'user-edit.php') {
+            $user_id = filter_input(INPUT_GET, 'user_id');
+            if (!is_null($user_id)) {
+                $user = new WP_User($user_id);
+                if (in_array('dc_sub_vendor', $user->roles)) {
+                    wp_die(__('Sorry, you are not allowed to edit this user.'));
+                }
+            }
+        }
+    }
+    
+    public function block_staff_to_view_others_product() {
+        global $pagenow;
+        
+        $screen = get_current_screen();
+        if ($screen->base == 'post' && $screen->id == 'product' && $screen->post_type == 'product') {
+        	$post_id = filter_input(INPUT_GET, 'post');
+        	if($post_id > 0) {
+				$post_author_id = get_post_field( 'post_author', $post_id );
+				
+				$reporting_vendor_id = get_user_meta(get_current_user_id(), '_report_vendor', true);
+				
+				if($post_author_id !== $reporting_vendor_id) {
+					$url=  admin_url().'edit.php?post_type=product';
+					wp_redirect($url);
+					exit;
+				}
+        	}
+        }
+    }
+    
+    function staff_update_product_counter($views) {
+    	global $current_user;
+    	$reporting_vendor_id = get_user_meta($current_user->ID, '_report_vendor', true);
+    	
+    	foreach($views as $index => $view ) {
+    		$args = array(
+    			'post_type'   => 'product',
+    			'post_author' => $reporting_vendor_id,
+			);
+			 
+			if( $index == 'all') {
+				$args['all_posts'] = 1;
+			} else {
+				$args['post_status'] = $index;
+			}
+	
+			$result = new WP_Query($args);
+			if($result->found_posts > 0) {
+				$views[$index] = preg_replace( '/<span class="count">\([0-9]+\)<\/span>/', '<span class="count">(' . $result->found_posts . ')</span>', $view );
+			} else {
+				unset($views[$index]);
+			}
+		}
+		return $views;
+	}
+	
+	function redirect_not_editable_coupons_to_listing_page($location, $post_id) {
+		if ( ! $post = get_post( $post_id ) )
+			return;
+		if ( 'shop_coupon' === $post->post_type && $location == "?message=6") {
+			return admin_url("edit.php?post_type=" . $post->post_type); 
+		}
+		return $location; 
+	}
+    
     public function reporting_vendor_name() {
-
         $current_vendor = wp_get_current_user();
         $reporting_vendor_id = get_user_meta($current_vendor->ID, '_report_vendor');
         $reporting_vendor = get_userdata($reporting_vendor_id[0]);
         $html = '<table class="form-field form-table"><tr> <td> Vendor </td> <td>' . $reporting_vendor->user_nicename . '</td></tr>';
         return $html;
     }
-
 }

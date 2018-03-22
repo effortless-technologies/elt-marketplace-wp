@@ -14,7 +14,6 @@ class WCMP_Vendor_Vacation_Frontend {
         add_action('wcmp_vendor_dashboard_header', array(&$this, 'wcmp_vendor_dashboard_header'));
         add_action('wcmp_vendor_dashboard_vendor-vacation_endpoint', array(&$this, 'wcmp_vendor_dashboard_vendor_vacation_endpoint'));
         add_action('before_wcmp_vendor_dashboard', array(&$this, 'save_vendor_vacation_data')); 
-        date_default_timezone_set('Asia/Kolkata');
     }
 
     function wcmp_single_product_summary() {
@@ -110,6 +109,8 @@ class WCMP_Vendor_Vacation_Frontend {
                 }else{
                     return $add_to_cart_text;
                 }
+            }else{
+                return $text;
             }
         }
         return $text;
@@ -183,7 +184,7 @@ class WCMP_Vendor_Vacation_Frontend {
                                 $open_to = $close_hour.':'.$close_minute;
                                 // now check if the current time is before or after opening hours
                                 if (date("H:i") < $open_from || date("H:i") > $open_to ) {
-                                    return $vendor_vacation_set_up['shop_closed_text'];
+                                    return '<p>'.$vendor_vacation_set_up['shop_closed_text'].'</p>';
                                 }else {
                                     return sprintf('<a href="%s" rel="nofollow" data-product_id="%s" data-product_sku="%s" data-quantity="%s" class="%s">%s</a>', esc_url(get_permalink($product->get_id())), esc_attr($product->get_id()), esc_attr($product->get_sku()), esc_attr(isset($quantity) ? $quantity : 1 ), esc_attr( isset( $args['class'] ) ? $args['class'] : 'button' ), $add_to_cart_text);
                                 }
@@ -198,7 +199,7 @@ class WCMP_Vendor_Vacation_Frontend {
                             $open_to = $close_hour.':'.$close_minute;
                             // now check if the current time is before or after opening hours
                             if (date("H:i") < $open_from || date("H:i") > $open_to ) {
-                                return $vendor_vacation_set_up['shop_closed_text'];
+                                return '<p>'.$vendor_vacation_set_up['shop_closed_text'].'</p>';
                             }else {
                                 return sprintf('<a href="%s" rel="nofollow" data-product_id="%s" data-product_sku="%s" data-quantity="%s" class="%s">%s</a>', esc_url(get_permalink($product->get_id())), esc_attr($product->get_id()), esc_attr($product->get_sku()), esc_attr(isset($quantity) ? $quantity : 1 ), esc_attr( isset( $args['class'] ) ? $args['class'] : 'button' ), $add_to_cart_text);
                             }
@@ -213,7 +214,7 @@ class WCMP_Vendor_Vacation_Frontend {
                         $open_to = $close_hour.':'.$close_minute;
                         // now check if the current time is before or after opening hours
                         if (date("H:i") < $open_from || date("H:i") > $open_to ) {
-                            return $vendor_vacation_set_up['shop_closed_text'];
+                            return '<p>'.$vendor_vacation_set_up['shop_closed_text'].'</p>';
                         }else {
                             return sprintf('<a href="%s" rel="nofollow" data-product_id="%s" data-product_sku="%s" data-quantity="%s" class="%s">%s</a>', esc_url(get_permalink($product->get_id())), esc_attr($product->get_id()), esc_attr($product->get_sku()), esc_attr(isset($quantity) ? $quantity : 1 ), esc_attr( isset( $args['class'] ) ? $args['class'] : 'button' ), $add_to_cart_text);
                         }
@@ -221,6 +222,8 @@ class WCMP_Vendor_Vacation_Frontend {
                         return sprintf('<a href="%s" rel="nofollow" data-product_id="%s" data-product_sku="%s" data-quantity="%s" class="%s">%s</a>', esc_url(get_permalink($product->get_id())), esc_attr($product->get_id()), esc_attr($product->get_sku()), esc_attr(isset($quantity) ? $quantity : 1 ), esc_attr( isset( $args['class'] ) ? $args['class'] : 'button' ), $add_to_cart_text);
                     }
                 }
+            }else{
+                echo $link;
             }
         }else{ 
             echo $link;

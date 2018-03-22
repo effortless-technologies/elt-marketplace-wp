@@ -1,158 +1,85 @@
-.required {
-  color: red; 
+/*PRODUCT MANAGER EDIT CSS*/
+.dc-wp-fields-uploader .button.ele_hide {
+	display: none !important;
+}
+.dc-wp-fields-uploader .button.ele_show {
+	display: inline-block !important;
 }
 
-.img_tip {
-	background: url("../../images/question_mark.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
-	display: inline-block;
-	height: 12px;
-	vertical-align: -1px;
-	width: 12px;
-	cursor: help;
-	margin-left: 5px;
+
+/*FRONT END CSS*/
+.wrap.woocommerce.export {
+	margin-left: 10px;
+	margin-right: 10px;
 }
 
-.multi_input_block {
-  border: 1px solid #dfdfdf;
-  radius: 10px;
-  border-radius: 10px;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  padding: 10px;
-  margin-bottom: 10px;
+/*IMPORT CSS*/
+.woocommerce-importer-advanced.hidden {
+	display:none;
+}
+.woocommerce-exporter-wrapper .wc-progress-steps li::before, .woocommerce-importer-wrapper .wc-progress-steps li::before, .woocommerce-progress-form-wrapper .wc-progress-steps li::before {
+	margin-bottom:-7px !important;
+	height: 11px !important;
+	width:11px !important;
+}
+.wrap.woocommerce{
+	margin-left: 10px;
+	margin-right: 10px;
 }
 
-.multi_input_block_manupulate {
-  float: right;
-  margin: 2px !important;
+.audio_rm,
+.video_rm{
+	background: #ddd;
+	padding: 2px 5px 0 5px;
+	border-radius: 100%;
+	position: absolute;
+	right: 14px;
+	top: 3px;
+	font-weight: bold;
 }
 
-.pro_ele_hide, .pro_head_hide, .pro_block_hide, .non_stock_ele_hide, .non_virtual_ele_hide, .downloadable_ele_hide, .vendor_hidden {
+.multi_input_block p {
+    margin: 10px 0 5px;
+}
+
+.hide_visiblity, .hide_variation, .hide_variation + .select2-container {
+	display:none !important;
+}
+.woocommerce-Tabs-panel--video_audio_tab .frame-wrap:nth-child(2n+2){
+	margin-right: 0;
+}
+@media screen and (max-width: 767px){
+	.frame-wrap{
+		width: 100%;
+		text-align: center;
+		margin: 0 0 25px;
+	}
+	.woocommerce-Tabs-panel--video_audio_tab .frame-wrap:last-child{
+		margin-bottom: 0;
+	}
+
+}
+.multiSelectBox-right{ 
+    margin-top: 6px;	
+}
+@media screen and (max-width: 640px){
+	.multiSelectBox-right{
+	    margin-left: 0;
+	}
+}
+.paid_checkbox[type="checkbox"]{
+	width: auto !important;
+} 
+.video_uploader_label, .blockClass {
+    display: block !important;
+}
+.single-product .ywcfav_thumbnails_video_container, .single-product .ywcfav_thumbnails_audio_container {
+	display: none;
+}
+body .remove_display,body .hide {
 	display: none !important;
 }
 
-p.description {
-	font-size: 12px;
-	font-style: italic;
-	font-weight: normal;
-}
 
-.frontend_product_manager_product_types p.description {
-	display: inline-block;
-	margin: 0 11px 0 0;
-  vertical-align: middle;
-}
-
-p.pro_title {
-	font-size: 15px;
-	margin-bottom: 5px !important;
-	font-style: normal;
-	width: 35%;
-	display: inline-block;
-}
-
-input[type="text"].regular-text, select.regular-select, input[type="number"].regular-text {
-	padding: 5px;
-	width: 60%;
-	margin-bottom: 5px;
-	font-size: 15px;
-}
-
-textarea.regular-textarea {
-	width: 60%;
-	font-size: 15px;
-}
-
-input.regular-checkbox {
-	margin-right: 55%;
-}
-
-#is_virtual_downloadable {
-	width: 35%;
-	visibility: hidden;
-}
-
-.frontend_product_manager_product_types input.regular-checkbox {
-	margin-right: 10px;
-	margin-left: 10px;
-}
-
-input[type="number"].regular-text {
-	padding: 2px;
-}
-
-input.upload_button, input.remove_button {
-  font-size: 12px;
-	padding: 5px;
-	width: 30%;
-	margin-bottom: 5px;
-}
-
-#pruduct_manager_draft_button, #pruduct_manager_submit_button {
-	float: right;
-	margin-top: 10px;
-	margin-left: 10px;
-}
-
-#product_manager_form label {
-	display: none;
-}
-
-.dc-wp-fields-uploader .placeHolderUploads, .dc-wp-fields-uploader .placeHolderjpg, .dc-wp-fields-uploader .placeHolderpng, .dc-wp-fields-uploader .placeHoldertxt, .dc-wp-fields-uploader .placeHolderdoc, .dc-wp-fields-uploader .placeHolderpdf, .dc-wp-fields-uploader .placeHolderzip, .dc-wp-fields-uploader .placeHolderrar, .dc-wp-fields-uploader .placeHoldertar, .dc-wp-fields-uploader .placeHoldergz, .dc-wp-fields-uploader .placeHoldertargz, .dc-wp-fields-uploader .placeHolderdocs, .dc-wp-fields-uploader .placeHolderppt, .dc-wp-fields-uploader .placeHolderppts {
-  background: url('../../images/uploads.png');
-  background: url(../../images/uploads.png) no-repeat center center / 75px 75px;
-  webkit-background-size: cover;
-  moz-background-size: cover;
-  o-background-size: cover;
-  background-size: cover;
-  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../../images/uploads.png', sizingMethod='scale');
-  -ms-filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../../images/uploads.png', sizingMethod='scale');
-  width :75px;
-  height: 75px;
-  display: inline-block;
-}
-
-.dc-wp-fields-uploader a {
-  border-bottom: 0px;
-}
-textarea#product_tags{
-	margin-left: 5px;
-}
-span.select2-container{
-	margin-bottom: 7px;
-}
-.fpm_attribute_taxonomy{
-	min-width: 241px;
-  width: auto;
-}   
-
-@media only screen and (max-width: 640px) {
-	p.pro_title {
-		width: 90%;
-	}
-	
-	p.pro_title.checkbox_title {
-		width: 50%;
-	}
-	
-	input[type="text"].regular-text, select.regular-select, input[type="number"].regular-text {
-		width: 100%;
-	}
-	
-	textarea.regular-textarea {
-		width: 100%;
-	}
-	
-	input.regular-checkbox {
-		margin-right: 5%;
-	}
-	
-	#is_virtual_downloadable {
-		width: 0%;
-	}
-	
-	.frontend_product_manager_product_types input.regular-checkbox {
-		margin-right: 10px;
-		margin-left: 10px;
-	}
-}
+/*CALENDER CSS*/
+.clear{clear:both}.nobr{white-space:nowrap}.wc_bookings_calendar_form{margin:1em 0 0!important}.wc_bookings_calendar_form .calendar_days{position:relative;height:1440px;overflow:hidden;overflow-x:scroll;border:1px solid #ddd;}.wc_bookings_calendar_form .calendar_days .hours{position:absolute;top:0;left:0;margin:-.5em 0 0 0}.wc_bookings_calendar_form .calendar_days .hours li{height:60px;vertical-align:top;padding:0;margin:0}.wc_bookings_calendar_form .calendar_days .hours li label{float:left;background:#f9f9f9;padding:0 8px}.wc_bookings_calendar_form .calendar_days .bookings{margin:0 0 0 100px;padding:0;height:100%;white-space:nowrap;position:relative}.wc_bookings_calendar_form .calendar_days .bookings li{position:absolute;width:98px;background:#000;border-radius:2px;margin:0;overflow:hidden;color:#fff}.wc_bookings_calendar_form .calendar_days .bookings li a{display:block;padding:2px 4px;height:100%;width:100%;position:relative;color:#fff;text-decoration:none}.wc_bookings_calendar_form .tablenav{border:1px solid #dedede;background:#fff;height:auto;box-shadow:0 1px 1px -1px rgba(0,0,0,.1);-webkit-box-shadow:0 1px 1px -1px rgba(0,0,0,.1)}.wc_bookings_calendar_form .tablenav:after,.wc_bookings_calendar_form .tablenav:after{clear:both}.wc_bookings_calendar_form .tablenav .filters{float:left;line-height:30px;padding:5px;border-right:1px solid #ddd}.wc_bookings_calendar_form .tablenav .filters .chosen-container{width:12em}.wc_bookings_calendar_form .tablenav .views{float:right;padding:0;border-left:1px solid #ddd}.wc_bookings_calendar_form .tablenav .views a{padding:11px 20px;display:block;text-decoration:none}.wc_bookings_calendar_form .tablenav .date_selector{margin-left:5px;display:block;float:left}.wc_bookings_calendar_form .tablenav .date_selector div{padding:5px 0;float:left}.wc_bookings_calendar_form .tablenav .date_selector div:first-of-type select{margin-right:5px}.wc_bookings_calendar_form .tablenav .date_selector select{vertical-align:middle;width:6em}.wc_bookings_calendar_form .tablenav .date_selector a{display:block;text-indent:-9999px;position:relative;height:1em;width:1em;font-size:1.3em;padding:.6em}.wc_bookings_calendar_form .tablenav .date_selector a.prev{float:left}.wc_bookings_calendar_form .tablenav .date_selector a.next{float:right}.wc_bookings_calendar_form .wc_bookings_calendar{width:100%;margin:1em 0 0!important}.wc_bookings_calendar_form .wc_bookings_calendar th{text-align:center}.wc_bookings_calendar_form .wc_bookings_calendar td{color:#bbb;text-align:right;padding:8px 8px 0 0;font-size:20px;border-right:1px solid #ddd;border-bottom:1px solid #ddd;height:120px}.wc_bookings_calendar_form .wc_bookings_calendar td .bookings{overflow:auto;height:100px;width:100%;text-align:left;font-size:14px;}.wc_bookings_calendar_form .wc_bookings_calendar td .bookings ul{padding:0;margin:0}.wc_bookings_calendar_form .wc_bookings_calendar td .bookings ul li{padding:0;margin:0 0 4px 0;list-style:none}.wc_bookings_calendar_form .wc_bookings_calendar td .bookings ul li a{border-left:4px solid #eee;padding:3px 3px 3px 8px;display:block}.wc_bookings_calendar_form .wc_bookings_calendar td .bookings ul li a ul{padding:0;margin:0}.wc_bookings_calendar_form .wc_bookings_calendar td .bookings ul li a ul li{list-style:none;font-size:.75em;padding:0;margin:0;border:0}.wc_bookings_calendar_form .wc_bookings_calendar td .bookings ul li a:hover{border-left-color:#ccc;background:#fafafa}.wc_bookings_calendar_form .wc_bookings_calendar tr{background: #fff}.wc_bookings_calendar_form .wc_bookings_calendar .calendar-diff-month{background:#efefef}.wc_bookings_calendar_form .wc_bookings_calendar tbody tr td:last-child{border-right:0}.wc_bookings_calendar_form .wc_bookings_calendar tbody tr:last-child td{border-bottom:0}#tiptip_holder{display:none;z-index:8675309;position:absolute;top:0;left:0}#tiptip_holder.tip_top{padding-bottom:5px}#tiptip_holder.tip_top #tiptip_arrow_inner{margin-top:-7px;margin-left:-6px;border-top-color:#333}#tiptip_holder.tip_bottom{padding-top:5px}#tiptip_holder.tip_bottom #tiptip_arrow_inner{margin-top:-5px;margin-left:-6px;border-bottom-color:#333}#tiptip_holder.tip_right{padding-left:5px}#tiptip_holder.tip_right #tiptip_arrow_inner{margin-top:-6px;margin-left:-5px;border-right-color:#333}#tiptip_holder.tip_left{padding-right:5px}#tiptip_holder.tip_left #tiptip_arrow_inner{margin-top:-6px;margin-left:-7px;border-left-color:#333}#tiptip_content,.chart-tooltip,.wc_error_tip{color:#fff;font-size:.8em;max-width:150px;background:#333;text-align:center;border-radius:3px;padding:.618em 1em;-webkit-box-shadow:0 1px 3px rgba(0,0,0,.2);box-shadow:0 1px 3px rgba(0,0,0,.2)}#tiptip_content code,.chart-tooltip code,.wc_error_tip code{padding:1px;background:#888}#tiptip_arrow,#tiptip_arrow_inner{position:absolute;border-color:transparent;border-style:solid;border-width:6px;height:0;width:0}.wc_error_tip{max-width:20em;line-height:1.8em;position:absolute;white-space:normal;background:#d82223;margin:1.5em 1px 0 -1em;z-index:9999999}.wc_error_tip::after{content:'';display:block;border:8px solid #d82223;border-right-color:transparent;border-left-color:transparent;border-top-color:transparent;position:absolute;top:-3px;left:50%;margin:-1em 0 0 -3px}
