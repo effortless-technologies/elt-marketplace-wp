@@ -40,9 +40,9 @@ class WCMP_Vendor_Report_Shortcode_Sales_Overview {
                         <table  style="float: left; width: 57%;">
                             <tbody>
                                 <tr>
-                                    <td><input id="wcmp_frontend_from_date" name="from_date" placeholder="<?php _e('From', $WCMp_Vendor_Frontend_Report->text_domain); ?>" value ="<?php echo $_GET['from_date']; ?>"/></td>
-                                    <td><input id="wcmp_frontend_to_date" name="to_date" placeholder="<?php _e('To', $WCMp_Vendor_Frontend_Report->text_domain); ?>" value ="<?php echo $_GET['to_date']; ?>"/></td>
-                                    <td><p class="submit"><input type="submit" name="order_export_submit" id="submit" class="all_new_btn button button-primary" value="<?php _e('Filter', $WCMp_Vendor_Frontend_Report->text_domain); ?>"></p></td>
+                                    <td><input id="wcmp_frontend_from_date" name="from_date" placeholder="<?php _e('From', 'wcmp-vendor_frontend_report'); ?>" value ="<?php echo $_GET['from_date']; ?>"/></td>
+                                    <td><input id="wcmp_frontend_to_date" name="to_date" placeholder="<?php _e('To', 'wcmp-vendor_frontend_report'); ?>" value ="<?php echo $_GET['to_date']; ?>"/></td>
+                                    <td><p class="submit"><input type="submit" name="order_export_submit" id="submit" class="all_new_btn button button-primary" value="<?php _e('Filter', 'wcmp-vendor_frontend_report'); ?>"></p></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -52,7 +52,7 @@ class WCMP_Vendor_Report_Shortcode_Sales_Overview {
                                class="all_new_btn button button-primary"
                                style=" float: right;  margin-top: 17px;"
                                name="export_sales_report_orders"
-                               value="<?php _e('Export CSV', $WCMp_Vendor_Frontend_Report->text_domain); ?>" 
+                               value="<?php _e('Export CSV', 'wcmp-vendor_frontend_report'); ?>" 
                                />
                     </form>
                 </div>
@@ -218,35 +218,35 @@ class WCMP_Vendor_Report_Shortcode_Sales_Overview {
                     $total_avg_sales = 0;
                 ?>
                 <div class="dc-reports-div" style="clear: both; display: block;">
-                    <label><?php echo sprintf(__('Your Report [ %s ]', $WCMp_Vendor_Frontend_Report->text_domain), date('F j, Y', $start_date) . ' - ' . date('F j, Y', $end_date)); ?></label>
+                    <label><?php echo sprintf(__('Your Report [ %s ]', 'wcmp-vendor_frontend_report'), date('F j, Y', $start_date) . ' - ' . date('F j, Y', $end_date)); ?></label>
                     <div class="chart-sidebar">
                         <ul class="chart-legend">
                             <li style="border-color: #FF0000" class="highlight_series tips" data-series="1">
-                                <i class="fa  fa-circle "></i><label><?php _e('Gross Sales in this Period %s', $WCMp_Vendor_Frontend_Report->text_domain); ?></label> <strong><span class="amount"><?php if ($total_sales > 0)
+                                <i class="fa  fa-circle "></i><label><?php _e('Gross Sales in this Period %s', 'wcmp-vendor_frontend_report'); ?></label> <strong><span class="amount"><?php if ($total_sales > 0)
                     echo wc_price($total_sales);
                 else
-                    _e('n/a', $WCMp_Vendor_Frontend_Report->text_domain);
+                    _e('n/a', 'wcmp-vendor_frontend_report');
                 ?></span></strong> 						
                             </li>
                             <li style="border-color: #FF9B00" class="highlight_series " data-series="2" data-tip="">
-                                <i class="fa  fa-circle "></i><label><?php _e('Average Daily Sales', $WCMp_Vendor_Frontend_Report->text_domain); ?></label> <strong><span class="amount"><?php if ($total_avg_sales > 0)
+                                <i class="fa  fa-circle "></i><label><?php _e('Average Daily Sales', 'wcmp-vendor_frontend_report'); ?></label> <strong><span class="amount"><?php if ($total_avg_sales > 0)
                     echo wc_price($total_avg_sales);
                 else
-                    _e('n/a', $WCMp_Vendor_Frontend_Report->text_domain);
+                    _e('n/a', 'wcmp-vendor_frontend_report');
                 ?></span></strong> 							
                             </li>
                             <li style="border-color: #E4D8EF" class="highlight_series " data-series="0" data-tip="">
-                                <i class="fa  fa-circle "></i><label><?php _e('Number of Orders Placed', $WCMp_Vendor_Frontend_Report->text_domain); ?></label> <strong><span class="amount"><?php if ($total_order_count > 0)
+                                <i class="fa  fa-circle "></i><label><?php _e('Number of Orders Placed', 'wcmp-vendor_frontend_report'); ?></label> <strong><span class="amount"><?php if ($total_order_count > 0)
                                         echo $total_order_count;
                                     else
-                                        _e('n/a', $WCMp_Vendor_Frontend_Report->text_domain);
+                                        _e('n/a', 'wcmp-vendor_frontend_report');
                                     ?><span class="amount"></strong>							
                                             </li>
                                             <li style="border-color: #5cc488" class="highlight_series " data-series="3" data-tip="">
-                                                <i class="fa  fa-circle "></i><label><?php _e('My Earnings', $WCMp_Vendor_Frontend_Report->text_domain); ?></label>	<strong><?php if ($total_vendor_earnings > 0)
+                                                <i class="fa  fa-circle "></i><label><?php _e('My Earnings', 'wcmp-vendor_frontend_report'); ?></label>	<strong><?php if ($total_vendor_earnings > 0)
                                 echo wc_price($total_vendor_earnings);
                             else
-                                _e('n/a', $WCMp_Vendor_Frontend_Report->text_domain);
+                                _e('n/a', 'wcmp-vendor_frontend_report');
                 ?></strong> 							
                                             </li>
                                             </ul>
@@ -291,14 +291,14 @@ class WCMP_Vendor_Report_Shortcode_Sales_Overview {
                                                 var drawGraph = function(highlight) {
                                                 var series = [
                                                 {
-                                                label: "<?php echo esc_js(__('Number of Orders', $WCMp_Vendor_Frontend_Report->text_domain)) ?>",
+                                                label: "<?php echo esc_js(__('Number of Orders', 'wcmp-vendor_frontend_report')) ?>",
                                                         data: order_data.total_orders,
                                                         color: '<?php echo $chart_colours['total_orders']; ?>',
                                                         bars: { fillColor: '<?php echo $chart_colours['total_orders']; ?>', fill: true, show: true, lineWidth: 0, barWidth: <?php echo $barwidth; ?> * 0.5, align: 'center' },
                                                         shadowSize: 0,
                                                 },
                                                 {
-                                                label: "<?php echo esc_js(__('Total Sales', $WCMp_Vendor_Frontend_Report->text_domain)) ?>",
+                                                label: "<?php echo esc_js(__('Total Sales', 'wcmp-vendor_frontend_report')) ?>",
                                                         data: order_data.total_sales,
                                                         yaxis: 2,
                                                         color: '<?php echo $chart_colours['total_sales']; ?>',
@@ -308,7 +308,7 @@ class WCMP_Vendor_Report_Shortcode_Sales_Overview {
                 <?php echo dcvendor_get_currency_tooltip(); ?>
                                                 },
                                                 {
-                                                label: "<?php echo esc_js(__('Average Order Value', $WCMp_Vendor_Frontend_Report->text_domain)) ?>",
+                                                label: "<?php echo esc_js(__('Average Order Value', 'wcmp-vendor_frontend_report')) ?>",
                                                         data: order_data.average_sales,
                                                         yaxis: 2,
                                                         color: '<?php echo $chart_colours['average_sales']; ?>',
@@ -318,7 +318,7 @@ class WCMP_Vendor_Report_Shortcode_Sales_Overview {
                 <?php echo dcvendor_get_currency_tooltip(); ?>
                                                 },
                                                 {
-                                                label: "<?php echo esc_js(__('Total Earnings by Vendor', $WCMp_Vendor_Frontend_Report->text_domain)) ?>",
+                                                label: "<?php echo esc_js(__('Total Earnings by Vendor', 'wcmp-vendor_frontend_report')) ?>",
                                                         data: order_data.vendor_total_earned,
                                                         yaxis: 2,
                                                         color: '<?php echo $chart_colours['vendor_total_earned']; ?>',
@@ -410,7 +410,7 @@ class WCMP_Vendor_Report_Shortcode_Sales_Overview {
                                             <div>
                                                 <label for="vendor_profile">
                 <?php
-                _e('Your account is not vendor capable.', $WCMp_Vendor_Frontend_Report->text_domain);
+                _e('Your account is not vendor capable.', 'wcmp-vendor_frontend_report');
                 ?>
                                                 </label>
                                             </div>

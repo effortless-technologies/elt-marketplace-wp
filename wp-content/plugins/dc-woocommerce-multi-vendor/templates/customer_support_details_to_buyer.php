@@ -2,7 +2,7 @@
 /**
  * The template for displaying vendor dashboard
  *
- * Override this template by copying it to yourtheme/dc-product-vendor/cutomer_support_details_to_buyer.php
+ * Override this template by copying it to yourtheme/dc-product-vendor/customer_support_details_to_buyer.php
  *
  * @author 		WC Marketplace
  * @package 	WCMp/Templates
@@ -15,19 +15,20 @@ global $WCMp;
 <table style="width:100%; color: #737373; border: 1px solid #e4e4e4; background:none;" border="0" cellpadding="8" cellspacing="0">
 	<tbody>
 		<?php $cc = 0;
-		if( isset( $capability_settings['can_vendor_add_customer_support_details'] ) ) {
+		if( apply_filters('wcmp_vendor_can_overwrite_customer_support', true) ) {
 			foreach ( $vendor_array as $vendor_id => $products) { 
+                            if(is_user_wcmp_vendor($vendor_id)){
 				$vendor_meta = get_user_meta( $vendor_id );
 				
-				if( (
-						isset($vendor_meta['_vendor_customer_phone'][0]) &&  
-						isset($vendor_meta['_vendor_customer_email'][0]) && 
-						isset($vendor_meta['_vendor_csd_return_address1'][0]) && 
-						isset($vendor_meta['_vendor_csd_return_city'][0]) && 
-						isset($vendor_meta['_vendor_csd_return_state'][0]) && 
-						isset($vendor_meta['_vendor_csd_return_zip'][0]) 
-						) 
-				) {
+//				if( (
+//						isset($vendor_meta['_vendor_customer_phone'][0]) &&  
+//						isset($vendor_meta['_vendor_customer_email'][0]) && 
+//						isset($vendor_meta['_vendor_csd_return_address1'][0]) && 
+//						isset($vendor_meta['_vendor_csd_return_city'][0]) && 
+//						isset($vendor_meta['_vendor_csd_return_state'][0]) && 
+//						isset($vendor_meta['_vendor_csd_return_zip'][0]) 
+//						) 
+//				) {
 				?>
 				<?php if($cc == 0) { ?>
 					<tr>

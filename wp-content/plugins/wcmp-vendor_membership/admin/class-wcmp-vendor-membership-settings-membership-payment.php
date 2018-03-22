@@ -23,7 +23,7 @@ class WCMP_Vendor_Membership_Settings_Gneral {
      * Register and add settings
      */
     public function settings_page_init() {
-        global $WCMp, $WCMP_Vendor_Membership;
+        global $WCMp;
 
         $settings_tab_options = array("tab" => "{$this->tab}",
             "ref" => &$this,
@@ -63,30 +63,14 @@ class WCMP_Vendor_Membership_Settings_Gneral {
      * @param array $input Contains all settings fields as array keys
      */
     public function wcmp_membership_payment_settings_sanitize($input) {
-        global $WCMP_Vendor_Membership;
         $new_input = array();
         $hasError = false;
         if (isset($input['is_enable'])) {
             $new_input['is_enable'] = sanitize_text_field($input['is_enable']);
         }
-//        if (isset($input['_success_msg'])) {
-//            $new_input['_success_msg'] = sanitize_text_field($input['_success_msg']);
-//        }
         if (isset($input['appplication_id'])) {
             $new_input['appplication_id'] = sanitize_text_field($input['appplication_id']);
         }
-//        if (isset($input['_failuare_msg'])) {
-//            $new_input['_failuare_msg'] = sanitize_text_field($input['_failuare_msg']);
-//        }
-//        if (isset($input['_payment_due_msg'])) {
-//            $new_input['_payment_due_msg'] = sanitize_text_field($input['_payment_due_msg']);
-//        }
-//        if (isset($input['_upcoming_renew_reminder_msg'])) {
-//            $new_input['_upcoming_renew_reminder_msg'] = sanitize_text_field($input['_upcoming_renew_reminder_msg']);
-//        }
-//        if (isset($input['_after_grace_pariod_msg'])) {
-//            $new_input['_after_grace_pariod_msg'] = sanitize_text_field($input['_after_grace_pariod_msg']);
-//        }
         if (isset($input['_paypal_email'])) {
             $new_input['_paypal_email'] = sanitize_text_field($input['_paypal_email']);
         }
@@ -130,43 +114,6 @@ class WCMP_Vendor_Membership_Settings_Gneral {
             );
         }
         return $new_input;
-    }
-
-    /**
-     * Print the Section text
-     */
-    public function default_settings_section_info() {
-        global $WCMP_Vendor_Membership;
-        //_e('Enter your default settings below', 'wcmp-vendor_membership');
-    }
-
-    /**
-     * Print the Section text
-     */
-    public function message_settings_section_info() {
-        global $WCMP_Vendor_Membership;
-        _e('Enter global messages below', 'wcmp-vendor_membership');
-    }
-
-    /**
-     * Print the Section text
-     */
-    public function payment_settings_section_sandbox_info() {
-        global $WCMP_Vendor_Membership;
-        _e('Enter paypal sandbox details below', 'wcmp-vendor_membership');
-    }
-
-    public function payment_settings_section_live_info() {
-        global $WCMP_Vendor_Membership;
-        _e('Enter paypal live details below', 'wcmp-vendor_membership');
-    }
-
-    /**
-     * Print the Section text
-     */
-    public function notification_settings_section_info() {
-        global $WCMP_Vendor_Membership;
-        _e('Configure the notification settings below', 'wcmp-vendor_membership');
     }
 
 }

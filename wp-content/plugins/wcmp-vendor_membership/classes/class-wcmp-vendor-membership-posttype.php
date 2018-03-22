@@ -12,8 +12,7 @@ class WCMP_Vendor_Membership_Posttype {
      * Register post type vendortype 
      * @global class $WCMP_Vendor_Membership
      */
-    function register_vendor_type() {
-        global $WCMP_Vendor_Membership;
+    public function register_vendor_type() {
         $labels = array(
             'name' => _x('Vendor Type', 'post type general name', 'wcmp-vendor_membership'),
             'singular_name' => _x('Vendor Type', 'post type singular name', 'wcmp-vendor_membership'),
@@ -44,7 +43,7 @@ class WCMP_Vendor_Membership_Posttype {
             'has_archive' => true,
             'hierarchical' => true,
             'menu_position' => null,
-            'supports' => array('title', 'editor', 'thumbnail', 'page-attributes'),
+            'supports' => array('title', 'editor', 'thumbnail'),
             'menu_icon' => 'dashicons-groups'
         );
         if (!current_user_can('manage_options')) {
@@ -59,7 +58,6 @@ class WCMP_Vendor_Membership_Posttype {
      * @global type $WCMP_Vendor_Membership
      */
     public function add_vendortype_metaboxes() {
-        global $WCMP_Vendor_Membership;
         $screens = array('vendortype');
         foreach ($screens as $screen) {
             /**
@@ -116,8 +114,8 @@ class WCMP_Vendor_Membership_Posttype {
      * @global class $WCMP_Vendor_Membership
      * @global object $post
      */
-    function vendormeta_featurelist_callback() {
-        global $WCMP_Vendor_Membership, $post;
+    public function vendormeta_featurelist_callback() {
+        global $post;
         $featurelists = get_post_meta($post->ID, '_vender_featurelist', true);
         ?>
         <div id="main_action_button">
@@ -159,8 +157,8 @@ class WCMP_Vendor_Membership_Posttype {
      * @global class $WCMP_Vendor_Membership
      * @global object $post
      */
-    function vendormeta_access_callback() {
-        global $WCMp, $WCMP_Vendor_Membership, $post;
+    public function vendormeta_access_callback() {
+        global $WCMp, $post;
         ?>
         <table class="form-table">
             <tbody>
@@ -175,7 +173,7 @@ class WCMP_Vendor_Membership_Posttype {
      * @global class $WCMp
      * @global object $post
      */
-    function vendormeta_billing_callback() {
+    public function vendormeta_billing_callback() {
         global $WCMp, $post;
         ?>
         <table class="form-table" id="vendor_billing_field_table">
@@ -206,7 +204,7 @@ class WCMP_Vendor_Membership_Posttype {
      * @global class $WCMp
      * @global object $post
      */
-    function vendormeta_message_callback() {
+    public function vendormeta_message_callback() {
         global $WCMp, $post;
         ?>
         <table class="form-table">
@@ -223,8 +221,8 @@ class WCMP_Vendor_Membership_Posttype {
      * @global class $WCMP_Vendor_Membership
      * @global object $post
      */
-    function vendormeta_capabilities_callback() {
-        global $WCMp, $WCMP_Vendor_Membership, $post;
+    public function vendormeta_capabilities_callback() {
+        global $WCMp, $post;
         $post_id = $post->ID;
         $capabilitiesdata_gen = get_post_meta($post_id, '_vendor_capabilities_field_gen', true);
         $wcmp_upload_product_data = $this->get_wcmp_capabilities_upload_product_data();
@@ -411,7 +409,7 @@ class WCMP_Vendor_Membership_Posttype {
      * @global class $WCMp
      * @global object $post
      */
-    function vendormeta_limitation_callback() {
+    public function vendormeta_limitation_callback() {
         global $WCMp, $post;
         ?>
         <table class="form-table">
@@ -428,7 +426,7 @@ class WCMP_Vendor_Membership_Posttype {
      * @global class $WCMp
      * @global object $post
      */
-    function vendormeta_visibility_callback() {
+    public function vendormeta_visibility_callback() {
         global $WCMp, $post;
         $WCMp->wcmp_wp_fields->dc_generate_form_field($this->get_vendor_visibility_field($post->ID), array());
     }
@@ -438,8 +436,8 @@ class WCMP_Vendor_Membership_Posttype {
      * @global object $WCMp
      * @global object $post
      */
-    function vendormeta_product_cat_callback() {
-        global $WCMp, $post;
+    public function vendormeta_product_cat_callback() {
+        global $post;
         $tax_name = 'product_cat';
         $selected_cats = get_post_meta($post->ID,'_allowed_product_cats',true) ? get_post_meta($post->ID,'_allowed_product_cats',true) : array();
         ?>
@@ -593,7 +591,6 @@ class WCMP_Vendor_Membership_Posttype {
      * @return type
      */
     public function get_vendor_access_field($post_id) {
-        global $WCMP_Vendor_Membership;
         $accesslists = get_post_meta($post_id, '_vender_access', 'Enable');
         $vendor_commission = get_post_meta($post_id, '_vendor_commission', true);
         $fields = apply_filters('dc_vendor_fields_cat_access', array(
@@ -624,7 +621,7 @@ class WCMP_Vendor_Membership_Posttype {
      * @return array
      */
     public function get_vendor_billing_field($post_id) {
-        global $WCMP_Vendor_Membership, $wp_roles;
+        global $wp_roles;
         $billingdata = get_post_meta($post_id, '_vendor_billing_field', true);
         $is_free_plan = get_post_meta($post_id, '_is_free_plan', true);
         $all_roles = $wp_roles->roles;
@@ -787,8 +784,7 @@ class WCMP_Vendor_Membership_Posttype {
      * @param int $post_id
      * @return array
      */
-    function get_vendor_message_field($post_id) {
-        global $WCMP_Vendor_Membership;
+    public function get_vendor_message_field($post_id) {
         $messagedata = get_post_meta($post_id, '_vendor_message_field', true);
 
         $fields = apply_filters('dc_vendor_fields_cat_message', array(
@@ -830,8 +826,7 @@ class WCMP_Vendor_Membership_Posttype {
      * @param int $post_id
      * @return array
      */
-    function get_vendor_limitation_field($post_id) {
-        global $WCMP_Vendor_Membership;
+    public function get_vendor_limitation_field($post_id) {
         $limitationdata = get_post_meta($post_id, '_vendor_limitation_field', true);
         $fields = apply_filters('dc_vendor_fields_cat_limitation', array(
             "is_product_category_limitation" => array(
@@ -875,7 +870,6 @@ class WCMP_Vendor_Membership_Posttype {
      * @return array
      */
     public function get_vendor_visibility_field($post_id) {
-        global $WCMP_Vendor_Membership;
         $visiblity = get_post_meta($post_id, 'is_visible_in_list', true);
         $mark_as_recommended = get_post_meta($post_id, 'mark_as_recommended', true);
         $fields = apply_filters('dc_vendor_fields_visibilities_access', array(
@@ -905,7 +899,6 @@ class WCMP_Vendor_Membership_Posttype {
      * @return array
      */
     public function get_wcmp_capabilities_upload_product_data() {
-        global $WCMP_Vendor_Membership;
         $cap_list = apply_filters('wcmp_capabilities_upload_product_data', array(
             'is_submit_product' => __('Submit products', 'wcmp-vendor_membership'),
             'is_published_product' => __('Publish products', 'wcmp-vendor_membership'),
@@ -924,7 +917,6 @@ class WCMP_Vendor_Membership_Posttype {
      * @return array
      */
     public function get_wcmp_capabilities_order_report_export_data() {
-        global $WCMP_Vendor_Membership;
         $cap_list = apply_filters('wcmp_capabilities_order_report_export_data', array(
             'is_order_csv_export' => __('Allow vendors to export orders.', 'wcmp-vendor_membership'),
             'is_order_show_email' => __('Customer name', 'wcmp-vendor_membership'),
@@ -941,7 +933,6 @@ class WCMP_Vendor_Membership_Posttype {
      * @return array
      */
     public function get_wcmp_capabilities_order_email_settings() {
-        global $WCMP_Vendor_Membership;
         $cap_list = apply_filters('wcmp_capabilities_order_email_settings', array(
             'show_cust_name' => __('Name, phone no. and email', 'wcmp-vendor_membership'),
             'show_cust_billing_add' => __('Billing address', 'wcmp-vendor_membership'),
@@ -957,7 +948,6 @@ class WCMP_Vendor_Membership_Posttype {
      * @return array
      */
     public function get_wcmp_capabilities_miscellaneous() {
-        global $WCMP_Vendor_Membership;
         $cap_list = apply_filters('wcmp_capabilities_miscellaneous', array(
             'is_vendor_view_comment' => __('View comment', 'wcmp-vendor_membership'),
             'is_vendor_submit_comment' => __('Submit comment', 'wcmp-vendor_membership'),
@@ -973,7 +963,6 @@ class WCMP_Vendor_Membership_Posttype {
      * @return array
      */
     public function get_wcmp_capabilities_messages_support() {
-        global $WCMP_Vendor_Membership;
         $cap_list = apply_filters('wcmp_capabilities_messages', array(
             'can_vendor_add_message_on_email_and_thankyou_page' => __('Message to buyer', 'wcmp-vendor_membership'),
             'can_vendor_add_customer_support_details' => __('Vendor shop support', 'wcmp-vendor_membership')
@@ -987,7 +976,6 @@ class WCMP_Vendor_Membership_Posttype {
      * @return array
      */
     public function get_wcmp_capabilities_policies_settings() {
-        global $WCMP_Vendor_Membership;
         $cap_list = apply_filters('wcmp_capabilities_policies_settings', array(
             'can_vendor_edit_policy_tab_label' => __('Can vendor edit policy tab title', 'wcmp-vendor_membership'),
             'can_vendor_edit_cancellation_policy' => __('Can vendor edit cancellation/return/exchange policy', 'wcmp-vendor_membership'),
@@ -1003,7 +991,6 @@ class WCMP_Vendor_Membership_Posttype {
      * @return array
      */
     public function get_wcmp_capabilities_others() {
-        global $WCMP_Vendor_Membership;
         $cap_list = apply_filters('wcmp_capabilities_others', array(
             'view_order' => __('View order', 'wcmp-vendor_membership'),
             'manage_shipping' => __('Manage shipping', 'wcmp-vendor_membership')

@@ -50,13 +50,13 @@ class WCMp_Frontend_Product_Manager_Settings_License {
         $settings_tab_options = array("tab" => "{$this->tab}",
             "ref" => &$this,
             "sections" => array(
-                "activation_settings_section" => array("title" => __('License Activation', 'wcmp_frontend_product_manager'),
-                    "fields" => array($WCMp_Frontend_Product_Manager->license->license_api_key => array('title' => __('API License Key', 'wcmp_frontend_product_manager'), 'type' => 'text', 'value' => $license_api_key, 'desc' => $api_key_ico),
-                        $WCMp_Frontend_Product_Manager->license->license_activation_email => array('title' => __('API License email', 'wcmp_frontend_product_manager'), 'type' => 'text', 'value' => $license_activation_email, 'desc' => $api_email_ico),
+                "activation_settings_section" => array("title" => __('License Activation', 'wcmp-frontend_product_manager'),
+                    "fields" => array($WCMp_Frontend_Product_Manager->license->license_api_key => array('title' => __('API License Key', 'wcmp-frontend_product_manager'), 'type' => 'text', 'value' => $license_api_key, 'desc' => $api_key_ico),
+                        $WCMp_Frontend_Product_Manager->license->license_activation_email => array('title' => __('API License email', 'wcmp-frontend_product_manager'), 'type' => 'text', 'value' => $license_activation_email, 'desc' => $api_email_ico),
                     )
                 ),
-                "deactivation_settings_section" => array("title" => __('License Deactivation', 'wcmp_frontend_product_manager'),
-                    "fields" => array($WCMp_Frontend_Product_Manager->license->license_deactivate_checkbox => array('title' => __('Deactivate API License Key', 'wcmp_frontend_product_manager'), 'type' => 'checkbox', 'id' => $WCMp_Frontend_Product_Manager->license->license_deactivate_checkbox, 'name' => $WCMp_Frontend_Product_Manager->license->license_deactivate_checkbox, 'value' => 'on', 'desc' => __('Deactivates an API License Key so it can be used on another blog.', 'wcmp_frontend_product_manager'))
+                "deactivation_settings_section" => array("title" => __('License Deactivation', 'wcmp-frontend_product_manager'),
+                    "fields" => array($WCMp_Frontend_Product_Manager->license->license_deactivate_checkbox => array('title' => __('Deactivate API License Key', 'wcmp-frontend_product_manager'), 'type' => 'checkbox', 'id' => $WCMp_Frontend_Product_Manager->license->license_deactivate_checkbox, 'name' => $WCMp_Frontend_Product_Manager->license->license_deactivate_checkbox, 'value' => 'on', 'desc' => __('Deactivates an API License Key so it can be used on another blog.', 'wcmp-frontend_product_manager'))
                     )
                 )
             )
@@ -89,14 +89,14 @@ class WCMp_Frontend_Product_Manager_Settings_License {
 
         if ($api_key == '') {
             add_settings_error(
-                    "wcmp_{$this->tab}_settings_name", esc_attr("wcmp_{$this->tab}_settings_admin_error"), __('Please insert your license key.', 'wcmp_frontend_product_manager'), 'error'
+                    "wcmp_{$this->tab}_settings_name", esc_attr("wcmp_{$this->tab}_settings_admin_error"), __('Please insert your license key.', 'wcmp-frontend_product_manager'), 'error'
             );
             $hasError = true;
         }
 
         if ($api_email == '') {
             add_settings_error(
-                    "wcmp_{$this->tab}_settings_name", esc_attr("wcmp_{$this->tab}_settings_admin_error"), __('Please insert your license email.', 'wcmp_frontend_product_manager'), 'error'
+                    "wcmp_{$this->tab}_settings_name", esc_attr("wcmp_{$this->tab}_settings_admin_error"), __('Please insert your license email.', 'wcmp-frontend_product_manager'), 'error'
             );
             $hasError = true;
         }
@@ -125,7 +125,7 @@ class WCMp_Frontend_Product_Manager_Settings_License {
                     if ($activate_results['activated'] == true) {
                         if (!isset($activate_results['message']))
                             $activate_results['message'] = '';
-                        add_settings_error("wcmp_{$this->tab}_settings_name", esc_attr("wcmp_{$this->tab}_settings_admin_error"), __('Plugin activated. ', 'wcmp_frontend_product_manager') . "{$activate_results['message']}.", 'updated');
+                        add_settings_error("wcmp_{$this->tab}_settings_name", esc_attr("wcmp_{$this->tab}_settings_admin_error"), __('Plugin activated. ', 'wcmp-frontend_product_manager') . "{$activate_results['message']}.", 'updated');
                         update_option($WCMp_Frontend_Product_Manager->license->license_activated_key, 'Activated');
                         update_option($WCMp_Frontend_Product_Manager->license->license_deactivate_checkbox, 'off');
 
@@ -133,7 +133,7 @@ class WCMp_Frontend_Product_Manager_Settings_License {
                     }
 
                     if ($activate_results == false) {
-                        add_settings_error("wcmp_{$this->tab}_settings_name", esc_attr("wcmp_{$this->tab}_settings_admin_error"), __('Connection failed to the License Key API server. Try again later.', 'wcmp_frontend_product_manager'), 'error');
+                        add_settings_error("wcmp_{$this->tab}_settings_name", esc_attr("wcmp_{$this->tab}_settings_admin_error"), __('Connection failed to the License Key API server. Try again later.', 'wcmp-frontend_product_manager'), 'error');
                         $new_input[$WCMp_Frontend_Product_Manager->license->license_api_key] = '';
                         $new_input[$WCMp_Frontend_Product_Manager->license->license_activation_email] = '';
                         update_option($WCMp_Frontend_Product_Manager->license->license_activated_key, 'Deactivated');
@@ -199,7 +199,7 @@ class WCMp_Frontend_Product_Manager_Settings_License {
                         update_option($WCMp_Frontend_Product_Manager->license->license_activated_key, 'Deactivated');
                         //$WCMp_Frontend_Product_Manager->license->wcmp_plugin_tracker('license_deactivate', $api_key, $api_email);
 
-                        add_settings_error("wcmp_{$this->tab}_settings_name", esc_attr("wcmp_{$this->tab}_settings_admin_error"), __('Plugin license deactivated.', 'wcmp_frontend_product_manager'), 'updated');
+                        add_settings_error("wcmp_{$this->tab}_settings_name", esc_attr("wcmp_{$this->tab}_settings_admin_error"), __('Plugin license deactivated.', 'wcmp-frontend_product_manager'), 'updated');
                     }
                 }
                 $new_input[$WCMp_Frontend_Product_Manager->license->license_api_key] = '';
@@ -225,7 +225,7 @@ class WCMp_Frontend_Product_Manager_Settings_License {
         if ($reset == true)
             return true;
 
-        return add_settings_error("wcmp_{$this->tab}_settings_name", esc_attr("wcmp_{$this->tab}_settings_admin_error"), __('The license could not be deactivated. Use the License Deactivation tab to manually deactivate the license before activating a new license.', 'wcmp_frontend_product_manager'), 'updated');
+        return add_settings_error("wcmp_{$this->tab}_settings_name", esc_attr("wcmp_{$this->tab}_settings_admin_error"), __('The license could not be deactivated. Use the License Deactivation tab to manually deactivate the license before activating a new license.', 'wcmp-frontend_product_manager'), 'updated');
     }
 
     /**
@@ -233,7 +233,7 @@ class WCMp_Frontend_Product_Manager_Settings_License {
      */
     public function activation_settings_section_info() {
         global $WCMp_Frontend_Product_Manager;
-        //_e('Enter your default settings below', 'wcmp_frontend_product_manager');
+        //_e('Enter your default settings below', 'wcmp-frontend_product_manager');
     }
 
     /**
@@ -241,7 +241,7 @@ class WCMp_Frontend_Product_Manager_Settings_License {
      */
     public function deactivation_settings_section_info() {
         global $WCMp_Frontend_Product_Manager;
-        //_e('Enter your custom settings below', 'wcmp_frontend_product_manager');
+        //_e('Enter your custom settings below', 'wcmp-frontend_product_manager');
     }
 
 }

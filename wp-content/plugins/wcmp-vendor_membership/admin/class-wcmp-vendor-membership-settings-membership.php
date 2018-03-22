@@ -21,7 +21,7 @@ class WCMP_Vendor_General_Settings_Gneral {
      * Register and add settings
      */
     public function settings_page_init() {
-        global $WCMp, $WCMP_Vendor_Membership;
+        global $WCMp;
 
         $settings_tab_options = array("tab" => "{$this->tab}",
             "ref" => &$this,
@@ -79,43 +79,6 @@ class WCMP_Vendor_General_Settings_Gneral {
             );
         }
         return $new_input;
-    }
-
-    /**
-     * Print the Section text
-     */
-    public function default_settings_section_info() {
-        global $WCMP_Vendor_Membership;
-        //_e('Enter your default settings below', 'wcmp-vendor_membership');
-    }
-
-    /**
-     * Print the Section text
-     */
-    public function message_settings_section_info() {
-        global $WCMP_Vendor_Membership;
-        _e('Enter global messages below', 'wcmp-vendor_membership');
-    }
-
-    /**
-     * Print the Section text
-     */
-    public function payment_settings_section_sandbox_info() {
-        global $WCMP_Vendor_Membership;
-        _e('Enter paypal sandbox details below', 'wcmp-vendor_membership');
-    }
-
-    public function payment_settings_section_live_info() {
-        global $WCMP_Vendor_Membership;
-        _e('Enter paypal live details below', 'wcmp-vendor_membership');
-    }
-
-    /**
-     * Print the Section text
-     */
-    public function notification_settings_section_info() {
-        global $WCMP_Vendor_Membership;
-        _e('Configure the notification settings below', 'wcmp-vendor_membership');
     }
 
 }

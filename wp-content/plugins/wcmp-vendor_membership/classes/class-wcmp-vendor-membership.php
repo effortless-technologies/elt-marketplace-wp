@@ -664,11 +664,11 @@ class WCMP_Vendor_Membership {
                 'status' => get_user_meta($user_id, 'wcmp_vendor_plan_status', true),
                 'title' => get_the_title(get_user_meta($user_id, 'vendor_group_id', true)),
                 'user' => $user->data->display_name,
-                'start_date' => get_user_meta($user_id, 'vendor_plan_start_date_time', true),
+                'start_date' => date(wc_date_format(), strtotime(get_user_meta($user_id, 'vendor_plan_start_date_time', true))),
                 'trial_expiry_date' => get_user_meta($user_id, '_trial_amt_cycle_limit', true) . ' ' . get_user_meta($user_id, '_trial_amt_cycle', true),
                 'vendor_billing_amt' => get_user_meta($user_id, '_vendor_billing_amt', true) ? get_woocommerce_currency_symbol() . get_user_meta($user_id, '_vendor_billing_amt', true) : get_woocommerce_currency_symbol() . '0.00', // get_woocommerce_currency_symbol() . get_user_meta($user_id, '_vendor_billing_amt', true),
                 'billing_period' => get_user_meta($user_id, 'wcmp_vendor_subscription_type', true) ? get_user_meta($user_id, '_vendor_billing_amt_cycle', true) : '',
-                'next_payment_date' => get_user_meta($user_id, '_next_payment_date', true) && get_user_meta($user_id, 'wcmp_vendor_subscription_type', true) ? date('Y-m-d', strtotime(get_user_meta($user_id, '_next_payment_date', true))) : '',
+                'next_payment_date' => get_user_meta($user_id, '_next_payment_date', true) && get_user_meta($user_id, 'wcmp_vendor_subscription_type', true) ? date(wc_date_format(), strtotime(get_user_meta($user_id, '_next_payment_date', true))) : '',
             );
         }
         return $membership_users;

@@ -304,6 +304,7 @@ class WCMp_Vendor_Membership_Get_Payments {
             }
             return true;
         } else {
+            do_action( 'wcmp_vendor_membership_create_third_party_payment', $this->method, $this->user_id, $new_user, $this );
             if ($new_user) {
                 wp_delete_user((int) $this->user_id);
             }

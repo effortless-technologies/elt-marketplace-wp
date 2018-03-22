@@ -4,7 +4,7 @@
  * Plugin URI: https://wc-marketplace.com/
  * Description: Verify vendors by their address, social presence and of course ID proof and let them show off the badge of  assurance they earned to let the consumers know of their authenticity.
  * Author: WC Marketplace, The Grey Parrots
- * Version: 1.0.0
+ * Version: 1.1.0
  * Author URI: https://wc-marketplace.com/
  * Text Domain: wcmp-vendor-verification
  * Domain Path: /languages/
@@ -34,5 +34,3 @@ if(!WCMp_Vendor_Verification_Dependencies::wc_marketplace_plugin_active_check())
         register_deactivation_hook( __FILE__, array('WCMP_Vendor_Verification', 'deactivate_wcmp_vendor_verification') );
     }
 }
-
-?>

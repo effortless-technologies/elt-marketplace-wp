@@ -23,7 +23,7 @@ class WCMP_Vendor_Plan_Design_Settings_Gneral {
      * Register and add settings
      */
     public function settings_page_init() {
-        global $WCMp, $WCMP_Vendor_Membership;
+        global $WCMp;
 
         $settings_tab_options = array("tab" => "{$this->tab}",
             "ref" => &$this,
@@ -53,7 +53,6 @@ class WCMP_Vendor_Plan_Design_Settings_Gneral {
      * @param array $input Contains all settings fields as array keys
      */
     public function wcmp_membership_plan_design_settings_sanitize($input) {
-        global $WCMP_Vendor_Membership;
         $new_input = array();
         $hasError = false;
         if (isset($input['_plan_button_text'])) {
@@ -87,14 +86,6 @@ class WCMP_Vendor_Plan_Design_Settings_Gneral {
             );
         }
         return $new_input;
-    }
-
-    /**
-     * Print the Section text
-     */
-    public function default_settings_section_info() {
-        global $WCMP_Vendor_Membership;
-        //_e('Enter your default settings below', 'wcmp-vendor_membership');
     }
 
 }

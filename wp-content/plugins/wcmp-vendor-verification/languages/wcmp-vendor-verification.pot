@@ -3,22 +3,22 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-20 06:10+0000\n"
+"POT-Creation-Date: 2018-02-20 07:00+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
 "Language: \n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Loco https://localise.biz/"
+"X-Generator: Loco - https://localise.biz/"
 
-#: includes/wcmp-vendor-verification-core-functions.php:28
+#: includes/wcmp-vendor-verification-core-functions.php:30
 msgid "ID verification"
 msgstr ""
 
-#: includes/wcmp-vendor-verification-core-functions.php:32
+#: includes/wcmp-vendor-verification-core-functions.php:34
 msgid "Address verification"
 msgstr ""
 
@@ -26,7 +26,6 @@ msgstr ""
 #: classes/class-wcmp-vendor-verification.php:104
 #: classes/class-wcmp-vendor-verification.php:118
 #: admin/class-wcmp-vendor-verification-settings.php:22
-#: templates/vendor-dashboard/vendor-verification.php:71
 msgid "Vendor Verification"
 msgstr ""
 
@@ -37,29 +36,24 @@ msgid ""
 "inactive! %sClick here%s to activate the license key and the plugin."
 msgstr ""
 
-#: classes/class-wcmp-vendor-verification-frontend.php:23
-msgid "Store Settings "
-msgstr ""
-
-#: classes/class-wcmp-vendor-verification-frontend.php:25
-#: classes/class-wcmp-vendor-verification.php:131
-msgid "Verification"
-msgstr ""
-
-#: classes/class-wcmp-vendor-verification-frontend.php:89
+#: classes/class-wcmp-vendor-verification-frontend.php:99
 msgid "ID Verification submitted successfully!"
 msgstr ""
 
-#: classes/class-wcmp-vendor-verification-frontend.php:91
+#: classes/class-wcmp-vendor-verification-frontend.php:102
 msgid "Please select a ID Type for verification"
 msgstr ""
 
-#: classes/class-wcmp-vendor-verification-frontend.php:116
+#: classes/class-wcmp-vendor-verification-frontend.php:122
 msgid "Address Verification submitted successfully!"
 msgstr ""
 
 #: classes/class-wcmp-vendor-verification.php:104
 msgid "Set endpoint for vendor verification page"
+msgstr ""
+
+#: classes/class-wcmp-vendor-verification.php:131
+msgid "Verification"
 msgstr ""
 
 #: classes/class-wcmp-vendor-verification-auth.php:46
@@ -87,17 +81,17 @@ msgid "Vendor Name"
 msgstr ""
 
 #: classes/class-wcmp-vendor-verification-admin.php:95
-#: templates/vendor-dashboard/vendor-verification.php:74
+#: templates/vendor-dashboard/vendor-verification.php:72
 msgid "Address Verification"
 msgstr ""
 
 #: classes/class-wcmp-vendor-verification-admin.php:96
-#: templates/vendor-dashboard/vendor-verification.php:111
+#: templates/vendor-dashboard/vendor-verification.php:133
 msgid "ID Verification"
 msgstr ""
 
 #: classes/class-wcmp-vendor-verification-admin.php:97
-#: templates/vendor-dashboard/vendor-verification.php:159
+#: templates/vendor-dashboard/vendor-verification.php:178
 msgid "Social Verification"
 msgstr ""
 
@@ -172,25 +166,53 @@ msgstr ""
 msgid "User redirect URL after successfully authenticated."
 msgstr ""
 
+#: admin/class-wcmp-vendor-verification-settings-vendor_verification.php:79
+msgid "."
+msgstr ""
+
 #: admin/class-wcmp-vendor-verification-settings-vendor_verification.php:142
 msgid "Vendor Verification settings updated"
 msgstr ""
 
-#: templates/vendor-dashboard/vendor-verification.php:107
-#: templates/vendor-dashboard/vendor-verification.php:155
+#: templates/vendor-dashboard/vendor-verification.php:78
+msgid "Address 1"
+msgstr ""
+
+#: templates/vendor-dashboard/vendor-verification.php:84
+msgid "Address 2"
+msgstr ""
+
+#: templates/vendor-dashboard/vendor-verification.php:90
+msgid "Country"
+msgstr ""
+
+#: templates/vendor-dashboard/vendor-verification.php:103
+msgid "State"
+msgstr ""
+
+#: templates/vendor-dashboard/vendor-verification.php:116
+msgid "City"
+msgstr ""
+
+#: templates/vendor-dashboard/vendor-verification.php:122
+msgid "Zipcode"
+msgstr ""
+
+#: templates/vendor-dashboard/vendor-verification.php:129
+#: templates/vendor-dashboard/vendor-verification.php:174
 msgid "Submit"
 msgstr ""
 
-#: templates/vendor-dashboard/vendor-verification.php:150
-msgid "Upload"
+#: templates/vendor-dashboard/vendor-verification.php:166
+msgid "Upload scanned ID copy"
 msgstr ""
 
-#: templates/vendor-dashboard/vendor-verification.php:183
+#: templates/vendor-dashboard/vendor-verification.php:202
 msgid "Logout"
 msgstr ""
 
-#: templates/vendor-dashboard/vendor-verification.php:192
-#: templates/vendor-dashboard/vendor-verification.php:199
+#: templates/vendor-dashboard/vendor-verification.php:211
+#: templates/vendor-dashboard/vendor-verification.php:218
 msgid "Connect to "
 msgstr ""
 

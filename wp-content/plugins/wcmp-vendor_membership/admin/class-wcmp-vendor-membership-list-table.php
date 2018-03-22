@@ -21,7 +21,6 @@ class WCMp_Vendor_Membership_List_Table extends WP_List_Table {
      * @since 1.0
      */
     public function get_columns() {
-        global $WCMP_Vendor_Membership;
         $columns = array(
             'cb' => '<input type="checkbox" />',
             'status' => __('Status', 'wcmp-vendor_membership'),
@@ -141,7 +140,6 @@ class WCMp_Vendor_Membership_List_Table extends WP_List_Table {
      * @since 1.3.1
      */
     function extra_tablenav($which) {
-        global $WCMP_Vendor_Membership;
         $args = array(
             'posts_per_page' => -1,
             'offset' => 0,
@@ -176,8 +174,7 @@ class WCMp_Vendor_Membership_List_Table extends WP_List_Table {
                 </select>
                 <?php submit_button(__('Filter'), 'button', false, false, array('id' => 'post-query-submit')); ?>
             </div><?php
-            }
         }
-
     }
-    
+
+}

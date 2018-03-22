@@ -106,3 +106,5 @@ class WCMP_Sub_Vendor_Key_Api {
 	}
 
 }
+
+// Class is instantiated as an object by other classes on-demand

@@ -117,11 +117,11 @@ class WCMP_Pdf_Invoices_Admin {
 
         $order_pdf = get_post_meta($post->ID, '_pdf_invoice_per_order', true);
         $html = '<table><tbody>';
-        $html .= '<tr><td><label><strong>Per Order - </strong></label></td>';
+        $html .= '<tr><td><label><strong>'.__('Per Order - ', 'wcmp-pdf_invoices'). '</strong></label></td>';
         if (!$order_pdf)
-            $html .= '<td><input type="button"  value="Create" class="wcmp_create_per_order_pdf_invoice button"  data-user_id="' . $current_user_id . '" data-id ="' . $post->ID . '"  /></td>';
+            $html .= '<td><input type="button"  value="'.__('Create', 'wcmp-pdf_invoices').'" class="wcmp_create_per_order_pdf_invoice button"  data-user_id="' . $current_user_id . '" data-id ="' . $post->ID . '"  /></td>';
         else
-            $html .= '<td><a href="' . $order_pdf . '" download class="button" >View</a></td><td><input type="button" style="cursor:pointer" value="Cancel" class="wcmp_cancel_per_order_pdf_invoice button"  data-id ="' . $post->ID . '"  /></td>';
+            $html .= '<td><a href="' . $order_pdf . '" download class="button" >'.__('View', 'wcmp-pdf_invoices').'</a></td><td><input type="button" style="cursor:pointer" value="'.__('Cancel', 'wcmp-pdf_invoices').'" class="wcmp_cancel_per_order_pdf_invoice button"  data-id ="' . $post->ID . '"  /></td>';
         $html .= '</tr>';
 
         $vendors_in_order = wcmp_get_vendor_items_from_order($post->ID);
@@ -130,14 +130,14 @@ class WCMP_Pdf_Invoices_Admin {
             foreach ($vendors_in_order as $vendor) {
                 $vendor_order_pdf = get_post_meta($post->ID, '_pdf_invoice_' . sanitize_title($vendor->user_data->data->display_name), true);
                 if ($vendor_order_pdf) {
-                    $select_options .= '<tr><td>' . $vendor->user_data->data->display_name . ' :</td><td><a href="' . $vendor_order_pdf . '" download class="button" >View</a></td><td><input type="button" style="cursor:pointer" value="Cancel" class="wcmp_cancel_per_vendor_pdf_invoice button "  data-vendor="' . sanitize_title($vendor->user_data->data->display_name) . '" data-id ="' . $post->ID . '"  /></td>';
+                    $select_options .= '<tr><td>' . $vendor->user_data->data->display_name . ' :</td><td><a href="' . $vendor_order_pdf . '" download class="button" >'.__('View', 'wcmp-pdf_invoices').'</a></td><td><input type="button" style="cursor:pointer" value="Cancel" class="wcmp_cancel_per_vendor_pdf_invoice button "  data-vendor="' . sanitize_title($vendor->user_data->data->display_name) . '" data-id ="' . $post->ID . '"  /></td>';
                 } else {
-                    $select_options .= '<tr><td>' . $vendor->user_data->data->display_name . ' :</td><td> <input type="button" class="wcmp_create_per_vendor_pdf_invoice button" value="Create" data-user_id="' . $vendor->term_id . '" data-id ="' . $post->ID . '" /></td></tr>';
+                    $select_options .= '<tr><td>' . $vendor->user_data->data->display_name . ' :</td><td> <input type="button" class="wcmp_create_per_vendor_pdf_invoice button" value="'.__('Create', 'wcmp-pdf_invoices').'" data-user_id="' . $vendor->term_id . '" data-id ="' . $post->ID . '" /></td></tr>';
                 }
             }
         }
         if (!empty($select_options)) {
-            $html .= '<tr><td><label><strong>Per Vendor - </strong></label></td></tr>';
+            $html .= '<tr><td><label><strong>'.__('Per Vendor - ', 'wcmp-pdf_invoices').'</strong></label></td></tr>';
             $html .= $select_options;
         }
         $html .= '</table></tbody>';

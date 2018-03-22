@@ -27,32 +27,32 @@ if ($plan) {
     $post_id = $plan->ID;
     $subscription_page_id = get_option('wcmp_vendor_categorization_plugin_subscription_page_id');
     ?>
-    <div class="membership-details-container" style="padding: 10px;">
-        <table class="shop_table shop_table_responsive my_account_orders membership-details">
+    <div class="membership-details-container col-sm-12">
+        <table class="shop_table shop_table_responsive my_account_orders membership-details table">
             <thead>
                 <tr>
-                    <th class="subscription-type"><span class="nobr"><?php echo __("Subsription", 'wcmp-vendor_membership'); ?></span></th>
-                    <th class="subscription-date"><span class="nobr"><?php echo __("Date", 'wcmp-vendor_membership'); ?></span></th>
-                    <th class="subscription-status"><span class="nobr"><?php echo __("Status", 'wcmp-vendor_membership'); ?></span></th>
-                    <th class="subscription-total"><span class="nobr"><?php echo __("Next Payment Date", 'wcmp-vendor_membership'); ?></span></th>
-<!--                    <th class="subscription-freequency"><span class="nobr"><?php echo __("Next Payment Amount", 'wcmp-vendor_membership'); ?></span></th>-->
-                    <th>Action</th>
+                    <th class="subscription-type"><span class="nobr"><?php _e("Subsription", 'wcmp-vendor_membership'); ?></span></th>
+                    <th class="subscription-date"><span class="nobr"><?php _e("Date", 'wcmp-vendor_membership'); ?></span></th>
+                    <th class="subscription-status"><span class="nobr"><?php _e("Status", 'wcmp-vendor_membership'); ?></span></th>
+                    <th class="subscription-total"><span class="nobr"><?php _e("Next Payment Date", 'wcmp-vendor_membership'); ?></span></th>
+    <!--                    <th class="subscription-freequency"><span class="nobr"><?php echo __("Next Payment Amount", 'wcmp-vendor_membership'); ?></span></th>-->
+                    <th><?php _e('Action', 'wcmp-vendor_membership'); ?></th>
                 </tr>
             </thead>
             <tbody>
                 <tr class="order">
                     <td data-title="Order" class="order-number">
-                        <a href="<?php echo !empty($post_id) ? get_permalink($post_id) : 'javascript:void(0)'; ?>"> <?php echo $plan->post_title; ?> </a>
+                        <a href="<?php echo!empty($post_id) ? get_permalink($post_id) : 'javascript:void(0)'; ?>"> <?php echo $plan->post_title; ?> </a>
                         <?php //echo $trial_subscription == '1' ? '(Trial)' : ''; ?>
                     </td>
                     <td data-title="Date" class="order-date">
-                        <time title="<?php echo strtotime($date_time_subscription); ?>" datetime="<?php echo @date('Y-m-d', strtotime($date_time_subscription)); ?>"><?php echo date('F d, Y', strtotime($date_time_subscription)); ?></time>
+                        <time title="<?php echo strtotime($date_time_subscription); ?>" datetime="<?php echo @date('Y-m-d', strtotime($date_time_subscription)); ?>"><?php echo date(wc_date_format(), strtotime($date_time_subscription)); ?></time>
                     </td>
                     <td data-title="Status" class="order-status">
                         <?php echo ucfirst($status); ?>
                     </td>
                     <td data-title="Next Payment Date" class="order-total">
-                        <?php echo get_user_meta($user_id, '_next_payment_date', true) ? date('F d, Y', strtotime(get_user_meta($user_id, '_next_payment_date', true))) : 'N/A' ?>
+                        <?php echo get_user_meta($user_id, '_next_payment_date', true) ? date(wc_date_format(), strtotime(get_user_meta($user_id, '_next_payment_date', true))) : 'N/A' ?>
                     </td>
                     <td data-title="Action" class="order-status">
                         <a href="<?php echo get_permalink(get_wcmp_vendor_settings('vendor_membership', 'vendor', 'general')); ?>">Upgrade / Downgrade</a>

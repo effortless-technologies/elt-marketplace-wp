@@ -1,12 +1,17 @@
 <?php
 
-/*
-  Plugin Name: WCMp Advanced Vendor Report
-  Plugin URI: http://wc-marketplace.com/product/wcmp-advanced-vendor-report/
-  Description: Give your seller a goldmine of information to work with. With this add-on, your seller can download a whole range of reports right from the front-end.
-  Author: DualCube
-  Version: 1.0.4
-  Author URI: http://dualcube.com
+/**
+ * Plugin Name: WCMp Advanced Vendor Report
+ * Plugin URI: http://wc-marketplace.com/product/wcmp-advanced-vendor-report/
+ * Description: Give your seller a goldmine of information to work with. With this add-on, your seller can download a whole range of reports right from the front-end.
+ * Author: WC Marketplace, The Grey Parrots
+ * Version: 1.1.0
+ * Author URI: https://wc-marketplace.com/
+ * Requires at least: 4.0
+ * Tested up to: 4.9.2
+ * 
+ * Text Domain: wcmp-vendor_frontend_report
+ * Domain Path: /languages/
  */
 
 if (!defined('ABSPATH'))

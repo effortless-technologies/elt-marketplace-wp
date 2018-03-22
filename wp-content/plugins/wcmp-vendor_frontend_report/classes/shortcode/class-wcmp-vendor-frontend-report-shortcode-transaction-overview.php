@@ -50,9 +50,9 @@ class WCMP_Vendor_Report_Shortcode_Transaction_Overview {
 						<table  style="float: left; width: 57%;">
 							<tbody>
 								<tr>
-									<td><input id="wcmp_frontend_transaction_from_date" name="transaction_from_date" placeholder="<?php _e('From', $WCMp_Vendor_Frontend_Report->text_domain ); ?>" value ="<?php echo $_GET['transaction_from_date'];?>"/></td>
-									<td><input id="wcmp_frontend_transaction_to_date" name="transaction_to_date" placeholder="<?php _e('To', $WCMp_Vendor_Frontend_Report->text_domain ); ?>" value ="<?php echo $_GET['transaction_to_date'];?>"/></td>
-									<td><p class="submit"><input type="submit" name="transaction_submit" id="submit" class="all_new_btn button button-primary" value="<?php _e('Filter', $WCMp_Vendor_Frontend_Report->text_domain ); ?>"></p></td>
+									<td><input id="wcmp_frontend_transaction_from_date" name="transaction_from_date" placeholder="<?php _e('From', 'wcmp-vendor_frontend_report' ); ?>" value ="<?php echo $_GET['transaction_from_date'];?>"/></td>
+									<td><input id="wcmp_frontend_transaction_to_date" name="transaction_to_date" placeholder="<?php _e('To', 'wcmp-vendor_frontend_report' ); ?>" value ="<?php echo $_GET['transaction_to_date'];?>"/></td>
+									<td><p class="submit"><input type="submit" name="transaction_submit" id="submit" class="all_new_btn button button-primary" value="<?php _e('Filter', 'wcmp-vendor_frontend_report' ); ?>"></p></td>
 								</tr>
 							</tbody>
 						</table>
@@ -62,7 +62,7 @@ class WCMP_Vendor_Report_Shortcode_Transaction_Overview {
 							 class="all_new_btn button button-primary"
 							 style=" float: right;  margin-top: 17px;"
 							 name="export_transaction_report_orders"
-							 value="<?php _e( 'Export CSV',  $WCMp_Vendor_Frontend_Report->text_domain); ?>" 
+							 value="<?php _e( 'Export CSV',  'wcmp-vendor_frontend_report'); ?>" 
 						/>
 					</form>
 				</div>
@@ -113,23 +113,23 @@ class WCMP_Vendor_Report_Shortcode_Transaction_Overview {
 				else $avg_transaction_amount = 0;
 				?>
 				<div class="dc-reports-div" style="clear: both; display: block;">
-				<label><?php echo sprintf(__( 'Your Report [ %s ]', $WCMp_Vendor_Frontend_Report->text_domain ), date('F j, Y', $start_date) .' - '. date('F j, Y', $end_date)); ?></label>
+				<label><?php echo sprintf(__( 'Your Report [ %s ]', 'wcmp-vendor_frontend_report' ), date('F j, Y', $start_date) .' - '. date('F j, Y', $end_date)); ?></label>
 					<div class="chart-sidebar">
 						<ul class="chart-legend">
 							<li style="border-color: #FF0000" class="highlight_series tips" data-series="2">
-								<i class="fa  fa-circle "></i><label><?php _e( 'Gross Credit in this Period', $WCMp_Vendor_Frontend_Report->text_domain ); ?> </label> <strong><span class="amount"><?php if ( $total_transaction_amount > 0 ) echo wc_price( $total_transaction_amount ); else _e( 'n/a', $WCMp_Vendor_Frontend_Report->text_domain ); ?></span></strong> 						
+								<i class="fa  fa-circle "></i><label><?php _e( 'Gross Credit in this Period', 'wcmp-vendor_frontend_report' ); ?> </label> <strong><span class="amount"><?php if ( $total_transaction_amount > 0 ) echo wc_price( $total_transaction_amount ); else _e( 'n/a', 'wcmp-vendor_frontend_report' ); ?></span></strong> 						
 							</li>
 							<li style="border-color: #FF9B00" class="highlight_series " data-series="3" data-tip="">
-								<i class="fa  fa-circle "></i><label><?php _e( 'Average Daily Credit', $WCMp_Vendor_Frontend_Report->text_domain ); ?> </label> <strong><span class="amount"><?php if ( $avg_transaction_amount > 0 ) echo wc_price( $avg_transaction_amount ); else _e( 'n/a', $WCMp_Vendor_Frontend_Report->text_domain ); ?></span></strong> 							
+								<i class="fa  fa-circle "></i><label><?php _e( 'Average Daily Credit', 'wcmp-vendor_frontend_report' ); ?> </label> <strong><span class="amount"><?php if ( $avg_transaction_amount > 0 ) echo wc_price( $avg_transaction_amount ); else _e( 'n/a', 'wcmp-vendor_frontend_report' ); ?></span></strong> 							
 							</li>
 							<li style="border-color: #01CCFF" class="highlight_series " data-series="4" data-tip="">
-								 <i class="fa  fa-circle "></i><label><?php _e( 'Debit for transfer charge', $WCMp_Vendor_Frontend_Report->text_domain ); ?> </label> <strong><span class="amount"><?php if ( $toatl_transfer_charge > 0 ) echo wc_price( $toatl_transfer_charge ); else _e( 'n/a', $WCMp_Vendor_Frontend_Report->text_domain ); ?>	</span></strong>
+								 <i class="fa  fa-circle "></i><label><?php _e( 'Debit for transfer charge', 'wcmp-vendor_frontend_report' ); ?> </label> <strong><span class="amount"><?php if ( $toatl_transfer_charge > 0 ) echo wc_price( $toatl_transfer_charge ); else _e( 'n/a', 'wcmp-vendor_frontend_report' ); ?>	</span></strong>
 							</li>
 							<li style="border-color: #E4D8EF" class="highlight_series " data-series="1" data-tip="">
-								<i class="fa  fa-circle "></i><label><?php _e( 'Number of transactions', $WCMp_Vendor_Frontend_Report->text_domain ); ?> </label>	<strong><span class="amount"><?php if ( $total_transaction_count > 0 ) echo  $total_transaction_count; else _e( 'n/a', $WCMp_Vendor_Frontend_Report->text_domain ); ?></span></strong> 							
+								<i class="fa  fa-circle "></i><label><?php _e( 'Number of transactions', 'wcmp-vendor_frontend_report' ); ?> </label>	<strong><span class="amount"><?php if ( $total_transaction_count > 0 ) echo  $total_transaction_count; else _e( 'n/a', 'wcmp-vendor_frontend_report' ); ?></span></strong> 							
 							</li>
 							<li style="border-color: #5cc488" class="highlight_series " data-series="0" data-tip="">
-								 <i class="fa  fa-circle "></i><label><?php _e( 'Number of units ordered', $WCMp_Vendor_Frontend_Report->text_domain ); ?> </label> <strong><span class="amount"><?php if ( $total_order_countt > 0 ) echo $total_order_countt; else _e( 'n/a', $WCMp_Vendor_Frontend_Report->text_domain ); ?></span></strong>							
+								 <i class="fa  fa-circle "></i><label><?php _e( 'Number of units ordered', 'wcmp-vendor_frontend_report' ); ?> </label> <strong><span class="amount"><?php if ( $total_order_countt > 0 ) echo $total_order_countt; else _e( 'n/a', 'wcmp-vendor_frontend_report' ); ?></span></strong>							
 							</li>
 						</ul>
 					</div>
@@ -176,7 +176,7 @@ class WCMP_Vendor_Report_Shortcode_Transaction_Overview {
 							var drawGraph = function( highlight ) {
 								var series = [
 									{
-										label: "<?php echo esc_js( __( 'Number of Orders', $WCMp_Vendor_Frontend_Report->text_domain ) ) ?>",
+										label: "<?php echo esc_js( __( 'Number of Orders', 'wcmp-vendor_frontend_report' ) ) ?>",
 										data: order_data.total_order_count,
 										color: '<?php echo $chart_colours['total_order_count']; ?>',
 										bars: { fillColor: '<?php echo $chart_colours['total_order_count']; ?>', fill: true, show: true, lineWidth: 0, barWidth: <?php echo $barwidth; ?> * 0.5, align: 'center' },
@@ -184,7 +184,7 @@ class WCMP_Vendor_Report_Shortcode_Transaction_Overview {
 										hoverable: false
 									},
 									{
-										label: "<?php echo esc_js( __( 'Number of Transactions', $WCMp_Vendor_Frontend_Report->text_domain ) ) ?>",
+										label: "<?php echo esc_js( __( 'Number of Transactions', 'wcmp-vendor_frontend_report' ) ) ?>",
 										data: order_data.total_transaction_count,
 										color: '<?php echo $chart_colours['total_transaction_count']; ?>',
 										bars: { fillColor: '<?php echo $chart_colours['total_transaction_count']; ?>', fill: true, show: true, lineWidth: 0, barWidth: <?php echo $barwidth; ?> * 0.5, align: 'center' },
@@ -193,7 +193,7 @@ class WCMP_Vendor_Report_Shortcode_Transaction_Overview {
 									
 									
 									{
-										label: "<?php echo esc_js( __( 'Total transaction Amount', $WCMp_Vendor_Frontend_Report->text_domain ) ) ?>",
+										label: "<?php echo esc_js( __( 'Total transaction Amount', 'wcmp-vendor_frontend_report' ) ) ?>",
 										data: order_data.total_transaction_amount,
 										yaxis: 2,
 										color: '<?php echo $chart_colours['total_transaction_amount']; ?>',
@@ -204,7 +204,7 @@ class WCMP_Vendor_Report_Shortcode_Transaction_Overview {
 									},	
 									
 									{
-										label: "<?php echo esc_js( __( 'Average transaction Amount', $WCMp_Vendor_Frontend_Report->text_domain ) ) ?>",
+										label: "<?php echo esc_js( __( 'Average transaction Amount', 'wcmp-vendor_frontend_report' ) ) ?>",
 										data: order_data.total_avg_transactions ,
 										yaxis: 2,
 										color: '<?php echo $chart_colours['total_avg_transactions']; ?>',
@@ -215,7 +215,7 @@ class WCMP_Vendor_Report_Shortcode_Transaction_Overview {
 									},
 									
 									{
-										label: "<?php echo esc_js( __( 'Total Transfer Charge', $WCMp_Vendor_Frontend_Report->text_domain ) ) ?>",
+										label: "<?php echo esc_js( __( 'Total Transfer Charge', 'wcmp-vendor_frontend_report' ) ) ?>",
 										data: order_data.total_transfer_charge,
 										yaxis: 2,
 										color: '<?php echo $chart_colours['total_transfer_charge']; ?>',

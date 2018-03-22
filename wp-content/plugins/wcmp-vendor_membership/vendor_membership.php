@@ -5,7 +5,7 @@
  * Plugin URI: https://wc-marketplace.com
  * Description: Create unlimited numbers of vendor levels and control their accessibilities and capabilities on your site.
  * Author: WC Marketplace
- * Version: 1.0.9
+ * Version: 1.1.0
  * Author URI: https://wc-marketplace.com
  * 
  * Text Domain: wcmp-vendor_membership

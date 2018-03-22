@@ -6,11 +6,11 @@ global $wpdb, $WCMp_Vendor_Frontend_Report, $WCMp, $woocommerce, $wp_locale;
 <table class="low_in_stock_report">
 	<thead>
 		<tr>
-			<th scope="col" id="product" class="manage-column column-product column-primary"><?php _e( 'Product', $WCMp_Vendor_Frontend_Report->text_domain ); ?></th>
-			<th scope="col" id="parent" class="manage-column column-parent"><?php _e( 'Parent', $WCMp_Vendor_Frontend_Report->text_domain ); ?></th>
-			<th scope="col" id="stock_status" class="manage-column column-stock_status"><?php _e( 'Stock status', $WCMp_Vendor_Frontend_Report->text_domain ); ?></th>
-			<th scope="col" id="stock_level" class="manage-column column-stock_level"><?php _e( 'Units in stock', $WCMp_Vendor_Frontend_Report->text_domain ); ?></th>
-			<th scope="col" id="wc_actions" class="manage-column column-wc_actions"><?php _e( 'Actions', $WCMp_Vendor_Frontend_Report->text_domain ); ?></th>	
+			<th scope="col" id="product" class="manage-column column-product column-primary"><?php _e( 'Product', 'wcmp-vendor_frontend_report' ); ?></th>
+			<th scope="col" id="parent" class="manage-column column-parent"><?php _e( 'Parent', 'wcmp-vendor_frontend_report' ); ?></th>
+			<th scope="col" id="stock_status" class="manage-column column-stock_status"><?php _e( 'Stock status', 'wcmp-vendor_frontend_report' ); ?></th>
+			<th scope="col" id="stock_level" class="manage-column column-stock_level"><?php _e( 'Units in stock', 'wcmp-vendor_frontend_report' ); ?></th>
+			<th scope="col" id="wc_actions" class="manage-column column-wc_actions"><?php _e( 'Actions', 'wcmp-vendor_frontend_report' ); ?></th>	
 		</tr>
 	</thead>
 	<tbody id="the-list" data-wp-lists="list:stock">
@@ -21,7 +21,7 @@ global $wpdb, $WCMp_Vendor_Frontend_Report, $WCMp, $woocommerce, $wp_locale;
 </table>
 <div>
 	<?php if($show_more_button) { ?>
-		<input type="button" style="float: right;"  class="all_new_btn" id="more_low_in_stock" data-show="<?php echo $current_page;?>" value="<?php _e( 'More Products', $WCMp_Vendor_Frontend_Report->text_domain ); ?>"/>
+		<input type="button" style="float: right;"  class="all_new_btn" id="more_low_in_stock" data-show="<?php echo $current_page;?>" value="<?php _e( 'More Products', 'wcmp-vendor_frontend_report' ); ?>"/>
 	<?php } ?>
 	<div style="clear: both;"></div>
 </div>

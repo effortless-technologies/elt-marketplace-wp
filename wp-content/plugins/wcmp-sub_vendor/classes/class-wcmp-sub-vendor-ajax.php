@@ -14,6 +14,8 @@ class WCMP_Sub_Vendor_Ajax {
     }
 
     public function add_sub_vendor_action_calback() {
+    	global $WCMP_Sub_Vendor, $WCMp;
+    	
         $sub_vendor_username = $_POST['sub_vendor_username'];
         $sub_vendor_email = $_POST['sub_vendor_email'];
         $sub_vendor_fname = $_POST['sub_vendor_fname'];
@@ -29,51 +31,41 @@ class WCMP_Sub_Vendor_Ajax {
             'user_pass' => $sub_vendor_password
         );
 
-        if (!empty($sub_vendor_username) && !empty($sub_vendor_username)) {
+        if (!empty($sub_vendor_username) && !empty($sub_vendor_email)) {
             $user_id = username_exists($sub_vendor_username);
-            if (!$user_id and email_exists($sub_vendor_email) == false) {
-
+            if (!$user_id && email_exists($sub_vendor_email) == false) {
                 $current_vendor = wp_get_current_user();
+                $capability_list = $WCMp->vendor_caps->get_vendor_caps();
+				if(isset($capability_list) && is_array($capability_list)) {
+					$sub_vendor = new WCMP_Sub_Vendor_Menu();
+					$field_list = $sub_vendor->get_capability_mapping($capability_list);
+				}
                 $user_id = wp_insert_user($userdata);
                 add_user_meta($user_id, '_report_vendor', $current_vendor->ID);
+                $current_vendor_term_id = get_user_meta($current_vendor->ID, '_vendor_term_id', true);
+                add_user_meta($user_id, '_vendor_term_id', $current_vendor_term_id);
+                
                 $user_id_role = new WP_User($user_id);
                 $user_id_role->set_role('dc_sub_vendor');
                 foreach ($sub_vendor_capabilities as $key => $value) {
-                    if ($value == 'manage_product') {
-
-                        $user_id_role->add_cap('manage_product');
-                        $user_id_role->add_cap('edit_product');
-                        $user_id_role->add_cap('delete_product');
-                        $user_id_role->add_cap('edit_products');
-                        $user_id_role->add_cap('edit_others_products');
-                        $user_id_role->add_cap('delete_published_products');
-                        $user_id_role->add_cap('delete_products');
-                        $user_id_role->add_cap('delete_others_products');
-                        $user_id_role->add_cap('edit_published_products');
-                        $user_id_role->add_cap('upload_files');
-                        $user_id_role->add_cap('assign_product_terms');
-                        add_user_meta($user_id, '_vendor_submit_product', 'Enable');
-                    }
-                    if ($value == 'manage_reports') {
-                        $user_id_role->add_cap('view_woocommerce_reports');
-                    }
-                    if ($value == 'manage_order') {
-                        $user_id_role->add_cap('manage_woocommerce_orders');
-                    }
-                    if ($value == 'manage_payment') {
-                        $user_id_role->add_cap('manage_payment');
-                    }
+                	foreach($field_list[$value]['caps'] as $caps) {
+                		$user_id_role->add_cap($caps);
+                	} 
                 }
-                echo "success";
+                echo "success::" . $user_id;
             } else {
                 echo "error";
             }
+        } else {
+        	echo "required_missing";
         }
 
         die;
     }
 
     public function edit_sub_vendor_action_callback() {
+    	global $WCMP_Sub_Vendor, $WCMp;
+    	
         $sub_vendor_username = $_POST['edited_sub_vendor_username'];
         $sub_vendor_email = $_POST['edited_sub_vendor_email'];
         $sub_vendor_fname = $_POST['edited_sub_vendor_fname'];
@@ -82,80 +74,79 @@ class WCMP_Sub_Vendor_Ajax {
         $sub_vendor_capabilities = $_POST['edited_sub_vendor_capabilities'];
         $sub_vendor = get_user_by('login', $sub_vendor_username);
         $sub_vendor_existing_email = $sub_vendor->user_email;
+        $current_vendor = wp_get_current_user();
+        if(!in_array('dc_sub_vendor', $sub_vendor->roles)) {
+        	echo "permission_error";
+        	die();
+        }
+        
+        if(get_user_meta($sub_vendor->ID, '_report_vendor', true) != $current_vendor->ID) {
+        	echo "permission_error";
+        	die();
+        }
 
-        if ($sub_vendor_existing_email == $sub_vendor_email) {
+        if ($sub_vendor_existing_email == $sub_vendor_email) {                                          
             $display_name = $sub_vendor_fname . ' ' . $sub_vendor_lname;
             $userdata = array(
                 'ID' => $sub_vendor->ID,
                 'first_name' => $sub_vendor_fname,
                 'last_name' => $sub_vendor_lname,
                 'user_email' => $sub_vendor_email,
-                'user_pass' => $sub_vendor_password,
                 'display_name' => $display_name
             );
-            $user_id = wp_update_user($userdata);
+            if(isset($sub_vendor_password) && $sub_vendor_password != "") $userdata['user_pass'] = $sub_vendor_password;
+            
+            wp_update_user($userdata);
             $user_id_cap = new WP_User($sub_vendor->ID);
 
-            $user_id_cap->remove_cap('manage_product');
-            delete_user_meta($user_id, '_vendor_submit_product', 'Enable');
-            $user_id_cap->remove_cap('edit_product');
-            $user_id_cap->remove_cap('delete_products');
-            $user_id_cap->remove_cap('delete_product');
-            $user_id_cap->remove_cap('edit_products');
-            $user_id_cap->remove_cap('edit_others_products');
-            $user_id_cap->remove_cap('delete_published_products');
-            $user_id_cap->remove_cap('delete_others_products');
-            $user_id_cap->remove_cap('edit_published_products');
-            $user_id_cap->remove_cap('upload_files');
-            $user_id_cap->remove_cap('assign_product_terms');
-
-            $user_id_cap->remove_cap('view_woocommerce_reports');
-            $user_id_cap->remove_cap('manage_payment');
-
-            $user_id_cap->remove_cap('manage_woocommerce_orders');
-
-            foreach ($sub_vendor_capabilities as $key => $value) {
-
-                if ($value == 'manage_product') {
-                    $user_id_cap->add_cap('manage_product');
-                    $user_id_cap->add_cap('edit_product');
-                    $user_id_cap->add_cap('delete_product');
-                    $user_id_cap->add_cap('edit_products');
-                    $user_id_cap->add_cap('edit_others_products');
-                    $user_id_cap->add_cap('delete_published_products');
-                    $user_id_cap->add_cap('delete_products');
-                    $user_id_cap->add_cap('delete_others_products');
-                    $user_id_cap->add_cap('edit_published_products');
-                    $user_id_cap->add_cap('upload_files');
-                    $user_id_cap->add_cap('assign_product_terms');
-                    add_user_meta($user_id, '_vendor_submit_product', 'Enable');
-                }
-                if ($value == 'manage_reports') {
-                    $user_id_cap->add_cap('view_woocommerce_reports');
-                }
-                if ($value == 'manage_order') {
-                    $user_id_cap->add_cap('manage_woocommerce_orders');
-                }
-                if ($value == 'manage_payment') {
-                    $user_id_cap->add_cap('manage_payment');
-                }
-            }
-
+            $capability_list = $WCMp->vendor_caps->get_vendor_caps();
+			if(isset($capability_list) && is_array($capability_list)) {
+				$sub_vendor = new WCMP_Sub_Vendor_Menu();
+				$field_list = $sub_vendor->get_capability_mapping($capability_list);
+			}
+			foreach($field_list as $key => $value) {
+				foreach($value['caps'] as $caps) {
+					$user_id_cap->remove_cap($caps);
+				} 
+			}
+			
+			foreach($sub_vendor_capabilities as $key => $value) {
+				foreach($field_list[$value]['caps'] as $caps) {
+					$user_id_cap->add_cap($caps);
+				} 
+			}
             echo "success";
         } else {
             if (email_exists($sub_vendor_email) == false) {
+            	$display_name = $sub_vendor_fname . ' ' . $sub_vendor_lname;
                 $userdata = array(
                     'ID' => $sub_vendor->ID,
                     'first_name' => $sub_vendor_fname,
                     'last_name' => $sub_vendor_lname,
                     'user_email' => $sub_vendor_email,
-                    'user_pass' => $sub_vendor_password
+                    'display_name' => $display_name
                 );
+                if(isset($sub_vendor_password) && $sub_vendor_password != "") $userdata['user_pass'] = $sub_vendor_password;
+            
                 $user_id = wp_update_user($userdata);
                 $user_id_cap = new WP_User($sub_vendor->ID);
-                foreach ($sub_vendor_capabilities as $key => $value) {
-                    $user_id_cap->add_cap($value);
-                }
+                
+                $capability_list = $WCMp->vendor_caps->get_vendor_caps();
+				if(isset($capability_list) && is_array($capability_list)) {
+					$sub_vendor = new WCMP_Sub_Vendor_Menu();
+					$field_list = $sub_vendor->get_capability_mapping($capability_list);
+				}
+				foreach($field_list as $key => $value) {
+					foreach($value['caps'] as $caps) {
+						$user_id_cap->remove_cap($caps);
+					} 
+				}
+				
+				foreach($sub_vendor_capabilities as $key => $value) {
+					foreach($field_list[$value]['caps'] as $caps) {
+						$user_id_cap->add_cap($caps);
+					} 
+				}
                 echo "success";
             } else {
                 echo "error";

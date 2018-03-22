@@ -36,7 +36,7 @@ class WCMp_Vendor_Stock_Alert {
 		$this->text_domain = WCMP_VENDOR_STOCK_ALERT_TEXT_DOMAIN;
 		$this->version = WCMP_VENDOR_STOCK_ALERT_PLUGIN_VERSION;
 		// get wcmp product capabilities settings
-		$this->wcmp_capabilities = get_wcmp_vendor_settings( 'wcmp_capabilities_product_settings_name' );
+		$this->wcmp_capabilities = get_wcmp_global_settings();
 		
 		add_action('wcmp_init', array(&$this, 'init'));
 		
@@ -59,9 +59,9 @@ class WCMp_Vendor_Stock_Alert {
 
 		// Init ajax
 		if(defined('DOING_AJAX')) {
-      $this->load_class('ajax');
-      $this->ajax = new  WCMp_Vendor_Stock_Alert_Ajax();
-    }
+                    $this->load_class('ajax');
+                    $this->ajax = new  WCMp_Vendor_Stock_Alert_Ajax();
+                  }
 
 		if (is_admin()) {
 			$this->load_class('admin');

@@ -1,13 +1,11 @@
 === WC Marketplace ===
-Contributors: Dualcube, greyparrots, arimghosh, dualcube_subrata, purnendu, itzmekhokan
+Contributors: Dualcube, greyparrots, arimghosh, purnendu, itzmekhokan
 Tags: multi vendor marketplace, woocommerce multivendor marketplace, multi seller store, product vendors, best marketplace plugin, multi seller, one product multi seller, woocommerce vendors, ebay, etsy, amazon, commission rate
 Donate link: https://wc-marketplace.com/donate
 Requires at least: 4.0
-Tested up to: 4.8
-WC requires at least: 3.0
-WC tested up to: 3.2.0
+Tested up to: 4.9.4
 Requires PHP: 5.6
-Stable tag: 2.7.8
+Stable tag: 3.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,8 +14,14 @@ WC Marketplace - The most user recommended multivendor marketplace plugin for Wo
 == Description ==
 <strong>WCMp:</strong> Welcome, this is Riley, your WCMp virtual guide. I'm here to help you know better about WC Marketplace as plugin and as [organization](https://wc-marketplace.com/). In it's core, WCMp is a WooCommerce based multi vendor solution engineered to address all your marketplace needs. Try and fall in love with WCMp, yes it's that simple ☺
 
-> <strong>Critical update notice 2.6 (minimum requirement WooCommerce 3.0) -</strong>
-> A lot has changed in the admin dashboard. Now everything you need, gets one step closer. [Learn more](https://wc-marketplace.com/wc-marketplace-2-6/).
+> <strong>WC Marketplace 3.0 is a significantly major update and hence please follow some [standard steps](https://wc-marketplace.com/wcmp-3-0/?utm_source=WordPress&utm_medium=plugin_desc&utm_campaign=update_notice) before upgrading your marketplace to avoid any undesirable situations.</strong>
+
+= Highlights of WC Marketplace 3.0: =
+- Intuitive design focusing on user engagement and user experience.
+- A delight for the marketplace owners’ with improved setting panels; now you can setup your marketplace within minutes!
+- Vendors will fall in love with your marketplace. With all the new store insights at their disposal, they can drive more sales than ever.
+- Designed with developers in mind. Just dive in and you will find a hook for your development purpose.
+- Built-in support for simple products within vendor frontend, earlier premium feature.
 
 <strong>You:</strong> [In your mind - "Ahem. Really?"] All plugin makers say that. What makes you different from others?
 
@@ -49,7 +53,7 @@ WC Marketplace - The most user recommended multivendor marketplace plugin for Wo
 >
 > Our most popular addons
 >
-> - [Frontend Manager](https://wc-marketplace.com/product/wcmp-frontend-product-manager)
+> - [Advanced Frontend Manager](https://wc-marketplace.com/product/wcmp-frontend-product-manager)
 > - [Vendor Membership](https://wc-marketplace.com/product/wcmp-vendor-membership/)
 > - [Add-ons Bundle](https://wc-marketplace.com/wcmp-bundle/)
 
@@ -86,33 +90,74 @@ Ans. Yes, this plugin works fine with WordPress 4.6! It is also compatible for o
 = Up to which version of WooCommerce this plugin compatible with? =
 Ans. This plugin is compatible with the latest version of WooCommerce.
 = Up to which version of PHP this plugin is compatible with? =
-Ans. This plugin is tested with PHP version 5.5.
+Ans. This plugin is tested with PHP version 5.6.
 
 
 
 
 == Screenshots ==
-1. General settings: `Default commission` and other general configurables.
-2. Vendor dashboard endpoints settings.
-3. Vendor product capability settings.
-4. Frontend settings.
-5. Vendor order capability settings.
-6. Other capabilities settings.
+1. Vendor Dashboard.
+2. General settings.
+3. Vendor front-end settings.
+4. Payment settings.
+5. Capability settings.
+6. Vendor storefront settings.
 7. Vendor commissions.
-8. Admin can change vendors and set rate of commission from `Edit Product`.
-9. Vendor sales reports.
-10. Product specific sales report.
-11. Vendor dashboard.
-12. Vendor shop settings.
-13. Vendor can see their total sales report.
-14. Vendor's orders page.
-15. Customers can report abuse products.
-16. Show Multiple Seller in Single Product.
+8. Vendor sales reports.
+9. Product specific sales report.
+10. Customers can report abuse products.
+11. Show Multiple Seller in Single Product.
 
 
 
 
 == Changelog ==
+
+= 3.0.4 - 2018-03-21 =
+* Enhancement: - Product questions and answers section.
+* Enhancement: - Vendor show all Q&As section.
+* Fix - Email settings issue.
+* Fix - Frontend tinymce issue.
+* Updated - Language file.
+
+= 3.0.3 - 2018-03-08 =
+* Fix - Vendor assign from backend.
+* Fix - Commission export issue.
+* Tweak - Single product multiple vendor logic.
+* Tweak - Bootstrap JS load in vendor dashboard.
+* Updated - Language file.
+
+
+= 3.0.2 - 2018-02-27 =
+* New: Admin can regenerate order commission from order page.
+* Fix: Vendor Timezone issue.
+* Fix: Vendor list widget image resize issue.
+* Updated: Language file.
+
+= 3.0.1 - 2018-02-20 = 
+* New: All new vendor dashboard with premade widgets of actionable store insights.
+* New: Vendor store location widget.
+* New: WCMp icon font introduced for vendor frontend.
+* New: Product based Questions & Answers feature.
+* New: Admin can send weekly monthly sales report to vendor via email.
+* New: Product category wise commission introduced.
+* New: Commission transaction status logged as commission note.
+* New: Admin now gets an approve/reject vendor link in the vender registration email.
+* New: Clean slate uninstallation! Now removed WCMp's all database tables and options, no leftovers, if 'WCMP_REMOVE_ALL_DATA' set true.
+* New: WooCommerce subscription support added.
+* New: Payment gateway 'Fixed Amount' charges added.
+* UI: Easy to use admin settings panel.
+* UI: WordPress like color scheme for vendor frontend.
+* Enhancement: Vendors can now add simple products from frontend.
+* Enhancement: Vendors can now add/manage coupons from frontend.
+* Enhancement: WP Editor supports added in vendor frontend.
+* Enhancement: Single product multiple vendor support added in vendor frontend.
+* Enhancement: Vendor registration form now supports various store settings fields.
+* Tweak: WCMp images store process change to id instead of url.
+* Fixed: Product duplication title.
+* Fixed: Vendor assign on products bulk edit.
+* Fixed: Shortcode 'wcmp_products'.
+* Updated: Language file.
 
 = 2.7.8 = 
 * Added: Google Map API key to store location widget
@@ -306,5 +351,5 @@ Ans. This plugin is tested with PHP version 5.5.
 
 == Upgrade Notice ==
 
-= 2.7.8 =
-2.7 is compatible with WooCommerce 3.0 or later. It is important to test in staging before update.
+= 3.0.4 =
+WC Marketplace 3.0 is a significantly major update and hence please follow some standard steps(staging to live) before upgrading your marketplace to avoid any undesirable situations.

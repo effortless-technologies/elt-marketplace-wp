@@ -1,0 +1,482 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-02-20 06:45+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco - https://localise.biz/"
+
+#: classes/class-wcmp-sub-vendor-license.php:142
+#: classes/class-wcmp-sub-vendor-menu.php:20
+#: classes/class-wcmp-sub-vendor-menu.php:21
+#: classes/class-wcmp-sub-vendor-menu.php:34
+#: classes/class-wcmp-sub-vendor-menu.php:54
+msgid "Vendor Staff"
+msgstr ""
+
+#: classes/class-wcmp-sub-vendor-license.php:320
+#, php-format
+msgid ""
+"The Vendor Staff License Key has not been activated, so the plugin is "
+"inactive! %sClick here%s to activate the license key and the plugin."
+msgstr ""
+
+#: classes/class-wcmp-sub-vendor-menu.php:33
+msgid "sub-vendors_page"
+msgstr ""
+
+#: classes/class-wcmp-sub-vendor-menu.php:80
+#: classes/class-wcmp-sub-vendor-frontend.php:163
+msgid ""
+"You don't have sufficient permission to edit this staff. Please contact "
+"Administratior for further clarification."
+msgstr ""
+
+#: classes/class-wcmp-sub-vendor-menu.php:83
+#: classes/class-wcmp-sub-vendor-frontend.php:176
+msgid "Edit Vendor Staff"
+msgstr ""
+
+#: classes/class-wcmp-sub-vendor-menu.php:90
+#: classes/class-wcmp-sub-vendor-menu.php:164
+msgid "Username"
+msgstr ""
+
+#: classes/class-wcmp-sub-vendor-menu.php:94
+#: classes/class-wcmp-sub-vendor-menu.php:168
+#: classes/class-wcmp-sub-vendor-frontend.php:277
+msgid "Email"
+msgstr ""
+
+#: classes/class-wcmp-sub-vendor-menu.php:98
+#: classes/class-wcmp-sub-vendor-menu.php:172
+msgid "First Name "
+msgstr ""
+
+#: classes/class-wcmp-sub-vendor-menu.php:102
+#: classes/class-wcmp-sub-vendor-menu.php:176
+msgid "Last Name "
+msgstr ""
+
+#: classes/class-wcmp-sub-vendor-menu.php:106
+msgid "New Password "
+msgstr ""
+
+#: classes/class-wcmp-sub-vendor-menu.php:111
+msgid "Assign capabilities"
+msgstr ""
+
+#: classes/class-wcmp-sub-vendor-menu.php:142
+msgid "Delete Staff"
+msgstr ""
+
+#: classes/class-wcmp-sub-vendor-menu.php:144
+msgid "You have specified this Staff for deletion:"
+msgstr ""
+
+#: classes/class-wcmp-sub-vendor-menu.php:180
+msgid "Password "
+msgstr ""
+
+#: classes/class-wcmp-sub-vendor-menu.php:213
+msgid "Manage Reports"
+msgstr ""
+
+#: classes/class-wcmp-sub-vendor-menu.php:219
+msgid "Manage Orders"
+msgstr ""
+
+#: classes/class-wcmp-sub-vendor-menu.php:225
+msgid "Manage Payment"
+msgstr ""
+
+#: classes/class-wcmp-sub-vendor-menu.php:234
+msgid "Upload Media Files"
+msgstr ""
+
+#: classes/class-wcmp-sub-vendor-menu.php:240
+msgid "Assign Product Category"
+msgstr ""
+
+#: classes/class-wcmp-sub-vendor-menu.php:249
+msgid "Submit Products"
+msgstr ""
+
+#: classes/class-wcmp-sub-vendor-menu.php:255
+msgid "Publish Products"
+msgstr ""
+
+#: classes/class-wcmp-sub-vendor-menu.php:262
+msgid "Edit Delete Publish Products"
+msgstr ""
+
+#: classes/class-wcmp-sub-vendor-menu.php:271
+msgid "Submit Coupons"
+msgstr ""
+
+#: classes/class-wcmp-sub-vendor-menu.php:277
+msgid "Publish Coupons"
+msgstr ""
+
+#: classes/class-wcmp-sub-vendor-menu.php:283
+msgid "Edit Publish Coupons"
+msgstr ""
+
+#: classes/class-wcmp-sub-vendor-menu.php:289
+msgid "Delete Publish Coupons"
+msgstr ""
+
+#: classes/class-wcmp-sub-vendor-admin.php:52
+msgid "Powered by"
+msgstr ""
+
+#: classes/class-wcmp-sub-vendor-admin.php:52
+msgid "Dualcube"
+msgstr ""
+
+#: classes/class-wcmp-sub-vendor-frontend.php:135
+msgid "Staff Management"
+msgstr ""
+
+#: classes/class-wcmp-sub-vendor-frontend.php:137
+msgid "Add / Edit Staff"
+msgstr ""
+
+#: classes/class-wcmp-sub-vendor-frontend.php:139
+msgid "Staff "
+msgstr ""
+
+#: classes/class-wcmp-sub-vendor-frontend.php:141
+msgid "Manage Staff"
+msgstr ""
+
+#: classes/class-wcmp-sub-vendor-frontend.php:178
+msgid "Add Vendor Staff"
+msgstr ""
+
+#: classes/class-wcmp-sub-vendor-frontend.php:186
+msgid "User Name *"
+msgstr ""
+
+#: classes/class-wcmp-sub-vendor-frontend.php:188
+msgid "Enter your Staff User Name here"
+msgstr ""
+
+#: classes/class-wcmp-sub-vendor-frontend.php:194
+msgid "Email *"
+msgstr ""
+
+#: classes/class-wcmp-sub-vendor-frontend.php:196
+msgid "Enter your Staff Email here"
+msgstr ""
+
+#: classes/class-wcmp-sub-vendor-frontend.php:201
+msgid "First Name"
+msgstr ""
+
+#: classes/class-wcmp-sub-vendor-frontend.php:203
+msgid "Enter your Staff First Name here"
+msgstr ""
+
+#: classes/class-wcmp-sub-vendor-frontend.php:208
+msgid "Last Name"
+msgstr ""
+
+#: classes/class-wcmp-sub-vendor-frontend.php:210
+msgid "Enter your Staff Last Name here"
+msgstr ""
+
+#: classes/class-wcmp-sub-vendor-frontend.php:215
+msgid "New Password *"
+msgstr ""
+
+#: classes/class-wcmp-sub-vendor-frontend.php:217
+msgid "Enter your Staff Password here"
+msgstr ""
+
+#: classes/class-wcmp-sub-vendor-frontend.php:223
+msgid "Assign Capabilities"
+msgstr ""
+
+#: classes/class-wcmp-sub-vendor-frontend.php:251
+msgid "* This field is required, you must fill some information."
+msgstr ""
+
+#: classes/class-wcmp-sub-vendor-frontend.php:253
+msgid "Update Staff"
+msgstr ""
+
+#: classes/class-wcmp-sub-vendor-frontend.php:253
+msgid "Add Staff"
+msgstr ""
+
+#: classes/class-wcmp-sub-vendor-frontend.php:277
+msgid "Staff Name"
+msgstr ""
+
+#: classes/class-wcmp-sub-vendor-frontend.php:277
+msgid "Action"
+msgstr ""
+
+#: classes/class-wcmp-sub-vendor-frontend.php:282
+msgid "Edit"
+msgstr ""
+
+#: classes/class-wcmp-sub-vendor-frontend.php:283
+msgid "Delete"
+msgstr ""
+
+#: admin/class-wcmp-sub-vendor-settings-wcmp_sub_vendor_general.php:28
+msgid "Demo Default Settings"
+msgstr ""
+
+#: admin/class-wcmp-sub-vendor-settings-wcmp_sub_vendor_general.php:30
+msgid "ID Number"
+msgstr ""
+
+#: admin/class-wcmp-sub-vendor-settings-wcmp_sub_vendor_general.php:30
+msgid "Enter your ID Number here."
+msgstr ""
+
+#: admin/class-wcmp-sub-vendor-settings-wcmp_sub_vendor_general.php:30
+msgid "It will represent your identification."
+msgstr ""
+
+#: admin/class-wcmp-sub-vendor-settings-wcmp_sub_vendor_general.php:31
+msgid "About"
+msgstr ""
+
+#: admin/class-wcmp-sub-vendor-settings-wcmp_sub_vendor_general.php:31
+msgid "About you"
+msgstr ""
+
+#: admin/class-wcmp-sub-vendor-settings-wcmp_sub_vendor_general.php:31
+msgid "It will represent your significant."
+msgstr ""
+
+#: admin/class-wcmp-sub-vendor-settings-wcmp_sub_vendor_general.php:32
+msgid "Bio"
+msgstr ""
+
+#: admin/class-wcmp-sub-vendor-settings-wcmp_sub_vendor_general.php:33
+msgid "Enable"
+msgstr ""
+
+#: admin/class-wcmp-sub-vendor-settings-wcmp_sub_vendor_general.php:34
+msgid "Off Day"
+msgstr ""
+
+#: admin/class-wcmp-sub-vendor-settings-wcmp_sub_vendor_general.php:34
+msgid "Choose your preferred week offday."
+msgstr ""
+
+#: admin/class-wcmp-sub-vendor-settings-wcmp_sub_vendor_general.php:34
+msgid "By default Saterday will be offday."
+msgstr ""
+
+#: admin/class-wcmp-sub-vendor-settings-wcmp_sub_vendor_general.php:35
+msgid "Preference"
+msgstr ""
+
+#: admin/class-wcmp-sub-vendor-settings-wcmp_sub_vendor_general.php:35
+msgid "Choose your preferred occurence count."
+msgstr ""
+
+#: admin/class-wcmp-sub-vendor-settings-wcmp_sub_vendor_general.php:36
+msgid "Logo"
+msgstr ""
+
+#: admin/class-wcmp-sub-vendor-settings-wcmp_sub_vendor_general.php:36
+msgid "Your presentation."
+msgstr ""
+
+#: admin/class-wcmp-sub-vendor-settings-wcmp_sub_vendor_general.php:36
+msgid "Represent your graphical signature."
+msgstr ""
+
+#: admin/class-wcmp-sub-vendor-settings-wcmp_sub_vendor_general.php:37
+msgid "Choose Color"
+msgstr ""
+
+#: admin/class-wcmp-sub-vendor-settings-wcmp_sub_vendor_general.php:37
+msgid "Choose your color here."
+msgstr ""
+
+#: admin/class-wcmp-sub-vendor-settings-wcmp_sub_vendor_general.php:37
+msgid "This lets you choose your desired color."
+msgstr ""
+
+#: admin/class-wcmp-sub-vendor-settings-wcmp_sub_vendor_general.php:38
+msgid "Choose DOB"
+msgstr ""
+
+#: admin/class-wcmp-sub-vendor-settings-wcmp_sub_vendor_general.php:38
+msgid "Choose your DOB here"
+msgstr ""
+
+#: admin/class-wcmp-sub-vendor-settings-wcmp_sub_vendor_general.php:38
+msgid "This lets you choose your date of birth."
+msgstr ""
+
+#: admin/class-wcmp-sub-vendor-settings-wcmp_sub_vendor_general.php:39
+msgid "Slider"
+msgstr ""
+
+#: admin/class-wcmp-sub-vendor-settings-wcmp_sub_vendor_general.php:40
+msgid "Title"
+msgstr ""
+
+#: admin/class-wcmp-sub-vendor-settings-wcmp_sub_vendor_general.php:41
+msgid "Content"
+msgstr ""
+
+#: admin/class-wcmp-sub-vendor-settings-wcmp_sub_vendor_general.php:42
+msgid "Image"
+msgstr ""
+
+#: admin/class-wcmp-sub-vendor-settings-wcmp_sub_vendor_general.php:43
+msgid "URL"
+msgstr ""
+
+#: admin/class-wcmp-sub-vendor-settings-wcmp_sub_vendor_general.php:44
+msgid "Published ON"
+msgstr ""
+
+#: admin/class-wcmp-sub-vendor-settings-wcmp_sub_vendor_general.php:44
+msgid "Published Date"
+msgstr ""
+
+#: admin/class-wcmp-sub-vendor-settings-wcmp_sub_vendor_general.php:50
+#: admin/class-wcmp-sub-vendor-settings-wcmp_sub_vendor_general.php:50
+msgid "Location"
+msgstr ""
+
+#: admin/class-wcmp-sub-vendor-settings-wcmp_sub_vendor_general.php:51
+#: admin/class-wcmp-sub-vendor-settings-wcmp_sub_vendor_general.php:51
+msgid "Role"
+msgstr ""
+
+#: admin/class-wcmp-sub-vendor-settings-wcmp_sub_vendor_general.php:80
+msgid "Item ID should be an intiger."
+msgstr ""
+
+#: admin/class-wcmp-sub-vendor-settings-wcmp_sub_vendor_general.php:101
+msgid "Please upload your unique logo."
+msgstr ""
+
+#: admin/class-wcmp-sub-vendor-settings-wcmp_sub_vendor_general.php:129
+msgid "General settings updated"
+msgstr ""
+
+#: admin/class-wcmp-sub-vendor-settings-wcmp_sub_vendor_general.php:142
+msgid "Enter your default settings below"
+msgstr ""
+
+#: admin/class-wcmp-sub-vendor-settings-wcmp_sub_vendor_general.php:150
+msgid "Enter your custom settings below"
+msgstr ""
+
+#: admin/class-wcmp-sub-vendor-settings.php:27
+#: admin/class-wcmp-sub-vendor-settings.php:28
+msgid "Sub Vendor Settings"
+msgstr ""
+
+#: admin/class-wcmp-sub-vendor-settings.php:41
+msgid "Sub Vendor General"
+msgstr ""
+
+#: templates/dc-product-vendor/vendor-dashboard/dashboard.php:21
+msgid "<h4>Welcome to Staff Dashboard!</h4>"
+msgstr ""
+
+#: classes/license/admin/class-wcmp-sub-vendor-settings-license.php:51
+msgid "License Activation"
+msgstr ""
+
+#: classes/license/admin/class-wcmp-sub-vendor-settings-license.php:52
+msgid "API License Key"
+msgstr ""
+
+#: classes/license/admin/class-wcmp-sub-vendor-settings-license.php:53
+msgid "API License email"
+msgstr ""
+
+#: classes/license/admin/class-wcmp-sub-vendor-settings-license.php:56
+msgid "License Deactivation"
+msgstr ""
+
+#: classes/license/admin/class-wcmp-sub-vendor-settings-license.php:57
+msgid "Deactivate API License Key"
+msgstr ""
+
+#: classes/license/admin/class-wcmp-sub-vendor-settings-license.php:57
+msgid "Deactivates an API License Key so it can be used on another blog."
+msgstr ""
+
+#: classes/license/admin/class-wcmp-sub-vendor-settings-license.php:88
+msgid "Please insert your license key."
+msgstr ""
+
+#: classes/license/admin/class-wcmp-sub-vendor-settings-license.php:95
+msgid "Please insert your license email."
+msgstr ""
+
+#: classes/license/admin/class-wcmp-sub-vendor-settings-license.php:122
+msgid "Plugin activated. "
+msgstr ""
+
+#: classes/license/admin/class-wcmp-sub-vendor-settings-license.php:130
+msgid "Connection failed to the License Key API server. Try again later."
+msgstr ""
+
+#: classes/license/admin/class-wcmp-sub-vendor-settings-license.php:194
+msgid "Plugin license deactivated."
+msgstr ""
+
+#: classes/license/admin/class-wcmp-sub-vendor-settings-license.php:218
+msgid ""
+"The license could not be deactivated. Use the License Deactivation tab to "
+"manually deactivate the license before activating a new license."
+msgstr ""
+
+#: classes/license/admin/class-wcmp-license.php:16
+#: classes/license/admin/class-wcmp-license.php:16
+msgid "WCMp License"
+msgstr ""
+
+#: classes/license/admin/class-wcmp-license.php:72
+#, php-format
+msgid "<h2>%s License</h2>"
+msgstr ""
+
+#: classes/license/admin/class-wcmp-license.php:79
+#, php-format
+msgid ""
+"<h4 style='border-bottom: 1px solid rgb(215, 211, 211);padding-bottom: 21px;"
+"'>%s</h4>"
+msgstr ""
+
+#. Name of the plugin
+msgid "WCMp Vendor Staff"
+msgstr ""
+
+#. Description of the plugin
+msgid "Vendors can assign staff to manage different departments of their shop."
+msgstr ""
+
+#. URI of the plugin
+#. Author URI of the plugin
+msgid "https://wc-marketplace.com/"
+msgstr ""
+
+#. Author of the plugin
+msgid "WC Marketplace, The Grey Parrots"
+msgstr ""

@@ -4,7 +4,7 @@
  * Plugin URI: http://wc-marketplace.com/product/wcmp-product-stock-alert/
  * Description: This plugin will alert vendors when a product is low in stock, or out of stock
  * Author: WC Marketplace, The Grey Parrots
- * Version: 1.0.5
+ * Version: 1.1.1
  * Author URI: https://wc-marketplace.com/
  * Text Domain: wcmp-vendor_stock_alert
  * Domain Path: /languages/

@@ -90,7 +90,7 @@ class WCMP_Vendor_Verification_License {
             $this->license_options = get_option($this->license_data_key);
             $this->license_plugin_name = 'wcmp-vendor-verification/wcmp-vendor-verification.php'; // same as plugin slug. if a theme use a theme name like 'twentyeleven'
             $this->license_product_id = get_option($this->license_product_id_key); // Software Title
-            $this->license_renew_license_url = WCMP_Vendor_Verification_PLUGIN_SERVER_URL . '/my-account'; // URL to renew a license
+            $this->license_renew_license_url = WCMP_VENDOR_VERIFICATION_PLUGIN_SERVER_URL . '/my-account'; // URL to renew a license
             $this->license_instance_id = get_option($this->license_instance_key); // Instance ID (unique to each blog activation)
             $this->license_domain = site_url(); // blog domain name
             $this->license_software_version = $WCMP_Vendor_Verification->version; // The software version

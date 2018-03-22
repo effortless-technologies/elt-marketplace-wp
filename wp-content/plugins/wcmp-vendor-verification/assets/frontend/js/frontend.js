@@ -44,7 +44,7 @@ jQuery(document).ready(function($){
 
 				if ( $statebox.is( 'input' ) ) {
 					// Change for select
-					$statebox.replaceWith( '<select name="' + input_name + '" id="' + input_id + '" class="state_select" data-placeholder="' + placeholder + '"></select>' );
+					$statebox.replaceWith( '<select name="' + input_name + '" id="' + input_id + '" class="state_select form-control regular-select" data-placeholder="' + placeholder + '"></select>' );
 					$statebox = $wrapper.find( '#vendor_verification_state' );
 				}
 
@@ -58,14 +58,14 @@ jQuery(document).ready(function($){
 			if ( $statebox.is( 'select' ) ) {
 
 				$parent.show().find( '.select2-container' ).remove();
-				$statebox.replaceWith( '<input type="text" class="input-text" name="' + input_name + '" id="' + input_id + '" placeholder="' + placeholder + '" />' );
+				$statebox.replaceWith( '<input type="text" class="form-control regular-text input-text" name="' + input_name + '" id="' + input_id + '" placeholder="' + placeholder + '" />' );
 
 				$( document.body ).trigger( 'country_to_state_changed', [country, $wrapper ] );
 
 			} else if ( $statebox.is( 'input[type="hidden"]' ) ) {
 
 				$parent.show().find( '.select2-container' ).remove();
-				$statebox.replaceWith( '<input type="text" class="input-text" name="' + input_name + '" id="' + input_id + '" placeholder="' + placeholder + '" />' );
+				$statebox.replaceWith( '<input type="text" class="form-control regular-text input-text" name="' + input_name + '" id="' + input_id + '" placeholder="' + placeholder + '" />' );
 
 				$( document.body ).trigger( 'country_to_state_changed', [country, $wrapper ] );
 

@@ -78,7 +78,7 @@ class WCMP_Vendor_Frontend_Report_Ajax {
 					</td></tr>';
 			}
 			
-			$vendor_title = sprintf(__( 'Sales and Earnings [ %s ]', $WCMp_Vendor_Frontend_Report->text_domain ), date('F j, Y', $start_date) .' - '. date('F j, Y', $end_date));
+			$vendor_title = sprintf(__( 'Sales and Earnings [ %s ]', 'wcmp-vendor_frontend_report' ), date('F j, Y', $start_date) .' - '. date('F j, Y', $end_date));
 			$month_title = __( 'Month', $WCMp->text_domain );
 			$vendor_earning_title = __( 'Sales Report', $WCMp->text_domain );
 			$gross_sales = __( 'Gross Sales', $WCMp->text_domain );

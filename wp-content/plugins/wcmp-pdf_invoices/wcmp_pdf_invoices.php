@@ -4,7 +4,7 @@
  * Plugin URI: https://wc-marketplace.com
  * Description: WCMp Vendor PDF Invoices
  * Author: WC Marketplace, The Grey Parrots
- * Version: 1.0.4
+ * Version: 1.1.1
  * Author URI: https://wc-marketplace.com
  * Requires at least: 4.2
  * Tested up to: 4.8

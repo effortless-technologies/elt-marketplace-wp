@@ -1,6 +1,4 @@
 <?php
-require_once ABSPATH . '/wp-content/plugins/woocommerce-pdf-invoices-packing-slips/includes/class-wcpdf-pdf-maker.php';
-use \WPO\WC\PDF_Invoices\PDF_Maker;
 class WCMp_PDF_Invoices_Frontend {
 
     public function __construct() {
@@ -33,8 +31,8 @@ class WCMp_PDF_Invoices_Frontend {
         $WCMp_PDF_Invoices->template->get_template($template . '.php', array('order' => $order, 'general_settings' => $general_settings, 'user_type' => 'admin', 'vendor' => ''));
         $ob_get_clean = ob_get_clean();
         if ($ob_get_clean) {
-            $abcd = new PDF_Maker($ob_get_clean,array());
-            file_put_contents($file_to_save, $abcd->output());
+            $pdf_maker = wcpdf_get_pdf_maker( $ob_get_clean,array() );
+            file_put_contents($file_to_save, $pdf_maker->output());
             $base_url = trailingslashit($upload_dir['baseurl']) . 'wcmp_pdf_invoice/' . $order_id;
             $base_path = $upload_dir['basedir'] . '/wcmp_pdf_invoice/' . $order_id;
             $file_url = $base_url . '/admin_' . $order_id . '.pdf';
@@ -59,8 +57,8 @@ class WCMp_PDF_Invoices_Frontend {
         $WCMp_PDF_Invoices->template->get_template('wcmp_packing_slip_first_template.php', array('order' => $order,  'order_id' => $order_id, 'user_type' => 'vendor','general_settings' => $general_settings));
         $ob_get_clean = ob_get_clean();
         if ($ob_get_clean) {
-             $abcd = new PDF_Maker($ob_get_clean,array());
-            file_put_contents($file_to_save, $abcd->output());
+            $pdf_maker = wcpdf_get_pdf_maker( $ob_get_clean,array() );
+            file_put_contents($file_to_save, $pdf_maker->output());
             $base_url = trailingslashit($upload_dir['baseurl']) . 'wcmp_pdf_invoice/' . $order_id;
             $base_path = $upload_dir['basedir'] . '/wcmp_pdf_invoice/' . $order_id;
             $file_url = $base_url . '/packing_slip_' . $order_id . '.pdf';
@@ -121,7 +119,7 @@ class WCMp_PDF_Invoices_Frontend {
 
         $actions['pdf_download'] = array(
             'url' => $get_vendor_pdf_url,
-            'img' => $WCMp_PDF_Invoices->plugin_url . 'assets/images/pdf.png',
+            'icon' => 'wcmp-font ico-pdf-icon',
             'title' => 'Download PDF Invoice',
         );
 
@@ -130,7 +128,7 @@ class WCMp_PDF_Invoices_Frontend {
             
             $actions['packing_slip_download'] = array(
                 'url' => $get_packing_slip_pdf_url,
-                'img' => $WCMp_PDF_Invoices->plugin_url.'assets/images/pdf.png',
+                'icon' => 'wcmp-font ico-pdf-icon',
                 'title' => 'Download Packing Slip Invoice',
             );
         }

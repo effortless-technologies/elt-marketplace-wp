@@ -1,17 +1,26 @@
 <?php
+/*
+ * The template for displaying vendor dashboard
+ * Override this template by copying it to yourtheme/wcmp-pdf-invoices/wcmp_pdf_invoice_fifth_template.php
+ *
+ * @author 	WC Marketplace
+ * @package 	WCMp PDF Invoices/Templates
+ * @version     1.0.5
+ */
+
 if ($user_type == 'vendor') {
     $vendor_id = $vendor->id;
     $vendor_user_details = get_user_meta($vendor_id, 'wcmp_pdf_invoices_settings', true);
 }
 ?>
-<div style="width:100%; margin:0px auto; font-family:Trebuchet MS, Arial, Helvetica, sans-serif; color:#555; line-height:24px; font-size:12px" class="alignCenter profLogo">
+<div style="width:100%; margin:0px auto; color:#555; line-height:24px; font-size:12px" class="alignCenter profLogo">
 
 
-    <div style="width:100%; margin:0px auto; font-family:Trebuchet MS, Arial, Helvetica, sans-serif; color:#555; line-height:24px; font-size:12px" class="alignCenter profLogo">
+    <div style="width:100%; margin:0px auto; color:#555; line-height:24px; font-size:12px" class="alignCenter profLogo">
         <table width="100%" border="0" cellspacing="0" cellpadding="10"  style="color:#666; line-height:26px; font-size:12px; margin:10px 0; padding:10px; border-bottom:1px double #ddd; ">
             <tbody>
                 <tr>
-                    <td align="left" valign="top" style="font-size:35px; color:#444; width:25%; padding-bottom:15px;">INVOICE</td>   
+                    <td align="left" valign="top" style="font-size:35px; color:#444; width:25%; padding-bottom:15px;"><?php _e('INVOICE', 'wcmp-pdf_invoices'); ?></td>   
                     <td align="right" valign="middle" style="font-size:12px;"><?php echo date("F j, Y, g:i a"); ?></td>
                 </tr>
             </tbody>
@@ -41,20 +50,20 @@ if ($user_type == 'vendor') {
                                         <img width="150" src="<?php echo $dataUri; ?>" alt="company_logo">
                                     </td>
                                     <td align="left" valign="top">
-                                        <h3>Company Details </h3>
+                                        <h3><?php _e('Company Details', 'wcmp-pdf_invoices'); ?> </h3>
                                         <table>
                                             <tbody>
                                                 <tr>
-                                                    <td align="left" valign="top">Name - </td><td align="left" valign="top"><?php echo $general_settings['company_name']; ?></td>
+                                                    <td align="left" valign="top"><?php _e('Name - ', 'wcmp-pdf_invoices'); ?></td><td align="left" valign="top"><?php echo $general_settings['company_name']; ?></td>
                                                 </tr>  
                                                 <tr>
-                                                    <td  align="left" valign="top">Address -</td><td align="left" valign="top"><?php echo nl2br($general_settings['company_address']); ?></td>
+                                                    <td  align="left" valign="top"><?php _e('Address - ', 'wcmp-pdf_invoices'); ?></td><td align="left" valign="top"><?php echo nl2br($general_settings['company_address']); ?></td>
                                                 </tr>  
                                                 <tr>
-                                                    <td align="left" valign="top">Email -</td><td align="left" valign="top"><?php echo $general_settings['company_email']; ?></td>
+                                                    <td align="left" valign="top"><?php _e('Email - ', 'wcmp-pdf_invoices'); ?></td><td align="left" valign="top"><?php echo $general_settings['company_email']; ?></td>
                                                 </tr>  
                                                 <tr>
-                                                    <td align="left" valign="top">Ph No. -</td><td align="left" valign="top"><?php echo $general_settings['company_ph_no']; ?></td>
+                                                    <td align="left" valign="top"><?php _e('Ph No. - ', 'wcmp-pdf_invoices'); ?></td><td align="left" valign="top"><?php echo $general_settings['company_ph_no']; ?></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -68,19 +77,19 @@ if ($user_type == 'vendor') {
                             <tbody>
                                 <tr>
                                     <td align="left" valign="top">
-                                        <h3>Invoice To:</h3>
+                                        <h3><?php _e('Invoice To:', 'wcmp-pdf_invoices'); ?></h3>
                                         <?php
                                         if (!$order->get_formatted_billing_address())
-                                            _e('N/A', 'woocommerce');
+                                            _e('N/A', 'wcmp-pdf_invoices');
                                         else
                                             echo $order->get_formatted_billing_address();
                                         ?>   
                                     </td>
                                     <td align="left" valign="top">
-                                        <h3>Ship To:</h3>
+                                        <h3><?php _e('Ship To:', 'wcmp-pdf_invoices'); ?></h3>
                                         <?php
                                         if (!$order->get_formatted_shipping_address())
-                                            _e('N/A', 'woocommerce');
+                                            _e('N/A', 'wcmp-pdf_invoices');
                                         else
                                             echo $order->get_formatted_shipping_address();
                                         ?>
@@ -94,7 +103,7 @@ if ($user_type == 'vendor') {
         </table>
     </div>
 
-    <div style="background:#f8f8f8; padding:20px 3%; border-top:1px solid #222; border-bottom:1px solid #222; width:94%; color:#444; line-height:20px; font-size:18px; margin:0px 0 20px 0;">
+    <div style="background:#f8f8f8; padding:20px 3%; border-top:1px solid #222; border-bottom:1px solid #222; width:94%; color:#444; line-height:20px; font-size:18px; margin:0px 0 20px 0; margin-bottom: 50px;">
         <?php
         if ($user_type == 'admin') {
             echo '<strong>' . $general_settings['intro_text_admin'] . '</strong>';
@@ -108,53 +117,54 @@ if ($user_type == 'vendor') {
         }
         ?>
     </div>
-
-    <table width="100%" border="0" cellspacing="0" cellpadding="10" style="margin-top: 300px;">
-        <tbody>
-            <tr>
-                <td  style="color:#666; line-height:24px; font-size:14px; padding:30px 1%;width:30%;" >Order Number:</td>
-                <td  style="color:#666; line-height:24px; font-size:14px; padding:30px 1%;width:30%;" class="orderNumber"><?php echo $order->get_order_number(); ?></td>
-                <td  style="color:#666; line-height:24px; font-size:14px; padding:30px 1%;width:30%;" >Order Date:</td>
-                <td  style="color:#666; line-height:24px; font-size:14px; padding:30px 1%;width:30%;" class="order_date"><?php echo $order->get_date_created(); ?></td>
-                <?php
-                if ($user_type == 'admin') {
-                    if (isset($general_settings['is_payment_method_admin']) && $general_settings['is_payment_method_admin'] == 'Enable') {
-                        ?>
-                        <td  style="color:#666; line-height:24px; font-size:14px; padding:30px 1%;width:30%;" >Payment Method:</td>
-                        <td  style="color:#666; line-height:24px; font-size:14px; padding:30px 1%;width:30%;" ><?php echo $order->get_payment_method_title(); ?></td>
-                        <?php
-                    }
-                } else if ($user_type == 'vendor') {
-                    if ($vendor_user_details) {
-                        if (isset($vendor_user_details['is_payment_method_vendor']) && $vendor_user_details['is_payment_method_vendor'] == 'Enable') {
+    <div>
+        <table width="100%" border="0" cellspacing="0" cellpadding="10" style="margin-top: 400px;">
+            <tbody>
+                <tr>
+                    <td  style="color:#666; line-height:24px; font-size:14px; padding:30px 1%;width:30%;" ><?php _e('Order Number:', 'wcmp-pdf_invoices'); ?></td>
+                    <td  style="color:#666; line-height:24px; font-size:14px; padding:30px 1%;width:30%;" class="orderNumber"><?php echo $order->get_order_number(); ?></td>
+                    <td  style="color:#666; line-height:24px; font-size:14px; padding:30px 1%;width:30%;" ><?php _e('Order Date:', 'wcmp-pdf_invoices'); ?></td>
+                    <td  style="color:#666; line-height:24px; font-size:14px; padding:30px 1%;width:30%;" class="order_date"><?php echo $order->get_date_created(); ?></td>
+                    <?php
+                    if ($user_type == 'admin') {
+                        if (isset($general_settings['is_payment_method_admin']) && $general_settings['is_payment_method_admin'] == 'Enable') {
                             ?>
-                            <td  style="color:#666; line-height:24px; font-size:14px; padding:30px 1%;width:30%;" >Payment Method:</td>
+                            <td  style="color:#666; line-height:24px; font-size:14px; padding:30px 1%;width:30%;" ><?php _e('Payment Method:', 'wcmp-pdf_invoices'); ?></td>
                             <td  style="color:#666; line-height:24px; font-size:14px; padding:30px 1%;width:30%;" ><?php echo $order->get_payment_method_title(); ?></td>
                             <?php
                         }
-                    } else {
-                        if (isset($general_settings['is_payment_method_vendor']) && $general_settings['is_payment_method_vendor'] == 'Enable') {
+                    } else if ($user_type == 'vendor') {
+                        if ($vendor_user_details) {
+                            if (isset($vendor_user_details['is_payment_method_vendor']) && $vendor_user_details['is_payment_method_vendor'] == 'Enable') {
+                                ?>
+                                <td  style="color:#666; line-height:24px; font-size:14px; padding:30px 1%;width:30%;" ><?php _e('Payment Method:', 'wcmp-pdf_invoices'); ?></td>
+                                <td  style="color:#666; line-height:24px; font-size:14px; padding:30px 1%;width:30%;" ><?php echo $order->get_payment_method_title(); ?></td>
+                                <?php
+                            }
+                        } else {
+                            if (isset($general_settings['is_payment_method_vendor']) && $general_settings['is_payment_method_vendor'] == 'Enable') {
+                                ?>
+                                <td  style="color:#666; line-height:24px; font-size:14px; padding:30px 1%;width:30%;" ><?php _e('Payment Method:', 'wcmp-pdf_invoices'); ?></td>
+                                <td  style="color:#666; line-height:24px; font-size:14px; padding:30px 1%;width:30%;" ><?php echo $order->get_payment_method_title(); ?></td>
+                                <?php
+                            }
+                        }
+                    } else if ($user_type == 'customer') {
+                        if (isset($general_settings['is_payment_method_customer']) && $general_settings['is_payment_method_customer'] == 'Enable') {
                             ?>
-                            <td  style="color:#666; line-height:24px; font-size:14px; padding:30px 1%;width:30%;" >Payment Method:</td>
+                            <td  style="color:#666; line-height:24px; font-size:14px; padding:30px 1%;width:30%;" ><?php _e('Payment Method:', 'wcmp-pdf_invoices'); ?></td>
                             <td  style="color:#666; line-height:24px; font-size:14px; padding:30px 1%;width:30%;" ><?php echo $order->get_payment_method_title(); ?></td>
                             <?php
                         }
                     }
-                } else if ($user_type == 'customer') {
-                    if (isset($general_settings['is_payment_method_customer']) && $general_settings['is_payment_method_customer'] == 'Enable') {
-                        ?>
-                        <td  style="color:#666; line-height:24px; font-size:14px; padding:30px 1%;width:30%;" >Payment Method:</td>
-                        <td  style="color:#666; line-height:24px; font-size:14px; padding:30px 1%;width:30%;" ><?php echo $order->get_payment_method_title(); ?></td>
-                        <?php
-                    }
-                }
-                ?>
-            </tr>
-        </tbody>
-    </table>
+                    ?>
+                </tr>
+            </tbody>
+        </table>
+    </div>
     <?php if ($user_type == 'vendor') { ?>
         <div style="padding:20px 1%; width:98%; line-height:24px; ">
-            <div style="color:#777; font-size:18px;"> Special Note from Admin:</div>
+            <div style="color:#777; font-size:18px;"> <?php _e('Special Note from Admin:', 'wcmp-pdf_invoices'); ?></div>
             <?php
             if ($vendor_user_details) {
                 echo '<p style="color:#444; font-size:12px;">' . $vendor_user_details['spcl_notes_from_vendor'];
@@ -165,22 +175,22 @@ if ($user_type == 'vendor') {
         </div> 
     <?php } else if (!empty($general_settings['spcl_notes_from_admin'])) { ?>
         <div style="padding:20px 1%; width:98%; line-height:24px; ">
-            <h3 style="color:#777; font-size:22px;"> Special Note from Admin:</h3>
+            <h3 style="color:#777; font-size:22px;"> <?php _e('Special Note from Admin:', 'wcmp-pdf_invoices'); ?></h3>
             <?php
             echo '<p style="color:#444; font-size:12px;">' . $general_settings['spcl_notes_from_admin'];
             ?>
         </div>
     <?php } ?>
 
-    <div style="color:#777; font-size:22px; padding-bottom:20px;"> Order Details</div> 
+    <div style="color:#777; font-size:22px; padding-bottom:20px;"> <?php _e('Order Details', 'wcmp-pdf_invoices'); ?></div> 
 
     <table width="100%" border="0" cellspacing="0" cellpadding="10"  style="border:4px solid #bbb; color:#666; line-height:26px; font-size:12px;background-color: #f4f8ff;">
         <thead>
             <tr>
-                <td scope="col" align="left" valign="top"><strong>Item</strong></td>
-                <td scope="col" align="left" valign="top"><strong>SKU</strong></td>
-                <td scope="col" align="left" valign="top"><strong>Quantity</strong></td>
-                <td scope="col" align="left" valign="top"><strong>Cost</strong></td>
+                <td scope="col" align="left" valign="top"><strong><?php _e('Item', 'wcmp-pdf_invoices'); ?></strong></td>
+                <td scope="col" align="left" valign="top"><strong><?php _e('SKU', 'wcmp-pdf_invoices'); ?></strong></td>
+                <td scope="col" align="left" valign="top"><strong><?php _e('Quantity', 'wcmp-pdf_invoices'); ?></strong></td>
+                <td scope="col" align="left" valign="top"><strong><?php _e('Cost', 'wcmp-pdf_invoices'); ?></strong></td>
             </tr>
         </thead>
         <tbody>
@@ -245,7 +255,7 @@ if ($user_type == 'vendor') {
                                 <?php
                             } else {
                                 ?>
-                                <td align="left" valign="top" style="border-bottom:1px solid #bbb;">NA</td><?php
+                                <td align="left" valign="top" style="border-bottom:1px solid #bbb;"><?php _e('NA', 'wcmp-pdf_invoices'); ?></td><?php
                             }
                         } else if ($user_type == 'vendor') {
                             if ($vendor_user_details) {
@@ -255,7 +265,7 @@ if ($user_type == 'vendor') {
                                     <?php
                                 } else {
                                     ?>
-                                <td align="left" valign="top" style="border-bottom:1px solid #bbb;">NA</td><?php
+                                <td align="left" valign="top" style="border-bottom:1px solid #bbb;"><?php _e('NA', 'wcmp-pdf_invoices'); ?></td><?php
                                 }
                             } else {
                                 if (isset($general_settings['is_sku_vendor']) && $general_settings['is_sku_vendor'] == 'Enable') {
@@ -264,7 +274,7 @@ if ($user_type == 'vendor') {
                                     <?php
                                 } else {
                                     ?>
-                                <td align="left" valign="top" style="border-bottom:1px solid #bbb;">NA</td><?php
+                                <td align="left" valign="top" style="border-bottom:1px solid #bbb;"><?php _e('NA', 'wcmp-pdf_invoices'); ?></td><?php
                                 }
                             }
                         } else if ($user_type == 'customer') {
@@ -274,12 +284,12 @@ if ($user_type == 'vendor') {
                                 <?php
                             } else {
                                 ?>
-                                <td align="left" valign="top" style="border-bottom:1px solid #bbb;">NA</td><?php
+                                <td align="left" valign="top" style="border-bottom:1px solid #bbb;"><?php _e('NA', 'wcmp-pdf_invoices'); ?></td><?php
                             }
                         }
                         ?>
                         <td  align="left" valign="top" style="border-bottom:1px solid #bbb;" ><?php echo $item['qty']; ?></td>
-                        <td  align="left" valign="top" style="border-bottom:1px solid #bbb; font-family: DejaVu Sans;" ><?php echo $order->get_formatted_line_subtotal($item) ?></td>
+                        <td  align="left" valign="top" style="border-bottom:1px solid #bbb;" ><?php echo $order->get_formatted_line_subtotal($item) ?></td>
                     </tr>
                     <?php
                 }
@@ -308,7 +318,7 @@ if ($user_type == 'vendor') {
                             if (isset($general_settings[$wcmp_pdf_setting_array[$total_key] . '_admin']) && $general_settings[$wcmp_pdf_setting_array[$total_key] . '_admin'] == 'Enable') {
                                 ?><tr>
                                     <td colspan="3" align="left" valign="top" style="font-size:14px; "><?php echo $total['label']; ?></td>
-                                    <td align="left" valign="top" style="font-size:15px; font-family: DejaVu Sans;"><?php echo $total['value']; ?></td>
+                                    <td align="left" valign="top" style="font-size:15px;"><?php echo $total['value']; ?></td>
                                 </tr><?php
                             }
                         } else if ($user_type == 'vendor') {
@@ -316,14 +326,14 @@ if ($user_type == 'vendor') {
                                 if (isset($vendor_user_details[$wcmp_pdf_setting_array[$total_key] . '_vendor']) && $vendor_user_details[$wcmp_pdf_setting_array[$total_key] . '_vendor'] == 'Enable') {
                                     ?><tr>
                                         <td colspan="3" align="left" valign="top" style="font-size:14px; " ><?php echo $total['label']; ?></td>
-                                        <td align="left" valign="top" style="font-size:15px; font-family: DejaVu Sans;"><?php echo $total['value']; ?></td>
+                                        <td align="left" valign="top" style="font-size:15px;"><?php echo $total['value']; ?></td>
                                     </tr><?php
                                 }
                             } else {
                                 if (isset($general_settings[$wcmp_pdf_setting_array[$total_key] . '_vendor']) && $general_settings[$wcmp_pdf_setting_array[$total_key] . '_vendor'] == 'Enable') {
                                     ?><tr>
                                         <td colspan="3" align="left" valign="top" style="font-size:14px; "><?php echo $total['label']; ?></td>
-                                        <td align="left" valign="top" style="font-size:15px; font-family: DejaVu Sans;"><?php echo $total['value']; ?></td>
+                                        <td align="left" valign="top" style="font-size:15px;"><?php echo $total['value']; ?></td>
                                     </tr><?php
                                 }
                             }
@@ -331,7 +341,7 @@ if ($user_type == 'vendor') {
                             if (isset($general_settings[$wcmp_pdf_setting_array[$total_key] . '_customer']) && $general_settings[$wcmp_pdf_setting_array[$total_key] . '_customer'] == 'Enable') {
                                 ?><tr>
                                     <td colspan="3" align="left" valign="top" style="font-size:14px; "><?php echo $total['label']; ?></td>
-                                    <td align="left" valign="top" style="font-size:15px; font-family: DejaVu Sans;"><?php echo $total['value']; ?></td>
+                                    <td align="left" valign="top" style="font-size:15px;"><?php echo $total['value']; ?></td>
                                 </tr><?php
                             }
                         }
@@ -339,12 +349,12 @@ if ($user_type == 'vendor') {
                         ?>
                         <tr>
                             <td colspan="3" align="left" valign="top" style="font-size:18px; border-top:1px solid #bbb; color:#222" > <?php echo $total['label']; ?></td>
-                            <td align="left" valign="top" style="font-size:18px; font-family: DejaVu Sans; border-top:1px solid #bbb; color:#222;" > <?php echo $total['value']; ?></td>
+                            <td align="left" valign="top" style="font-size:18px; border-top:1px solid #bbb; color:#222;" > <?php echo $total['value']; ?></td>
                         </tr>
                     <?php } else { ?>
                         <tr>
                             <td colspan="3" align="left" valign="top" style="font-size:14px; "><?php echo $total['label']; ?></td>
-                            <td align="left" valign="top" style="font-size:15px; font-family: DejaVu Sans;" ><?php echo $total['value']; ?></td>
+                            <td align="left" valign="top" style="font-size:15px;" ><?php echo $total['value']; ?></td>
                         </tr>
                         <?php
                     }
@@ -358,22 +368,22 @@ if ($user_type == 'vendor') {
         <tbody>
             <tr>
                 <?php if ($user_type == 'admin') { ?>
-                    <td align="left" valign="top" style="font-size:17px; color:#444; " ><strong>Risk of loss</strong></td>
+                    <td align="left" valign="top" style="font-size:17px; color:#444; " ><strong><?php _e('Risk of loss', 'wcmp-pdf_invoices'); ?></strong></td>
                     <td align="left" valign="top" style="font-size:12px;" ><?php echo $general_settings['term_and_conditions_admin']; ?></td>
                     <?php
                 } else if ($user_type == 'vendor') {
                     if ($vendor_user_details) {
                         ?>
-                        <td align="left" valign="top" style="font-size:17px; color:#444;" ><strong>Risk of loss</strong></td>
+                        <td align="left" valign="top" style="font-size:17px; color:#444;" ><strong><?php _e('Risk of loss', 'wcmp-pdf_invoices'); ?></strong></td>
                         <td align="left" valign="top" style="font-size:12px;" ><?php echo $vendor_user_details['term_and_conditions_vendor'] ? $vendor_user_details['term_and_conditions_vendor'] : "NA"; ?></td>
                     <?php } else { ?>
-                        <td align="left" valign="top" style="font-size:17px; color:#444;" ><strong>Risk of loss</strong></td>
+                        <td align="left" valign="top" style="font-size:17px; color:#444;" ><strong><?php _e('Risk of loss', 'wcmp-pdf_invoices'); ?></strong></td>
                         <td align="left" valign="top" style="font-size:12px;" ><?php echo $general_settings['term_and_conditions_vendor']; ?></td>
                         <?php
                     }
                 } else {
                     ?>
-                    <td align="left" valign="top" style="font-size:17px; color:#444;" ><strong>Risk of loss</strong></td>
+                    <td align="left" valign="top" style="font-size:17px; color:#444;" ><strong><?php _e('Risk of loss', 'wcmp-pdf_invoices'); ?></strong></td>
                     <td align="left" valign="top" style="font-size:12px;" ><?php echo $general_settings['term_and_conditions_customer']; ?></td>
                     <?php
                 }
@@ -386,7 +396,7 @@ if ($user_type == 'vendor') {
                 if (isset($general_settings['is_customer_note_admin']) && $general_settings['is_customer_note_admin'] == 'Enable') {
                     ?>
                     <tr>
-                        <td colspan="2" align="left" valign="top" style="font-size:17px; color:#777; " ><strong>Customer Note</strong></td>
+                        <td colspan="2" align="left" valign="top" style="font-size:17px; color:#777; " ><strong><?php _e('Customer Note', 'wcmp-pdf_invoices'); ?></strong></td>
                     </tr>
                     <tr>
                         <td colspan="2" align="left" valign="top" style="font-size:12px;"><?php echo $order->get_customer_note(); ?></td>
@@ -398,7 +408,7 @@ if ($user_type == 'vendor') {
                     if (isset($vendor_user_details['is_customer_note_vendor']) && $vendor_user_details['is_customer_note_vendor'] == 'Enable') {
                         ?>
                         <tr>
-                            <td colspan="2" align="left" valign="top" style="font-size:17px; color:#777; " ><strong>Customer Note</strong></td>
+                            <td colspan="2" align="left" valign="top" style="font-size:17px; color:#777; " ><strong><?php _e('Customer Note', 'wcmp-pdf_invoices'); ?></strong></td>
                         </tr>
                         <tr>
                             <td colspan="2" align="left" valign="top" style="font-size:12px;"><?php echo $order->get_customer_note(); ?></td>
@@ -409,7 +419,7 @@ if ($user_type == 'vendor') {
                     if (isset($general_settings['is_customer_note_vendor']) && $general_settings['is_customer_note_vendor'] == 'Enable') {
                         ?>
                         <tr>
-                            <td colspan="2" align="left" valign="top" style="font-size:17px; color:#777; " ><strong>Customer Note</strong></td>
+                            <td colspan="2" align="left" valign="top" style="font-size:17px; color:#777; " ><strong><?php _e('Customer Note', 'wcmp-pdf_invoices'); ?></strong></td>
                         </tr>
                         <tr>
                             <td colspan="2" align="left" valign="top" style="font-size:12px;"><?php echo $order->get_customer_note(); ?></td>
@@ -421,7 +431,7 @@ if ($user_type == 'vendor') {
                 if (isset($general_settings['is_customer_note_customer']) && $general_settings['is_customer_note_customer'] == 'Enable') {
                     ?>
                     <tr>
-                        <td colspan="2" align="left" valign="top" style="font-size:17px; color:#777; " ><strong>Customer Note</strong></td>
+                        <td colspan="2" align="left" valign="top" style="font-size:17px; color:#777; " ><strong><?php _e('Customer Note', 'wcmp-pdf_invoices'); ?></strong></td>
                     </tr>
                     <tr>
                         <td colspan="2" align="left" valign="top" style="font-size:12px;"><?php echo $order->get_customer_note(); ?></td>
