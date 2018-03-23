@@ -4,7 +4,7 @@
  * Plugin URI: https://wc-marketplace.com/
  * Description: Vendor vacation for WCMp vendors
  * Author: WC Marketplace, The Grey Parrots
- * Version: 1.0.3
+ * Version: 1.1.0
  * Author URI: https://wc-marketplace.com/
  * Text Domain: wcmp-vendor_vacation
  * Domain Path: /languages/

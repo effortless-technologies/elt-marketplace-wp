@@ -24,8 +24,8 @@ class WCMP_Sub_Vendor_Settings {
     global $WCMP_Sub_Vendor;
     
     add_menu_page(
-        __('Sub Vendor Settings', $WCMP_Sub_Vendor->text_domain), 
-        __('Sub Vendor Settings', $WCMP_Sub_Vendor->text_domain), 
+        __('Sub Vendor Settings', "wcmp-sub_vendor"), 
+        __('Sub Vendor Settings', "wcmp-sub_vendor"), 
         'manage_options', 
         'wcmp-sub-vendor-setting-admin', 
         array( $this, 'create_wcmp_sub_vendor_settings' ),
@@ -38,7 +38,7 @@ class WCMP_Sub_Vendor_Settings {
   function get_dc_settings_tabs() {
     global $WCMP_Sub_Vendor;
     $tabs = apply_filters('wcmp_sub_vendor_tabs', array(
-      'wcmp_sub_vendor_general' => __('Sub Vendor General', $WCMP_Sub_Vendor->text_domain)
+      'wcmp_sub_vendor_general' => __('Sub Vendor General', "wcmp-sub_vendor")
     ));
     return $tabs;
   }

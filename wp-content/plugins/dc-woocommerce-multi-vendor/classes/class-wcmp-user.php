@@ -44,6 +44,8 @@ class WCMp_User {
         // wordpress, woocommerce login redirest
         add_filter('woocommerce_login_redirect', array($this, 'wcmp_vendor_login'), 10, 2);
         add_filter('login_redirect', array($this, 'wp_wcmp_vendor_login'), 10, 3);
+        // set cookie
+        $this->set_wcmp_user_cookies();
     }
 
     /**
@@ -98,7 +100,7 @@ class WCMp_User {
                 $validation_errors = new WP_Error();
                 $wcmp_vendor_registration_form_data = get_option('wcmp_vendor_registration_form_data');
                 if (isset($_POST['g-recaptcha-response']) && empty($_POST['g-recaptcha-response'])) {
-                    $validation_errors->add('recaptcha is not validate', __('Please Verify  Recaptcha', 'woocommerce'));
+                    $validation_errors->add('recaptcha is not validate', __('Please Verify  Recaptcha', 'dc-woocommerce-multi-vendor'));
                 }
                 if (isset($_FILES['wcmp_vendor_fields'])) {
                     $attacment_files = $_FILES['wcmp_vendor_fields'];
@@ -112,13 +114,13 @@ class WCMp_User {
                             }
                             foreach ($attacment_files['type'][$key] as $file_key => $file_value) {
                                 if (!in_array($file_value, $file_type)) {
-                                    $validation_errors->add('file type error', __('Please Upload valid file', 'woocommerce'));
+                                    $validation_errors->add('file type error', __('Please Upload valid file', 'dc-woocommerce-multi-vendor'));
                                 }
                             }
                             foreach ($attacment_files['size'][$key] as $file_size_key => $file_size_value) {
                                 if (!empty($wcmp_vendor_registration_form_data[$key]['fileSize'])) {
                                     if ($file_size_value > $wcmp_vendor_registration_form_data[$key]['fileSize']) {
-                                        $validation_errors->add('file size error', __('File upload limit exceeded', 'woocommerce'));
+                                        $validation_errors->add('file size error', __('File upload limit exceeded', 'dc-woocommerce-multi-vendor'));
                                     }
                                 }
                             }
@@ -344,12 +346,6 @@ class WCMp_User {
                 'value' => 'Enable',
                 'class' => 'user-profile-fields'
             ),
-            "vendor_company" => array(
-                'label' => __('Company Name', 'dc-woocommerce-multi-vendor'),
-                'type' => 'text',
-                'value' => $vendor->company,
-                'class' => "user-profile-fields regular-text"
-            ), // Text
             "vendor_address_1" => array(
                 'label' => __('Address 1', 'dc-woocommerce-multi-vendor'),
                 'type' => 'text',
@@ -444,14 +440,14 @@ class WCMp_User {
                 'label' => __('Logo', 'dc-woocommerce-multi-vendor'),
                 'type' => 'upload',
                 'prwidth' => 125,
-                'value' => $vendor->image ? $vendor->image : $WCMp->plugin_url . 'assets/images/logo_placeholder.jpg',
+                'value' => $vendor->get_image() ? $vendor->get_image() : '',
                 'class' => "user-profile-fields"
             ), // Upload
             "vendor_banner" => array(
                 'label' => __('Banner', 'dc-woocommerce-multi-vendor'),
                 'type' => 'upload',
                 'prwidth' => 600,
-                'value' => $vendor->banner ? $vendor->banner : $WCMp->plugin_url . 'assets/images/banner_placeholder.jpg',
+                'value' => $vendor->get_image('banner') ? $vendor->get_image('banner') : '',
                 'class' => "user-profile-fields"
             ), // Upload			
             "vendor_csd_return_address1" => array(
@@ -504,8 +500,7 @@ class WCMp_User {
             ), // Text
                 ), $user_id);
 
-        $is_vendor_add_external_url_field = apply_filters('is_vendor_add_external_url_field', true);
-        if (!$WCMp->vendor_caps->vendor_capabilities_settings('is_vendor_add_external_url') || !$is_vendor_add_external_url_field) {
+        if (!apply_filters('is_vendor_add_external_url_field', false)) {
             unset($fields['vendor_external_store_url']);
             unset($fields['vendor_external_store_label']);
         }
@@ -539,7 +534,7 @@ class WCMp_User {
         ); // Text
 
         $fields["vendor_bank_account_number"] = array(
-            'label' => __('Bank Account Name', 'dc-woocommerce-multi-vendor'),
+            'label' => __('Bank Account Number', 'dc-woocommerce-multi-vendor'),
             'type' => 'text',
             'value' => $vendor->bank_account_number,
             'class' => "user-profile-fields regular-text"
@@ -593,53 +588,53 @@ class WCMp_User {
             'class' => "user-profile-fields regular-text"
         ); // Text
 
-        if (get_wcmp_vendor_settings('is_policy_on', 'general') == 'Enable' && isset($policies_settings['can_vendor_edit_policy_tab_label'])) {
+        if (apply_filters('wcmp_vendor_can_overwrite_policies', true) && get_wcmp_vendor_settings('is_policy_on', 'general') == 'Enable') {
+            $_wp_editor_settings = array('tinymce' => true);
+            if (!$WCMp->vendor_caps->vendor_can('is_upload_files')) {
+                $_wp_editor_settings['media_buttons'] = false;
+            }
+            $_wp_editor_settings = apply_filters('wcmp_vendor_policies_wp_editor_settings', $_wp_editor_settings);
 
-            $fields['vendor_policy_tab_title'] = array(
-                'label' => __('Enter the title of Policies Tab', 'dc-woocommerce-multi-vendor'),
-                'type' => 'text',
-                'value' => $vendor->policy_tab_title,
-                'class' => 'user-profile-fields regular-text'
-            );
-        }
-        if (get_wcmp_vendor_settings('is_policy_on', 'general') == 'Enable' && isset($policies_settings['can_vendor_edit_cancellation_policy']) && isset($policies_settings['is_cancellation_on'])) {
+//            $fields['vendor_policy_tab_title'] = array(
+//                'label' => __('Enter the title of Policies Tab', 'dc-woocommerce-multi-vendor'),
+//                'type' => 'text',
+//                'value' => $vendor->policy_tab_title,
+//                'class' => 'user-profile-fields regular-text'
+//            );
+        //}
+        //if (get_wcmp_vendor_settings('is_policy_on', 'general') == 'Enable' && isset($policies_settings['can_vendor_edit_cancellation_policy']) && isset($policies_settings['is_cancellation_on'])) {
             $fields['vendor_cancellation_policy'] = array(
                 'label' => __('Cancellation/Return/Exchange Policy', 'dc-woocommerce-multi-vendor'),
-                'type' => 'textarea',
+                'type' => 'wpeditor',
                 'value' => $vendor->cancellation_policy,
                 'class' => 'user-profile-fields'
             );
-        }
-        if (get_wcmp_vendor_settings('is_policy_on', 'general') == 'Enable' && isset($policies_settings['can_vendor_edit_refund_policy']) && isset($policies_settings['is_refund_on'])) {
+        //}
+        //if (get_wcmp_vendor_settings('is_policy_on', 'general') == 'Enable' && isset($policies_settings['can_vendor_edit_refund_policy']) && isset($policies_settings['is_refund_on'])) {
             $fields['vendor_refund_policy'] = array(
                 'label' => __('Refund Policy', 'dc-woocommerce-multi-vendor'),
-                'type' => 'textarea',
+                'type' => 'wpeditor',
                 'value' => $vendor->refund_policy,
-                'class' => 'user-profile-fields'
+                'class' => 'user-profile-fields',
+                'settings' => $_wp_editor_settings
             );
-        }
-        if (get_wcmp_vendor_settings('is_policy_on', 'general') == 'Enable' && isset($policies_settings['can_vendor_edit_shipping_policy']) && isset($policies_settings['is_shipping_on'])) {
+        //}
+        //if (get_wcmp_vendor_settings('is_policy_on', 'general') == 'Enable' && isset($policies_settings['can_vendor_edit_shipping_policy']) && isset($policies_settings['is_shipping_on'])) {
             $fields['vendor_shipping_policy'] = array(
                 'label' => __('Shipping Policy', 'dc-woocommerce-multi-vendor'),
-                'type' => 'textarea',
+                'type' => 'wpeditor',
                 'value' => $vendor->shipping_policy,
-                'class' => 'user-profile-fields regular-text'
+                'class' => 'user-profile-fields regular-text',
+                'settings' => $_wp_editor_settings
             );
-        }
-        if (isset($settings_capabilities['can_vendor_add_message_on_email_and_thankyou_page'])) {
+        //}
+        //if (apply_filters('can_vendor_add_message_on_email_and_thankyou_page', true)) {
             $fields['vendor_message_to_buyers'] = array(
                 'label' => __('Message to Buyers', 'dc-woocommerce-multi-vendor'),
                 'type' => 'textarea',
                 'value' => $vendor->message_to_buyers,
-                'class' => 'user-profile-fields'
-            );
-
-            $fields['vendor_hide_message_to_buyers'] = array(
-                'label' => __('Is Message to buyer Hide From Users', 'dc-woocommerce-multi-vendor'),
-                'type' => 'checkbox',
-                'dfvalue' => $vendor->hide_message_to_buyers,
-                'value' => 'Enable',
-                'class' => 'user-profile-fields'
+                'class' => 'user-profile-fields',
+                'settings' => $_wp_editor_settings
             );
         }
         $user = wp_get_current_user();
@@ -707,7 +702,7 @@ class WCMp_User {
             }
         }
 
-        return $fields;
+        return apply_filters('wcmp_vendor_user_fields', $fields, $vendor->id);
     }
 
     /**
@@ -771,6 +766,7 @@ class WCMp_User {
         if (is_user_wcmp_vendor($user_object)) {
             $vendor = get_wcmp_vendor($user_object->ID);
             if ($vendor) {
+                unset($actions['view']);
                 $actions['view_vendor'] = "<a target=_blank class='view_vendor' href='" . $vendor->permalink . "'>" . __('View', 'dc-woocommerce-multi-vendor') . "</a>";
             }
         }
@@ -821,19 +817,20 @@ class WCMp_User {
      * Validate user additional fields
      */
     function validate_user_fields(&$errors, $update, &$user) {
+        global $WCMp;
         if (isset($_POST['vendor_page_slug'])) {
             if (!$update) {
-                if (term_exists(sanitize_title($_POST['vendor_page_slug']), 'dc_vendor_shop')) {
+                if (term_exists(sanitize_title($_POST['vendor_page_slug']), $WCMp->taxonomy->taxonomy_name)) {
                     $errors->add('vendor_slug_exists', __('Slug Already Exists', 'dc-woocommerce-multi-vendor'));
                 }
             } else {
                 if (is_user_wcmp_vendor($user->ID)) {
                     $vendor = get_wcmp_vendor($user->ID);
                     if (isset($vendor->term_id)) {
-                        $vendor_term = get_term($vendor->term_id, 'dc_vendor_shop');
+                        $vendor_term = get_term($vendor->term_id, $WCMp->taxonomy->taxonomy_name);
                     }
                     if (isset($_POST['vendor_page_slug']) && isset($vendor_term->slug) && $vendor_term->slug != $_POST['vendor_page_slug']) {
-                        if (term_exists(sanitize_title($_POST['vendor_page_slug']), 'dc_vendor_shop')) {
+                        if (term_exists(sanitize_title($_POST['vendor_page_slug']), $WCMp->taxonomy->taxonomy_name)) {
                             $errors->add('vendor_slug_exists', __('Slug already exists', 'dc-woocommerce-multi-vendor'));
                         }
                     }
@@ -874,14 +871,12 @@ class WCMp_User {
                     } elseif ($fieldkey == 'vendor_description') {
                         update_user_meta($user_id, '_' . $fieldkey, $_POST[$fieldkey]);
                     } else {
-                        update_user_meta($user_id, '_' . $fieldkey, wc_clean($_POST[$fieldkey]));
+                        update_user_meta($user_id, '_' . $fieldkey, $_POST[$fieldkey]);
                     }
                 } else if (!isset($_POST['vendor_hide_description']) && $fieldkey == 'vendor_hide_description') {
                     delete_user_meta($user_id, '_vendor_hide_description');
                 } else if (!isset($_POST['vendor_hide_address']) && $fieldkey == 'vendor_hide_address') {
                     delete_user_meta($user_id, '_vendor_hide_address');
-                } else if (!isset($_POST['vendor_hide_message_to_buyers']) && $fieldkey == 'vendor_hide_message_to_buyers') {
-                    delete_user_meta($user_id, '_vendor_hide_message_to_buyers');
                 } else if (!isset($_POST['vendor_hide_phone']) && $fieldkey == 'vendor_hide_phone') {
                     delete_user_meta($user_id, '_vendor_hide_phone');
                 } else if (!isset($_POST['vendor_hide_email']) && $fieldkey == 'vendor_hide_email') {
@@ -976,5 +971,18 @@ class WCMp_User {
         $available_emails[] = 'vendor_new_order';
         return $available_emails;
     }
-
+    
+    /**
+     * WCMp set user cookies
+     */
+    public function set_wcmp_user_cookies() {
+        $current_user_id = get_current_user_id();
+        $_cookie_id = "_wcmp_user_cookie_".$current_user_id;
+        if(!isset($_COOKIE[$_cookie_id])) { 
+            setcookie( $_cookie_id, uniqid('wcmp_cookie'), time() + YEAR_IN_SECONDS, '/' );
+        }else{
+            setcookie( $_cookie_id, $_COOKIE[$_cookie_id], time() + YEAR_IN_SECONDS, '/' );
+        }
+    } 
+    
 }

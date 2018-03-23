@@ -115,7 +115,7 @@ class WCMP_Sub_Vendor_License {
             if (!empty($options) && $options !== false) {
 
                 new WCMP_Sub_Vendor_API_Manager_Update_API_Check(
-                        $this->upgrade_url, $this->license_plugin_name, $this->license_product_id, $this->license_options[$this->license_api_key], $this->license_options[$this->license_activation_email], $this->license_renew_license_url, $this->license_instance_id, $this->license_domain, $this->license_software_version, $this->license_plugin_or_theme, $WCMP_Sub_Vendor->text_domain
+                        $this->upgrade_url, $this->license_plugin_name, $this->license_product_id, $this->license_options[$this->license_api_key], $this->license_options[$this->license_activation_email], $this->license_renew_license_url, $this->license_instance_id, $this->license_domain, $this->license_software_version, $this->license_plugin_or_theme, "wcmp-sub_vendor"
                 );
             }
 
@@ -139,7 +139,7 @@ class WCMP_Sub_Vendor_License {
 
     function license_new_tab($tabs) {
         global $WCMP_Sub_Vendor;
-        $tabs[str_replace('-', '_', esc_attr($WCMP_Sub_Vendor->token)) . '_license'] = __('Vendor Staff', $WCMP_Sub_Vendor->text_domain);
+        $tabs[str_replace('-', '_', esc_attr($WCMP_Sub_Vendor->token)) . '_license'] = __('Vendor Staff', "wcmp-sub_vendor");
         return $tabs;
     }
 
@@ -317,7 +317,7 @@ class WCMP_Sub_Vendor_License {
         <?php if (!current_user_can('manage_options')) return; ?>
         <?php if (isset($_GET['page']) && 'api_manager_license_dashboard' == $_GET['page']) return; ?>
         <div id="message" class="error settings-error notice is-dismissible">
-            <p><?php printf(__('The Vendor Staff License Key has not been activated, so the plugin is inactive! %sClick here%s to activate the license key and the plugin.', $WCMP_Sub_Vendor->text_domain), '<a href="' . esc_url(admin_url('admin.php?page=wcmp-license&tab=' . str_replace('-', '_', esc_attr($WCMP_Sub_Vendor->token)) . '_license')) . '">', '</a>'); ?></p>
+            <p><?php printf(__('The Vendor Staff License Key has not been activated, so the plugin is inactive! %sClick here%s to activate the license key and the plugin.', "wcmp-sub_vendor"), '<a href="' . esc_url(admin_url('admin.php?page=wcmp-license&tab=' . str_replace('-', '_', esc_attr($WCMP_Sub_Vendor->token)) . '_license')) . '">', '</a>'); ?></p>
             <button class="notice-dismiss" type="button"><span class="screen-reader-text">Dismiss this notice.</span></button>
         </div>
         <?php

@@ -7,16 +7,16 @@ jQuery(document).ready(function($){
 	}
 
 	if($('#wcmp_vendor_store_time .is_time #is_enable_store_time').is(':checked')) {
-		$("#wcmp_vendor_store_time tr").show();
+		$("#wcmp_vendor_store_time .store-time").show();
   	}else{
-  		$("#wcmp_vendor_store_time tr:not(.is_time)").hide();
+  		$("#wcmp_vendor_store_time .store-time").hide();
   	}
 	$('#wcmp_vendor_store_time .is_time #is_enable_store_time').change(function() {
 		if($(this).is(":checked")) {
-			$("#wcmp_vendor_store_time tr").show('slow');
+			$("#wcmp_vendor_store_time .store-time").show('slow');
 		}
 		else {
-			$("#wcmp_vendor_store_time tr:not(.is_time)").hide('slow');
+			$("#wcmp_vendor_store_time .store-time").hide('slow');
 		}
 	});		
 });

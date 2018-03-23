@@ -131,7 +131,7 @@ class WCMp_Frontend_Product_Manager_License {
 					$this->license_domain,
 					$this->license_software_version,
 					$this->license_plugin_or_theme,
-					'wcmp_frontend_product_manager'
+					'wcmp-frontend_product_manager'
 				);
 
 			}
@@ -160,7 +160,7 @@ class WCMp_Frontend_Product_Manager_License {
 	
 	function license_new_tab($tabs) {
 	  global $WCMp_Frontend_Product_Manager;
-	  $tabs[str_replace('-', '_', esc_attr($WCMp_Frontend_Product_Manager->token)) . '_license'] = __('Frontend Product Manager', 'wcmp_frontend_product_manager');
+	  $tabs[str_replace('-', '_', esc_attr($WCMp_Frontend_Product_Manager->token)) . '_license'] = __('Advanced Frontend Manager', 'wcmp-frontend_product_manager');
     return $tabs;
 	}
 	
@@ -337,7 +337,7 @@ class WCMp_Frontend_Product_Manager_License {
 		<?php if ( ! current_user_can( 'manage_options' ) ) return; ?>
 		<?php if ( isset( $_GET['page'] ) && 'api_manager_license_dashboard' == $_GET['page'] ) return; ?>
 		<div id="message" class="error settings-error notice is-dismissible">
-			<p><?php printf( __( 'The Frontend Product Manager License Key has not been activated, so the plugin is inactive! %sClick here%s to activate the license key and the plugin.', 'wcmp_frontend_product_manager' ), '<a href="' . esc_url( admin_url( 'admin.php?page=wcmp-license&tab=' . str_replace('-', '_', esc_attr($WCMp_Frontend_Product_Manager->token)) . '_license' ) ) . '">', '</a>' ); ?></p>
+			<p><?php printf( __( 'The Advanced Frontend Manager License Key has not been activated, so the plugin is inactive! %sClick here%s to activate the license key and the plugin.', 'wcmp-frontend_product_manager' ), '<a href="' . esc_url( admin_url( 'admin.php?page=wcmp-license&tab=' . str_replace('-', '_', esc_attr($WCMp_Frontend_Product_Manager->token)) . '_license' ) ) . '">', '</a>' ); ?></p>
 			<button class="notice-dismiss" type="button"><span class="screen-reader-text">Dismiss this notice.</span></button>
 		</div>
 		<?php

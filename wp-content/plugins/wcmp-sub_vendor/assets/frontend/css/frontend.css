@@ -1,3 +1,22 @@
 .wcmp_top_logo_div ul li:first-child {
     border-right: 0 solid #c8c8c8 !important;
 }
+
+.checkbox-group-addon {
+	width: 92%;
+	font-size: 14px;
+	margin: 10px 2% 0;
+} 
+.checkbox-group-addon input{
+	margin: 0px 2px 0px 10px;
+}
+.sub_vendor_success {
+	color: #0073AA;
+	font-size: 17px;
+	padding: 0 6% 7px;
+}
+.sub_vendor_error {
+	color: #ff0000;
+	font-size: 17px;
+	padding: 0 6% 7px;
+}

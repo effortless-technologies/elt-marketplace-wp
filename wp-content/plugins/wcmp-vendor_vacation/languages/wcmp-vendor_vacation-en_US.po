@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WCMp Vendor Vacation\n"
-"POT-Creation-Date: 2017-08-04 10:23+0000\n"
-"PO-Revision-Date: 2017-08-04 10:23+0000\n"
+"POT-Creation-Date: 2018-01-16 09:45+0000\n"
+"PO-Revision-Date: 2018-01-16 09:45+0000\n"
 "Last-Translator: admin <khokan@dualcube.com>\n"
 "Language-Team: English (United States)\n"
 "Language: en-US\n"
@@ -17,39 +17,40 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "Plural-Forms: nplurals=2; plural=n != 1"
 
-#: templates/wcmp_vendor_vacation_settings_template.php:20
+#: templates/wcmp_vendor_vacation_settings_template.php:21
 msgid "Would you like to avoid any purchase on Holidays?"
 msgstr ""
 
-#: templates/wcmp_vendor_vacation_settings_template.php:24
+#: templates/wcmp_vendor_vacation_settings_template.php:27
 msgid "Custom notification for avoid purchase"
 msgstr ""
 
-#: templates/wcmp_vendor_vacation_settings_template.php:26
+#: templates/wcmp_vendor_vacation_settings_template.php:35
 msgid "\"Add to cart\" button text"
 msgstr ""
 
-#: templates/wcmp_vendor_vacation_settings_template.php:28
+#: templates/wcmp_vendor_vacation_settings_template.php:41
+#: templates/wcmp_vendor_vacation_settings_template.php:49
 msgid "Custom notification before \"Add to cart button\""
 msgstr ""
 
-#: templates/wcmp_vendor_vacation_settings_template.php:32
+#: templates/wcmp_vendor_vacation_settings_template.php:58
 msgid "Would you like to enable Store Time?"
 msgstr ""
 
-#: templates/wcmp_vendor_vacation_settings_template.php:37
-msgid "Open time for all weekdays"
+#: templates/wcmp_vendor_vacation_settings_template.php:64
+msgid "Open time for your shop open days"
 msgstr ""
 
-#: templates/wcmp_vendor_vacation_settings_template.php:42
-msgid "Close time for all weekdays"
+#: templates/wcmp_vendor_vacation_settings_template.php:76
+msgid "Close time for your shop open days"
 msgstr ""
 
-#: templates/wcmp_vendor_vacation_settings_template.php:46
+#: templates/wcmp_vendor_vacation_settings_template.php:88
 msgid "Custom \"Shop is Closed Now!\" text"
 msgstr ""
 
-#: templates/wcmp_vendor_vacation_settings_template.php:50
+#: templates/wcmp_vendor_vacation_settings_template.php:98
 msgid "Save Options"
 msgstr ""
 
@@ -74,16 +75,16 @@ msgid "Vacation Settings"
 msgstr ""
 
 #: classes/class-wcmp-vendor-vacation.php:117
-#: classes/class-wcmp-vendor-vacation-frontend.php:266
+#: classes/class-wcmp-vendor-vacation-frontend.php:267
 msgid "Vacation"
 msgstr ""
 
-#: classes/class-wcmp-vendor-vacation-frontend.php:249
-#: classes/class-wcmp-vendor-vacation-frontend.php:251
+#: classes/class-wcmp-vendor-vacation-frontend.php:250
+#: classes/class-wcmp-vendor-vacation-frontend.php:252
 msgid "Shop is Closed now!"
 msgstr ""
 
-#: classes/class-wcmp-vendor-vacation-frontend.php:264
+#: classes/class-wcmp-vendor-vacation-frontend.php:265
 msgid "Store Settings "
 msgstr ""
 

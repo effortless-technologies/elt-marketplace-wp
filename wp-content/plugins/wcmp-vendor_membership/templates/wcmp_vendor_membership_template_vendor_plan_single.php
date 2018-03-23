@@ -125,13 +125,13 @@ $body_class = in_array($current_stylesheet, $stylesheet_support) ? 'container' :
                             if (current_user_can('manage_options')) {
                                 ?>
                                 <p style="color:red;">
-                                    <?php echo __('Sorry You are logged in as Admin Please try with another account or logoff', 'wcmp-vendor_membership'); ?>
+                                    <?php echo __('Sorry you are logged in as admin please try with another account or logoff', 'wcmp-vendor_membership'); ?>
                                 </p>
 
                                 <?php
-                            } else {
+                            } else if($post->ID != get_user_meta(get_current_user_id(), 'vendor_group_id', true)) {
                                 ?>
-
+                                
                                 <input type="submit" value="<?php echo $button_text; ?>" name="vendor_plan_payment" class="button vendor_subscribe_now" />
                             <?php } ?>
                         </div>

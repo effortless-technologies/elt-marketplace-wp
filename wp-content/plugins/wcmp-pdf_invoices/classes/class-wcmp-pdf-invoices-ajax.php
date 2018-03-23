@@ -1,6 +1,5 @@
 <?php
-require_once ABSPATH . '/wp-content/plugins/woocommerce-pdf-invoices-packing-slips/includes/class-wcpdf-pdf-maker.php';
-use \WPO\WC\PDF_Invoices\PDF_Maker;
+
 class WCMP_Pdf_Invoices_Ajax {
 
     public function __construct() {
@@ -51,15 +50,15 @@ class WCMP_Pdf_Invoices_Ajax {
             $WCMp_PDF_Invoices->template->get_template($template . '.php', array('order' => $order, 'general_settings' => $general_settings, 'user_type' => 'customer'));
             $ob_get_clean = ob_get_clean();
             if ($ob_get_clean) {
-               
-                $abcd = new PDF_Maker($ob_get_clean,array());
-                file_put_contents($file_to_save, $abcd->output());
+
+               $pdf_maker = wcpdf_get_pdf_maker($ob_get_clean, array());
+                file_put_contents($file_to_save, $pdf_maker->output());
                 $base_url = trailingslashit($upload_dir['baseurl']) . 'wcmp_pdf_invoice/' . $order_id . '/customer';
                 $file_url = $base_url . '/' . $wp_get_current_user->user_login . '_' . $order_id . '.pdf';
                 update_post_meta($order_id, '_pdf_invoice_by_customer' . $wp_get_current_user->user_login, $file_url);
 
                 if (file_exists($file_to_save)) {
-                    wcpdf_pdf_headers( $order_id.'.pdf', 'download', $pdf );
+                    wcpdf_pdf_headers( $order_id.'.pdf', 'download', $pdf_maker->output() );
                     @readfile($file_to_save);
                     exit;
                 } else {
@@ -109,14 +108,14 @@ class WCMP_Pdf_Invoices_Ajax {
 
             $ob_get_clean = ob_get_clean();
             if ($ob_get_clean) {
-                $abcd = new PDF_Maker($ob_get_clean,array());
-                file_put_contents($file_to_save, $abcd->output());
+                $pdf_maker = wcpdf_get_pdf_maker($ob_get_clean, array());
+                file_put_contents($file_to_save, $pdf_maker->output());
                 $base_url = trailingslashit($upload_dir['baseurl']) . 'wcmp_pdf_invoice/' . $order_id;
                 $file_url = $base_url . '/vendor_' . sanitize_title($vendor->user_data->data->display_name) . '_' . $order_id . '.pdf';
                 update_post_meta($order_id, '_pdf_invoice_by_vendor' . sanitize_title($vendor->user_data->data->display_name), $file_url);
 
                 if (file_exists($file_to_save)) {
-                    wcpdf_pdf_headers( $order_id.'.pdf', 'download', $pdf );
+                    wcpdf_pdf_headers( $order_id.'.pdf', 'download', $pdf_maker->output() );
                     @readfile($file_to_save);
                     exit;
                 } else {
@@ -149,6 +148,14 @@ class WCMP_Pdf_Invoices_Ajax {
             $vendor = get_wcmp_vendor(get_current_user_id());
             if (!$vendor)
                 echo 'fail';
+
+            $general_settings = get_option('wcmp_pdf_invoices_settings_name');
+
+            /*if ($get_user_settings) {
+                $template = $get_user_settings['choose_preferred_template'];
+            } else {
+                $template = $general_settings['choose_invoice_template'];
+            }*/
             $upload_dir = wp_upload_dir();
             $base_path2 = trailingslashit($upload_dir['basedir']) . 'wcmp_pdf_invoice/' . $order_id;
             $file_to_save = $base_path2 . '/packing_slip_' . $order_id . '.pdf';
@@ -157,17 +164,17 @@ class WCMP_Pdf_Invoices_Ajax {
                 mkdir($base_path2, 0777, true);
             }
             ob_start();
-            $WCMp_PDF_Invoices->template->get_template('wcmp_packing_slip_first_template.php',array('order' => $order, 'order_id' => $order_id, 'vendor' => $vendor, 'user_type' => 'vendor'));
+            $WCMp_PDF_Invoices->template->get_template('wcmp_packing_slip_first_template.php',array('order' => $order, 'order_id' => $order_id, 'vendor' => $vendor, 'user_type' => 'vendor', 'general_settings' => $general_settings));
             $ob_get_clean = ob_get_clean();
             if ($ob_get_clean) {
-                $abcd = new PDF_Maker($ob_get_clean,array());
-                file_put_contents($file_to_save, $abcd->output());
+               $pdf_maker = wcpdf_get_pdf_maker($ob_get_clean, array());
+                file_put_contents($file_to_save, $pdf_maker->output());
                 $base_url = trailingslashit($upload_dir['baseurl']) . 'wcmp_pdf_invoice/' . $order_id;
                 $file_url = $base_url . '/packing_slip_' . $order_id . '.pdf';
                 update_post_meta($order_id, '_pdf_packing_slip_by_vendor'. sanitize_title($vendor->user_data->data->display_name), $file_url);
 
                 if (file_exists($file_to_save)) {
-                    wcpdf_pdf_headers( $order_id.'.pdf', 'download', $pdf );
+                    wcpdf_pdf_headers( $order_id.'.pdf', 'download', $pdf_maker->output() );
                     @readfile($file_to_save);
                     exit;
                 } else {
@@ -202,8 +209,8 @@ class WCMP_Pdf_Invoices_Ajax {
         $WCMp_PDF_Invoices->template->get_template($template . '.php', array('order' => $order, 'general_settings' => $general_settings, 'user_type' => 'admin'));
         $ob_get_clean = ob_get_clean();
         if ($ob_get_clean) {
-            $abcd = new PDF_Maker($ob_get_clean,array());
-            file_put_contents($file_to_save, $abcd->output());
+            $pdf_maker = wcpdf_get_pdf_maker($ob_get_clean, array());
+            file_put_contents($file_to_save, $pdf_maker->output());
             $base_url = trailingslashit($upload_dir['baseurl']) . 'wcmp_pdf_invoice/' . $order_id;
             $file_url = $base_url . '/admin_' . $order_id . '.pdf';
             if (file_exists($file_to_save)) {
@@ -242,8 +249,8 @@ class WCMP_Pdf_Invoices_Ajax {
         $WCMp_PDF_Invoices->template->get_template($template . '.php', array('order' => $order, 'general_settings' => $general_settings, 'vendor' => $vendor, 'user_type' => 'admin'));
         $ob_get_clean = ob_get_clean();
         if ($ob_get_clean) {
-            $abcd = new PDF_Maker($ob_get_clean,array());
-                file_put_contents($file_to_save, $abcd->output());
+            $pdf_maker = wcpdf_get_pdf_maker($ob_get_clean, array());
+                file_put_contents($file_to_save, $pdf_maker->output());
             $base_url = trailingslashit($upload_dir['baseurl']) . 'wcmp_pdf_invoice/' . $order_id;
             $file_url = $base_url . '/' . sanitize_title($vendor->user_data->data->display_name) . '.pdf';
             update_post_meta($order_id, '_pdf_invoice_' . sanitize_title($vendor->user_data->data->display_name), $file_url);

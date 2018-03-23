@@ -72,7 +72,7 @@ class WCMP_Vendor_Report_Shortcode_Out_Of_Stock {
 				<div>
 					<label for="vendor_profile">
 						<?php
-							_e('Your account is not vendor capable.', $WCMp_Vendor_Frontend_Report->text_domain);
+							_e('Your account is not vendor capable.', 'wcmp-vendor_frontend_report');
 						?>
 					</label>
 				</div>

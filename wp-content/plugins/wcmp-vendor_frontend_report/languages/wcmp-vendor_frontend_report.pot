@@ -1,0 +1,384 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-01-25 09:46+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/"
+
+#: classes/class-wcmp-vendor-frontend-report-ajax.php:81
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-product-overview.php:285
+#, php-format
+msgid "Sales and Earnings [ %s ]"
+msgstr ""
+
+#: classes/class-wcmp-vendor-frontend-report.php:115
+msgctxt "page_slug"
+msgid "frontend_vendor_reports"
+msgstr ""
+
+#: classes/class-wcmp-vendor-frontend-report.php:115
+#: classes/class-wcmp-vendor-frontend-report-frontend.php:34
+#: classes/class-wcmp-vendor-frontend-report-frontend.php:41
+msgid "Reports"
+msgstr ""
+
+#: classes/class-wcmp-vendor-frontend-report-license.php:163
+msgid "Frontend Report"
+msgstr ""
+
+#: classes/class-wcmp-vendor-frontend-report-license.php:340
+#, php-format
+msgid ""
+"The Vendor Frontend Report License Key has not been activated, so the plugin "
+"is inactive! %sClick here%s to activate the license key and the plugin."
+msgstr ""
+
+#: classes/class-wcmp-vendor-frontend-report-frontend.php:26
+msgid "- Reports"
+msgstr ""
+
+#: classes/class-wcmp-vendor-frontend-report-admin.php:36
+msgid "Advanced Vendor Reports"
+msgstr ""
+
+#: classes/class-wcmp-vendor-frontend-report-admin.php:36
+msgid "Choose your preferred page for Vendor Frontend Report."
+msgstr ""
+
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-out-of-stock.php:75
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-most-stock.php:73
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-overview.php:79
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-low-stock.php:80
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-product-overview.php:323
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-search-by-product.php:58
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-sales-overview.php:413
+msgid "Your account is not vendor capable."
+msgstr ""
+
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-overview.php:31
+msgid ""
+"Please select this page in WCMp page settings in \"Advanced Vendor Reports\" "
+"to make Report plugin work properly."
+msgstr ""
+
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-overview.php:35
+msgid "Sales Overview"
+msgstr ""
+
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-overview.php:36
+msgid "Sales by Product"
+msgstr ""
+
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-overview.php:37
+msgid "Stock"
+msgstr ""
+
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-overview.php:38
+msgid "Transactions"
+msgstr ""
+
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-overview.php:45
+msgid "Overview"
+msgstr ""
+
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-overview.php:45
+msgid "By Product"
+msgstr ""
+
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-overview.php:56
+msgid "Low in stock"
+msgstr ""
+
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-overview.php:57
+msgid "Out of Stock"
+msgstr ""
+
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-overview.php:58
+msgid "Most Stocked"
+msgstr ""
+
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-product-overview.php:286
+msgid "Month"
+msgstr ""
+
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-product-overview.php:287
+msgid "Sales Report"
+msgstr ""
+
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-product-overview.php:288
+msgid "Gross Sales"
+msgstr ""
+
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-product-overview.php:289
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-sales-overview.php:246
+#: templates/reports/sales_by_product_overview.php:25
+msgid "My Earnings"
+msgstr ""
+
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-product-overview.php:312
+msgid "No product was sold in the given period."
+msgstr ""
+
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-product-overview.php:315
+msgid "Your store has no products."
+msgstr ""
+
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-transaction-overview.php:53
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-sales-overview.php:43
+#: templates/reports/sales_by_product_search.php:15
+msgid "From"
+msgstr ""
+
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-transaction-overview.php:54
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-sales-overview.php:44
+#: templates/reports/sales_by_product_search.php:16
+msgid "To"
+msgstr ""
+
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-transaction-overview.php:55
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-sales-overview.php:45
+#: templates/reports/sales_by_product_overview.php:15
+msgid "Filter"
+msgstr ""
+
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-transaction-overview.php:65
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-sales-overview.php:55
+msgid "Export CSV"
+msgstr ""
+
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-transaction-overview.php:116
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-sales-overview.php:221
+#, php-format
+msgid "Your Report [ %s ]"
+msgstr ""
+
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-transaction-overview.php:120
+msgid "Gross Credit in this Period"
+msgstr ""
+
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-transaction-overview.php:120
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-transaction-overview.php:123
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-transaction-overview.php:126
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-transaction-overview.php:129
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-transaction-overview.php:132
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-sales-overview.php:228
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-sales-overview.php:235
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-sales-overview.php:242
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-sales-overview.php:249
+msgid "n/a"
+msgstr ""
+
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-transaction-overview.php:123
+msgid "Average Daily Credit"
+msgstr ""
+
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-transaction-overview.php:126
+msgid "Debit for transfer charge"
+msgstr ""
+
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-transaction-overview.php:129
+msgid "Number of transactions"
+msgstr ""
+
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-transaction-overview.php:132
+msgid "Number of units ordered"
+msgstr ""
+
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-transaction-overview.php:179
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-sales-overview.php:294
+msgid "Number of Orders"
+msgstr ""
+
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-transaction-overview.php:187
+msgid "Number of Transactions"
+msgstr ""
+
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-transaction-overview.php:196
+msgid "Total transaction Amount"
+msgstr ""
+
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-transaction-overview.php:207
+msgid "Average transaction Amount"
+msgstr ""
+
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-transaction-overview.php:218
+msgid "Total Transfer Charge"
+msgstr ""
+
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-sales-overview.php:225
+#, php-format
+msgid "Gross Sales in this Period %s"
+msgstr ""
+
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-sales-overview.php:232
+msgid "Average Daily Sales"
+msgstr ""
+
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-sales-overview.php:239
+msgid "Number of Orders Placed"
+msgstr ""
+
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-sales-overview.php:301
+#: templates/reports/sales_by_product_overview.php:24
+msgid "Total Sales"
+msgstr ""
+
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-sales-overview.php:311
+msgid "Average Order Value"
+msgstr ""
+
+#: classes/shortcode/class-wcmp-vendor-frontend-report-shortcode-sales-overview.php:321
+msgid "Total Earnings by Vendor"
+msgstr ""
+
+#: templates/reports/sales_by_product_search.php:3
+msgid "-- Choose a product first."
+msgstr ""
+
+#: templates/reports/sales_by_product_search.php:19
+msgid "Search for a Product"
+msgstr ""
+
+#: templates/reports/sales_by_product_search.php:24
+msgid "Show"
+msgstr ""
+
+#: templates/reports/out_of_stock.php:9 templates/reports/most_stocked.php:9
+#: templates/reports/low_in_stock.php:9
+msgid "Product"
+msgstr ""
+
+#: templates/reports/out_of_stock.php:10 templates/reports/most_stocked.php:10
+#: templates/reports/low_in_stock.php:10
+msgid "Parent"
+msgstr ""
+
+#: templates/reports/out_of_stock.php:11 templates/reports/most_stocked.php:11
+#: templates/reports/low_in_stock.php:11
+msgid "Stock status"
+msgstr ""
+
+#: templates/reports/out_of_stock.php:12 templates/reports/most_stocked.php:12
+#: templates/reports/low_in_stock.php:12
+msgid "Units in stock"
+msgstr ""
+
+#: templates/reports/out_of_stock.php:13 templates/reports/most_stocked.php:13
+#: templates/reports/low_in_stock.php:13
+msgid "Actions"
+msgstr ""
+
+#: templates/reports/out_of_stock.php:24 templates/reports/most_stocked.php:24
+#: templates/reports/low_in_stock.php:24
+msgid "More Products"
+msgstr ""
+
+#: templates/reports/stock_items.php:40
+msgid "In stock"
+msgstr ""
+
+#: templates/reports/stock_items.php:42
+msgid "Out of stock"
+msgstr ""
+
+#: templates/reports/stock_items.php:74
+msgid "product"
+msgstr ""
+
+#: classes/license/admin/class-wcmp-license.php:16
+#: classes/license/admin/class-wcmp-license.php:17
+msgid "WCMp License"
+msgstr ""
+
+#: classes/license/admin/class-wcmp-license.php:79
+#, php-format
+msgid "<h2>%s License</h2>"
+msgstr ""
+
+#: classes/license/admin/class-wcmp-license.php:86
+#, php-format
+msgid ""
+"<h4 style='border-bottom: 1px solid rgb(215, 211, 211);padding-bottom: 21px;"
+"'>%s</h4>"
+msgstr ""
+
+#: classes/license/admin/class-wcmp-vendor-frontend-report-settings-license.php:51
+msgid "License Activation"
+msgstr ""
+
+#: classes/license/admin/class-wcmp-vendor-frontend-report-settings-license.php:52
+msgid "API License Key"
+msgstr ""
+
+#: classes/license/admin/class-wcmp-vendor-frontend-report-settings-license.php:53
+msgid "API License email"
+msgstr ""
+
+#: classes/license/admin/class-wcmp-vendor-frontend-report-settings-license.php:56
+msgid "License Deactivation"
+msgstr ""
+
+#: classes/license/admin/class-wcmp-vendor-frontend-report-settings-license.php:57
+msgid "Deactivate API License Key"
+msgstr ""
+
+#: classes/license/admin/class-wcmp-vendor-frontend-report-settings-license.php:57
+msgid "Deactivates an API License Key so it can be used on another blog."
+msgstr ""
+
+#: classes/license/admin/class-wcmp-vendor-frontend-report-settings-license.php:91
+msgid "Please insert your license key."
+msgstr ""
+
+#: classes/license/admin/class-wcmp-vendor-frontend-report-settings-license.php:101
+msgid "Please insert your license email."
+msgstr ""
+
+#: classes/license/admin/class-wcmp-vendor-frontend-report-settings-license.php:130
+msgid "Plugin activated. "
+msgstr ""
+
+#: classes/license/admin/class-wcmp-vendor-frontend-report-settings-license.php:138
+msgid "Connection failed to the License Key API server. Try again later."
+msgstr ""
+
+#: classes/license/admin/class-wcmp-vendor-frontend-report-settings-license.php:203
+msgid "Plugin license deactivated."
+msgstr ""
+
+#: classes/license/admin/class-wcmp-vendor-frontend-report-settings-license.php:227
+msgid ""
+"The license could not be deactivated. Use the License Deactivation tab to "
+"manually deactivate the license before activating a new license."
+msgstr ""
+
+#. Name of the plugin
+msgid "WCMp Advanced Vendor Report"
+msgstr ""
+
+#. Description of the plugin
+msgid ""
+"Give your seller a goldmine of information to work with. With this add-on, "
+"your seller can download a whole range of reports right from the front-end."
+msgstr ""
+
+#. URI of the plugin
+msgid "http://wc-marketplace.com/product/wcmp-advanced-vendor-report/"
+msgstr ""
+
+#. Author of the plugin
+msgid "WC Marketplace, The Grey Parrots"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://wc-marketplace.com/"
+msgstr ""

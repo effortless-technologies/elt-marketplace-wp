@@ -48,13 +48,13 @@ class WCMP_Vendor_Frontend_Report_Settings_License {
     $settings_tab_options = array("tab" => "{$this->tab}",
                                   "ref" => &$this,
                                   "sections" => array(
-                                                      "activation_settings_section" => array("title" =>  __('License Activation', $WCMp_Vendor_Frontend_Report->text_domain),
-                                                                                         "fields" => array($WCMp_Vendor_Frontend_Report->license->license_api_key => array('title' => __('API License Key', $WCMp_Vendor_Frontend_Report->text_domain), 'type' => 'text', 'value' => $license_api_key, 'desc' => $api_key_ico),
-                                                                                                           $WCMp_Vendor_Frontend_Report->license->license_activation_email => array('title' => __('API License email', $WCMp_Vendor_Frontend_Report->text_domain), 'type' => 'text', 'value' => $license_activation_email, 'desc' => $api_email_ico),
+                                                      "activation_settings_section" => array("title" =>  __('License Activation', 'wcmp-vendor_frontend_report'),
+                                                                                         "fields" => array($WCMp_Vendor_Frontend_Report->license->license_api_key => array('title' => __('API License Key', 'wcmp-vendor_frontend_report'), 'type' => 'text', 'value' => $license_api_key, 'desc' => $api_key_ico),
+                                                                                                           $WCMp_Vendor_Frontend_Report->license->license_activation_email => array('title' => __('API License email', 'wcmp-vendor_frontend_report'), 'type' => 'text', 'value' => $license_activation_email, 'desc' => $api_email_ico),
                                                                                                            )
                                                                                          ),
-                                                      "deactivation_settings_section" => array("title" =>  __('License Deactivation', $WCMp_Vendor_Frontend_Report->text_domain),
-                                                                                         "fields" => array($WCMp_Vendor_Frontend_Report->license->license_deactivate_checkbox => array('title' => __('Deactivate API License Key', $WCMp_Vendor_Frontend_Report->text_domain), 'type' => 'checkbox', 'id' => $WCMp_Vendor_Frontend_Report->license->license_deactivate_checkbox, 'name' => $WCMp_Vendor_Frontend_Report->license->license_deactivate_checkbox, 'value' => 'on', 'desc' => __( 'Deactivates an API License Key so it can be used on another blog.', $WCMp_Vendor_Frontend_Report->text_domain ))
+                                                      "deactivation_settings_section" => array("title" =>  __('License Deactivation', 'wcmp-vendor_frontend_report'),
+                                                                                         "fields" => array($WCMp_Vendor_Frontend_Report->license->license_deactivate_checkbox => array('title' => __('Deactivate API License Key', 'wcmp-vendor_frontend_report'), 'type' => 'checkbox', 'id' => $WCMp_Vendor_Frontend_Report->license->license_deactivate_checkbox, 'name' => $WCMp_Vendor_Frontend_Report->license->license_deactivate_checkbox, 'value' => 'on', 'desc' => __( 'Deactivates an API License Key so it can be used on another blog.', 'wcmp-vendor_frontend_report' ))
                                                                                                            )
                                                                                          )
                                                       )
@@ -88,7 +88,7 @@ class WCMP_Vendor_Frontend_Report_Settings_License {
 		  add_settings_error(
         "wcmp_{$this->tab}_settings_name",
         esc_attr( "wcmp_{$this->tab}_settings_admin_error" ),
-        __('Please insert your license key.', $WCMp_Vendor_Frontend_Report->text_domain),
+        __('Please insert your license key.', 'wcmp-vendor_frontend_report'),
         'error'
       );
       $hasError = true;
@@ -98,7 +98,7 @@ class WCMP_Vendor_Frontend_Report_Settings_License {
 		  add_settings_error(
         "wcmp_{$this->tab}_settings_name",
         esc_attr( "wcmp_{$this->tab}_settings_admin_error" ),
-        __('Please insert your license email.', $WCMp_Vendor_Frontend_Report->text_domain),
+        __('Please insert your license email.', 'wcmp-vendor_frontend_report'),
         'error'
       );
       $hasError = true;
@@ -127,7 +127,7 @@ class WCMP_Vendor_Frontend_Report_Settings_License {
           
           if ( $activate_results['activated'] == true ) {
           	if(!isset($activate_results['message'])) $activate_results['message'] = '';
-            add_settings_error( "wcmp_{$this->tab}_settings_name", esc_attr( "wcmp_{$this->tab}_settings_admin_error" ), __( 'Plugin activated. ', $WCMp_Vendor_Frontend_Report->text_domain ) . "{$activate_results['message']}.", 'updated' );
+            add_settings_error( "wcmp_{$this->tab}_settings_name", esc_attr( "wcmp_{$this->tab}_settings_admin_error" ), __( 'Plugin activated. ', 'wcmp-vendor_frontend_report' ) . "{$activate_results['message']}.", 'updated' );
             update_option( $WCMp_Vendor_Frontend_Report->license->license_activated_key, 'Activated' );
             update_option( $WCMp_Vendor_Frontend_Report->license->license_deactivate_checkbox, 'off' );
             
@@ -135,7 +135,7 @@ class WCMP_Vendor_Frontend_Report_Settings_License {
           }
   
           if ( $activate_results == false ) {
-            add_settings_error( "wcmp_{$this->tab}_settings_name", esc_attr( "wcmp_{$this->tab}_settings_admin_error" ), __( 'Connection failed to the License Key API server. Try again later.', $WCMp_Vendor_Frontend_Report->text_domain ), 'error' );
+            add_settings_error( "wcmp_{$this->tab}_settings_name", esc_attr( "wcmp_{$this->tab}_settings_admin_error" ), __( 'Connection failed to the License Key API server. Try again later.', 'wcmp-vendor_frontend_report' ), 'error' );
             $new_input[$WCMp_Vendor_Frontend_Report->license->license_api_key] = '';
             $new_input[$WCMp_Vendor_Frontend_Report->license->license_activation_email] = '';
             update_option( $WCMp_Vendor_Frontend_Report->license->license_activated_key, 'Deactivated' );
@@ -200,7 +200,7 @@ class WCMP_Vendor_Frontend_Report_Settings_License {
             update_option( $WCMp_Vendor_Frontend_Report->license->license_activated_key, 'Deactivated' );
             //$WCMp_Vendor_Frontend_Report->license->wcmp_plugin_tracker('license_deactivate', $api_key, $api_email);
     
-            add_settings_error( "wcmp_{$this->tab}_settings_name", esc_attr( "wcmp_{$this->tab}_settings_admin_error" ), __( 'Plugin license deactivated.', $WCMp_Vendor_Frontend_Report->text_domain ), 'updated' );
+            add_settings_error( "wcmp_{$this->tab}_settings_name", esc_attr( "wcmp_{$this->tab}_settings_admin_error" ), __( 'Plugin license deactivated.', 'wcmp-vendor_frontend_report' ), 'updated' );
           }
         }
       }
@@ -224,7 +224,7 @@ class WCMP_Vendor_Frontend_Report_Settings_License {
 		if ( $reset == true )
 			return true;
 
-		return add_settings_error( "wcmp_{$this->tab}_settings_name", esc_attr( "wcmp_{$this->tab}_settings_admin_error" ), __( 'The license could not be deactivated. Use the License Deactivation tab to manually deactivate the license before activating a new license.', $WCMp_Vendor_Frontend_Report->text_domain ), 'updated' );
+		return add_settings_error( "wcmp_{$this->tab}_settings_name", esc_attr( "wcmp_{$this->tab}_settings_admin_error" ), __( 'The license could not be deactivated. Use the License Deactivation tab to manually deactivate the license before activating a new license.', 'wcmp-vendor_frontend_report' ), 'updated' );
 	}
   
   /** 
@@ -232,7 +232,7 @@ class WCMP_Vendor_Frontend_Report_Settings_License {
    */
   public function activation_settings_section_info() {
     global $WCMp_Vendor_Frontend_Report;
-    //_e('Enter your default settings below', $WCMp_Vendor_Frontend_Report->text_domain);
+    //_e('Enter your default settings below', 'wcmp-vendor_frontend_report');
   }
   
   /** 
@@ -240,6 +240,6 @@ class WCMP_Vendor_Frontend_Report_Settings_License {
    */
   public function deactivation_settings_section_info() {
     global $WCMp_Vendor_Frontend_Report;
-    //_e('Enter your custom settings below', $WCMp_Vendor_Frontend_Report->text_domain);
+    //_e('Enter your custom settings below', 'wcmp-vendor_frontend_report');
   }
 }

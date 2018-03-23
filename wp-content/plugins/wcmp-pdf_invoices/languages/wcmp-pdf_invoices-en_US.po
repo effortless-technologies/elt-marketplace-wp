@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: wcmp-pdf_invoices\n"
-"POT-Creation-Date: 2017-07-28 09:56+0000\n"
-"PO-Revision-Date: 2017-07-28 09:56+0000\n"
-"Last-Translator: asdf asdfadfs <ankan95mondal@gmail.com>\n"
+"POT-Creation-Date: 2018-02-28 06:29+0000\n"
+"PO-Revision-Date: 2018-02-28 06:29+0000\n"
+"Last-Translator: admin <khokan@dualcube.com>\n"
 "Language-Team: English (United States)\n"
 "Language: en-US\n"
 "MIME-Version: 1.0\n"
@@ -16,6 +16,449 @@ msgstr ""
 "content/plugins/wcmp-pdf_invoices\n"
 "Report-Msgid-Bugs-To: \n"
 "Plural-Forms: nplurals=2; plural=n != 1"
+
+#: includes/wcmp-pdf-invoices-core-functions.php:7
+#, php-format
+msgid ""
+"%sWCMp Vendor PDF Invoices is inactive.%s The %sWooCommerce%s plugin must be "
+"active for the WCMp Vendor PDF Invoices to work. Please %sinstall & activate "
+"WooCommerce%s"
+msgstr ""
+
+#: includes/wcmp-pdf-invoices-core-functions.php:19
+#, php-format
+msgid ""
+"%sWCMp Vendor PDF Invoices is inactive.%s The %sWC Marketplace%s plugin must "
+"be active for the WCMp Vendor PDF Invoices to work. Please %sinstall & "
+"activate WC Marketplace%s"
+msgstr ""
+
+#: includes/wcmp-pdf-invoices-core-functions.php:32
+#, php-format
+msgid ""
+"%sWCMp Vendor PDF Invoices is inactive.%s The %sWooCommerce PDF Invoices & "
+"Packing Slips%s plugin must be active for the WCMp Vendor PDF Invoices to "
+"work. Please %sinstall & activate WooCommerce PDF Invoices & Packing Slips%s"
+msgstr ""
+
+#: templates/wcmp_pdf_invoice_second_template.php:53
+#: templates/wcmp_pdf_invoice_forth_template.php:33
+#: templates/wcmp_pdf_invoice_fifth_template.php:23
+msgid "INVOICE"
+msgstr ""
+
+#: templates/wcmp_pdf_invoice_second_template.php:99
+msgid "Invoice Total: "
+msgstr ""
+
+#: templates/wcmp_pdf_invoice_second_template.php:106
+#: templates/wcmp_pdf_invoice_forth_template.php:81
+#: templates/wcmp_pdf_invoice_fifth_template.php:80
+#: templates/wcmp_pdf_invoice_third_template.php:87
+#: templates/wcmp_pdf_invoice_first_template.php:127
+msgid "Invoice To:"
+msgstr ""
+
+#: templates/wcmp_pdf_invoice_second_template.php:109
+#: templates/wcmp_pdf_invoice_second_template.php:118
+#: templates/wcmp_pdf_invoice_forth_template.php:84
+#: templates/wcmp_pdf_invoice_forth_template.php:91
+#: templates/wcmp_pdf_invoice_fifth_template.php:83
+#: templates/wcmp_pdf_invoice_fifth_template.php:92
+#: templates/wcmp_pdf_invoice_third_template.php:90
+#: templates/wcmp_pdf_invoice_third_template.php:99
+msgid "N/A"
+msgstr ""
+
+#: templates/wcmp_pdf_invoice_second_template.php:115
+#: templates/wcmp_pdf_invoice_forth_template.php:88
+#: templates/wcmp_pdf_invoice_fifth_template.php:89
+#: templates/wcmp_pdf_invoice_third_template.php:96
+#: templates/wcmp_pdf_invoice_first_template.php:136
+msgid "Ship To:"
+msgstr ""
+
+#: templates/wcmp_pdf_invoice_second_template.php:134
+#: templates/wcmp_pdf_invoice_forth_template.php:97
+#: templates/wcmp_packing_slip_first_template.php:149
+msgid "Order Number: "
+msgstr ""
+
+#: templates/wcmp_pdf_invoice_second_template.php:135
+#: templates/wcmp_packing_slip_first_template.php:149
+#: templates/wcmp_pdf_invoice_first_template.php:79
+msgid "Order Date: "
+msgstr ""
+
+#: templates/wcmp_pdf_invoice_second_template.php:140
+#: templates/wcmp_pdf_invoice_second_template.php:147
+#: templates/wcmp_pdf_invoice_second_template.php:153
+#: templates/wcmp_pdf_invoice_second_template.php:160
+#: templates/wcmp_pdf_invoice_forth_template.php:103
+#: templates/wcmp_pdf_invoice_forth_template.php:110
+#: templates/wcmp_pdf_invoice_forth_template.php:116
+#: templates/wcmp_pdf_invoice_forth_template.php:123
+#: templates/wcmp_packing_slip_first_template.php:149
+msgid "Payment Method: "
+msgstr ""
+
+#: templates/wcmp_pdf_invoice_second_template.php:170
+#: templates/wcmp_pdf_invoice_second_template.php:181
+#: templates/wcmp_pdf_invoice_forth_template.php:133
+#: templates/wcmp_pdf_invoice_forth_template.php:135
+#: templates/wcmp_pdf_invoice_forth_template.php:138
+#: templates/wcmp_pdf_invoice_fifth_template.php:167
+#: templates/wcmp_pdf_invoice_fifth_template.php:178
+#: templates/wcmp_pdf_invoice_third_template.php:149
+#: templates/wcmp_pdf_invoice_third_template.php:151
+#: templates/wcmp_pdf_invoice_third_template.php:156
+#: templates/wcmp_pdf_invoice_first_template.php:114
+#: templates/wcmp_pdf_invoice_first_template.php:116
+#: templates/wcmp_pdf_invoice_first_template.php:119
+msgid "Special Note from Admin:"
+msgstr ""
+
+#: templates/wcmp_pdf_invoice_second_template.php:189
+#: templates/wcmp_pdf_invoice_forth_template.php:147
+#: templates/wcmp_pdf_invoice_fifth_template.php:185
+#: templates/wcmp_pdf_invoice_third_template.php:164
+#: templates/wcmp_pdf_invoice_first_template.php:150
+msgid "Order Details"
+msgstr ""
+
+#: templates/wcmp_pdf_invoice_second_template.php:194
+#: templates/wcmp_pdf_invoice_forth_template.php:153
+#: templates/wcmp_pdf_invoice_fifth_template.php:190
+#: templates/wcmp_pdf_invoice_third_template.php:169
+#: templates/wcmp_pdf_invoice_first_template.php:154
+msgid "Item"
+msgstr ""
+
+#: templates/wcmp_pdf_invoice_second_template.php:199
+#: templates/wcmp_pdf_invoice_second_template.php:206
+#: templates/wcmp_pdf_invoice_second_template.php:212
+#: templates/wcmp_pdf_invoice_second_template.php:219
+#: templates/wcmp_pdf_invoice_forth_template.php:158
+#: templates/wcmp_pdf_invoice_forth_template.php:165
+#: templates/wcmp_pdf_invoice_forth_template.php:171
+#: templates/wcmp_pdf_invoice_forth_template.php:178
+#: templates/wcmp_pdf_invoice_fifth_template.php:191
+#: templates/wcmp_pdf_invoice_third_template.php:174
+#: templates/wcmp_pdf_invoice_third_template.php:181
+#: templates/wcmp_pdf_invoice_third_template.php:187
+#: templates/wcmp_pdf_invoice_third_template.php:194
+#: templates/wcmp_pdf_invoice_first_template.php:159
+#: templates/wcmp_pdf_invoice_first_template.php:166
+#: templates/wcmp_pdf_invoice_first_template.php:172
+#: templates/wcmp_pdf_invoice_first_template.php:179
+#: templates/wcmp_vendor_invoice_edit_settings.php:57
+#: admin/class-wcmp-pdf-invoices-settings-admin-pdf_invoices.php:28
+#: admin/class-wcmp-pdf-invoices-settings-vendor-pdf_invoices.php:27
+#: admin/class-wcmp-pdf-invoices-settings-customer-pdf_invoices.php:41
+msgid "SKU"
+msgstr ""
+
+#: templates/wcmp_pdf_invoice_second_template.php:224
+#: templates/wcmp_pdf_invoice_forth_template.php:183
+#: templates/wcmp_pdf_invoice_fifth_template.php:192
+#: templates/wcmp_pdf_invoice_third_template.php:199
+#: templates/wcmp_pdf_invoice_first_template.php:184
+msgid "Quantity"
+msgstr ""
+
+#: templates/wcmp_pdf_invoice_second_template.php:225
+#: templates/wcmp_pdf_invoice_forth_template.php:184
+#: templates/wcmp_pdf_invoice_fifth_template.php:193
+#: templates/wcmp_pdf_invoice_third_template.php:200
+#: templates/wcmp_pdf_invoice_first_template.php:185
+msgid "Cost"
+msgstr ""
+
+#: templates/wcmp_pdf_invoice_second_template.php:388
+#: templates/wcmp_pdf_invoice_second_template.php:394
+#: templates/wcmp_pdf_invoice_second_template.php:397
+#: templates/wcmp_pdf_invoice_second_template.php:403
+#: templates/wcmp_pdf_invoice_fifth_template.php:371
+#: templates/wcmp_pdf_invoice_fifth_template.php:377
+#: templates/wcmp_pdf_invoice_fifth_template.php:380
+#: templates/wcmp_pdf_invoice_fifth_template.php:386
+#: templates/wcmp_pdf_invoice_third_template.php:362
+#: templates/wcmp_pdf_invoice_third_template.php:368
+#: templates/wcmp_pdf_invoice_third_template.php:371
+#: templates/wcmp_pdf_invoice_third_template.php:377
+#: templates/wcmp_pdf_invoice_first_template.php:346
+#: templates/wcmp_pdf_invoice_first_template.php:352
+#: templates/wcmp_pdf_invoice_first_template.php:355
+#: templates/wcmp_pdf_invoice_first_template.php:361
+msgid "Risk of loss"
+msgstr ""
+
+#: templates/wcmp_pdf_invoice_second_template.php:413
+#: templates/wcmp_pdf_invoice_second_template.php:420
+#: templates/wcmp_pdf_invoice_second_template.php:426
+#: templates/wcmp_pdf_invoice_second_template.php:433
+#: templates/wcmp_pdf_invoice_forth_template.php:378
+#: templates/wcmp_pdf_invoice_forth_template.php:385
+#: templates/wcmp_pdf_invoice_forth_template.php:391
+#: templates/wcmp_pdf_invoice_forth_template.php:398
+#: templates/wcmp_pdf_invoice_fifth_template.php:399
+#: templates/wcmp_pdf_invoice_fifth_template.php:411
+#: templates/wcmp_pdf_invoice_fifth_template.php:422
+#: templates/wcmp_pdf_invoice_fifth_template.php:434
+#: templates/wcmp_pdf_invoice_third_template.php:387
+#: templates/wcmp_pdf_invoice_third_template.php:394
+#: templates/wcmp_pdf_invoice_third_template.php:400
+#: templates/wcmp_pdf_invoice_third_template.php:407
+#: templates/wcmp_pdf_invoice_first_template.php:372
+#: templates/wcmp_pdf_invoice_first_template.php:379
+#: templates/wcmp_pdf_invoice_first_template.php:385
+#: templates/wcmp_pdf_invoice_first_template.php:392
+msgid "Customer Note"
+msgstr ""
+
+#: templates/wcmp_pdf_invoice_forth_template.php:34
+#: templates/wcmp_pdf_invoice_third_template.php:62
+msgid "Issued on : "
+msgstr ""
+
+#: templates/wcmp_pdf_invoice_forth_template.php:57
+#: templates/wcmp_pdf_invoice_third_template.php:53
+#: templates/wcmp_pdf_invoice_first_template.php:404
+msgid "Email: "
+msgstr ""
+
+#: templates/wcmp_pdf_invoice_forth_template.php:57
+#: templates/wcmp_pdf_invoice_third_template.php:54
+#: templates/wcmp_pdf_invoice_first_template.php:404
+msgid "Ph No:"
+msgstr ""
+
+#: templates/wcmp_pdf_invoice_forth_template.php:76
+#: templates/wcmp_pdf_invoice_third_template.php:83
+msgid "Invoice total:"
+msgstr ""
+
+#: templates/wcmp_pdf_invoice_forth_template.php:358
+#: templates/wcmp_pdf_invoice_forth_template.php:363
+#: templates/wcmp_pdf_invoice_forth_template.php:365
+#: templates/wcmp_pdf_invoice_forth_template.php:370
+msgid "Risk of loss "
+msgstr ""
+
+#: templates/wcmp_pdf_invoice_fifth_template.php:53
+msgid "Company Details"
+msgstr ""
+
+#: templates/wcmp_pdf_invoice_fifth_template.php:57
+msgid "Name - "
+msgstr ""
+
+#: templates/wcmp_pdf_invoice_fifth_template.php:60
+msgid "Address - "
+msgstr ""
+
+#: templates/wcmp_pdf_invoice_fifth_template.php:63
+msgid "Email - "
+msgstr ""
+
+#: templates/wcmp_pdf_invoice_fifth_template.php:66
+msgid "Ph No. - "
+msgstr ""
+
+#: templates/wcmp_pdf_invoice_fifth_template.php:124
+#: templates/wcmp_pdf_invoice_third_template.php:112
+#: templates/wcmp_pdf_invoice_first_template.php:78
+msgid "Order Number:"
+msgstr ""
+
+#: templates/wcmp_pdf_invoice_fifth_template.php:126
+#: templates/wcmp_pdf_invoice_third_template.php:113
+msgid "Order Date:"
+msgstr ""
+
+#: templates/wcmp_pdf_invoice_fifth_template.php:132
+#: templates/wcmp_pdf_invoice_fifth_template.php:140
+#: templates/wcmp_pdf_invoice_fifth_template.php:147
+#: templates/wcmp_pdf_invoice_fifth_template.php:155
+#: templates/wcmp_pdf_invoice_third_template.php:118
+#: templates/wcmp_pdf_invoice_third_template.php:125
+#: templates/wcmp_pdf_invoice_third_template.php:131
+#: templates/wcmp_pdf_invoice_third_template.php:138
+msgid "Payment Method:"
+msgstr ""
+
+#: templates/wcmp_pdf_invoice_fifth_template.php:258
+#: templates/wcmp_pdf_invoice_fifth_template.php:268
+#: templates/wcmp_pdf_invoice_fifth_template.php:277
+#: templates/wcmp_pdf_invoice_fifth_template.php:287
+msgid "NA"
+msgstr ""
+
+#: templates/wcmp_pdf_invoice_third_template.php:61
+msgid "Invoice"
+msgstr ""
+
+#: templates/wcmp_packing_slip_first_template.php:148
+msgid "PACKING SLIP"
+msgstr ""
+
+#: templates/wcmp_packing_slip_first_template.php:148
+msgid "Address: "
+msgstr ""
+
+#: templates/wcmp_packing_slip_first_template.php:153
+msgid "Product Name"
+msgstr ""
+
+#: templates/wcmp_packing_slip_first_template.php:153
+msgid "Product Quantity"
+msgstr ""
+
+#: templates/wcmp_packing_slip_first_template.php:161
+msgid "Sold by: "
+msgstr ""
+
+#: templates/wcmp_pdf_invoice_first_template.php:71
+msgid "Invoice total : "
+msgstr ""
+
+#: templates/wcmp_vendor_invoice_edit_settings.php:25
+msgid "Select your preferred template"
+msgstr ""
+
+#: templates/wcmp_vendor_invoice_edit_settings.php:46
+msgid "Logo ( JPEG Only)"
+msgstr ""
+
+#: templates/wcmp_vendor_invoice_edit_settings.php:61
+#: admin/class-wcmp-pdf-invoices-settings-admin-pdf_invoices.php:29
+#: admin/class-wcmp-pdf-invoices-settings-vendor-pdf_invoices.php:28
+#: admin/class-wcmp-pdf-invoices-settings-customer-pdf_invoices.php:42
+msgid "Subtotal"
+msgstr ""
+
+#: templates/wcmp_vendor_invoice_edit_settings.php:65
+#: admin/class-wcmp-pdf-invoices-settings-admin-pdf_invoices.php:30
+#: admin/class-wcmp-pdf-invoices-settings-vendor-pdf_invoices.php:29
+#: admin/class-wcmp-pdf-invoices-settings-customer-pdf_invoices.php:43
+msgid "Discount"
+msgstr ""
+
+#: templates/wcmp_vendor_invoice_edit_settings.php:69
+#: admin/class-wcmp-pdf-invoices-settings-admin-pdf_invoices.php:31
+#: admin/class-wcmp-pdf-invoices-settings-vendor-pdf_invoices.php:30
+#: admin/class-wcmp-pdf-invoices-settings-customer-pdf_invoices.php:44
+msgid "Tax"
+msgstr ""
+
+#: templates/wcmp_vendor_invoice_edit_settings.php:73
+#: admin/class-wcmp-pdf-invoices-settings-admin-pdf_invoices.php:32
+#: admin/class-wcmp-pdf-invoices-settings-vendor-pdf_invoices.php:31
+#: admin/class-wcmp-pdf-invoices-settings-customer-pdf_invoices.php:45
+msgid "Shipping"
+msgstr ""
+
+#: templates/wcmp_vendor_invoice_edit_settings.php:77
+msgid "Show Payment Method"
+msgstr ""
+
+#: templates/wcmp_vendor_invoice_edit_settings.php:81
+#: admin/class-wcmp-pdf-invoices-settings-admin-pdf_invoices.php:34
+#: admin/class-wcmp-pdf-invoices-settings-vendor-pdf_invoices.php:33
+#: admin/class-wcmp-pdf-invoices-settings-customer-pdf_invoices.php:47
+msgid "Introduction Text"
+msgstr ""
+
+#: templates/wcmp_vendor_invoice_edit_settings.php:85
+#: admin/class-wcmp-pdf-invoices-settings-admin-pdf_invoices.php:35
+#: admin/class-wcmp-pdf-invoices-settings-vendor-pdf_invoices.php:34
+#: admin/class-wcmp-pdf-invoices-settings-customer-pdf_invoices.php:48
+msgid "Term and conditions"
+msgstr ""
+
+#: templates/wcmp_vendor_invoice_edit_settings.php:93
+#: admin/class-wcmp-pdf-invoices-settings-admin-pdf_invoices.php:36
+#: admin/class-wcmp-pdf-invoices-settings-vendor-pdf_invoices.php:35
+#: admin/class-wcmp-pdf-invoices-settings-customer-pdf_invoices.php:49
+msgid "Show Customer Note"
+msgstr ""
+
+#: classes/class-wcmp-pdf-invoices-install.php:34
+msgctxt "page_slug"
+msgid "wcmp_vendor_edit_invoice"
+msgstr ""
+
+#: classes/class-wcmp-pdf-invoices-install.php:35
+msgid "Invoice Settings"
+msgstr ""
+
+#: classes/class-wcmp-pdf-invoices-license.php:146
+#: classes/class-wcmp-pdf-invoices-admin.php:63
+msgid "PDF Invoices"
+msgstr ""
+
+#: classes/class-wcmp-pdf-invoices-license.php:324
+#, php-format
+msgid ""
+"The PDF Invoices License Key has not been activated, so the plugin is "
+"inactive! %sClick here%s to activate the license key and the plugin."
+msgstr ""
+
+#: classes/class-wcmp-pdf-invoices-admin.php:41
+msgid "Vendor Edit Invoice Template"
+msgstr ""
+
+#: classes/class-wcmp-pdf-invoices-admin.php:42
+msgid "Choose your preferred page for Vendor Frontend Invoice Settings."
+msgstr ""
+
+#: classes/class-wcmp-pdf-invoices-admin.php:109
+msgid "PDF Invoice"
+msgstr ""
+
+#: classes/class-wcmp-pdf-invoices-admin.php:120
+msgid "Per Order - "
+msgstr ""
+
+#: classes/class-wcmp-pdf-invoices-admin.php:122
+#: classes/class-wcmp-pdf-invoices-admin.php:135
+msgid "Create"
+msgstr ""
+
+#: classes/class-wcmp-pdf-invoices-admin.php:124
+#: classes/class-wcmp-pdf-invoices-admin.php:133
+msgid "View"
+msgstr ""
+
+#: classes/class-wcmp-pdf-invoices-admin.php:124
+msgid "Cancel"
+msgstr ""
+
+#: classes/class-wcmp-pdf-invoices-admin.php:140
+msgid "Per Vendor - "
+msgstr ""
+
+#: classes/class-wcmp-pdf-invoices-frontend.php:80
+msgid "- Edit Invoice"
+msgstr ""
+
+#: classes/class-wcmp-pdf-invoices-frontend.php:87
+msgid "Edit Invoice"
+msgstr ""
+
+#: admin/class-wcmp-pdf-invoices-settings-admin-pdf_invoices.php:33
+#: admin/class-wcmp-pdf-invoices-settings-vendor-pdf_invoices.php:32
+#: admin/class-wcmp-pdf-invoices-settings-customer-pdf_invoices.php:46
+msgid "Payment Method"
+msgstr ""
+
+#: admin/class-wcmp-pdf-invoices-settings-customer-pdf_invoices.php:40
+msgid "Customer can download invoice at"
+msgstr ""
+
+#: admin/class-wcmp-pdf-invoices-settings-customer-pdf_invoices.php:40
+msgid "Set order status for customer to download invoice."
+msgstr ""
 
 #: admin/class-wcmp-pdf-invoices-settings-pdf_invoices.php:51
 msgid "General Settings"
@@ -91,131 +534,21 @@ msgstr ""
 msgid "Special Notes from Admin"
 msgstr ""
 
-#: admin/class-wcmp-pdf-invoices-settings-customer-pdf_invoices.php:40
-msgid "Customer can download invoice at"
+#: classes/license/admin/class-wcmp-license.php:16
+#: classes/license/admin/class-wcmp-license.php:18
+msgid "WCMp License"
 msgstr ""
 
-#: admin/class-wcmp-pdf-invoices-settings-customer-pdf_invoices.php:40
-msgid "Set order status for customer to download invoice."
+#: classes/license/admin/class-wcmp-license.php:81
+#, php-format
+msgid "<h2>%s License</h2>"
 msgstr ""
 
-#: admin/class-wcmp-pdf-invoices-settings-customer-pdf_invoices.php:41
-#: admin/class-wcmp-pdf-invoices-settings-admin-pdf_invoices.php:28
-#: admin/class-wcmp-pdf-invoices-settings-vendor-pdf_invoices.php:27
-msgid "SKU"
-msgstr ""
-
-#: admin/class-wcmp-pdf-invoices-settings-customer-pdf_invoices.php:42
-#: admin/class-wcmp-pdf-invoices-settings-admin-pdf_invoices.php:29
-#: admin/class-wcmp-pdf-invoices-settings-vendor-pdf_invoices.php:28
-msgid "Subtotal"
-msgstr ""
-
-#: admin/class-wcmp-pdf-invoices-settings-customer-pdf_invoices.php:43
-#: admin/class-wcmp-pdf-invoices-settings-admin-pdf_invoices.php:30
-#: admin/class-wcmp-pdf-invoices-settings-vendor-pdf_invoices.php:29
-msgid "Discount"
-msgstr ""
-
-#: admin/class-wcmp-pdf-invoices-settings-customer-pdf_invoices.php:44
-#: admin/class-wcmp-pdf-invoices-settings-admin-pdf_invoices.php:31
-#: admin/class-wcmp-pdf-invoices-settings-vendor-pdf_invoices.php:30
-msgid "Tax"
-msgstr ""
-
-#: admin/class-wcmp-pdf-invoices-settings-customer-pdf_invoices.php:45
-#: admin/class-wcmp-pdf-invoices-settings-admin-pdf_invoices.php:32
-#: admin/class-wcmp-pdf-invoices-settings-vendor-pdf_invoices.php:31
-msgid "Shipping"
-msgstr ""
-
-#: admin/class-wcmp-pdf-invoices-settings-customer-pdf_invoices.php:46
-#: admin/class-wcmp-pdf-invoices-settings-admin-pdf_invoices.php:33
-#: admin/class-wcmp-pdf-invoices-settings-vendor-pdf_invoices.php:32
-msgid "Payment Method"
-msgstr ""
-
-#: admin/class-wcmp-pdf-invoices-settings-customer-pdf_invoices.php:47
-#: admin/class-wcmp-pdf-invoices-settings-admin-pdf_invoices.php:34
-#: admin/class-wcmp-pdf-invoices-settings-vendor-pdf_invoices.php:33
-msgid "Introduction Text"
-msgstr ""
-
-#: admin/class-wcmp-pdf-invoices-settings-customer-pdf_invoices.php:48
-#: admin/class-wcmp-pdf-invoices-settings-admin-pdf_invoices.php:35
-#: admin/class-wcmp-pdf-invoices-settings-vendor-pdf_invoices.php:34
-msgid "Term and conditions"
-msgstr ""
-
-#: admin/class-wcmp-pdf-invoices-settings-customer-pdf_invoices.php:49
-#: admin/class-wcmp-pdf-invoices-settings-admin-pdf_invoices.php:36
-#: admin/class-wcmp-pdf-invoices-settings-vendor-pdf_invoices.php:35
-msgid "Show Customer Note"
-msgstr ""
-
-#: includes/wcmp-pdf-invoices-core-functions.php:7
+#: classes/license/admin/class-wcmp-license.php:89
 #, php-format
 msgid ""
-"%sWCMp Vendor PDF Invoices is inactive.%s The %sWooCommerce%s plugin must be "
-"active for the WCMp Vendor PDF Invoices to work. Please %sinstall & activate "
-"WooCommerce%s"
-msgstr ""
-
-#: includes/wcmp-pdf-invoices-core-functions.php:19
-#, php-format
-msgid ""
-"%sWCMp Vendor PDF Invoices is inactive.%s The %sWC Marketplace%s plugin must "
-"be active for the WCMp Vendor PDF Invoices to work. Please %sinstall & "
-"activate WC Marketplace%s"
-msgstr ""
-
-#: includes/wcmp-pdf-invoices-core-functions.php:32
-#, php-format
-msgid ""
-"%sWCMp Vendor PDF Invoices is inactive.%s The %sWooCommerce PDF Invoices & "
-"Packing Slips%s plugin must be active for the WCMp Vendor PDF Invoices to "
-"work. Please %sinstall & activate WooCommerce PDF Invoices & Packing Slips%s"
-msgstr ""
-
-#: classes/class-wcmp-pdf-invoices-license.php:146
-#: classes/class-wcmp-pdf-invoices-admin.php:63
-msgid "PDF Invoices"
-msgstr ""
-
-#: classes/class-wcmp-pdf-invoices-license.php:324
-#, php-format
-msgid ""
-"The PDF Invoices License Key has not been activated, so the plugin is "
-"inactive! %sClick here%s to activate the license key and the plugin."
-msgstr ""
-
-#: classes/class-wcmp-pdf-invoices-admin.php:41
-msgid "Vendor Edit Invoice Template"
-msgstr ""
-
-#: classes/class-wcmp-pdf-invoices-admin.php:42
-msgid "Choose your preferred page for Vendor Frontend Invoice Settings."
-msgstr ""
-
-#: classes/class-wcmp-pdf-invoices-admin.php:109
-msgid "PDF Invoice"
-msgstr ""
-
-#: classes/class-wcmp-pdf-invoices-install.php:34
-msgctxt "page_slug"
-msgid "wcmp_vendor_edit_invoice"
-msgstr ""
-
-#: classes/class-wcmp-pdf-invoices-install.php:35
-msgid "Invoice Settings"
-msgstr ""
-
-#: classes/class-wcmp-pdf-invoices-frontend.php:82
-msgid "- Edit Invoice"
-msgstr ""
-
-#: classes/class-wcmp-pdf-invoices-frontend.php:89
-msgid "Edit Invoice"
+"<h4 style='border-bottom: 1px solid rgb(215, 211, 211);padding-bottom: 21px;"
+"'>%s</h4>"
 msgstr ""
 
 #: classes/license/admin/class-wcmp-pdf-invoices-settings-license.php:53
@@ -266,23 +599,6 @@ msgstr ""
 msgid ""
 "The license could not be deactivated. Use the License Deactivation tab to "
 "manually deactivate the license before activating a new license."
-msgstr ""
-
-#: classes/license/admin/class-wcmp-license.php:16
-#: classes/license/admin/class-wcmp-license.php:18
-msgid "WCMp License"
-msgstr ""
-
-#: classes/license/admin/class-wcmp-license.php:81
-#, php-format
-msgid "<h2>%s License</h2>"
-msgstr ""
-
-#: classes/license/admin/class-wcmp-license.php:89
-#, php-format
-msgid ""
-"<h4 style='border-bottom: 1px solid rgb(215, 211, 211);padding-bottom: 21px;"
-"'>%s</h4>"
 msgstr ""
 
 #. Name of the plugin

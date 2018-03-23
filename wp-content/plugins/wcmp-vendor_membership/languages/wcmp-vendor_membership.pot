@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-29 12:35+0000\n"
+"POT-Creation-Date: 2018-02-20 06:53+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -13,643 +13,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco - https://localise.biz/"
-
-#: classes/class-wcmp-vendor-membership-license.php:142
-#: classes/class-wcmp-vendor-membership-admin.php:106
-msgid "Vendor Membership"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-license.php:320
-#, php-format
-msgid ""
-"The Vendor Membership License Key has not been activated, so the plugin is "
-"inactive! %sClick here%s to activate the license key and the plugin."
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:18
-msgctxt "post type general name"
-msgid "Vendor Type"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:19
-msgctxt "post type singular name"
-msgid "Vendor Type"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:20
-msgctxt "admin menu"
-msgid "Vendor Types"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:21
-msgctxt "add new on admin bar"
-msgid "Vendor Type"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:22
-msgctxt "Vendor Type"
-msgid "Add New"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:23
-msgid "Add New Vendor Type"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:24
-msgid "New Vendor Type"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:25
-msgid "Edit Vendor Type"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:26
-msgid "View Vendor Type"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:27
-msgid "All Vendor Type"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:28
-msgid "Search Vendor Type"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:29
-msgid "Parent Vendor Type:"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:30
-msgid "No vendor type found."
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:31
-msgid "No vendor type found in Trash."
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:36
-msgid "Vendor Plans ."
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:69
-msgid "Vendor Type Features List"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:75
-msgid "Vendor Type Access Privilege"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:81
-msgid "Vendor Type Billing Section"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:87
-msgid "Vendor Type Message Section"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:93
-msgid "Vendor Type Capabilities Section"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:99
-msgid "Vendor Type Limitation Section"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:105
-msgid "Visibilities Section"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:109
-msgid "Allowed Product categories"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:124
-#: classes/class-wcmp-vendor-membership-posttype.php:141
-msgid "Add Feature"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:125
-#: classes/class-wcmp-vendor-membership-posttype.php:143
-msgid "Remove Feature"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:126
-#: classes/class-wcmp-vendor-membership-posttype.php:145
-msgid "Remove All"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:261
-#: classes/class-wcmp-vendor-membership-posttype.php:282
-#: classes/class-wcmp-vendor-membership-posttype.php:303
-#: classes/class-wcmp-vendor-membership-posttype.php:324
-#: classes/class-wcmp-vendor-membership-posttype.php:345
-#: classes/class-wcmp-vendor-membership-posttype.php:366
-#: classes/class-wcmp-vendor-membership-posttype.php:387
-msgid "Check/Uncheck All"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:341
-msgid "Messages & Customer Support Settings "
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:601
-msgid "No admin approval required"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:603
-msgid ""
-"Direct Approval of Membership no need to approval of admin of this type of "
-"Vendor Type."
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:609
-msgid "Vendor commission"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:611
-msgid "Set global commission value for this membership type"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:631
-msgid "Please Select Role"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:638
-msgid "Free plan"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:640
-msgid "Mark this subscription as free."
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:646
-msgid "Initial payment (only number)"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:648
-msgid ""
-"Enter the Amount which will be charged at the time of subscribe/Registration."
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:653
-msgid "Plan short description (required)"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:655
-msgid "Enter the Plan Short Description for Billing Profile."
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:660
-msgid "Is trial"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:662
-msgid "Select yes if you want to give this plan as trial for some days."
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:663
-#: classes/class-wcmp-vendor-membership-posttype.php:693
-msgid "Please Select"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:663
-#: classes/class-wcmp-vendor-membership-posttype.php:693
-msgid "NO"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:663
-#: classes/class-wcmp-vendor-membership-posttype.php:693
-msgid "Yes"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:668
-msgid "Trial amount (only number)"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:670
-msgid "Enter Trial Amount."
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:675
-msgid "Trial cycle duration"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:677
-#: classes/class-wcmp-vendor-membership-posttype.php:692
-msgid "Select yes if this type of vendorship have recurring profile/payment."
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:678
-#: classes/class-wcmp-vendor-membership-posttype.php:715
-msgid "Select Duration"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:678
-#: classes/class-wcmp-vendor-membership-posttype.php:715
-msgid "Weekly"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:678
-msgid "SemiMonth"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:678
-#: classes/class-wcmp-vendor-membership-posttype.php:715
-msgid "Monthly"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:678
-#: classes/class-wcmp-vendor-membership-posttype.php:715
-msgid "Yearly"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:683
-msgid "Trial cycle limit (only number)"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:685
-msgid "Enter the cycle limit never put 0 ."
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:690
-msgid "Is recurring"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:698
-msgid "Recurring payment amount (only number)"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:700
-msgid "Enter the Amount which will be charged recurring for subscription."
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:705
-msgid "TAX amount (only number)"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:707
-msgid ""
-"Enter the Amount which will be charged recurring as tax for subscription."
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:712
-msgid "Recurring payment duration."
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:714
-msgid "Select yes if this type of vendorship have recurring profile/payment"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:715
-msgid "SemiMonthly"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:720
-msgid "Billing cycle limit (only number)"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:722
-msgid ""
-"Enter the billing cycle limit enter for 0 for indefinite until cancellation."
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:727
-msgid "Maximux attempt (only number)"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:729
-msgid "Enter maximux attempt payment fail"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:734
-msgid "Subscribe button text"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:737
-#: classes/class-wcmp-vendor-membership-posttype.php:745
-#: classes/class-wcmp-vendor-membership-posttype.php:753
-msgid "Enter subscribe button text."
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:742
-msgid ""
-"Upgrade button text for existing member/customers who want to sell his/her "
-"products"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:750
-msgid "Upgrade button text for existing vendor"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:758
-msgid "Grace period in days (only number)"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:760
-msgid ""
-"Enter grace period in days when subscription when payment due for "
-"subscription."
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:765
-msgid "Status after grace"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:767
-msgid "Select the status when vendor completed his/her grace period"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:773
-msgid "Hide product after grace"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:775
-msgid "Hide vendor product from shop after grace period"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:796
-msgid "Success message"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:798
-msgid "Enter success message will comes after the successful registration."
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:803
-msgid "Error message"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:805
-msgid "Enter unsuccess message will comes after the unsuccessful registration."
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:810
-msgid "Payment due message"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:812
-msgid "Enter  message will comes any payment due."
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:817
-msgid "Upcoming renew message"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:819
-msgid "Enter reminder message for upcoming renew reminder."
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:838
-msgid "Is product category limitation enable"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:840
-msgid ""
-"Check the checkbox if you want to product category uses limitation for this "
-"type of vendor."
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:846
-msgid "Product category limit"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:848
-msgid "Enter number of category can use this type of vendor."
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:853
-msgid "Is Product limitation enable"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:855
-msgid ""
-"Check the checkbox if you want to product upload limitation for this type of "
-"vendor."
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:861
-msgid "Product upload limit"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:863
-msgid "Enter number of product can upload this type of vendor."
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:883
-msgid "Show in the membership list"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:885
-msgid ""
-"Check this if you want to show this vendor type in your membership list."
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:891
-msgid "Mark as recommended"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:910
-msgid "Submit products"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:911
-msgid "Publish products"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:912
-msgid "Edit published products"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:913
-msgid "Upload media files"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:914
-msgid "Submit coupons"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:915
-msgid "Publish coupons"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:916
-msgid "Edit publish coupons"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:929
-msgid "Allow vendors to export orders."
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:930
-msgid "Customer name"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:931
-msgid "E-mail and phone number"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:932
-#: classes/class-wcmp-vendor-membership-posttype.php:947
-msgid "Billing address"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:933
-#: classes/class-wcmp-vendor-membership-posttype.php:948
-msgid "Shipping address"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:946
-msgid "Name, phone no. and email"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:949
-msgid "Order calculations"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:962
-msgid "View comment"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:963
-msgid "Submit comment"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:964
-msgid "Enable store url"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:965
-msgid "Enable hide option for vendor"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:978
-msgid "Message to buyer"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:979
-msgid "Vendor shop support"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:992
-msgid "Can vendor edit policy tab title"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:993
-msgid "Can vendor edit cancellation/return/exchange policy"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:994
-msgid "Can vendor edit refund policy"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:995
-msgid "Can vendor edit shipping policy"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:1008
-msgid "View order"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-posttype.php:1009
-msgid "Manage shipping"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-admin.php:25
-msgid "Product categories"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-admin.php:106
-msgid "Choose your preferred page for Vendor Membership List."
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-admin.php:107
-msgid "Vendor Membership IPN"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-admin.php:107
-msgid "Choose your preferred page for Vendor Membership IPN."
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-admin.php:143
-#: classes/class-wcmp-vendor-membership-admin.php:143
-#: classes/class-wcmp-vendor-membership-admin.php:151
-msgid "Memberships"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-admin.php:182
-msgid "Manage Memberships"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership.php:94
-msgid "Vendor University"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership.php:94
-msgid "Set endpoint for vendor membership page"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership.php:108
-#: classes/class-wcmp-vendor-membership.php:121
-#: admin/class-wcmp-vendor-membership-list-table.php:28
-#: admin/class-wcmp-vendor-membership-settings.php:34
-msgid "Membership"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-shortcode.php:22
-msgid "Become a "
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-shortcode.php:22
-msgid " Member"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-install.php:19
-msgctxt "page_slug"
-msgid "vendor-membership"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-install.php:19
-msgid "Membership Plans"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-install.php:20
-msgctxt "page_slug"
-msgid "vendor-membership-ipn"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-install.php:20
-msgid "Vendor IPN"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-ajax.php:42
-#: classes/class-wcmp-vendor-membership-ajax.php:50
-msgid "Please choose your State (Required)"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-ajax.php:62
-msgid "Please enter your State (Required)"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-ajax.php:100
-msgid "Email already exists please try with another email or login first"
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-ajax.php:484
-#: classes/class-wcmp-vendor-membership-ajax.php:885
-msgid "You have successfully subscribe."
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-ajax.php:488
-#: classes/class-wcmp-vendor-membership-ajax.php:493
-#: classes/class-wcmp-vendor-membership-ajax.php:888
-#: classes/class-wcmp-vendor-membership-ajax.php:892
-#: classes/shortcode/class-wcmp-vendor-membership-shortcode-vendor-ipn.php:22
-msgid "Your transaction failed."
-msgstr ""
-
-#: classes/class-wcmp-vendor-membership-ajax.php:961
-msgid "Enter Profile Id"
-msgstr ""
 
 #: includes/wcmp-vendor-membership-core-functions.php:217
 #: templates/wcmp_vendor_membership_template_vendor_plan_single.php:48
@@ -691,150 +54,712 @@ msgstr ""
 msgid " One Time"
 msgstr ""
 
+#: templates/wcmp_vendor_membership_template_vendor_plan_payment.php:96
+#: templates/wcmp_vendor_membership_template_vendor_plan_payment.php:96
+msgid "Card Holder Name"
+msgstr ""
+
+#: templates/wcmp_vendor_membership_template_vendor_plan_payment.php:100
+msgid "4635 8000 0097 1893"
+msgstr ""
+
+#: templates/wcmp_vendor_membership_template_vendor_plan_payment.php:104
+msgid "Card Type"
+msgstr ""
+
+#: templates/wcmp_vendor_membership_template_vendor_plan_payment.php:105
+msgid "Select Your Card Type"
+msgstr ""
+
+#: templates/wcmp_vendor_membership_template_vendor_plan_payment.php:106
+msgid "Visa"
+msgstr ""
+
+#: templates/wcmp_vendor_membership_template_vendor_plan_payment.php:107
+msgid "MasterCard"
+msgstr ""
+
+#: templates/wcmp_vendor_membership_template_vendor_plan_payment.php:108
+msgid "Discover"
+msgstr ""
+
+#: templates/wcmp_vendor_membership_template_vendor_plan_payment.php:109
+msgid "Amex"
+msgstr ""
+
+#: templates/wcmp_vendor_membership_template_vendor_plan_payment.php:110
+msgid "JCB"
+msgstr ""
+
+#: templates/wcmp_vendor_membership_template_vendor_plan_payment.php:115
+msgid "MM/YY"
+msgstr ""
+
+#: templates/wcmp_vendor_membership_template_vendor_plan_payment.php:119
+msgid "CVV"
+msgstr ""
+
+#: templates/wcmp_vendor_membership_template_vendor_plan_single.php:88
+msgid "Features List"
+msgstr ""
+
+#: templates/wcmp_vendor_membership_template_vendor_plan_single.php:107
+msgid "Subscribe Now"
+msgstr ""
+
+#: templates/wcmp_vendor_membership_template_vendor_plan_single.php:112
+#: templates/wcmp_vendor_membership_template_vendor_plan_single.php:119
+msgid "Upgrade Now"
+msgstr ""
+
+#: templates/wcmp_vendor_membership_template_vendor_plan_single.php:128
+msgid ""
+"Sorry you are logged in as admin please try with another account or logoff"
+msgstr ""
+
+#: templates/wcmp_vendor_membership_template_vendor_plan.php:57
+msgid "Free"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership.php:94
+msgid "Vendor University"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership.php:94
+msgid "Set endpoint for vendor membership page"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership.php:108
+#: classes/class-wcmp-vendor-membership.php:121
 #: admin/class-wcmp-vendor-membership-list-table.php:27
-#: templates/myaccount/vendor-subscription.php:36
-msgid "Status"
+#: admin/class-wcmp-vendor-membership-settings.php:48
+msgid "Membership"
 msgstr ""
 
-#: admin/class-wcmp-vendor-membership-list-table.php:29
-msgid "User"
+#: classes/class-wcmp-vendor-membership-install.php:19
+msgctxt "page_slug"
+msgid "vendor-membership"
 msgstr ""
 
-#: admin/class-wcmp-vendor-membership-list-table.php:30
-msgid "Start Date"
+#: classes/class-wcmp-vendor-membership-install.php:19
+msgid "Membership Plans"
 msgstr ""
 
-#: admin/class-wcmp-vendor-membership-list-table.php:31
-msgid "Trial Period"
+#: classes/class-wcmp-vendor-membership-install.php:20
+msgctxt "page_slug"
+msgid "vendor-membership-ipn"
 msgstr ""
 
-#: admin/class-wcmp-vendor-membership-list-table.php:32
-msgid "Billing Amount"
+#: classes/class-wcmp-vendor-membership-install.php:20
+msgid "Vendor IPN"
 msgstr ""
 
-#: admin/class-wcmp-vendor-membership-list-table.php:33
-msgid "Billing Period"
+#: classes/class-wcmp-vendor-membership-ajax.php:42
+#: classes/class-wcmp-vendor-membership-ajax.php:50
+msgid "Please choose your State (Required)"
 msgstr ""
 
-#: admin/class-wcmp-vendor-membership-list-table.php:34
-msgid "Next Payment"
+#: classes/class-wcmp-vendor-membership-ajax.php:62
+msgid "Please enter your State (Required)"
 msgstr ""
 
-#: admin/class-wcmp-vendor-membership-list-table.php:169
-msgid "Search for a plans&hellip;"
+#: classes/class-wcmp-vendor-membership-ajax.php:100
+msgid "Email already exists please try with another email or login first"
 msgstr ""
 
-#: admin/class-wcmp-vendor-membership-settings-membership.php:29
-msgid "Global Message Section"
+#: classes/class-wcmp-vendor-membership-ajax.php:106
+msgid "\">click here</a>"
 msgstr ""
 
-#: admin/class-wcmp-vendor-membership-settings-membership.php:31
-msgid "Success Message"
+#: classes/class-wcmp-vendor-membership-ajax.php:484
+#: classes/class-wcmp-vendor-membership-ajax.php:885
+msgid "You have successfully subscribe."
 msgstr ""
 
-#: admin/class-wcmp-vendor-membership-settings-membership.php:31
-msgid "It will comes when a vendor registered successfully."
+#: classes/class-wcmp-vendor-membership-ajax.php:488
+#: classes/class-wcmp-vendor-membership-ajax.php:493
+#: classes/class-wcmp-vendor-membership-ajax.php:888
+#: classes/class-wcmp-vendor-membership-ajax.php:892
+#: classes/shortcode/class-wcmp-vendor-membership-shortcode-vendor-ipn.php:22
+msgid "Your transaction failed."
 msgstr ""
 
-#: admin/class-wcmp-vendor-membership-settings-membership.php:31
-msgid "Enter success message when vendor registered successfully."
+#: classes/class-wcmp-vendor-membership-ajax.php:961
+msgid "Enter Profile Id"
 msgstr ""
 
-#: admin/class-wcmp-vendor-membership-settings-membership.php:32
-msgid "Failure  Message"
+#: classes/class-wcmp-vendor-membership-admin.php:25
+msgid "Product categories"
 msgstr ""
 
-#: admin/class-wcmp-vendor-membership-settings-membership.php:32
-msgid "It will comes when a vendor registration failed ."
+#: classes/class-wcmp-vendor-membership-admin.php:106
+#: classes/class-wcmp-vendor-membership-license.php:142
+msgid "Vendor Membership"
 msgstr ""
 
-#: admin/class-wcmp-vendor-membership-settings-membership.php:32
-msgid "Enter success message when vendor registration failed."
+#: classes/class-wcmp-vendor-membership-admin.php:106
+msgid "Choose your preferred page for Vendor Membership List."
 msgstr ""
 
-#: admin/class-wcmp-vendor-membership-settings-membership.php:33
-msgid "Payment Due Message"
+#: classes/class-wcmp-vendor-membership-admin.php:107
+msgid "Vendor Membership IPN"
 msgstr ""
 
-#: admin/class-wcmp-vendor-membership-settings-membership.php:33
-msgid "It will reminder when payment was due."
+#: classes/class-wcmp-vendor-membership-admin.php:107
+msgid "Choose your preferred page for Vendor Membership IPN."
 msgstr ""
 
-#: admin/class-wcmp-vendor-membership-settings-membership.php:33
-msgid "Enter payment due message."
+#: classes/class-wcmp-vendor-membership-admin.php:143
+#: classes/class-wcmp-vendor-membership-admin.php:143
+#: classes/class-wcmp-vendor-membership-admin.php:151
+msgid "Memberships"
 msgstr ""
 
-#: admin/class-wcmp-vendor-membership-settings-membership.php:34
-msgid "Upcoming Renew Reminder Message"
+#: classes/class-wcmp-vendor-membership-admin.php:182
+msgid "Manage Memberships"
 msgstr ""
 
-#: admin/class-wcmp-vendor-membership-settings-membership.php:34
-msgid "Enter upcoming renew reminder message."
+#: classes/class-wcmp-vendor-membership-shortcode.php:22
+msgid "Become a "
 msgstr ""
 
-#: admin/class-wcmp-vendor-membership-settings-membership.php:34
-msgid "It will reminder for upcoming renew ."
+#: classes/class-wcmp-vendor-membership-shortcode.php:22
+msgid " Member"
 msgstr ""
 
-#: admin/class-wcmp-vendor-membership-settings-membership.php:35
-msgid "Reminder Message After Grace Period"
+#: classes/class-wcmp-vendor-membership-posttype.php:17
+msgctxt "post type general name"
+msgid "Vendor Type"
 msgstr ""
 
-#: admin/class-wcmp-vendor-membership-settings-membership.php:35
-msgid "It will reminder for Subscription expiration."
+#: classes/class-wcmp-vendor-membership-posttype.php:18
+msgctxt "post type singular name"
+msgid "Vendor Type"
 msgstr ""
 
-#: admin/class-wcmp-vendor-membership-settings-membership.php:35
-msgid "Enter reminder message when grace period expired."
+#: classes/class-wcmp-vendor-membership-posttype.php:19
+msgctxt "admin menu"
+msgid "Vendor Types"
 msgstr ""
 
-#: admin/class-wcmp-vendor-membership-settings-membership.php:38
-msgid "Notification Settings Section"
+#: classes/class-wcmp-vendor-membership-posttype.php:20
+msgctxt "add new on admin bar"
+msgid "Vendor Type"
 msgstr ""
 
-#: admin/class-wcmp-vendor-membership-settings-membership.php:39
-msgid "Payment Due Reminder duration"
+#: classes/class-wcmp-vendor-membership-posttype.php:21
+msgctxt "Vendor Type"
+msgid "Add New"
 msgstr ""
 
-#: admin/class-wcmp-vendor-membership-settings-membership.php:39
-#: admin/class-wcmp-vendor-membership-settings-membership.php:39
-msgid "Enter number of days when system reminds for payment due only number."
+#: classes/class-wcmp-vendor-membership-posttype.php:22
+msgid "Add New Vendor Type"
 msgstr ""
 
-#: admin/class-wcmp-vendor-membership-settings-membership.php:78
-msgid "Membership General settings updated"
+#: classes/class-wcmp-vendor-membership-posttype.php:23
+msgid "New Vendor Type"
 msgstr ""
 
-#: admin/class-wcmp-vendor-membership-settings-membership.php:97
-#: admin/class-wcmp-vendor-membership-settings-membership-payment.php:148
-msgid "Enter global messages below"
+#: classes/class-wcmp-vendor-membership-posttype.php:24
+msgid "Edit Vendor Type"
 msgstr ""
 
-#: admin/class-wcmp-vendor-membership-settings-membership.php:105
-#: admin/class-wcmp-vendor-membership-settings-membership-payment.php:156
-msgid "Enter paypal sandbox details below"
+#: classes/class-wcmp-vendor-membership-posttype.php:25
+msgid "View Vendor Type"
 msgstr ""
 
-#: admin/class-wcmp-vendor-membership-settings-membership.php:110
-#: admin/class-wcmp-vendor-membership-settings-membership-payment.php:161
-msgid "Enter paypal live details below"
+#: classes/class-wcmp-vendor-membership-posttype.php:26
+msgid "All Vendor Type"
 msgstr ""
 
-#: admin/class-wcmp-vendor-membership-settings-membership.php:118
-#: admin/class-wcmp-vendor-membership-settings-membership-payment.php:169
-msgid "Configure the notification settings below"
+#: classes/class-wcmp-vendor-membership-posttype.php:27
+msgid "Search Vendor Type"
 msgstr ""
 
-#: admin/class-wcmp-vendor-membership-settings.php:26
-msgid "General"
+#: classes/class-wcmp-vendor-membership-posttype.php:28
+msgid "Parent Vendor Type:"
 msgstr ""
 
-#: admin/class-wcmp-vendor-membership-settings.php:27
-msgid "Payment Settings"
+#: classes/class-wcmp-vendor-membership-posttype.php:29
+msgid "No vendor type found."
 msgstr ""
 
-#: admin/class-wcmp-vendor-membership-settings.php:28
-msgid "Template Design"
+#: classes/class-wcmp-vendor-membership-posttype.php:30
+msgid "No vendor type found in Trash."
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:35
+msgid "Vendor Plans ."
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:67
+msgid "Vendor Type Features List"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:73
+msgid "Vendor Type Access Privilege"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:79
+msgid "Vendor Type Billing Section"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:85
+msgid "Vendor Type Message Section"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:91
+msgid "Vendor Type Capabilities Section"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:97
+msgid "Vendor Type Limitation Section"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:103
+msgid "Visibilities Section"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:107
+msgid "Allowed Product categories"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:122
+#: classes/class-wcmp-vendor-membership-posttype.php:139
+msgid "Add Feature"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:123
+#: classes/class-wcmp-vendor-membership-posttype.php:141
+msgid "Remove Feature"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:124
+#: classes/class-wcmp-vendor-membership-posttype.php:143
+msgid "Remove All"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:259
+#: classes/class-wcmp-vendor-membership-posttype.php:280
+#: classes/class-wcmp-vendor-membership-posttype.php:301
+#: classes/class-wcmp-vendor-membership-posttype.php:322
+#: classes/class-wcmp-vendor-membership-posttype.php:343
+#: classes/class-wcmp-vendor-membership-posttype.php:364
+#: classes/class-wcmp-vendor-membership-posttype.php:385
+msgid "Check/Uncheck All"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:339
+msgid "Messages & Customer Support Settings "
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:598
+msgid "No admin approval required"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:600
+msgid ""
+"Direct Approval of Membership no need to approval of admin of this type of "
+"Vendor Type."
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:606
+msgid "Vendor commission"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:608
+msgid "Set global commission value for this membership type"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:628
+msgid "Please Select Role"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:635
+msgid "Free plan"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:637
+msgid "Mark this subscription as free."
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:643
+msgid "Initial payment (only number)"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:645
+msgid ""
+"Enter the Amount which will be charged at the time of subscribe/Registration."
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:650
+msgid "Plan short description (required)"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:652
+msgid "Enter the Plan Short Description for Billing Profile."
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:657
+msgid "Is trial"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:659
+msgid "Select yes if you want to give this plan as trial for some days."
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:660
+#: classes/class-wcmp-vendor-membership-posttype.php:690
+msgid "Please Select"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:660
+#: classes/class-wcmp-vendor-membership-posttype.php:690
+msgid "NO"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:660
+#: classes/class-wcmp-vendor-membership-posttype.php:690
+msgid "Yes"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:665
+msgid "Trial amount (only number)"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:667
+msgid "Enter Trial Amount."
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:672
+msgid "Trial cycle duration"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:674
+#: classes/class-wcmp-vendor-membership-posttype.php:689
+msgid "Select yes if this type of vendorship have recurring profile/payment."
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:675
+#: classes/class-wcmp-vendor-membership-posttype.php:712
+msgid "Select Duration"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:675
+#: classes/class-wcmp-vendor-membership-posttype.php:712
+msgid "Weekly"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:675
+msgid "SemiMonth"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:675
+#: classes/class-wcmp-vendor-membership-posttype.php:712
+msgid "Monthly"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:675
+#: classes/class-wcmp-vendor-membership-posttype.php:712
+msgid "Yearly"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:680
+msgid "Trial cycle limit (only number)"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:682
+msgid "Enter the cycle limit never put 0 ."
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:687
+msgid "Is recurring"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:695
+msgid "Recurring payment amount (only number)"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:697
+msgid "Enter the Amount which will be charged recurring for subscription."
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:702
+msgid "TAX amount (only number)"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:704
+msgid ""
+"Enter the Amount which will be charged recurring as tax for subscription."
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:709
+msgid "Recurring payment duration."
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:711
+msgid "Select yes if this type of vendorship have recurring profile/payment"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:712
+msgid "SemiMonthly"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:717
+msgid "Billing cycle limit (only number)"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:719
+msgid ""
+"Enter the billing cycle limit enter for 0 for indefinite until cancellation."
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:724
+msgid "Maximux attempt (only number)"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:726
+msgid "Enter maximux attempt payment fail"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:731
+msgid "Subscribe button text"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:734
+#: classes/class-wcmp-vendor-membership-posttype.php:742
+#: classes/class-wcmp-vendor-membership-posttype.php:750
+msgid "Enter subscribe button text."
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:739
+msgid ""
+"Upgrade button text for existing member/customers who want to sell his/her "
+"products"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:747
+msgid "Upgrade button text for existing vendor"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:755
+msgid "Grace period in days (only number)"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:757
+msgid ""
+"Enter grace period in days when subscription when payment due for "
+"subscription."
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:762
+msgid "Status after grace"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:764
+msgid "Select the status when vendor completed his/her grace period"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:770
+msgid "Hide product after grace"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:772
+msgid "Hide vendor product from shop after grace period"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:792
+msgid "Success message"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:794
+msgid "Enter success message will comes after the successful registration."
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:799
+msgid "Error message"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:801
+msgid "Enter unsuccess message will comes after the unsuccessful registration."
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:806
+msgid "Payment due message"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:808
+msgid "Enter  message will comes any payment due."
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:813
+msgid "Upcoming renew message"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:815
+msgid "Enter reminder message for upcoming renew reminder."
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:833
+msgid "Is product category limitation enable"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:835
+msgid ""
+"Check the checkbox if you want to product category uses limitation for this "
+"type of vendor."
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:841
+msgid "Product category limit"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:843
+msgid "Enter number of category can use this type of vendor."
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:848
+msgid "Is Product limitation enable"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:850
+msgid ""
+"Check the checkbox if you want to product upload limitation for this type of "
+"vendor."
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:856
+msgid "Product upload limit"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:858
+msgid "Enter number of product can upload this type of vendor."
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:877
+msgid "Show in the membership list"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:879
+msgid ""
+"Check this if you want to show this vendor type in your membership list."
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:885
+msgid "Mark as recommended"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:903
+msgid "Submit products"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:904
+msgid "Publish products"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:905
+msgid "Edit published products"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:906
+msgid "Upload media files"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:907
+msgid "Submit coupons"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:908
+msgid "Publish coupons"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:909
+msgid "Edit publish coupons"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:921
+msgid "Allow vendors to export orders."
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:922
+msgid "Customer name"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:923
+msgid "E-mail and phone number"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:924
+#: classes/class-wcmp-vendor-membership-posttype.php:938
+msgid "Billing address"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:925
+#: classes/class-wcmp-vendor-membership-posttype.php:939
+msgid "Shipping address"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:937
+msgid "Name, phone no. and email"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:940
+msgid "Order calculations"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:952
+msgid "View comment"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:953
+msgid "Submit comment"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:954
+msgid "Enable store url"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:955
+msgid "Enable hide option for vendor"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:967
+msgid "Message to buyer"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:968
+msgid "Vendor shop support"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:980
+msgid "Can vendor edit policy tab title"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:981
+msgid "Can vendor edit cancellation/return/exchange policy"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:982
+msgid "Can vendor edit refund policy"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:983
+msgid "Can vendor edit shipping policy"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:995
+msgid "View order"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-posttype.php:996
+msgid "Manage shipping"
+msgstr ""
+
+#: classes/class-wcmp-vendor-membership-license.php:320
+#, php-format
+msgid ""
+"The Vendor Membership License Key has not been activated, so the plugin is "
+"inactive! %sClick here%s to activate the license key and the plugin."
 msgstr ""
 
 #: admin/class-wcmp-vendor-membership-settings-membership-plan_design.php:34
@@ -906,7 +831,7 @@ msgstr ""
 msgid "Choose your plan featured text color"
 msgstr ""
 
-#: admin/class-wcmp-vendor-membership-settings-membership-plan_design.php:86
+#: admin/class-wcmp-vendor-membership-settings-membership-plan_design.php:85
 msgid "Membership Plan Design settings updated"
 msgstr ""
 
@@ -1040,79 +965,178 @@ msgstr ""
 msgid "Enter Paypal API Signature ."
 msgstr ""
 
-#: admin/class-wcmp-vendor-membership-settings-membership-payment.php:129
+#: admin/class-wcmp-vendor-membership-settings-membership-payment.php:113
 msgid "Membership Payment settings updated"
 msgstr ""
 
-#: templates/wcmp_vendor_membership_template_vendor_plan.php:57
-msgid "Free"
+#: admin/class-wcmp-vendor-membership-settings-membership.php:29
+msgid "Global Message Section"
 msgstr ""
 
-#: templates/wcmp_vendor_membership_template_vendor_plan_single.php:88
-msgid "Features List"
+#: admin/class-wcmp-vendor-membership-settings-membership.php:31
+msgid "Success Message"
 msgstr ""
 
-#: templates/wcmp_vendor_membership_template_vendor_plan_single.php:107
-msgid "Subscribe Now"
+#: admin/class-wcmp-vendor-membership-settings-membership.php:31
+msgid "It will comes when a vendor registered successfully."
 msgstr ""
 
-#: templates/wcmp_vendor_membership_template_vendor_plan_single.php:112
-#: templates/wcmp_vendor_membership_template_vendor_plan_single.php:119
-msgid "Upgrade Now"
+#: admin/class-wcmp-vendor-membership-settings-membership.php:31
+msgid "Enter success message when vendor registered successfully."
 msgstr ""
 
-#: templates/wcmp_vendor_membership_template_vendor_plan_single.php:128
+#: admin/class-wcmp-vendor-membership-settings-membership.php:32
+msgid "Failure  Message"
+msgstr ""
+
+#: admin/class-wcmp-vendor-membership-settings-membership.php:32
+msgid "It will comes when a vendor registration failed ."
+msgstr ""
+
+#: admin/class-wcmp-vendor-membership-settings-membership.php:32
+msgid "Enter success message when vendor registration failed."
+msgstr ""
+
+#: admin/class-wcmp-vendor-membership-settings-membership.php:33
+msgid "Payment Due Message"
+msgstr ""
+
+#: admin/class-wcmp-vendor-membership-settings-membership.php:33
+msgid "It will reminder when payment was due."
+msgstr ""
+
+#: admin/class-wcmp-vendor-membership-settings-membership.php:33
+msgid "Enter payment due message."
+msgstr ""
+
+#: admin/class-wcmp-vendor-membership-settings-membership.php:34
+msgid "Upcoming Renew Reminder Message"
+msgstr ""
+
+#: admin/class-wcmp-vendor-membership-settings-membership.php:34
+msgid "Enter upcoming renew reminder message."
+msgstr ""
+
+#: admin/class-wcmp-vendor-membership-settings-membership.php:34
+msgid "It will reminder for upcoming renew ."
+msgstr ""
+
+#: admin/class-wcmp-vendor-membership-settings-membership.php:35
+msgid "Reminder Message After Grace Period"
+msgstr ""
+
+#: admin/class-wcmp-vendor-membership-settings-membership.php:35
+msgid "It will reminder for Subscription expiration."
+msgstr ""
+
+#: admin/class-wcmp-vendor-membership-settings-membership.php:35
+msgid "Enter reminder message when grace period expired."
+msgstr ""
+
+#: admin/class-wcmp-vendor-membership-settings-membership.php:38
+msgid "Notification Settings Section"
+msgstr ""
+
+#: admin/class-wcmp-vendor-membership-settings-membership.php:39
+msgid "Payment Due Reminder duration"
+msgstr ""
+
+#: admin/class-wcmp-vendor-membership-settings-membership.php:39
+#: admin/class-wcmp-vendor-membership-settings-membership.php:39
+msgid "Enter number of days when system reminds for payment due only number."
+msgstr ""
+
+#: admin/class-wcmp-vendor-membership-settings-membership.php:78
+msgid "Membership General settings updated"
+msgstr ""
+
+#: admin/class-wcmp-vendor-membership-list-table.php:26
+#: templates/myaccount/vendor-subscription.php:36
+msgid "Status"
+msgstr ""
+
+#: admin/class-wcmp-vendor-membership-list-table.php:28
+msgid "User"
+msgstr ""
+
+#: admin/class-wcmp-vendor-membership-list-table.php:29
+msgid "Start Date"
+msgstr ""
+
+#: admin/class-wcmp-vendor-membership-list-table.php:30
+msgid "Trial Period"
+msgstr ""
+
+#: admin/class-wcmp-vendor-membership-list-table.php:31
+msgid "Billing Amount"
+msgstr ""
+
+#: admin/class-wcmp-vendor-membership-list-table.php:32
+msgid "Billing Period"
+msgstr ""
+
+#: admin/class-wcmp-vendor-membership-list-table.php:33
+msgid "Next Payment"
+msgstr ""
+
+#: admin/class-wcmp-vendor-membership-list-table.php:167
+msgid "Search for a plans&hellip;"
+msgstr ""
+
+#: admin/class-wcmp-vendor-membership-settings.php:18
+msgid "General"
+msgstr ""
+
+#: admin/class-wcmp-vendor-membership-settings.php:19
+msgid "Payment Settings"
+msgstr ""
+
+#: admin/class-wcmp-vendor-membership-settings.php:20
+msgid "Template Design"
+msgstr ""
+
+#: templates/emails/new-vendor-subscription.php:18
+#: templates/emails/plain/new-vendor-subscription.php:16
+#, php-format
+msgid "Thanks %s for subscribing on %s for %s Plan"
+msgstr ""
+
+#: templates/emails/new-vendor-subscription.php:21
+#, php-format
+msgid "Your User name has been automatically generated: <strong>%s</strong>"
+msgstr ""
+
+#: templates/emails/new-vendor-subscription.php:24
+#, php-format
+msgid "Your password has been automatically generated: <strong>%s</strong>"
+msgstr ""
+
+#: templates/emails/new-vendor-subscription.php:28
+#: templates/emails/plain/new-vendor-subscription.php:24
+#, php-format
 msgid ""
-"Sorry You are logged in as Admin Please try with another account or logoff"
+"You can access your account area to view your orders, subscription and "
+"change your password here: %s."
 msgstr ""
 
-#: templates/wcmp_vendor_membership_template_vendor_plan_payment.php:95
-#: templates/wcmp_vendor_membership_template_vendor_plan_payment.php:95
-msgid "Card Holder Name"
+#: templates/myaccount/vendor-subscription.php:34
+msgid "Subsription"
 msgstr ""
 
-#: templates/wcmp_vendor_membership_template_vendor_plan_payment.php:99
-msgid "4635 8000 0097 1893"
+#: templates/myaccount/vendor-subscription.php:35
+msgid "Date"
 msgstr ""
 
-#: templates/wcmp_vendor_membership_template_vendor_plan_payment.php:103
-msgid "Card Type"
+#: templates/myaccount/vendor-subscription.php:37
+msgid "Next Payment Date"
 msgstr ""
 
-#: templates/wcmp_vendor_membership_template_vendor_plan_payment.php:104
-msgid "Select Your Card Type"
+#: templates/myaccount/vendor-subscription.php:38
+msgid "Next Payment Amount"
 msgstr ""
 
-#: templates/wcmp_vendor_membership_template_vendor_plan_payment.php:105
-msgid "Visa"
-msgstr ""
-
-#: templates/wcmp_vendor_membership_template_vendor_plan_payment.php:106
-msgid "MasterCard"
-msgstr ""
-
-#: templates/wcmp_vendor_membership_template_vendor_plan_payment.php:107
-msgid "Discover"
-msgstr ""
-
-#: templates/wcmp_vendor_membership_template_vendor_plan_payment.php:108
-msgid "Amex"
-msgstr ""
-
-#: templates/wcmp_vendor_membership_template_vendor_plan_payment.php:109
-msgid "JCB"
-msgstr ""
-
-#: templates/wcmp_vendor_membership_template_vendor_plan_payment.php:114
-msgid "MM/YY"
-msgstr ""
-
-#: templates/wcmp_vendor_membership_template_vendor_plan_payment.php:118
-msgid "CVV"
-msgstr ""
-
-#: classes/shortcode/class-wcmp-vendor-membership-shortcode-vendor-ipn.php:21
-msgid "You have successfully subscribed."
+#: templates/myaccount/vendor-subscription.php:39
+msgid "Action"
 msgstr ""
 
 #: classes/emails/class-wcmp-vendor-membership-email-new-subscription.php:27
@@ -1182,44 +1206,18 @@ msgstr ""
 msgid "Multipart"
 msgstr ""
 
-#: templates/myaccount/vendor-subscription.php:34
-msgid "Subsription"
+#: classes/shortcode/class-wcmp-vendor-membership-shortcode-vendor-ipn.php:21
+msgid "You have successfully subscribed."
 msgstr ""
 
-#: templates/myaccount/vendor-subscription.php:35
-msgid "Date"
-msgstr ""
-
-#: templates/myaccount/vendor-subscription.php:37
-msgid "Next Payment Date"
-msgstr ""
-
-#: templates/myaccount/vendor-subscription.php:38
-msgid "Next Payment Amount"
-msgstr ""
-
-#: templates/emails/new-vendor-subscription.php:18
-#: templates/emails/plain/new-vendor-subscription.php:16
+#: templates/emails/plain/new-vendor-subscription.php:20
 #, php-format
-msgid "Thanks %s for subscribing on %s for %s Plan"
+msgid "Your User name has been automatically generated: %s"
 msgstr ""
 
-#: templates/emails/new-vendor-subscription.php:21
+#: templates/emails/plain/new-vendor-subscription.php:22
 #, php-format
-msgid "Your User name has been automatically generated: <strong>%s</strong>"
-msgstr ""
-
-#: templates/emails/new-vendor-subscription.php:24
-#, php-format
-msgid "Your password has been automatically generated: <strong>%s</strong>"
-msgstr ""
-
-#: templates/emails/new-vendor-subscription.php:28
-#: templates/emails/plain/new-vendor-subscription.php:24
-#, php-format
-msgid ""
-"You can access your account area to view your orders, subscription and "
-"change your password here: %s."
+msgid "Your password has been automatically generated: %s"
 msgstr ""
 
 #: classes/license/admin/class-wcmp-license.php:16
@@ -1287,16 +1285,6 @@ msgstr ""
 msgid ""
 "The license could not be deactivated. Use the License Deactivation tab to "
 "manually deactivate the license before activating a new license."
-msgstr ""
-
-#: templates/emails/plain/new-vendor-subscription.php:20
-#, php-format
-msgid "Your User name has been automatically generated: %s"
-msgstr ""
-
-#: templates/emails/plain/new-vendor-subscription.php:22
-#, php-format
-msgid "Your password has been automatically generated: %s"
 msgstr ""
 
 #. Name of the plugin

@@ -248,7 +248,7 @@ if (!function_exists('get_plan_description')) {
                 $description .= __(' One Time', 'wcmp-vendor_membership');
             }
         }
-        return $description;
+        return apply_filters('wcmp_membership_payment_description', $description, $plan_id);
     }
 
 }

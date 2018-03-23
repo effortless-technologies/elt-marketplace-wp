@@ -59,52 +59,74 @@ $addrs_disable = 'disabled';
 
 // Vendor Verification Social
 $social_verification_status = '';
-if(count($vendor_verification_settings['social_verification']) > 1 ){
+if(isset($vendor_verification_settings['social_verification']) && count($vendor_verification_settings['social_verification']) > 1 ){
     if(count($WCMP_Vendor_Verification->auth->vendor_social_config['providers']) == count($vendor_verification_settings['social_verification']))
         $social_verification_status = 'verified';
     else
         $social_verification_status = 'process';
 }
 ?>
-    <div class="wcmp_form1 wcmp_vendor_verification"> 
+    <div class="col-md-12 wcmp_vendor_verification"> 
         <?php do_action('wcmp_before_vendor_verification'); ?> 
-        <div class="wcmp_headding2"><?php _e('Vendor Verification', 'wcmp-vendor-verification'); ?></div>
-
         <div id="verification_accordion" class="verification_accordion">
             <h3 class="vendor_verification_label <?php echo $addrs_verification_status; ?>"><?php _e('Address Verification', 'wcmp-vendor-verification'); ?><span class="status <?php echo $addrs_verification_status; ?>"><?php //echo $addrs_verification_status; ?></span></h3>
             <div class="address_verification_wrap">
                 <div class="wcmp_venodr_verification_msg"><?php echo get_vendor_verification_message('address_verification');?></div>
                 <form method="post" name="wcmp_vendor_verification_form" class="wcmp_vendor_verification_form">
                     <?php wp_nonce_field( 'wcmp_vendor_verification_Address', 'wcmp_vendor_verification_nonce' ); ?>
-
-                    <input class="" required type="text" placeholder="Address line 1*" name="vendor_verification_address_1" value="<?php echo $address_1; ?>" <?php echo $addrs_readonly; ?>>
-                    <input class="" type="text" placeholder="Address line 2" name="vendor_verification_address_2" value="<?php echo $address_2; ?>" <?php echo $addrs_readonly; ?>>
-                    <div class="one_third_part">
-                        <select required name="vendor_verification_country" id="vendor_verification_country" class="country_to_state user-profile-fields" rel="vendor_verification_country" <?php echo $addrs_readonly; ?>>
-                            <option value=""><?php _e( 'Select a country&hellip;', 'woocommerce' ); ?></option>
-                            <?php
-                                foreach ( WC()->countries->get_shipping_countries() as $key => $value ) {
-                                    echo '<option value="' . esc_attr( $key ) . '"' . selected( esc_attr( $country ), esc_attr( $key ), false ) . '>' . esc_html( $value ) . '</option>';
-                                }
-                            ?>
-                        </select>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3"><?php _e('Address 1', 'wcmp-vendor-verification'); ?></label>
+                        <div class=" col-md-6 col-sm-9">
+                            <input class="form-control regular-text" required type="text" name="vendor_verification_address_1" value="<?php echo $address_1; ?>" <?php echo $addrs_readonly; ?>>
+                        </div>
                     </div>
-                    <div class="one_third_part">
-                        <select required name="vendor_verification_state" id="vendor_verification_state" class="user-profile-fields" rel="vendor_verification_state" <?php echo $addrs_readonly; ?>>
-                            <option value=""><?php esc_html_e( 'Select a state&hellip;', 'woocommerce' ); ?></option>
-                            <?php
-                                foreach ( $states as $ckey => $cvalue ) {
-                                    echo '<option value="' . esc_attr( $ckey ) . '" ' . selected( $state, $ckey, false ) . '>' . esc_html( $cvalue ) . '</option>';
-                                }
-                            ?>
-                        </select>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3"><?php _e('Address 2', 'wcmp-vendor-verification'); ?></label>
+                        <div class=" col-md-6 col-sm-9">
+                            <input class="form-control regular-text" required type="text" name="vendor_verification_address_2" value="<?php echo $address_2; ?>" <?php echo $addrs_readonly; ?>>
+                        </div>
                     </div>
-                    <div class="one_third_part">
-                        <input class="" required type="text" placeholder="city*"  name="vendor_verification_city" value="<?php echo $city; ?>" <?php echo $addrs_readonly; ?>>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3"><?php _e('Country', 'wcmp-vendor-verification'); ?></label>
+                        <div class=" col-md-6 col-sm-9">
+                            <select required name="vendor_verification_country" id="vendor_verification_country" class="country_to_state user-profile-fields form-control regular-select" rel="vendor_verification_country" <?php echo $addrs_readonly; ?>>
+                                <option value=""><?php _e( 'Select a country&hellip;', 'woocommerce' ); ?></option>
+                                <?php
+                                    foreach ( WC()->countries->get_shipping_countries() as $key => $value ) {
+                                        echo '<option value="' . esc_attr( $key ) . '"' . selected( esc_attr( $country ), esc_attr( $key ), false ) . '>' . esc_html( $value ) . '</option>';
+                                    }
+                                ?>
+                            </select>
+                        </div>
                     </div>
-                    <input class="" required type="text" placeholder="Zipcode*" style="width:50%;" name="vendor_verification_postcode" value="<?php echo $postcode; ?>" <?php echo $addrs_readonly; ?>>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3"><?php _e('State', 'wcmp-vendor-verification'); ?></label>
+                        <div class=" col-md-6 col-sm-9">
+                            <select required name="vendor_verification_state" id="vendor_verification_state" class="state_select user-profile-fields form-control regular-select" rel="vendor_verification_state" <?php echo $addrs_readonly; ?>>
+                                <option value=""><?php esc_html_e( 'Select a state&hellip;', 'woocommerce' ); ?></option>
+                                <?php
+                                    foreach ( $states as $ckey => $cvalue ) {
+                                        echo '<option value="' . esc_attr( $ckey ) . '" ' . selected( $state, $ckey, false ) . '>' . esc_html( $cvalue ) . '</option>';
+                                    }
+                                ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3"><?php _e('City', 'wcmp-vendor-verification'); ?></label>
+                        <div class=" col-md-6 col-sm-9">
+                            <input class="form-control regular-text" required type="text" name="vendor_verification_city" value="<?php echo $city; ?>" <?php echo $addrs_readonly; ?>>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3"><?php _e('Zipcode', 'wcmp-vendor-verification'); ?></label>
+                        <div class=" col-md-6 col-sm-9">
+                            <input class="form-control regular-text" required type="text" name="vendor_verification_postcode" value="<?php echo $postcode; ?>" <?php echo $addrs_readonly; ?>>
+                        </div>
+                    </div>
+                    
                     <div class="finish">
-                        <input type="submit" class="submit_button wcmp_black_btn moregap" name="vendor_addrs_proof_sbmt" id="vendor_addrs_proof_sbmt" value="<?php _e('Submit', 'wcmp-vendor-verification') ?>" style="width: 100%;" <?php echo $addrs_disable;?> />
+                        <input type="submit" class="submit_button wcmp_black_btn moregap btn btn-default" name="vendor_addrs_proof_sbmt" id="vendor_addrs_proof_sbmt" value="<?php _e('Submit', 'wcmp-vendor-verification') ?>" <?php echo $addrs_disable;?> />
                     </div>
                 </form>
             </div>
@@ -112,20 +134,20 @@ if(count($vendor_verification_settings['social_verification']) > 1 ){
             <div class="id_verification_wrap">
                 <div class="wcmp_venodr_verification_msg"><?php echo get_vendor_verification_message('id_verification');?></div>
                 <form method="post" name="wcmp_vendor_id_verification_form" class="wcmp_vendor_id_verification_form">
-                    <?php wp_nonce_field( 'wcmp_vendor_verification_ID', 'wcmp_vendor_verification_nonce' ); ?>
-                    <div class="verify_id_type">
+                    <?php wp_nonce_field( 'wcmp_vendor_verification_ID', 'wcmp_vendor_verification_nonce' ); ?>                   
                     <?php $ids = $WCMP_Vendor_Verification->auth->vendor_id_verification_list();
-                        $vendor_id_type = '';
-                        if(isset($vendor_verification_settings['id_verification']['data']['verification_type']) && !empty($vendor_verification_settings['id_verification']['data']['verification_type']))
-                        $vendor_id_type = $vendor_verification_settings['id_verification']['data']['verification_type']; 
-                        foreach ($ids as $key => $label) { ?>
-                        <div class="half_part">
-                            <label class="verify_type">
-                                <input type="radio" name="vendor_verify_type" value="<?php echo $key; ?>" <?php checked( $vendor_id_type, $key ) ?> <?php echo $id_disable;?>><?php echo $label; ?>
-                            </label>
-                        </div>   
-                    <?php }
-                    $vendor_id_file = '';
+                    $vendor_id_type = '';
+                    if(isset($vendor_verification_settings['id_verification']['data']['verification_type']) && !empty($vendor_verification_settings['id_verification']['data']['verification_type']))
+                    $vendor_id_type = $vendor_verification_settings['id_verification']['data']['verification_type']; 
+                    foreach ($ids as $key => $label) { ?>
+                    <div class="form-group verify_id_type">
+                        <label class="control-label col-md-3 col-sm-3"><?php echo $label; ?></label>
+                        <div class=" col-md-6 col-sm-9">
+                            <input class="regular-checkbox" type="radio" name="vendor_verify_type" value="<?php echo $key; ?>" <?php checked( $vendor_id_type, $key ) ?> <?php echo $id_disable;?>>
+                        </div> 
+                    </div>
+                    <?php } ?>
+                    <?php $vendor_id_file = '';
                     if(isset($vendor_verification_settings['id_verification']['data']['verification_file']) && !empty($vendor_verification_settings['id_verification']['data']['verification_file'])){
                         $file_type = wp_check_filetype($vendor_verification_settings['id_verification']['data']['verification_file']);
                         $img_type = array('image/jpeg', 'image/png', 'image/gif');
@@ -140,19 +162,16 @@ if(count($vendor_verification_settings['social_verification']) > 1 ){
                     if(!empty($vendor_id_file)) $display = 'block';
                     ?>
                     <div class="clear"></div>
-                    </div>
-                    <div class="verify_id_file full_part">
-                        <div class="dc-wp-fields-uploader">
-                            <img class="one_third_part" id="vendor_verify_id_image_display" width="300" src="<?php echo $vendor_id_file;?>" class="placeHolder" style="display: <?php echo $display;?>;" />
-                            <div id="vendor_verify_id_image_remove_button" class="remove_image" style="display: <?php echo $display;?>;"><a href="#" class="remove_button " data-id="vendor_verify_id_image" data-mime="image" <?php if(!empty($id_disable)) echo $id_disable."='$id_disable'";?>>&times</a></div>
-                            <input type="text" name="vendor_verify_id_image" id="vendor_verify_id_image" style="display: none;" class="user-profile-fields" readonly value="<?php echo $vendor_id_file;?>" />
-                            <div class="full_part">
-                            <input type="button" class="upload_button wcmp_black_btn moregap" name="vendor_image_button" id="vendor_verify_id_image_button" data-mime="image" value="<?php _e('Upload', 'wcmp-vendor-verification') ?>" style="<?php if(!empty($vendor_id_file)) echo 'display:none';?>"/>
-                            </div>
+                    <div class="form-group verify_id_type">
+                        <label class="control-label col-md-3 col-sm-3"><?php _e('Upload scanned ID copy', 'wcmp-vendor-verification'); ?></label>
+                        <div class="verify_id_file col-md-6 col-sm-9">
+                            <?php
+                            $WCMp->wcmp_frontend_fields->wcmp_generate_form_field(array("vendor_verify_id_image" => array('type' => 'upload', 'prwidth' => '160', 'value' => $vendor_id_file)));
+                            ?>
                         </div>
                     </div>
                     <div class="finish">
-                        <input type="submit" class="submit_button wcmp_black_btn" name="vendor_id_proof_sbmt" id="vendor_id_proof_sbmt" value="<?php _e('Submit', 'wcmp-vendor-verification') ?>" style="width: 100%;" <?php echo $id_disable;?>/>
+                        <input type="submit" class="submit_button wcmp_black_btn btn btn-default" name="vendor_id_proof_sbmt" id="vendor_id_proof_sbmt" value="<?php _e('Submit', 'wcmp-vendor-verification') ?>" <?php echo $id_disable;?>/>
                     </div>
                 </form>
             </div>

@@ -1,9 +1,6 @@
+/* global ajaxurl */
+
 jQuery(document).ready(function($) {
-		
-	$( "#product_shipping_class" ).closest( "p" ).css( "display", "none" );
-	
-	$( ".shipping_class" ).closest( "label" ).css( "display", "none" );
-  
 	$('select.ajax_chosen_select_vendor').ajaxChosen({
 		method : 'GET',
 		url : ajaxurl,
@@ -60,5 +57,11 @@ jQuery(document).ready(function($) {
 		});
 	
 	});
+        
+        if ( $.isFunction($.fn.singleProductMulipleVendor) ) {
+            $('input[name=post_title]').singleProductMulipleVendor({
+                ajaxurl : ajaxurl
+            });
+        }
 		
 }); 

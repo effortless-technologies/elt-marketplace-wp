@@ -131,7 +131,7 @@ class WCMP_Vendor_Frontend_Report_License {
 					$this->license_domain,
 					$this->license_software_version,
 					$this->license_plugin_or_theme,
-					$WCMp_Vendor_Frontend_Report->text_domain
+					'wcmp-vendor_frontend_report'
 				);
 
 			}
@@ -160,7 +160,7 @@ class WCMP_Vendor_Frontend_Report_License {
 	
 	function license_new_tab($tabs) {
 	  global $WCMp_Vendor_Frontend_Report;
-	  $tabs[str_replace('-', '_', esc_attr($WCMp_Vendor_Frontend_Report->token)) . '_license'] = __('Frontend Report', $WCMp_Vendor_Frontend_Report->text_domain);
+	  $tabs[str_replace('-', '_', esc_attr($WCMp_Vendor_Frontend_Report->token)) . '_license'] = __('Frontend Report', 'wcmp-vendor_frontend_report');
     return $tabs;
 	}
 	
@@ -337,7 +337,7 @@ class WCMP_Vendor_Frontend_Report_License {
 		<?php if ( ! current_user_can( 'manage_options' ) ) return; ?>
 		<?php if ( isset( $_GET['page'] ) && 'api_manager_license_dashboard' == $_GET['page'] ) return; ?>
 		<div id="message" class="error settings-error notice is-dismissible">
-			<p><?php printf( __( 'The Vendor Frontend Report License Key has not been activated, so the plugin is inactive! %sClick here%s to activate the license key and the plugin.', $WCMp_Vendor_Frontend_Report->text_domain ), '<a href="' . esc_url( admin_url( 'admin.php?page=wcmp-license&tab=' . str_replace('-', '_', esc_attr($WCMp_Vendor_Frontend_Report->token)) . '_license' ) ) . '">', '</a>' ); ?></p>
+			<p><?php printf( __( 'The Vendor Frontend Report License Key has not been activated, so the plugin is inactive! %sClick here%s to activate the license key and the plugin.', 'wcmp-vendor_frontend_report' ), '<a href="' . esc_url( admin_url( 'admin.php?page=wcmp-license&tab=' . str_replace('-', '_', esc_attr($WCMp_Vendor_Frontend_Report->token)) . '_license' ) ) . '">', '</a>' ); ?></p>
 		</div>
 		<?php
 	}

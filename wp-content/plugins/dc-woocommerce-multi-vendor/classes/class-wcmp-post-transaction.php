@@ -172,7 +172,7 @@ class WCMp_Transaction {
         $transfer_charge = get_post_meta($transaction_id, 'transfer_charge', true);
         $gateway_charge = get_post_meta($transaction_id, 'gateway_charge', true);
         $transaction_mode = get_post_meta($transaction_id, 'transaction_mode', true);
-        $item_totals['date'] = array('label' => __('Date of request', 'dc-woocommerce-multi-vendor'), 'value' => get_the_date('Y-m-d', $transaction_id));
+        $item_totals['date'] = array('label' => __('Date of request', 'dc-woocommerce-multi-vendor'), 'value' => wcmp_date(get_post($transaction_id)->post_date));
         $item_totals['amount'] = array('label' => __('Amount', 'dc-woocommerce-multi-vendor'), 'value' => wc_price($transaction_amount));
         if ($transfer_charge) {
             $item_totals['transfer_fee'] = array('label' => __('Transfer Fee', 'dc-woocommerce-multi-vendor'), 'value' => wc_price($transfer_charge));
@@ -327,6 +327,7 @@ class WCMp_Transaction {
                 } else if ($transaction->post_status == 'wcmp_processing') {
                     $transaction_details[$transaction->ID]['status'] = __('Processing', 'dc-woocommerce-multi-vendor');
                 }
+                $transaction_details[$transaction->ID]['post_status'] = $transaction->post_status;
                 $transaction_details[$transaction->ID]['vendor_id'] = $transaction->post_author;
                 $transaction_details[$transaction->ID]['commission'] = get_post_meta($transaction->ID, 'amount', true) + get_post_meta($transaction->ID, 'transfer_charge', true);
                 $transaction_details[$transaction->ID]['amount'] = get_post_meta($transaction->ID, 'amount', true);

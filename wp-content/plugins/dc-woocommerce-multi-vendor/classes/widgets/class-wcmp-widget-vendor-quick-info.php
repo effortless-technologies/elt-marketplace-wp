@@ -23,8 +23,8 @@ class DC_Widget_Quick_Info_Widget extends WP_Widget {
 
         // Widget variable settings
         $this->widget_idbase = 'dc-vendor-quick-info';
-        $this->widget_title = __('WCMp Vendor Quick Info', 'dc-woocommerce-multi-vendor');
-        $this->widget_description = __('Add a quick info contact form in vendor\'s store page.', 'dc-woocommerce-multi-vendor');
+        $this->widget_title = __('WCMp: Contact Vendor', 'dc-woocommerce-multi-vendor');
+        $this->widget_description = __('Adds a contact form on vendor\'s shop page so that customers can contact vendor directly( Admin will also get a copy of the same ).', 'dc-woocommerce-multi-vendor');
         $this->widget_cssclass = 'widget_wcmp_quick_info';
 
         // Widget settings
@@ -79,17 +79,17 @@ class DC_Widget_Quick_Info_Widget extends WP_Widget {
             }
         }
 
-        if (is_archive() && is_tax('dc_vendor_shop')) {
+        if (is_archive() && is_tax($WCMp->taxonomy->taxonomy_name)) {
             $show_widget = true;
         }
 
-        $hide_from_guests = !empty($instance['hide_from_guests']) ? true : false;
+        $hide_from_guests = isset($instance['hide_from_guests']) ? $instance['hide_from_guests'] : false;
         if ($hide_from_guests) {
             $show_widget = is_user_logged_in();
         }
 
         if ($show_widget) {
-            if (is_tax('dc_vendor_shop')) {
+            if (is_tax($WCMp->taxonomy->taxonomy_name)) {
                 $vendor_id = get_queried_object()->term_id;
                 if ($vendor_id) {
                     $vendor = get_wcmp_vendor_by_term($vendor_id);
@@ -140,10 +140,10 @@ class DC_Widget_Quick_Info_Widget extends WP_Widget {
      */
     function update($new_instance, $old_instance) {
         $instance = $old_instance;
-        $instance['title'] = strip_tags($new_instance['title']);
-        $instance['description'] = strip_tags($new_instance['description']);
-        $instance['hide_from_guests'] = strip_tags($new_instance['hide_from_guests']);
-        $instance['submit_label'] = strip_tags($new_instance['submit_label']);
+        $instance['title'] = isset($new_instance['title']) ? strip_tags($new_instance['title']) : '';
+        $instance['description'] = isset($new_instance['description']) ? strip_tags($new_instance['description']) : '';
+        $instance['hide_from_guests'] = isset($new_instance['hide_from_guests']) ? $new_instance['hide_from_guests'] : false;
+        $instance['submit_label'] = isset($new_instance['submit_label']) ? strip_tags($new_instance['submit_label']) : __('Submit', 'dc-woocommerce-multi-vendor');
         return $instance;
     }
 
@@ -207,6 +207,7 @@ class DC_Widget_Quick_Info_Widget extends WP_Widget {
             $admin_email = get_option('admin_email');
             $headers[] = "From: {$from} <{$from_email}>";
             $headers[] = "Cc: Admin <{$admin_email}>";
+            $headers[] = "Reply-To: {$from} <{$from_email}>";
 
             /* === Send Mail === */
             $check = wp_mail($to, $subject, $message, $headers);

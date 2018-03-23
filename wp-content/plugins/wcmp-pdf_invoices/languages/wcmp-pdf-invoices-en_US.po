@@ -1,0 +1,212 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: wcmp-pdf_invoices\n"
+"POT-Creation-Date: 2016-11-08 15:49+0530\n"
+"PO-Revision-Date: 2016-11-08 15:49+0530\n"
+"Last-Translator: \n"
+"Language-Team: Dualcube <admin@dualcube.com>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;__;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/"
+"wcmp-pdf_invoices\n"
+
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/classes/class-wcmp-pdf-invoices.php:160
+msgid "Vendor Edit Invoice Template"
+msgstr ""
+
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/classes/class-wcmp-pdf-invoices.php:160
+msgid "Choose your preferred page for Vendor Frontend Report."
+msgstr ""
+
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/classes/class-wcmp-pdf-invoices-admin.php:24
+msgid "PDF Invoices"
+msgstr ""
+
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/classes/class-wcmp-pdf-invoices-admin.php:72
+msgid "PDF Invoice"
+msgstr ""
+
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/classes/class-wcmp-pdf-invoices-frontend.php:22
+msgid "Edit Invoice"
+msgstr ""
+
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/classes/class-wcmp-pdf-invoices-frontend.php:83
+msgid "Download Invoice"
+msgstr ""
+
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/templates/wcmp_pdf_invoice_forth_template.php:66
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/templates/wcmp_pdf_invoice_forth_template.php:70
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/templates/wcmp_pdf_invoice_first_template.php:116
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/templates/wcmp_pdf_invoice_first_template.php:122
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/templates/wcmp_pdf_invoice_second_template.php:91
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/templates/wcmp_pdf_invoice_second_template.php:97
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/templates/wcmp_pdf_invoice_fifth_template.php:67
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/templates/wcmp_pdf_invoice_fifth_template.php:73
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/templates/wcmp_picking_ticket_template.php:36
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/templates/wcmp_picking_ticket_template.php:48
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/templates/wcmp_pdf_invoice_third_template.php:72
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/templates/wcmp_pdf_invoice_third_template.php:78
+msgid "N/A"
+msgstr ""
+
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/admin/class-wcmp-pdf-invoices-settings-pdf_invoices.php:50
+msgid "General Settings"
+msgstr ""
+
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/admin/class-wcmp-pdf-invoices-settings-pdf_invoices.php:52
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/admin/class-wcmp-pdf-invoices-settings-pdf_invoices.php:53
+msgid "Attach to Email"
+msgstr ""
+
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/admin/class-wcmp-pdf-invoices-settings-pdf_invoices.php:53
+msgid "Select Order status to attach invoice."
+msgstr ""
+
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/admin/class-wcmp-pdf-invoices-settings-pdf_invoices.php:56
+msgid "Select Default Invoice Template"
+msgstr ""
+
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/admin/class-wcmp-pdf-invoices-settings-pdf_invoices.php:57
+msgid "Company Name"
+msgstr ""
+
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/admin/class-wcmp-pdf-invoices-settings-pdf_invoices.php:57
+msgid "Enter your Company Name here."
+msgstr ""
+
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/admin/class-wcmp-pdf-invoices-settings-pdf_invoices.php:57
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/admin/class-wcmp-pdf-invoices-settings-pdf_invoices.php:60
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/admin/class-wcmp-pdf-invoices-settings-pdf_invoices.php:61
+msgid "It will represent your identification."
+msgstr ""
+
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/admin/class-wcmp-pdf-invoices-settings-pdf_invoices.php:58
+msgid "Company Logo"
+msgstr ""
+
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/admin/class-wcmp-pdf-invoices-settings-pdf_invoices.php:58
+msgid "Your presentation."
+msgstr ""
+
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/admin/class-wcmp-pdf-invoices-settings-pdf_invoices.php:58
+msgid "Represent your graphical signature."
+msgstr ""
+
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/admin/class-wcmp-pdf-invoices-settings-pdf_invoices.php:59
+msgid "Company Address"
+msgstr ""
+
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/admin/class-wcmp-pdf-invoices-settings-pdf_invoices.php:59
+msgid "About you"
+msgstr ""
+
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/admin/class-wcmp-pdf-invoices-settings-pdf_invoices.php:59
+msgid "It will represent your significant."
+msgstr ""
+
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/admin/class-wcmp-pdf-invoices-settings-pdf_invoices.php:60
+msgid "Company Email"
+msgstr ""
+
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/admin/class-wcmp-pdf-invoices-settings-pdf_invoices.php:60
+msgid "Enter your Company Email here."
+msgstr ""
+
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/admin/class-wcmp-pdf-invoices-settings-pdf_invoices.php:61
+msgid "Company Ph. no"
+msgstr ""
+
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/admin/class-wcmp-pdf-invoices-settings-pdf_invoices.php:61
+msgid "Enter your Company Ph no here."
+msgstr ""
+
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/admin/class-wcmp-pdf-invoices-settings-pdf_invoices.php:62
+msgid "Special Notes from Admin"
+msgstr ""
+
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/admin/class-wcmp-pdf-invoices-settings-admin-pdf_invoices.php:27
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/admin/class-wcmp-pdf-invoices-settings-customer-pdf_invoices.php:40
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/admin/class-wcmp-pdf-invoices-settings-vendor-pdf_invoices.php:27
+msgid "SKU"
+msgstr ""
+
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/admin/class-wcmp-pdf-invoices-settings-admin-pdf_invoices.php:28
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/admin/class-wcmp-pdf-invoices-settings-customer-pdf_invoices.php:41
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/admin/class-wcmp-pdf-invoices-settings-vendor-pdf_invoices.php:28
+msgid "Subtotal"
+msgstr ""
+
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/admin/class-wcmp-pdf-invoices-settings-admin-pdf_invoices.php:29
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/admin/class-wcmp-pdf-invoices-settings-customer-pdf_invoices.php:42
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/admin/class-wcmp-pdf-invoices-settings-vendor-pdf_invoices.php:29
+msgid "Discount"
+msgstr ""
+
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/admin/class-wcmp-pdf-invoices-settings-admin-pdf_invoices.php:30
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/admin/class-wcmp-pdf-invoices-settings-customer-pdf_invoices.php:43
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/admin/class-wcmp-pdf-invoices-settings-vendor-pdf_invoices.php:30
+msgid "Tax"
+msgstr ""
+
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/admin/class-wcmp-pdf-invoices-settings-admin-pdf_invoices.php:31
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/admin/class-wcmp-pdf-invoices-settings-customer-pdf_invoices.php:44
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/admin/class-wcmp-pdf-invoices-settings-vendor-pdf_invoices.php:31
+msgid "Shipping"
+msgstr ""
+
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/admin/class-wcmp-pdf-invoices-settings-admin-pdf_invoices.php:32
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/admin/class-wcmp-pdf-invoices-settings-customer-pdf_invoices.php:45
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/admin/class-wcmp-pdf-invoices-settings-vendor-pdf_invoices.php:32
+msgid "Payment Method"
+msgstr ""
+
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/admin/class-wcmp-pdf-invoices-settings-admin-pdf_invoices.php:33
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/admin/class-wcmp-pdf-invoices-settings-customer-pdf_invoices.php:46
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/admin/class-wcmp-pdf-invoices-settings-vendor-pdf_invoices.php:33
+msgid "Introduction Text"
+msgstr ""
+
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/admin/class-wcmp-pdf-invoices-settings-admin-pdf_invoices.php:34
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/admin/class-wcmp-pdf-invoices-settings-customer-pdf_invoices.php:47
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/admin/class-wcmp-pdf-invoices-settings-vendor-pdf_invoices.php:34
+msgid "Term and conditions"
+msgstr ""
+
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/admin/class-wcmp-pdf-invoices-settings-admin-pdf_invoices.php:35
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/admin/class-wcmp-pdf-invoices-settings-customer-pdf_invoices.php:48
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/admin/class-wcmp-pdf-invoices-settings-vendor-pdf_invoices.php:35
+msgid "Show Customer Note"
+msgstr ""
+
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/admin/class-wcmp-pdf-invoices-settings-customer-pdf_invoices.php:36
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/admin/class-wcmp-pdf-invoices-settings-customer-pdf_invoices.php:37
+msgid "Customer can download invoice at"
+msgstr ""
+
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/admin/class-wcmp-pdf-invoices-settings-customer-pdf_invoices.php:37
+msgid "Set order status for customer to download invoice."
+msgstr ""
+
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/includes/wcmp-pdf-invoices-core-functions.php:6
+#, php-format
+msgid ""
+"%sWCMp Vendor Stock Alert is inactive.%s The %sWooCommerce plugin%s must be "
+"active for the WCMp Vendor Stock Alert to work. Please %sinstall & activate "
+"WooCommerce%s"
+msgstr ""
+
+#: /var/www/html/wcmp_pdf_invoice/wp-content/plugins/wcmp-pdf_invoices/includes/wcmp-pdf-invoices-core-functions.php:16
+#, php-format
+msgid ""
+"%sWCMp Vendor Stock Alert is inactive.%s The %sWC Marketplace%s must be "
+"active for the WCMp Vendor Stock Alert to work. Please %sinstall & activate "
+"WC Marketplace%s"
+msgstr ""
+
+#~ msgid "ID Number"
+#~ msgstr "Identification"

@@ -112,7 +112,7 @@ class WCMP_Vendor_Frontend_Report {
 
         require_once ( $WCMp->plugin_path . 'includes/class-wcmp-install.php' );
         $WCMp_Install = new WCMp_Install();
-        $WCMp_Install->wcmp_product_vendor_plugin_create_page(esc_sql(_x('frontend_vendor_reports', 'page_slug', $WCMp_Vendor_Frontend_Report->text_domain)), 'wcmp_vendor_frontend_report_page_id', __('Reports', $WCMp_Vendor_Frontend_Report->text_domain), '[vendor_frontend_report]');
+        $WCMp_Install->wcmp_product_vendor_plugin_create_page(esc_sql(_x('frontend_vendor_reports', 'page_slug', 'wcmp-vendor_frontend_report')), 'wcmp_vendor_frontend_report_page_id', __('Reports', 'wcmp-vendor_frontend_report'), '[vendor_frontend_report]');
         $wcmp_vendor_frontend_report_page_id = get_option('wcmp_vendor_frontend_report_page_id');
         update_wcmp_vendor_settings('frontend_vendor_reports', $wcmp_vendor_frontend_report_page_id, 'vendor', 'general');
 

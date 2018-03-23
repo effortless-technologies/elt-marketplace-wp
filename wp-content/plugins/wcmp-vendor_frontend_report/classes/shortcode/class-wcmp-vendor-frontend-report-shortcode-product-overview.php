@@ -282,11 +282,11 @@ class WCMP_Vendor_Report_Shortcode_Product_Overview {
 								</td></tr>';
                         }
 
-                        $vendor_title = sprintf(__('Sales and Earnings [ %s ]', $WCMp_Vendor_Frontend_Report->text_domain), date('F j, Y', $start_date) . ' - ' . date('F j, Y', $end_date));
-                        $month_title = __('Month', $WCMp_Vendor_Frontend_Report->text_domain);
-                        $vendor_earning_title = __('Sales Report', $WCMp_Vendor_Frontend_Report->text_domain);
-                        $gross_sales = __('Gross Sales', $WCMp_Vendor_Frontend_Report->text_domain);
-                        $my_earnings = __('My Earnings', $WCMp_Vendor_Frontend_Report->text_domain);
+                        $vendor_title = sprintf(__('Sales and Earnings [ %s ]', 'wcmp-vendor_frontend_report'), date('F j, Y', $start_date) . ' - ' . date('F j, Y', $end_date));
+                        $month_title = __('Month', 'wcmp-vendor_frontend_report');
+                        $vendor_earning_title = __('Sales Report', 'wcmp-vendor_frontend_report');
+                        $gross_sales = __('Gross Sales', 'wcmp-vendor_frontend_report');
+                        $my_earnings = __('My Earnings', 'wcmp-vendor_frontend_report');
 
                         $report_html = '
 							<h4>' . $vendor_title . '</h4>
@@ -309,10 +309,10 @@ class WCMP_Vendor_Report_Shortcode_Product_Overview {
 							</table>
 						';
                     } else {
-                        $report_html = '<tr><td colspan="3">' . __('No product was sold in the given period.', $WCMp_Vendor_Frontend_Report->text_domain) . '</td></tr>';
+                        $report_html = '<tr><td colspan="3">' . __('No product was sold in the given period.', 'wcmp-vendor_frontend_report') . '</td></tr>';
                     }
                 } else {
-                    $report_html = '<tr><td colspan="3">' . __('Your store has no products.', $WCMp_Vendor_Frontend_Report->text_domain) . '</td></tr>';
+                    $report_html = '<tr><td colspan="3">' . __('Your store has no products.', 'wcmp-vendor_frontend_report') . '</td></tr>';
                 }
                 $WCMp_Vendor_Frontend_Report->template->get_template('reports/sales_by_product_overview.php', array('report_html' => $report_html, 'start_date' => isset($_GET['product_overview_from_date']) ? $_GET['product_overview_from_date'] : '', 'end_date' => isset($_GET['product_overview_to_date']) ? $_GET['product_overview_to_date'] : ''));
             } else {
@@ -320,7 +320,7 @@ class WCMP_Vendor_Report_Shortcode_Product_Overview {
                 <div>
                     <label for="vendor_profile">
                         <?php
-                        _e('Your account is not vendor capable.', $WCMp_Vendor_Frontend_Report->text_domain);
+                        _e('Your account is not vendor capable.', 'wcmp-vendor_frontend_report');
                         ?>
                     </label>
                 </div>

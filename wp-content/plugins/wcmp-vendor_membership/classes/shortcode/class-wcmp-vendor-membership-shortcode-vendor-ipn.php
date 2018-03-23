@@ -92,6 +92,8 @@ class WCMp_Vendor_IPN {
                 unset($_SESSION['user_pass']);
                 echo isset(get_post_meta($plan_id, '_vendor_message_field', true)['_failuare_msg']) && get_post_meta($plan_id, '_vendor_message_field', true)['_failuare_msg'] ? get_post_meta($plan_id, '_vendor_message_field', true)['_failuare_msg'] : $failuare_msg;
             }
+        }else{
+            do_action( 'wcmp_vendor_membership_ipn_for_third_party_payment', $global_settings );
         }
     }
 

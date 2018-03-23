@@ -137,7 +137,7 @@ class WCMP_Vendor_Verification_Admin {
                             <?php } ?>
                         </td>
                         <td class="wcmp_verification">
-                        <?php if($verification_settings['id_verification']['is_verified'] != 'rejected'){ ?>
+                        <?php if(isset($verification_settings['id_verification']['is_verified']) && $verification_settings['id_verification']['is_verified'] != 'rejected'){ ?>
                             <div class="verification_data">
                             <?php echo _e('ID Type : ', 'wcmp-vendor-verification').ucwords($id_type); ?>
                             <?php 
@@ -194,10 +194,6 @@ class WCMP_Vendor_Verification_Admin {
         $screen = get_current_screen();
         // Enqueue admin script and stylesheet from here
         if (in_array($screen->id, array('toplevel_page_wcmp-vendor-verification-setting-admin','wcmp_page_wcmp-to-do','users'))) :
-            /*$WCMP_Vendor_Verification->library->load_qtip_lib();
-            $WCMP_Vendor_Verification->library->load_upload_lib();
-            $WCMP_Vendor_Verification->library->load_colorpicker_lib();
-            $WCMP_Vendor_Verification->library->load_datepicker_lib();*/
             wp_enqueue_script('wcmp_vv_admin_js', $WCMP_Vendor_Verification->plugin_url . 'assets/admin/js/admin.js', array('jquery'), $WCMP_Vendor_Verification->version, true);
             wp_localize_script( 'wcmp_vv_admin_js', 'admin_ajax',array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
             wp_enqueue_style('wcmp_vv_admin_css', $WCMP_Vendor_Verification->plugin_url . 'assets/admin/css/admin.css', array(), $WCMP_Vendor_Verification->version);

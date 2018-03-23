@@ -153,41 +153,46 @@ class WCMp_Vendor_Stock_Alert_Vendor_Settings {
 		}
 		?>
 		<?php
-			if( isset($wcmp_stock_alert_settings['low_stock_enabled']) || isset($wcmp_stock_alert_settings['out_of_stock_enabled']) ) { ?>
-			<div class="wcmp_headding2 moregap"><?php _e('Stock Management', 'wcmp-vendor_stock_alert') ?></div>
-			<div class="wcmp_stock_alert" style="padding: 0 34px 2px;">
-				<?php if(isset($wcmp_stock_alert_settings['low_stock_enabled'])) {
-					?>
-					<p class="low_stock_enabled">
-						<label style="width: 160px; display: inline-block;"><strong><?php _e('Enable low stock alert', 'wcmp-vendor_stock_alert') ?></strong></label>
-						<input type="checkbox" id="low_stock_enabled" <?php if($low_stock_enabled == 'Enable') echo 'checked=checked'; ?> name="low_stock_enabled" class="user-profile-fields" value="Enable">
-					</p>
-					<?php
-				}
-				if(isset($wcmp_stock_alert_settings['out_of_stock_enabled'])) {
-					?>
-					<p class="out_of_stock_enabled">
-						<label style="width: 160px; display: inline-block;"><strong><?php _e('Enable out of stock alert', 'wcmp-vendor_stock_alert') ?></strong></label>
-						<input type="checkbox" id="out_of_stock_enabled" <?php if($out_of_stock_enabled == 'Enable') echo 'checked=checked'; ?> name="out_of_stock_enabled" class="user-profile-fields" value="Enable">
-					</p>
-					<?php
-				}
-				if(isset($wcmp_stock_alert_settings['low_stock_enabled'])) { 
-					?>
-					<p class="low_stock_limit">
-						<label style="width: 160px; display: inline-block;"><strong><?php _e('Low stock alert limit', 'wcmp-vendor_stock_alert') ?></strong></label>
-						<input type="text" id="low_stock_limit" name="low_stock_limit" class="user-profile-fields" value="<?php echo $low_stock_limit; ?>" placeholder=""  />
-					</p>
-					<?php
-				}	
-				if(isset($wcmp_stock_alert_settings['out_of_stock_enabled'])) {
-					?>
-					<p class="out_of_stock_limit">
-						<label style="width: 160px; display: inline-block;"><strong><?php _e('Out of stock alert limit', 'wcmp-vendor_stock_alert') ?></strong></label>
-						<input type="text" id="out_of_stock_limit" name="out_of_stock_limit" class="user-profile-fields" value="<?php echo $out_of_stock_limit; ?>" placeholder=""  />
-					</p>
-				<?php } ?>
-			</div>
+            if( isset($wcmp_stock_alert_settings['low_stock_enabled']) || isset($wcmp_stock_alert_settings['out_of_stock_enabled']) ) { ?>
+                <div class="panel panel-default pannel-outer-heading">
+                    <div class="panel-heading">
+                        <h3><?php _e('Stock Management', 'wcmp-vendor_stock_alert') ?></h3>
+                    </div>
+                    <div class="panel-body panel-content-padding form-horizontal">
+                        <div class="wcmp_media_block">
+                        <?php if(isset($wcmp_stock_alert_settings['low_stock_enabled'])) { ?>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3 col-md-3"><?php _e('Enable low stock alert', 'wcmp-vendor_stock_alert') ?></label>
+                                <div class="col-md-6 col-sm-9">
+                                    <input type="checkbox" id="low_stock_enabled" <?php if($low_stock_enabled == 'Enable') echo 'checked=checked'; ?> name="low_stock_enabled" class="user-profile-fields" value="Enable">
+                                </div>  
+                            </div>
+                        <?php } if(isset($wcmp_stock_alert_settings['out_of_stock_enabled'])) { ?>   
+                            <div class="form-group">
+                                <label class="control-label col-sm-3 col-md-3"><?php _e('Enable out of stock alert', 'wcmp-vendor_stock_alert') ?></label>
+                                <div class="col-md-6 col-sm-9">
+                                    <input type="checkbox" id="out_of_stock_enabled" <?php if($out_of_stock_enabled == 'Enable') echo 'checked=checked'; ?> name="out_of_stock_enabled" class="user-profile-fields" value="Enable">
+                                </div>  
+                            </div>
+                        <?php } if(isset($wcmp_stock_alert_settings['low_stock_enabled'])) { ?>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3 col-md-3"><?php _e('Low stock alert limit', 'wcmp-vendor_stock_alert') ?></label>
+                                <div class="col-md-6 col-sm-9">
+                                    <input type="text" id="low_stock_limit" name="low_stock_limit" class="user-profile-fields form-control" value="<?php echo $low_stock_limit; ?>" placeholder=""  />
+                                </div>  
+                            </div>
+                        <?php }	if(isset($wcmp_stock_alert_settings['out_of_stock_enabled'])) { ?>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3 col-md-3"><?php _e('Out of stock alert limit', 'wcmp-vendor_stock_alert') ?></label>
+                                <div class="col-md-6 col-sm-9">
+                                    <input type="text" id="out_of_stock_limit" name="out_of_stock_limit" class="user-profile-fields form-control" value="<?php echo $out_of_stock_limit; ?>" placeholder=""  />
+                                </div>  
+                            </div>
+                        <?php } ?>
+                        </div>
+                    </div>
+                </div>
+
 		<?php } 
 	}
 	
@@ -224,8 +229,7 @@ class WCMp_Vendor_Stock_Alert_Vendor_Settings {
 		global $WCMp, $WCMp_Vendor_Stock_Alert;
 
 		if( current_user_can( 'edit_products' ) ) {
-			// if WCMp_Frontend_Product_Manager addons active
-			if(class_exists('WCMp_Frontend_Product_Manager') || class_exists('WCMp_Product_Import_Export_Bundle')) {
+			
 				// WCMp Products Menu
 				$vendor_nav['vendor-products']['submenu']['products-stock'] = array(
 			               'label' => __('Products Stock', 'wcmp-vendor_stock_alert'),
@@ -234,25 +238,7 @@ class WCMp_Vendor_Stock_Alert_Vendor_Settings {
 			               'position' => 35,
 			               'link_target' => '_self'
 			           );
-			}else{
-			 	$vendor_nav['vendor-products']['url'] = '#';
-				$vendor_nav['vendor-products']['submenu'] = array(
-							'vendor-products' => array(
-				                'label' => __('Product Manager', 'wcmp-vendor_stock_alert'),
-				                'url' => apply_filters('wcmp_vendor_submit_product', admin_url('edit.php?post_type=product')),
-				                'capability' => apply_filters('wcmp_vendor_dashboard_menu_vendor_products_capability', 'edit_products'),
-				                'position' => 10,
-				                'link_target' => '_self'
-				            ),
-			               'products-stock' => array(
-			                   'label' => __('Products Stock', 'wcmp-vendor_stock_alert'),
-			                   'url' => wcmp_get_vendor_dashboard_endpoint_url(get_wcmp_vendor_settings('wcmp_vendor_product_stock_display', 'vendor', 'general', 'products-stock')),
-			                   'capability' => apply_filters( 'wcmp_vendor_product_stock_display_capability', true),
-			                   'position' => 20,
-			                   'link_target' => '_self'
-			               )
-			           );
-			}
+			
 		}
 
 		return $vendor_nav;
@@ -275,9 +261,10 @@ class WCMp_Vendor_Stock_Alert_Vendor_Settings {
     	global $WCMp, $WCMp_Vendor_Stock_Alert;
     	$user_id = get_current_user_id();
 		$vendor = get_wcmp_vendor($user_id);
-		wp_enqueue_style('wcmp_vsa_dataTable_css',  $WCMp_Vendor_Stock_Alert->plugin_url.'assets/frontend/css/jquery.dataTables.min.css', array(), $WCMp_Vendor_Stock_Alert->version);
-		wp_enqueue_style('wcmp_vsa_display_css',  $WCMp_Vendor_Stock_Alert->plugin_url.'assets/frontend/css/wcmp_vsa_display.css', array(), $WCMp_Vendor_Stock_Alert->version);
-		wp_enqueue_script('wcmp_vsa_dataTable_js', $WCMp_Vendor_Stock_Alert->plugin_url.'assets/frontend/js/jquery.dataTables.min.js', array('jquery'), $WCMp_Vendor_Stock_Alert->version, false);
+                $WCMp->library->load_dataTable_lib();
+//		wp_enqueue_style('wcmp_vsa_dataTable_css',  $WCMp_Vendor_Stock_Alert->plugin_url.'assets/frontend/css/jquery.dataTables.min.css', array(), $WCMp_Vendor_Stock_Alert->version);
+//		wp_enqueue_style('wcmp_vsa_display_css',  $WCMp_Vendor_Stock_Alert->plugin_url.'assets/frontend/css/wcmp_vsa_display.css', array(), $WCMp_Vendor_Stock_Alert->version);
+//		wp_enqueue_script('wcmp_vsa_dataTable_js', $WCMp_Vendor_Stock_Alert->plugin_url.'assets/frontend/js/jquery.dataTables.min.js', array('jquery'), $WCMp_Vendor_Stock_Alert->version, false);
 		wp_enqueue_script('wcmp_vsa_display_js', $WCMp_Vendor_Stock_Alert->plugin_url.'assets/frontend/js/wcmp_vsa_display.js', array('jquery'), $WCMp_Vendor_Stock_Alert->version, false);
 		wp_localize_script(
 			'wcmp_vsa_display_js', 

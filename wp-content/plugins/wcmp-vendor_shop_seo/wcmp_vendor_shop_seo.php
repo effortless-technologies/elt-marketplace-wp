@@ -4,7 +4,7 @@ Plugin Name: WCMp Vendor SEO and Analytics
 Plugin URI: http://wc-marketplace.com/product/wcmp-vendor-seo-and-analytics/
 Description: This Plugin will help to seo optimize by vendor on his/her product pages and shop pages and they can install his/her own google analytics for treffic report by google analytics.
 Author: DualCube
-Version: 1.0.0
+Version: 1.1.0
 Author URI: http://dualcube.com
 */
 

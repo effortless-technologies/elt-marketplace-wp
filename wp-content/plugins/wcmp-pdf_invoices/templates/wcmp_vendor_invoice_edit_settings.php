@@ -1,4 +1,13 @@
 <?php
+/*
+ * The template for displaying vendor dashboard
+ * Override this template by copying it to yourtheme/wcmp-pdf-invoices/wcmp_vendor_invoice_edit_settings.php
+ *
+ * @author 	WC Marketplace
+ * @package 	WCMp PDF Invoices/Templates
+ * @version     1.0.5
+ */
+
 global $WCMp_PDF_Invoices;
 
 $template_array = array(
@@ -13,7 +22,7 @@ $template_array = array(
     <table class="form-table">
         <tbody>
             <tr>
-                <th scope="row"><label for="is_vendor_logo">Select your preferred template</label></th>
+                <th scope="row"><label for="is_vendor_logo"><?php _e('Select your preferred template', 'wcmp-pdf_invoices'); ?></label></th>
                 <td>
                     <select class="vendor_preferred_template" name="choose_preferred_template">
                         <?php foreach ($template_array as $template_array_key => $template_array_val) { ?>
@@ -34,7 +43,7 @@ $template_array = array(
         <tbody>
             <tr>
             <tr>
-                <th scope="row"><label for="is_vendor_logo">Logo ( JPEG Only)</label></th>
+                <th scope="row"><label for="is_vendor_logo"><?php _e('Logo ( JPEG Only)', 'wcmp-pdf_invoices'); ?></label></th>
                 <td>
                     <span class="dc-wp-fields-uploader">
                         <img id="vendor_banner_display" width="300" src="<?php if ($settings['vendor_invoice_logo'] != '') echo $settings['vendor_invoice_logo']; ?>" class="placeHolder" />
@@ -45,35 +54,35 @@ $template_array = array(
                 </td>
             </tr>
             <tr>
-                <th scope="row"><label for="is_sku_vendor">SKU</label></th>
+                <th scope="row"><label for="is_sku_vendor"><?php _e('SKU', 'wcmp-pdf_invoices'); ?></label></th>
                 <td><input type="checkbox" id="is_sku_vendor" name="is_sku_vendor" class="checkbox" value="Enable" <?php if ($settings['is_sku_vendor'] != '') echo 'checked="checked"'; ?> ></td>
             </tr>
             <tr>
-                <th scope="row"><label for="is_subtotal_vendor">Subtotal</label></th>
+                <th scope="row"><label for="is_subtotal_vendor"><?php _e('Subtotal', 'wcmp-pdf_invoices'); ?></label></th>
                 <td><input type="checkbox" id="is_subtotal_vendor" name="is_subtotal_vendor" class="checkbox" value="Enable" <?php if ($settings['is_subtotal_vendor'] != '') echo 'checked="checked"'; ?> ></td>
             </tr>
             <tr>
-                <th scope="row"><label for="is_discount_vendor">Discount</label></th>
+                <th scope="row"><label for="is_discount_vendor"><?php _e('Discount', 'wcmp-pdf_invoices'); ?></label></th>
                 <td><input type="checkbox" id="is_discount_vendor" name="is_discount_vendor" class="checkbox" value="Enable" <?php if ($settings['is_discount_vendor'] != '') echo 'checked="checked"'; ?> ></td>
             </tr>
             <tr>
-                <th scope="row"><label for="is_tax_vendor">Tax</label></th>
+                <th scope="row"><label for="is_tax_vendor"><?php _e('Tax', 'wcmp-pdf_invoices'); ?></label></th>
                 <td><input type="checkbox" id="is_tax_vendor" name="is_tax_vendor" class="checkbox" value="Enable" <?php if ($settings['is_tax_vendor'] != '') echo 'checked="checked"'; ?> ></td>
             </tr>
             <tr>
-                <th scope="row"><label for="is_shipping_vendor">Shipping</label></th>
+                <th scope="row"><label for="is_shipping_vendor"><?php _e('Shipping', 'wcmp-pdf_invoices'); ?></label></th>
                 <td><input type="checkbox" id="is_shipping_vendor" name="is_shipping_vendor" class="checkbox" value="Enable" <?php if ($settings['is_shipping_vendor'] != '') echo 'checked="checked"'; ?> ></td>
             </tr>
             <tr>
-                <th scope="row"><label for="is_payment_method_vendor">Show Payment Method</label></th>
+                <th scope="row"><label for="is_payment_method_vendor"><?php _e('Show Payment Method', 'wcmp-pdf_invoices'); ?></label></th>
                 <td><input type="checkbox" id="is_payment_method_vendor" name="is_payment_method_vendor" class="checkbox" value="Enable" <?php if ($settings['is_payment_method_vendor'] != '') echo 'checked="checked"'; ?> ></td>
             </tr>
             <tr>
-                <th scope="row"><label for="intro_text_vendor">Introduction Text</label></th>
+                <th scope="row"><label for="intro_text_vendor"><?php _e('Introduction Text', 'wcmp-pdf_invoices'); ?></label></th>
                 <td><?php wp_editor($settings['intro_text_vendor'], 'listingeditor1', array('textarea_name' => 'intro_text_vendor', 'textarea_rows' => 5)); ?></td>
             </tr>
             <tr>
-                <th scope="row"><label for="term_and_conditions_vendor">Term and conditions</label></th>
+                <th scope="row"><label for="term_and_conditions_vendor"><?php _e('Term and conditions', 'wcmp-pdf_invoices'); ?></label></th>
                 <td><?php wp_editor($settings['term_and_conditions_vendor'], 'listingeditor2', array('textarea_name' => 'term_and_conditions_vendor', 'textarea_rows' => 5)); ?></td>
             </tr>
 <!--			<tr>
@@ -81,7 +90,7 @@ $template_array = array(
                     <td><?php wp_editor($settings['spcl_notes_from_vendor'], 'listingeditor3', array('textarea_name' => 'spcl_notes_from_vendor', 'textarea_rows' => 5)); ?></td>
             </tr>-->
             <tr>
-                <th scope="row"><label for="is_customer_note_vendor">Show Customer Note</label></th>
+                <th scope="row"><label for="is_customer_note_vendor"><?php _e('Show Customer Note', 'wcmp-pdf_invoices'); ?></label></th>
                 <td><input type="checkbox" id="is_customer_note_vendor" name="is_customer_note_vendor" class="checkbox" value="Enable" <?php if ($settings['is_customer_note_vendor'] != '') echo 'checked="checked"'; ?> ></td>
             </tr>
         </tbody>

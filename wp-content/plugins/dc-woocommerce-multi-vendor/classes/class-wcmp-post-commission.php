@@ -39,6 +39,8 @@ class WCMp_Commission {
             add_filter('bulk_actions-edit-dc_commission', array(&$this, 'register_commission_bulk_actions'));
             add_filter('handle_bulk_actions-edit-dc_commission', array(&$this, 'commission_bulk_action_handler'), 10, 3);
             add_action('admin_notices', array(&$this, 'wcmp_commission_update_notice'));
+            // Commissions delete on order deleted
+            add_action('deleted_post', array(&$this, 'wcmp_commission_delete_on_order_deleted'));
         }
     }
 
@@ -80,7 +82,7 @@ class WCMp_Commission {
             'query_var' => false,
             'rewrite' => true,
             'capability_type' => 'post',
-            'capabilities' => array('create_posts' => false, 'delete_posts' => false),
+            'capabilities' => array('create_posts' => false, 'delete_posts' => false, 'edit_others_posts' => false),
             'map_meta_cap' => true,
             'has_archive' => true,
             'hierarchical' => true,
@@ -99,6 +101,7 @@ class WCMp_Commission {
      */
     public function meta_box_setup() {
         add_meta_box('wcmp-commission-data', __('Commission Details', 'dc-woocommerce-multi-vendor'), array(&$this, 'wcmp_meta_box_content'), $this->post_type, 'normal', 'high');
+        add_meta_box('wcmp-commission-note', __('Commission notes', 'dc-woocommerce-multi-vendor'), array(&$this, 'wcmp_meta_box_commission_notes'), $this->post_type, 'side', 'low');
     }
 
     /**
@@ -198,6 +201,67 @@ class WCMp_Commission {
         }
 
         echo $html;
+    }
+
+    /**
+     * Display commission notes
+     */
+    public function wcmp_meta_box_commission_notes() {
+        global $post;
+        $notes = $this->get_commission_notes($post->ID);
+        if ($notes) {
+            foreach ($notes as $note) {
+                echo '<div class="wcmp_commision_note_clm">';
+                echo '<p>' . $note->comment_content . '</p>';
+                echo '<small>'.$note->comment_date.'</small>';
+                echo '</div>';
+            }
+        }
+    }
+
+    public static function add_commission_note($commission_id, $note, $vendor_id = 0) {
+        if (!$commission_id) {
+            return 0;
+        }
+
+        $comment_author = __('WCMp', 'dc-woocommerce-multi-vendor');
+        $comment_author_email = strtolower(__('WCMp', 'dc-woocommerce-multi-vendor')) . '@';
+        $comment_author_email .= isset($_SERVER['HTTP_HOST']) ? str_replace('www.', '', $_SERVER['HTTP_HOST']) : 'noreply.com';
+        $comment_author_email = sanitize_email($comment_author_email);
+
+        $commentdata = apply_filters('wcmp_new_commission_note_data', array(
+            'comment_post_ID' => $commission_id,
+            'comment_author' => $comment_author,
+            'comment_author_email' => $comment_author_email,
+            'comment_author_url' => '',
+            'comment_content' => $note,
+            'comment_agent' => 'WCMp',
+            'comment_type' => 'commission_note',
+            'comment_parent' => 0,
+            'comment_approved' => 1,
+                ), $commission_id, $vendor_id);
+        $comment_id = wp_insert_comment($commentdata);
+        if ($vendor_id) {
+            add_comment_meta($comment_id, '_vendor_id', $vendor_id);
+
+            do_action('wcmp_new_commission_note', $comment_id, $commission_id, $vendor_id);
+        }
+        return $comment_id;
+    }
+
+    public function get_commission_notes($commission_id) {
+        global $WCMp;
+        $args = array(
+            'post_id' => $commission_id,
+            'type' => 'commission_note',
+            'status' => 'approve',
+            'orderby' => 'comment_ID'
+        );
+
+        remove_filter('comments_clauses', array($WCMp, 'exclude_order_comments'), 10, 1);
+        $notes = get_comments($args);
+        add_filter('comments_clauses', array($WCMp, 'exclude_order_comments'), 10, 1);
+        return $notes;
     }
 
     /**
@@ -475,7 +539,13 @@ class WCMp_Commission {
     }
 
     public function register_commission_bulk_actions($bulk_actions) {
-        unset($bulk_actions['edit']);
+        if(isset($bulk_actions['edit'])){
+            unset($bulk_actions['edit']);
+        }
+        if(isset($bulk_actions['untrash'])){
+            unset($bulk_actions['untrash']);
+        }
+        
         $bulk_actions['mark_paid'] = __('Mark paid', 'dc-woocommerce-multi-vendor');
         $bulk_actions['export'] = __('Export', 'dc-woocommerce-multi-vendor');
         return apply_filters('wcmp_commission_bulk_action', $bulk_actions);
@@ -525,7 +595,7 @@ class WCMp_Commission {
             $commission_data = $this->get_commission($commission);
             $commission_staus = get_post_meta($commission, '_paid_status', true);
             $commission_amounts = get_wcmp_vendor_order_amount(array('vendor_id' => $commission_data->vendor->id, 'commission_id' => $commission));
-            $recipient = get_user_meta($commission_data->vendor->id, '_vendor_paypal_email', true) ? get_user_meta($commission_data->vendor->id, '_vendor_paypal_email', true) : $vendor->user_data->display_name;
+            $recipient = get_user_meta($commission_data->vendor->id, '_vendor_paypal_email', true) ? get_user_meta($commission_data->vendor->id, '_vendor_paypal_email', true) : $commission_data->vendor->user_data->display_name;
             $commissions_data[] = array(
                 $recipient,
                 $currency,
@@ -651,6 +721,15 @@ class WCMp_Commission {
                     $wp_query->set('orderby', 'ID');
                     $wp_query->set('order', 'DESC');
                 }
+            }
+        }
+    }
+    
+    function wcmp_commission_delete_on_order_deleted($order_id){
+        $vendor_orders = get_wcmp_vendor_orders(array('order_id'=>$order_id));
+        if($vendor_orders){
+            foreach ($vendor_orders as $order) {
+                wp_delete_post( $order->commission_id, true );
             }
         }
     }

@@ -28,21 +28,21 @@ class WCMP_Vendor_Report_Shortcode_Overview {
 				$WCMp_Vendor_Frontend_Report->nocache();
 				
 				?>
-				<!-- <p><?php _e( 'Please select this page in WCMp page settings in "Advanced Vendor Reports" to make Report plugin work properly.', $WCMp_Vendor_Frontend_Report->text_domain ); ?></p> -->
+				<!-- <p><?php _e( 'Please select this page in WCMp page settings in "Advanced Vendor Reports" to make Report plugin work properly.', 'wcmp-vendor_frontend_report' ); ?></p> -->
 				<input type="hidden" name="currentTab" value="0"/>
 				<div id="wcmp_tabs">
 					<ul>
-						<li><a href="#wcmp_report_overview"><?php _e( 'Sales Overview', $WCMp_Vendor_Frontend_Report->text_domain ); ?></a></li>
-						<li><a href="#wcmp_report_product_sells"><?php _e( 'Sales by Product', $WCMp_Vendor_Frontend_Report->text_domain ); ?></a></li>
-						<li><a href="#wcmp_report_stock_overview"><?php _e( 'Stock', $WCMp_Vendor_Frontend_Report->text_domain ); ?></a></li>
-						<li><a href="#wcmp_report_transaction"><?php _e( 'Transactions', $WCMp_Vendor_Frontend_Report->text_domain ); ?></a></li>
+						<li><a href="#wcmp_report_overview"><?php _e( 'Sales Overview', 'wcmp-vendor_frontend_report' ); ?></a></li>
+						<li><a href="#wcmp_report_product_sells"><?php _e( 'Sales by Product', 'wcmp-vendor_frontend_report' ); ?></a></li>
+						<li><a href="#wcmp_report_stock_overview"><?php _e( 'Stock', 'wcmp-vendor_frontend_report' ); ?></a></li>
+						<li><a href="#wcmp_report_transaction"><?php _e( 'Transactions', 'wcmp-vendor_frontend_report' ); ?></a></li>
 					</ul>
 					<div id="wcmp_report_overview">
 						<?php echo do_shortcode('[vendor_report_sales_overview]'); ?>
 					</div>
 					<div id="wcmp_report_product_sells">
 						<ul style="background: none; border: none;">
-							<li><a href="#wcmp_report_product_sells_overview" class="current"><?php _e( 'Overview', $WCMp_Vendor_Frontend_Report->text_domain ); ?></a></li><li><a href="#wcmp_report_product_sells_search" class=""><?php _e( 'By Product', $WCMp_Vendor_Frontend_Report->text_domain ); ?></a></li>
+							<li><a href="#wcmp_report_product_sells_overview" class="current"><?php _e( 'Overview', 'wcmp-vendor_frontend_report' ); ?></a></li><li><a href="#wcmp_report_product_sells_search" class=""><?php _e( 'By Product', 'wcmp-vendor_frontend_report' ); ?></a></li>
 						</ul>
 						<div id="wcmp_report_product_sells_overview">
 							<?php echo do_shortcode('[vendor_report_product_overview]');	?>
@@ -53,9 +53,9 @@ class WCMP_Vendor_Report_Shortcode_Overview {
 					</div>
 					<div id="wcmp_report_stock_overview">
 						<ul style="background: none; border: none;">
-							<li><a href="#wcmp_report_low_stock" class="current"><?php _e( 'Low in stock', $WCMp_Vendor_Frontend_Report->text_domain ); ?></a></li>
-							<li><a href="#wcmp_report_out_of_stock" class=""><?php _e( 'Out of Stock', $WCMp_Vendor_Frontend_Report->text_domain ); ?></a></li>
-							<li><a href="#wcmp_report_most_of_stock" class=""><?php _e( 'Most Stocked', $WCMp_Vendor_Frontend_Report->text_domain ); ?></a></li>
+							<li><a href="#wcmp_report_low_stock" class="current"><?php _e( 'Low in stock', 'wcmp-vendor_frontend_report' ); ?></a></li>
+							<li><a href="#wcmp_report_out_of_stock" class=""><?php _e( 'Out of Stock', 'wcmp-vendor_frontend_report' ); ?></a></li>
+							<li><a href="#wcmp_report_most_of_stock" class=""><?php _e( 'Most Stocked', 'wcmp-vendor_frontend_report' ); ?></a></li>
 						</ul>
 						<div id="wcmp_report_low_stock">
 							<?php echo do_shortcode('[vendor_report_stock_low_stock]'); ?>
@@ -76,7 +76,7 @@ class WCMP_Vendor_Report_Shortcode_Overview {
 				<div>
 					<label for="vendor_profile">
 						<?php
-							_e('Your account is not vendor capable.', $WCMp_Vendor_Frontend_Report->text_domain);
+							_e('Your account is not vendor capable.', 'wcmp-vendor_frontend_report');
 						?>
 					</label>
 				</div>
