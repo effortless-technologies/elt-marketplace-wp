@@ -79,18 +79,6 @@ if(trim(get_option('tmoption_google_analytics_id'))!=''):?>
 <?php wp_footer(); ?>
 </body></html>
 
-// <?php if ($user_ID) : ?>
-// <script>
-// enter index below
-// var dimIndex = 2;
-// 
-// set custom dimension
-// ga('set', 'dimension'+dimIndex, 'Registered User');
-// send data to GA
-// ga('send', 'event', 'User Type', 'Registered User', {'nonInteraction': 1});
-// </script>
-// <?php endif; ?>
-
 <script>
 var pHACK = function(){	
 	var loc = (window.location.href).split('/');
