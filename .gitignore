@@ -12,3 +12,4 @@ wp-content/uploads/wcmp_pdf_invoice/*
 wp-content/uploads/wpo_wcpdf/dompdf/log.htm
 wp-content/uploads/*
 wp-content/plugins/woozone/cache/*
+wp-content/plugins/marketplace-stripe-gateway/includes/woo_api.log
