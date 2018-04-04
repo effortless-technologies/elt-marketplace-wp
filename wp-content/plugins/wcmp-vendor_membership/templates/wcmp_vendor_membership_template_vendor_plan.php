@@ -54,7 +54,9 @@ $recomended_count = 0;
                             ?>
                         </div>
                     <?php endif; ?>
-                    <div class="wvm_price wvm_price_<?php echo $index; ?>" style="color: <?php echo get_wcmp_vendor_settings('_plan_price_color', 'membership', 'plan_design', '#00000'); ?>"><?php echo isset($vendor_billing_field['_initial_payment']) && !empty($vendor_billing_field['_initial_payment']) && (get_post_meta($postdata->ID, '_is_free_plan', true) != 'Enable') ? get_woocommerce_currency_symbol() . $vendor_billing_field['_initial_payment'] : __('Free', 'wcmp-vendor_membership'); ?></div>
+                    <div class="wvm_price wvm_price_<?php echo $index; ?>" style="color: <?php echo get_wcmp_vendor_settings('_plan_price_color', 'membership', 'plan_design', '#00000'); ?>">
+                        <?php echo isset($vendor_billing_field['_initial_payment']) && !empty($vendor_billing_field['_initial_payment']) && (get_post_meta($postdata->ID, '_is_free_plan', true) != 'Enable') ? get_woocommerce_currency_symbol() . $vendor_billing_field['_initial_payment'] : __('Free', 'wcmp-vendor_membership'); ?>
+                    </div>
                     <div style="color: <?php echo get_wcmp_vendor_settings('_plan_short_descr_color', 'membership', 'plan_design', '#00000'); ?>" class="wvm_subtitle wvm_subtitle_<?php echo $index; ?>"><?php echo isset($vendor_billing_field['_plan_short_desc']) ? $vendor_billing_field['_plan_short_desc'] : ''; ?></div>
                 </div>
                 <div class="wvm_features wvm_features_0">
@@ -73,11 +75,25 @@ $recomended_count = 0;
                     $subscribe_btn_color = get_wcmp_vendor_settings('_subscribe_btn_color', 'membership', 'plan_design', '#000000');
                 }
                 ?>
-                <a target="_self" href="<?php echo get_permalink($postdata->ID); ?>" <?php if (!empty($subscribe_btn_color)) {
-                    echo 'style="background-color:' . $subscribe_btn_color . '"';
-                } ?>  class="wvm_foot wvm_foot_0 <?php if ($plan_id == $postdata->ID) {
-                    echo 'disabled';
-                } ?>"><?php _e(get_wcmp_vendor_settings('_plan_button_text', 'membership', 'plan_design', 'Sign Up'), 'wcmp-vendor_membership'); ?></a>
+
+                <?php if (get_post_meta($postdata->ID, '_is_free_plan', true) != 'Enable'): ?>
+                    <a target="_self" <?php if (!empty($subscribe_btn_color)) {
+		                echo 'style="background-color:' . $subscribe_btn_color . '"';
+	                } ?>  class="wvm_foot wvm_foot_0 <?php if ($plan_id == $postdata->ID) {
+		                echo 'disabled';
+	                } ?>
+                    ">
+                        <span>Please email us at info@effortlessmarketplace.com</span>
+                    </a>
+                <?php else: ?>
+                    <a target="_self" href="<?php echo get_permalink($postdata->ID); ?>" <?php if (!empty($subscribe_btn_color)) {
+		                echo 'style="background-color:' . $subscribe_btn_color . '"';
+	                } ?>  class="wvm_foot wvm_foot_0 <?php if ($plan_id == $postdata->ID) {
+		                echo 'disabled';
+	                } ?>">
+		                <?php _e(get_wcmp_vendor_settings('_plan_button_text', 'membership', 'plan_design', 'Sign Up'), 'wcmp-vendor_membership'); ?>
+                    </a>
+                <?php endif ?>
             </div>
 <?php } ?>
     </div>
