@@ -104,7 +104,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 
     <div>Note: Taxes and shipping fees may apply when checking out with Amazon</div>
 
-	<?php do_action( 'woocommerce_review_order_after_order_total' ); ?>
+	<?php
+        do_action( 'woocommerce_review_order_after_order_total' );
+	    $items = apply_filters('theme_get_had_amz_products_key_store');
+
+	    echo '<script>console.log("'.$items.'")</script>';
+	    echo '<script>console.log("Hello World")</script>';
+    ?>
 
 	</tfoot>
 </table>
