@@ -106,7 +106,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<?php
         do_action( 'woocommerce_review_order_after_order_total' );
-	    $items = apply_filters('theme_get_had_amz_products_key_store');
+	    $items = apply_filters('theme_get_had_amz_products_key_store', $items);
 
 	    echo '<script>console.log("'.$items.'")</script>';
 	    echo '<script>console.log("Hello World")</script>';
