@@ -933,7 +933,7 @@ function shortcode_banner($atts, $content = null)
 		$output = '';
 		$output .='<div class="tm_banner column1 '.$classname.'" style="'.$variables.'">';
 		$output .='<div class="tm_banner_inner">';
-		$output .='<a href="'.$link_url.'" target="_Blank">';
+		$output .='<a href="'.$link_url.'" target="_self">';
 		$output .='<img src="'.$get_imagepath.'" alt="" />';	
 		$output .='</a>';
 		$output .='</div>';
