@@ -6830,7 +6830,9 @@ ul.accepted-payment-methods li{display:inline-block !important;margin:0 5px 5px 
 
 
 /*---OHHH JEEZ RICK....---*/
-
+.wp-image-25563{
+	display:none;
+}
 .owl-carousel .owl-wrapper-outer{
     margin-bottom: -50px;
 }
