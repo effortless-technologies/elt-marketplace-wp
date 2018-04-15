@@ -6830,6 +6830,11 @@ ul.accepted-payment-methods li{display:inline-block !important;margin:0 5px 5px 
 
 
 /*---OHHH JEEZ RICK....---*/
+
+.owl-carousel .owl-wrapper-outer{
+    margin-bottom: -50px;
+}
+
 .main-container{
 	padding-top:12px !important;
 }
