@@ -6,10 +6,21 @@
  *
  * @since TemplateMela 1.0
  */
+
+define('REMOTE_STORAGE_BASE_URL', 'https://storage.googleapis.com/stateless-effortlessmarketplac');
+
 if ( ! isset( $content_width ) ) {
 	$content_width = 1150;
 }
 
+// Modify Upload BaseURL to allow Vendor Dashboard to talk to Google Cloud Storage
+if (class_exists( 'wpCloud\StatelessMedia\API' ) && is_admin() ) {
+	function emp_modify_wp_uploads_baseurl($data) {
+		$data['baseurl'] = REMOTE_STORAGE_BASE_URL;
+		return $data;
+	}
+	add_filter( 'upload_dir', 'emp_modify_wp_uploads_baseurl' );
+}
 
 function templatemela_setup() {
 	/*
