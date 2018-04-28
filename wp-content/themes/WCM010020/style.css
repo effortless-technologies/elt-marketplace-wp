@@ -7386,6 +7386,19 @@ display:none;
 
 
 
+#woo-products .owl-carousel .container-inner {
+    padding: 0 24px;
+}
+#woo-products .owl-carousel .container-inner .image-block {
+    height: auto;
+    width: auto;
+}
+#woo-products .owl-carousel .container-inner .image-block img {
+    width: 100%;
+}
+#woo-products .owl-carousel .container-inner .addto-cart-hover {
+    display: none;
+}
 
 
 
